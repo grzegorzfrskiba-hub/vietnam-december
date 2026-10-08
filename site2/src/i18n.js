@@ -183,7 +183,7 @@ const I18N_DE = {
       days: [
         ['Hinauf ins Hochland', 'Das Stadtzentrum auslassen und nach Westen auf die Hügelkämme über dem Tà-Nung-Tal fahren: Sonnenuntergang über Kiefernhügeln und Kaffeefarmen. Übernachtung in einer Lodge außerhalb der Stadt, wo die Nächte still und sternenklar sind.'],
         ['Nebelwald von Bidoup–Núi Bà', 'Geführte Wanderung durch alte Kiefern, moosigen Wald und wilde Orchideen Richtung Hòn Giao. Im Dezember ist Trockenzeit, die Wege sind fest. Einen Guide im Besucherzentrum des Nationalparks buchen.'],
-        ['Die Grashügel von Tà Năng', 'Tageswanderung auf dem ersten Abschnitt des Tà-Năng–Phan-Dũng-Trails, oft die schönste Wanderung Vietnams genannt. In der Trockenzeit leuchten die Hügel golden. Nur mit einem lizenzierten lokalen Guide, der die Genehmigung besorgt: Die Route war nach Unfällen gesperrt, allein ist sie nicht erlaubt.'],
+        ['Die Grashügel von Tà Năng', 'Tageswanderung auf dem ersten Abschnitt des Tà-Năng–Phan-Dũng-Trails, oft die schönste Wanderung Vietnams genannt. In der Trockenzeit leuchten die Hügel golden. Nur mit einem lizenzierten lokalen Guide, der die Genehmigung besorgt: Nach Unfällen wurde die Route für Wanderer ohne Guide gesperrt, allein ist sie bis heute nicht erlaubt. Die aktuellen Regeln bei der Buchung beim Veranstalter bestätigen.'],
         ['Teehügel und eine Kaffeefarm', 'Sonnenaufgang über den Teehügeln von Cầu Đất, dann die Kaffeefarm einer K’Ho-Familie am Fuß des Lang Biang. Im Dezember blühen an den Hängen wilde Sonnenblumen und rosa Gras.']
       ],
       gem: 'Bidoup–Núi Bà. Die meisten Besucher von Đà Lạt verlassen die Stadt nie.',
