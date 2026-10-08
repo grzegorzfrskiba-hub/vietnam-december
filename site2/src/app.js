@@ -301,6 +301,7 @@
 
   /* ---------- facts, strip, why ---------- */
   function renderFacts(route) {
+    $('#facts-for').textContent = T('f.for', { name: RT(route.style).name });
     var flights = allFlights(route).length;
     var hikes = 0, longest = 0;
     route.stops.forEach(function (s) {

@@ -98,6 +98,7 @@ ul, ol { padding: 0; list-style: none; }
 .facts li + li { border-left: 1px solid var(--line); padding-left: 18px; }
 .facts b { font-family: var(--display); font-weight: 500; font-size: clamp(26px, 3vw, 36px); line-height: 1; }
 .facts span { font-size: 13px; color: var(--muted); }
+.facts-for { padding-top: 14px; font: 500 11px var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
 
 /* Blocks */
 .block { padding-block: clamp(48px, 7vw, 84px) 0; }
@@ -424,7 +425,7 @@ footer a { color: var(--muted); }
   </div>
 </header>
 
-<div class="facts"><ul class="wrap" id="facts"></ul></div>
+<div class="facts"><div class="wrap"><p class="facts-for" id="facts-for"></p><ul id="facts"></ul></div></div>
 
 <main>
   <section class="block wrap" id="styles">
