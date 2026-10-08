@@ -1,10 +1,11 @@
-"""Build the hosted page (separate image files) and the offline single-file page (embedded images)."""
+"""Build the hosted page (a fragment, separate image files), the same page as a full document for GitHub Pages, and the offline single-file page (embedded images)."""
 import base64, io, json, os, re, shutil
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 PHOTO_DIR = os.path.join(ROOT, "..", "photos")
 OUT_WEB = os.path.join(ROOT, "out", "web")
+OUT_PAGES = os.path.join(ROOT, "out", "pages")
 OUT_OFF = os.path.join(ROOT, "out", "offline")
 
 CAP = {
@@ -75,6 +76,14 @@ def clean_artist(a):
     return a or "Unknown"
 
 
+def full_document(fragment):
+    """The page fragment as a complete HTML document: doctype, charset and viewport meta, no body margin. For files that are served as they are."""
+    return ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+            '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+            + fragment.replace("<style>", "<style>\nbody { margin: 0; }", 1).replace("</style>", "</style>\n</head>\n<body>", 1)
+            + "\n</body>\n</html>\n")
+
+
 def encode(im, width, quality):
     if im.width > width:
         im = im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
@@ -98,7 +107,7 @@ def main():
     referenced = set(re.findall(r"'((?:saigon|dalat|cattien|mekong|phuquoc|hoian|hue|puluong|ninhbinh|catba|caobang|babe|hanoi)_\d)'", data_js))
     assert referenced <= set(CAP), referenced - set(CAP)
 
-    for out in (OUT_WEB, OUT_OFF):
+    for out in (OUT_WEB, OUT_PAGES, OUT_OFF):
         shutil.rmtree(out, ignore_errors=True)
         os.makedirs(out)
     os.makedirs(os.path.join(OUT_WEB, "img"))
@@ -121,17 +130,17 @@ def main():
         return (template.replace("__HERO_SRC__", hero["src"]).replace("__HERO_W__", str(hero["w"]))
                 .replace("__HERO_H__", str(hero["h"])).replace("__SCRIPT__", script))
 
-    open(os.path.join(OUT_WEB, "index.html"), "w", encoding="utf-8").write(page(web))
-    offline = page(off)
-    offline = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
-               '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
-               + offline.replace("<style>", "<style>\nbody { margin: 0; }", 1).replace("</style>", "</style>\n</head>\n<body>", 1)
-               + "\n</body>\n</html>\n")
-    open(os.path.join(OUT_OFF, "Vietnam-in-December.html"), "w", encoding="utf-8").write(offline)
+    web_page = page(web)
+    open(os.path.join(OUT_WEB, "index.html"), "w", encoding="utf-8").write(web_page)
+    # GitHub Pages serves files as they are, so it gets the full document and its own copy of the images
+    open(os.path.join(OUT_PAGES, "index.html"), "w", encoding="utf-8").write(full_document(web_page))
+    shutil.copytree(os.path.join(OUT_WEB, "img"), os.path.join(OUT_PAGES, "img"))
+    open(os.path.join(OUT_OFF, "Vietnam-in-December.html"), "w", encoding="utf-8").write(full_document(page(off)))
 
     size = lambda p: os.path.getsize(p) / 1e6
     img_total = sum(size(os.path.join(OUT_WEB, "img", f)) for f in os.listdir(os.path.join(OUT_WEB, "img")))
     print("web page %.2f MB + %d images %.1f MB" % (size(os.path.join(OUT_WEB, "index.html")), len(web), img_total))
+    print("pages page %.2f MB + copy of the images" % size(os.path.join(OUT_PAGES, "index.html")))
     print("offline file %.1f MB" % size(os.path.join(OUT_OFF, "Vietnam-in-December.html")))
 
 
