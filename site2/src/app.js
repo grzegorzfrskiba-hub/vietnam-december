@@ -59,6 +59,11 @@
     var whole = Math.floor(r);
     return '≈ ' + (r % 1 ? (whole ? whole : '') + '½' : whole) + ' ' + T('h');
   }
+  function fmtMoney(r) {
+    var loc = lang === 'de' ? 'de-DE' : 'en-GB';
+    var n = function (v) { return v.toLocaleString(loc); };
+    return lang === 'de' ? n(r[0]) + '–' + n(r[1]) + '\u00a0€' : '€' + n(r[0]) + '–' + n(r[1]);
+  }
   function dayRange(a, b) { return a === b ? T('day') + ' ' + a : T('days') + ' ' + a + '–' + b; }
 
   /* ---------- legs ---------- */
@@ -211,8 +216,9 @@
       var places = r.stops.filter(function (s) { return s[0] !== 'hanoiStop'; })
         .map(function (s) { return S(s[0]).short; }).join(' · ');
       // card stats use each style's own base trip: no Saigon add-on, gentle only where the style is gentle
-      var st = routeStats(buildRoute(id, {}, false, !!ROUTES[id].gentle));
-      var stats = T('styles.stats', { f: st.flights, h: st.hikes, l: approx(st.longest).replace('≈ ', '') });
+      var built = buildRoute(id, {}, false, !!ROUTES[id].gentle);
+      var st = routeStats(built);
+      var stats = T('styles.stats', { f: st.flights, h: st.hikes, l: approx(st.longest).replace('≈ ', '') }) + ' · ' + fmtMoney(budgetFor(built, COSTS));
       return '<label class="style-card" for="style-' + id + '">' +
         '<input type="radio" name="style" id="style-' + id + '" value="' + id + '"' + (state.style === id ? ' checked' : '') + '>' +
         '<span class="style-img">' + img(r.cover, '', '(max-width: 700px) 50vw, 280px') + '</span>' +
@@ -312,7 +318,8 @@
       '<li><b>' + st.bases + '</b><span>' + T('f.bases') + '</span></li>' +
       '<li><b>' + st.flights + '</b><span>' + T('f.flights') + '</span></li>' +
       '<li><b>' + st.hikes + '</b><span>' + T('f.hikes') + '</span></li>' +
-      '<li><b>' + approx(st.longest).replace('≈ ', '') + '</b><span>' + T('f.longest') + '</span></li>';
+      '<li><b>' + approx(st.longest).replace('≈ ', '') + '</b><span>' + T('f.longest') + '</span></li>' +
+      '<li><b class="money">' + fmtMoney(budgetFor(route, COSTS)) + '</b><span>' + T('f.budget') + '</span></li>';
   }
 
   function renderShape(route) {

@@ -93,10 +93,11 @@ ul, ol { padding: 0; list-style: none; }
 
 /* Facts */
 .facts { background: var(--surface); border-bottom: 1px solid var(--line); }
-.facts ul { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.facts ul { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
 .facts li { padding: 18px 0; display: grid; gap: 2px; }
 .facts li + li { border-left: 1px solid var(--line); padding-left: 18px; }
 .facts b { font-family: var(--display); font-weight: 500; font-size: clamp(26px, 3vw, 36px); line-height: 1; }
+.facts b.money { font-size: clamp(18px, 2vw, 26px); }
 .facts span { font-size: 13px; color: var(--muted); }
 .facts-for { padding-top: 14px; font: 500 11px var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
 
@@ -515,6 +516,7 @@ footer a { color: var(--muted); }
     <ul class="credits" id="credits"></ul>
     <h2 data-i18n="ft.notes">Notes</h2>
     <p data-i18n="ft.notes.p">Travel times are door-to-door estimates and include about 1½ hours at the airport for each flight. Direct flights checked in October 2026 (Cần Thơ–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); confirm schedules when you book. Check opening hours, trail rules and sea conditions locally.</p>
+    <p data-i18n="ft.budget"></p>
   </div>
 </footer>
 

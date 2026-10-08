@@ -308,6 +308,14 @@ const WEATHER = {
   hanoi:   { hi: 21, lo: 14, rain: 20,  days: 5,  station: 'Hà Nội', verdict: 'Dry and mild', tone: 'good' }
 };
 
+/* Rough per-person prices in euros, [low, high]. Sources and exchange rate in research/budget-2026-10.md. */
+const COSTS = {
+  currency: 'EUR', checked: 'October 2026',
+  nightPP: { saigon: [16, 31], dalat: [14, 34], cattien: [13, 31], mekong: [11, 25], phuquoc: [22, 49], central: [15, 34], puluong: [15, 41], ninhbinh: [11, 27], catba: [14, 26], caobang: [9, 21], babe: [8, 26], hanoi: [15, 41] },
+  extrasPP: { catba: [75, 130], dalat: [38, 54], cattien: [17, 48], ninhbinh: [9, 10], caobang: [41, 62], babe: [13, 17], mekong: [10, 21] },
+  flightPP: [40, 95], roadHourPP: [2.5, 5], carHourPP: [10, 18], dayPP: [22, 45]
+};
+
 /* Pros and cons for the spare-night choice (Balanced, Nature & hiking). Swapped-in stops (puluong, central) have their own. */
 const NIGHT_PTS = {
   dalat: { pro: ['A third day in the highlands, for the Tà Năng grass hills', 'Dry, sunny days and cool nights'],
