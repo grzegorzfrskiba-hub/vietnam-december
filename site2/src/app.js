@@ -579,7 +579,7 @@
     if (has('puluong') || has('babe') || has('mekong')) book.push(T('b.homestay', { x: ['mekong', 'puluong', 'babe'].filter(has).map(function (id) { return S(id).short; }).join(', ') }));
     book.push(T('b.evening'));
     $('#book-list').innerHTML = book.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
-    var pack = [T('p.warm'), T(has('central') ? 'p.rain_central' : 'p.rain'), T('p.hike'),
+    var pack = [T('p.warm'), T(has('central') ? 'p.rain_central' : 'p.rain'), T(route.gentle ? 'p.walk' : 'p.hike'),
       T(has('phuquoc') ? 'p.sun_pq' : 'p.sun'), T('p.cash'), T('p.apps')];
     $('#pack-list').innerHTML = pack.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
   }
