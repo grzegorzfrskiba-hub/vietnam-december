@@ -9,3 +9,8 @@ Object.keys(STOPS).filter(function (id) { return id !== 'hanoiStop'; }).forEach(
 Object.keys(COSTS.extrasPP).forEach(function (id) { pair(COSTS.extrasPP[id], 'extrasPP.' + id); });
 ['flightPP', 'roadHourPP', 'carHourPP', 'dayPP'].forEach(function (k) { pair(COSTS[k], k); });
 print('costs ok');
+Object.keys(BOOK_LINKS).forEach(function (k) {
+  ok(k in UI.en, 'BOOK_LINKS key without text: ' + k);
+  BOOK_LINKS[k].forEach(function (l) { ok(/^https:\/\//.test(l.url) && l.label, 'bad link in ' + k); });
+});
+print('links data ok');

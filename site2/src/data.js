@@ -340,3 +340,11 @@ const LEFT_OUT = [
   { name: 'Phong Nha', why: 'December is the wet season on the central coast, and the big cave expeditions only start again around February.' },
   { name: 'Côn Đảo and Sơn Trà', why: 'Rough seas and rain in December. Both make an easy spring weekend from Hồ Chí Minh City.' }
 ];
+
+/* Where to book; checked in October 2026 (research/booking-links-2026-10.md). Keys match the lines in "Book ahead". */
+const BOOK_LINKS = {
+  'b.xmas': [{ label: 'Vietnam Airlines', url: 'https://www.vietnamairlines.com/' }, { label: 'Vietjet', url: 'https://www.vietjetair.com/' }, { label: 'Google Flights', url: 'https://www.google.com/travel/flights' }],
+  'b.transfer': [{ label: '12Go', url: 'https://12go.asia/en/vietnam/transport' }],
+  'b.cruise': [{ label: 'Cat Ba Ventures', url: 'https://catbaventures.com/tours/cat-ba/sailing-expeditions-kayaking.html' }, { label: 'Full Moon Travel Asia', url: 'https://fullmoontravelasia.com/cat-ba-overnight-cruise-lan-ha-bay-viet-hai-village/' }],
+  'b.dalat': [{ label: 'Bidoup–Núi Bà park', url: 'https://bidoupnuiba.gov.vn/' }]
+};

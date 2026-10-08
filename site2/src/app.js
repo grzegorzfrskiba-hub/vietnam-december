@@ -578,20 +578,27 @@
   }
 
   /* ---------- logistics ---------- */
+  function bookItem(k, vars) {
+    var links = (BOOK_LINKS[k] || []).map(function (l) {
+      return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.label) + '</a>';
+    });
+    return esc(T(k, vars)) + (links.length ? ' <span class="book-links">' + links.join(' · ') + '</span>' : '');
+  }
   function renderLogistics(route) {
     var flights = allFlights(route);
     $('#flight-list').innerHTML = flights.map(function (f) {
       return '<li><span class="mono">' + T('day') + ' ' + f.day + '</span><span>' + esc(AIRPORT_NAME[f.seg.from]) + ' → ' + esc(AIRPORT_NAME[f.seg.to]) + '</span><span class="mono">' + fmtH(f.seg.h) + '</span></li>';
     }).join('') + '<li><span class="mono">' + T('day') + ' ' + route.days + '</span><span>' + T('lg.home') + '</span><span class="mono">' + T('lg.intl') + '</span></li>';
     var has = function (id) { return route.stops.some(function (s) { return s.id === id; }); };
-    var book = [T('b.xmas')];
-    if (has('catba')) book.push(T('b.cruise'));
-    if (has('dalat')) book.push(T('b.dalat'));
-    if (has('cattien')) book.push(T('b.cattien'));
-    if (has('caobang')) book.push(T('b.caobang'));
-    if (has('puluong') || has('babe') || has('mekong')) book.push(T('b.homestay', { x: ['mekong', 'puluong', 'babe'].filter(has).map(function (id) { return S(id).short; }).join(', ') }));
-    book.push(T('b.evening'));
-    $('#book-list').innerHTML = book.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
+    var book = [bookItem('b.xmas')];
+    if (has('catba')) book.push(bookItem('b.cruise'));
+    if (has('dalat')) book.push(bookItem('b.dalat'));
+    if (has('cattien')) book.push(bookItem('b.cattien'));
+    if (has('caobang')) book.push(bookItem('b.caobang'));
+    book.push(bookItem('b.transfer'));
+    if (has('puluong') || has('babe') || has('mekong')) book.push(bookItem('b.homestay', { x: ['mekong', 'puluong', 'babe'].filter(has).map(function (id) { return S(id).short; }).join(', ') }));
+    book.push(bookItem('b.evening'));
+    $('#book-list').innerHTML = book.map(function (t) { return '<li>' + t + '</li>'; }).join('');
     var pack = [T('p.warm'), T(has('central') ? 'p.rain_central' : 'p.rain'), T(route.gentle ? 'p.walk' : 'p.hike'),
       T(has('phuquoc') ? 'p.sun_pq' : 'p.sun'), T('p.cash'), T('p.apps')];
     $('#pack-list').innerHTML = pack.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
