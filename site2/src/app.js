@@ -213,7 +213,7 @@
       return '<label class="style-card" for="style-' + id + '">' +
         '<input type="radio" name="style" id="style-' + id + '" value="' + id + '"' + (state.style === id ? ' checked' : '') + '>' +
         '<span class="style-img">' + img(r.cover, '', '(max-width: 700px) 50vw, 280px') + '</span>' +
-        '<span class="style-body"><span class="style-tag">' + esc(r.tag) + '</span>' +
+        '<span class="style-body"><span class="style-tag"><span class="style-sel">✓ ' + esc(T('styles.sel')) + ' · </span>' + esc(r.tag) + '</span>' +
         '<span class="style-name">' + esc(r.name) + '</span>' +
         '<span class="style-blurb">' + esc(r.blurb) + '</span>' +
         '<span class="style-places">' + esc(places) + '</span></span></label>';

@@ -118,7 +118,8 @@ ul, ol { padding: 0; list-style: none; }
 .style-body { display: grid; gap: 6px; padding: 14px 16px 16px; }
 .style-tag { font: 500 11px var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .style-card:has(input:checked) .style-tag { color: var(--accent); }
-.style-card:has(input:checked) .style-tag::before { content: "✓ Selected · "; }
+.style-sel { display: none; }
+.style-card:has(input:checked) .style-sel { display: inline; }
 .style-name { font-family: var(--display); font-size: 24px; line-height: 1.1; }
 .style-blurb { font-size: 14px; color: var(--muted); }
 .style-places { font: 12px var(--mono); color: var(--ink); border-top: 1px solid var(--line); padding-top: 8px; margin-top: 2px; }
