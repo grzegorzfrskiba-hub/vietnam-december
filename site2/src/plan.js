@@ -29,3 +29,10 @@ function budgetFor(route, costs) {
   add(costs.dayPP, route.days);
   return [Math.round(lo / 10) * 10, Math.round(hi / 10) * 10];
 }
+
+/* Calendar date of trip day n (1-based) as YYYY-MM-DD, or null while no start date is set. UTC avoids time-zone shifts. */
+function tripDate(startISO, day) {
+  if (!startISO) return null;
+  var p = startISO.split('-').map(Number);
+  return new Date(Date.UTC(p[0], p[1] - 1, p[2] + day - 1)).toISOString().slice(0, 10);
+}

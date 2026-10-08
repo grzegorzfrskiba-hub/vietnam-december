@@ -18,3 +18,8 @@ r2.gentle = true;
 // road by private car: lo 145 - 5 + 25 = 165 → 170; hi 255 - 10 + 50 = 295 → 300
 eq(budgetFor(r2, costs), [170, 300], 'budget, gentle uses private car');
 print('budgetFor ok');
+eq(tripDate(null, 3), null, 'no start date');
+eq(tripDate('2026-12-05', 1), '2026-12-05', 'day 1');
+eq(tripDate('2026-12-05', 27), '2026-12-31', 'end of year');
+eq(tripDate('2026-12-05', 28), '2027-01-01', 'new year');
+print('tripDate ok');

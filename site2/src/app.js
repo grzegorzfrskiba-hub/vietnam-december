@@ -322,12 +322,20 @@
       '<li><b class="money">' + fmtMoney(budgetFor(route, COSTS)) + '</b><span>' + T('f.budget') + '</span></li>';
   }
 
+  function dateLabel(day) {
+    var iso = tripDate(TRIP.start, day);
+    if (!iso) return '';
+    var p = iso.split('-').map(Number);
+    return new Date(Date.UTC(p[0], p[1] - 1, p[2])).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-GB',
+      { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' });
+  }
+
   function renderShape(route) {
     var cells = [];
     route.stops.forEach(function (s) {
       s.days.forEach(function (d, k) {
         cells.push('<a class="cell' + (k === 0 ? ' arrive' : '') + '" href="#day-' + d.day + '" style="--c:' + stopColor(s.id) +
-          '" aria-label="' + T('day') + ' ' + d.day + ': ' + esc(S(s.id).short) + ', ' + esc(d.t) + '"><span>' + d.day + '</span></a>');
+          '" aria-label="' + T('day') + ' ' + d.day + ': ' + esc(S(s.id).short) + ', ' + esc(d.t) + (dateLabel(d.day) ? ' (' + esc(dateLabel(d.day)) + ')' : '') + '"><span>' + d.day + '</span></a>');
       });
     });
     cells.push('<a class="cell home" href="#day-' + route.days + '" aria-label="' + esc(T('flyhome.aria')) + '"><span>' + route.days + '</span>' + ICON.fly + '</a>');
@@ -523,7 +531,7 @@
       var st = S(s.id);
       var w = W(normStop(s.id));
       var days = s.days.map(function (d) {
-        return '<li class="day" id="day-' + d.day + '"><div class="day-n mono">' + T('day') + ' <b>' + d.day + '</b></div>' +
+        return '<li class="day" id="day-' + d.day + '"><div class="day-n mono">' + T('day') + ' <b>' + d.day + '</b>' + (dateLabel(d.day) ? '<span class="day-date">' + esc(dateLabel(d.day)) + '</span>' : '') + '</div>' +
           '<div class="day-body"><h4>' + esc(d.t) + ' <span class="pace pace-' + d.pace + '">' + PC(d.pace) + '</span>' +
           (d.gentle ? ' <span class="pace pace-gentle">' + T('e.badge') + '</span>' : '') + '</h4>' +
           '<p>' + esc(d.d) + '</p>' + (d.rain ? '<p class="day-rain"><b>' + T('t.rain') + '</b>' + esc(d.rain) + '</p>' : '') + '</div></li>';
@@ -542,7 +550,7 @@
     }).join('');
     html += '<section class="stop stop-compact stop-home" id="stop-home" data-pin="hanoi"><header class="stop-head"><span class="stop-num home-num">' + ICON.fly + '</span>' +
       '<div class="stop-title"><p class="eyebrow">' + T('day') + ' ' + route.days + '</p><h3>' + T('home.h3') + '</h3></div></header>' +
-      '<ol class="days"><li class="day" id="day-' + route.days + '"><div class="day-n mono">' + T('day') + ' <b>' + route.days + '</b></div><div class="day-body">' +
+      '<ol class="days"><li class="day" id="day-' + route.days + '"><div class="day-n mono">' + T('day') + ' <b>' + route.days + '</b>' + (dateLabel(route.days) ? '<span class="day-date">' + esc(dateLabel(route.days)) + '</span>' : '') + '</div><div class="day-body">' +
       '<h4>' + T('home.t') + ' <span class="pace pace-travel">' + PC('travel') + '</span></h4><p>' + T('home.d') + '</p></div></li></ol></section>';
     $('#stops').innerHTML = html;
     initGalleries();
@@ -592,6 +600,7 @@
   /* ---------- copy plan ---------- */
   function planText(route) {
     var lines = [T('pt.title') + RT(route.style).name];
+    if (TRIP.start) lines.push(dateLabel(1) + ' – ' + dateLabel(route.days));
     route.stops.forEach(function (s) { lines.push(dayRange(s.start, s.end) + ': ' + S(s.id).name); });
     lines.push(T('pt.home'));
     var fl = allFlights(route).map(function (f) { return T('day') + ' ' + f.day + ' ' + AIRPORT_NAME[f.seg.from] + ' → ' + AIRPORT_NAME[f.seg.to]; });

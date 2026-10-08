@@ -292,6 +292,8 @@ const ROAD = {
 };
 const NORTH = new Set(['puluong', 'ninhbinh', 'catba', 'caobang', 'babe', 'hanoi', 'hanoiStop']);
 
+const TRIP = { start: null }; // Day 1, e.g. '2026-12-05'; null hides all dates
+
 /* December averages. Sources in the footer. */
 const WEATHER = {
   saigon:  { hi: 32, lo: 24, rain: 41,  days: 5,  station: 'Hồ Chí Minh City', verdict: 'Hot and dry', tone: 'good' },
