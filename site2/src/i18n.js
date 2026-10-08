@@ -199,7 +199,7 @@ const I18N_DE = {
       instead: 'Der Nationalpark und die Hügel von Tà Năng.'
     },
     cattien: {
-      name: 'Nationalpark Cát Tiên', sub: 'Tieflanddschungel, Gibbons und der Krokodilsee',
+      name: 'Nationalpark Cát Tiên', sub: 'Tieflanddschungel, Gibbons und eine Nachtsafari',
       days: [
         ['Hinein in den Dschungel', 'Mit der kleinen Fähre über den Fluss Đồng Nai zum Hauptquartier und im Park übernachten. Nach Einbruch der Dunkelheit eine Nachtfahrt, um Hirsche und Zibetkatzen zu sehen.'],
         ['Gibbons und der Krokodilsee', 'Vor Sonnenaufgang mit einem Ranger los, um die Gibbons rufen zu hören, dann der Waldweg zum Bàu Sấu, dem Krokodilsee. Wanderung und Genehmigung am Vortag im Hauptquartier buchen.']
@@ -319,7 +319,7 @@ const I18N_DE = {
       why: 'Für Natur mit etwas Kultur: durchgehend trockene Orte, zwei Wandertage, eine Nacht auf dem Boot und zwei kurze Flüge.',
       whyCity: 'Für Natur mit etwas Kultur: durchgehend trockene Orte, ein Tag im Nebelwald, eine Nacht auf dem Boot und zwei kurze Flüge.' },
     nature: { name: 'Natur & Wandern', tag: 'Am meisten Wandern',
-      blurb: 'Dschungel zum Auftakt, zwei Wanderungen im Hochland, die Grate von Pù Luông und das Karstland an der Grenze.',
+      blurb: 'Dschungel zum Auftakt, das Hochland um Đà Lạt, die Grate von Pù Luông und das Karstland an der Grenze.',
       why: 'Für Wanderer: die meisten Wandertage und die wenigsten Städte, dafür zwei lange Reisetage.' },
     culture: { name: 'Kultur & Essen', tag: 'Am meisten zu sehen',
       blurb: 'Märkte im Delta, Hội An und die Kaisergräber von Huế, die alte Hauptstadt bei Ninh Bình, die Bucht und Hà Nội.',
@@ -336,14 +336,14 @@ const I18N_DE = {
   },
   swaps: {
     coast: { q: 'Trockenes Hochland oder die regnerische Zentralküste?',
-      pts: { dalat: ['Trockene, sonnige Tage und kalte Nächte (um 13 °C)', 'Zwei der schönsten Wanderungen der Reise', 'Natur zuerst, wenig Sehenswürdigkeiten zum Abhaken'],
+      pts: { dalat: ['Trockene, sonnige Tage und kalte Nächte (um 13 °C)', 'Kiefernwald und die beste Wandergegend der Reise', 'Natur zuerst, wenig Sehenswürdigkeiten zum Abhaken'],
         central: ['Hội An, der Hải-Vân-Pass und die Gräber von Huế', 'Regenzeit: rund 20 Regentage im Dezember', 'Kultur zuerst, weniger Natur'] } },
     water: { q: 'Die Bucht oder die Täler?',
       pts: { catba: ['Eine Nacht auf dem Boot zwischen den Karstinseln', 'Kajak, ein autofreies Dorf, Meeresfrüchte', 'Kühl und oft neblig; das Meer hat etwa 20 °C'],
         puluong: ['Bambus-Homestays und eine Ganztageswanderung', 'Reistäler, Wasserräder und Thái-Dörfer', 'Im Dezember ist der Reis geerntet; neblige Morgen'] } },
     south: { q: 'Das Delta oder der Dschungel?',
       pts: { mekong: ['Schwimmender Markt, Obstgärten und Homestay-Leben', 'Flach, einfach und sehr gesellig', 'Warm und trocken im Dezember'],
-        cattien: ['Gibbons im Morgengrauen und eine Nachtsafari', 'Waldwege und der Krokodilsee', 'Beginn der Trockenzeit: weniger Blutegel'] } }
+        cattien: ['Gibbons im Morgengrauen und eine Nachtsafari', 'Waldgänge mit einem Ranger', 'Beginn der Trockenzeit: weniger Blutegel'] } }
   },
   weather: {
     saigon: { verdict: 'Heiß und trocken' },

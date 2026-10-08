@@ -49,7 +49,7 @@ const STOPS = {
     instead: 'The national park and the Tà Năng hills.'
   },
   cattien: {
-    name: 'Cát Tiên National Park', sub: 'Lowland jungle, gibbons and Crocodile Lake', short: 'Cát Tiên',
+    name: 'Cát Tiên National Park', sub: 'Lowland jungle, gibbons and a night safari', short: 'Cát Tiên',
     region: 'South', place: 'Cat Tien National Park, Vietnam', label: { dx: 13, dy: 4, a: 'start' },
     photos: ['cattien_0', 'cattien_1', 'cattien_3', 'cattien_4'],
     days: [
@@ -214,7 +214,7 @@ const ROUTES = {
   },
   nature: {
     name: 'Nature & hiking', tag: 'Most trail time', cover: 'dalat_0',
-    blurb: 'Jungle at the start, two highland treks, Pù Luông’s ridges and the karst border country.',
+    blurb: 'Jungle at the start, the Đà Lạt highlands, Pù Luông’s ridges and the karst border country.',
     why: 'Built for hiking: the most trail days and the fewest towns, at the cost of two long travel days.',
     stops: [['cattien', 2], ['dalat', 3], ['puluong', 2], ['ninhbinh', 2], ['caobang', 2], ['babe', 2], ['hanoi', 1]],
     city: [['cattien', 1], ['dalat', 3], ['puluong', 2], ['ninhbinh', 1], ['caobang', 2], ['babe', 1], ['hanoi', 1]],
@@ -257,7 +257,7 @@ const SWAPS = [
   {
     id: 'coast', a: 'dalat', b: 'central', q: 'Dry highlands or the rainy central coast?',
     pts: {
-      dalat: ['Dry, sunny days and cold nights (around 13 °C)', 'Two of the best hikes on the trip', 'Nature first, few sights to tick off'],
+      dalat: ['Dry, sunny days and cold nights (around 13 °C)', 'Pine forest and the best hiking country on the trip', 'Nature first, few sights to tick off'],
       central: ['Hội An, the Hải Vân Pass and Huế’s tombs', 'Rainy season: around 20 wet days in December', 'Culture first, less nature']
     }
   },
@@ -272,7 +272,7 @@ const SWAPS = [
     id: 'south', a: 'mekong', b: 'cattien', q: 'The delta or the jungle?',
     pts: {
       mekong: ['Floating market, orchards and homestay life', 'Flat, easy and very social', 'Warm and dry in December'],
-      cattien: ['Gibbons at dawn and a night safari', 'Forest trails and Crocodile Lake', 'Start of the dry season: fewer leeches']
+      cattien: ['Gibbons at dawn and a night safari', 'Forest walks with a ranger', 'Start of the dry season: fewer leeches']
     }
   }
 ];

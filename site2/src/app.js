@@ -254,7 +254,7 @@
           '<span class="swap-head"><span class="dot" style="--c:' + stopColor(id) + '"></span>' +
           '<span class="swap-name">' + esc(S(id).name) + '</span>' +
           (i === 0 ? '<span class="swap-default">' + esc(T('swaps.inroute')) + '</span>' : '') + '</span>' +
-          '<span class="swap-meta">' + x.nights + ' ' + T('nights') + ' · <span class="tone tone-' + w.tone + '">' + esc(w.verdict) + '</span></span>' +
+          '<span class="swap-meta">' + x.nights + ' ' + (x.nights === 1 ? T('night') : T('nights')) + ' · <span class="tone tone-' + w.tone + '">' + esc(w.verdict) + '</span></span>' +
           '<ul>' + sw.pts[id].map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul></label>';
       }).join('<span class="swap-or" aria-hidden="true">' + esc(T('swaps.or')) + '</span>');
       return '<fieldset class="swap"><legend>' + esc(sw.q) + '</legend><div class="swap-opts">' + opts + '</div></fieldset>';
