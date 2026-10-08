@@ -90,6 +90,7 @@ def main():
     data_js = open(os.path.join(ROOT, "src", "data.js"), encoding="utf-8").read()
     app_js = open(os.path.join(ROOT, "src", "app.js"), encoding="utf-8").read()
     i18n_js = open(os.path.join(ROOT, "src", "i18n.js"), encoding="utf-8").read()
+    plan_js = open(os.path.join(ROOT, "src", "plan.js"), encoding="utf-8").read()
     basemap_js = open(os.path.join(ROOT, "src", "basemap.js"), encoding="utf-8").read()
     template = open(os.path.join(ROOT, "src", "template.html"), encoding="utf-8").read()
 
@@ -114,7 +115,7 @@ def main():
         off[pid] = dict(base, src="data:image/jpeg;base64," + base64.b64encode(b).decode(), w=w, h=h)
 
     def page(photos):
-        script = (data_js + "\n" + basemap_js + "\n" + i18n_js + "\nconst PHOTOS = " + json.dumps(photos, ensure_ascii=False) + ";\nconst HERO = " + json.dumps(HERO) + ";\n" + app_js)
+        script = (data_js + "\n" + basemap_js + "\n" + i18n_js + "\n" + plan_js + "\nconst PHOTOS = " + json.dumps(photos, ensure_ascii=False) + ";\nconst HERO = " + json.dumps(HERO) + ";\n" + app_js)
         script = script.replace("</script", "<\\/script")
         hero = photos[HERO]
         return (template.replace("__HERO_SRC__", hero["src"]).replace("__HERO_W__", str(hero["w"]))
