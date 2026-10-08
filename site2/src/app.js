@@ -227,12 +227,13 @@
     $('#style-list').innerHTML = html;
   }
   // each card shows the trip that clicking it would give: the current Saigon setting, and gentle if the
-  // style is gentle or the gentle setting is on. Only the text is refreshed, so the radios keep focus.
+  // style is gentle or the gentle setting is on; the selected card also follows the
+  // user's swaps and spare-night pick. Only the text is refreshed, so the radios keep focus.
   function renderCardStats() {
     Object.keys(ROUTES).forEach(function (id) {
       var el = document.querySelector('#style-' + id + ' ~ .style-body .style-stats');
       if (!el) return;
-      var built = buildRoute(id, {}, state.saigon, ROUTES[id].gentle || state.gentle);
+      var built = buildRoute(id, id === state.style ? state.choice : {}, state.saigon, ROUTES[id].gentle || state.gentle);
       var st = routeStats(built);
       el.textContent = T('styles.stats', { f: st.flights, h: st.hikes, l: approx(st.longest).replace('≈ ', ''), b: fmtMoney(budgetFor(built, COSTS)) });
     });
@@ -599,11 +600,15 @@
     var has = function (id) { return route.stops.some(function (s) { return s.id === id; }); };
     var book = [bookItem('b.xmas')];
     if (has('catba')) book.push(bookItem('b.cruise'));
-    // the guide line is about the Tà Năng day (third Đà Lạt day, a hike); gentle or short stays do not have it
-    var taNang = route.stops.some(function (s) {
-      return s.id === 'dalat' && s.days.some(function (d) { return d.o === 3 && d.pace === 'hike'; });
-    });
-    if (taNang) book.push(bookItem('b.dalat'));
+    // guide lines for Đà Lạt: the full line when the Tà Năng day (third day, a hike) is planned; only the Bidoup–Núi Bà
+    // line when just that hike (second day) is; gentle days are guide-free variants, so neither shows
+    var dalatHike = function (o) {
+      return route.stops.some(function (s) {
+        return s.id === 'dalat' && s.days.some(function (d) { return d.o === o && d.pace === 'hike'; });
+      });
+    };
+    if (dalatHike(3)) book.push(bookItem('b.dalat'));
+    else if (dalatHike(2)) book.push(bookItem('b.dalat_bidoup'));
     if (has('cattien')) book.push(bookItem('b.cattien'));
     if (has('caobang')) book.push(bookItem('b.caobang'));
     book.push(bookItem('b.transfer'));
