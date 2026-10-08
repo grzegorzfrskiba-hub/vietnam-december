@@ -210,13 +210,17 @@
       var r = RT(id);
       var places = r.stops.filter(function (s) { return s[0] !== 'hanoiStop'; })
         .map(function (s) { return S(s[0]).short; }).join(' · ');
+      // card stats use each style's own base trip: no Saigon add-on, gentle only where the style is gentle
+      var st = routeStats(buildRoute(id, {}, false, !!ROUTES[id].gentle));
+      var stats = T('styles.stats', { f: st.flights, h: st.hikes, l: approx(st.longest).replace('≈ ', '') });
       return '<label class="style-card" for="style-' + id + '">' +
         '<input type="radio" name="style" id="style-' + id + '" value="' + id + '"' + (state.style === id ? ' checked' : '') + '>' +
         '<span class="style-img">' + img(r.cover, '', '(max-width: 700px) 50vw, 280px') + '</span>' +
         '<span class="style-body"><span class="style-tag"><span class="style-sel">✓ ' + esc(T('styles.sel')) + ' · </span>' + esc(r.tag) + '</span>' +
         '<span class="style-name">' + esc(r.name) + '</span>' +
         '<span class="style-blurb">' + esc(r.blurb) + '</span>' +
-        '<span class="style-places">' + esc(places) + '</span></span></label>';
+        '<span class="style-places">' + esc(places) + '</span>' +
+        '<span class="style-stats">' + esc(stats) + '</span></span></label>';
     }).join('');
     $('#style-list').innerHTML = html;
   }
@@ -302,19 +306,13 @@
   /* ---------- facts, strip, why ---------- */
   function renderFacts(route) {
     $('#facts-for').textContent = T('f.for', { name: RT(route.style).name });
-    var flights = allFlights(route).length;
-    var hikes = 0, longest = 0;
-    route.stops.forEach(function (s) {
-      s.days.forEach(function (d) { if (d.pace === 'hike') hikes++; });
-      if (s.leg) longest = Math.max(longest, s.leg.total);
-    });
-    var bases = route.stops.filter(function (s) { return s.id !== 'hanoiStop'; }).length;
+    var st = routeStats(route);
     $('#facts').innerHTML =
       '<li><b>' + route.days + '</b><span>' + T('f.days') + '</span></li>' +
-      '<li><b>' + bases + '</b><span>' + T('f.bases') + '</span></li>' +
-      '<li><b>' + flights + '</b><span>' + T('f.flights') + '</span></li>' +
-      '<li><b>' + hikes + '</b><span>' + T('f.hikes') + '</span></li>' +
-      '<li><b>' + approx(longest).replace('≈ ', '') + '</b><span>' + T('f.longest') + '</span></li>';
+      '<li><b>' + st.bases + '</b><span>' + T('f.bases') + '</span></li>' +
+      '<li><b>' + st.flights + '</b><span>' + T('f.flights') + '</span></li>' +
+      '<li><b>' + st.hikes + '</b><span>' + T('f.hikes') + '</span></li>' +
+      '<li><b>' + approx(st.longest).replace('≈ ', '') + '</b><span>' + T('f.longest') + '</span></li>';
   }
 
   function renderShape(route) {
