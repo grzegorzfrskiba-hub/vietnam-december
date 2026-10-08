@@ -215,10 +215,6 @@
       var r = RT(id);
       var places = r.stops.filter(function (s) { return s[0] !== 'hanoiStop'; })
         .map(function (s) { return S(s[0]).short; }).join(' · ');
-      // card stats use each style's own base trip: no Saigon add-on, gentle only where the style is gentle
-      var built = buildRoute(id, {}, false, !!ROUTES[id].gentle);
-      var st = routeStats(built);
-      var stats = T('styles.stats', { f: st.flights, h: st.hikes, l: approx(st.longest).replace('≈ ', '') }) + ' · ' + fmtMoney(budgetFor(built, COSTS));
       return '<label class="style-card" for="style-' + id + '">' +
         '<input type="radio" name="style" id="style-' + id + '" value="' + id + '"' + (state.style === id ? ' checked' : '') + '>' +
         '<span class="style-img">' + img(r.cover, '', '(max-width: 700px) 50vw, 280px') + '</span>' +
@@ -226,9 +222,20 @@
         '<span class="style-name">' + esc(r.name) + '</span>' +
         '<span class="style-blurb">' + esc(r.blurb) + '</span>' +
         '<span class="style-places">' + esc(places) + '</span>' +
-        '<span class="style-stats">' + esc(stats) + '</span></span></label>';
+        '<span class="style-stats"></span></span></label>';
     }).join('');
     $('#style-list').innerHTML = html;
+  }
+  // each card shows the trip that clicking it would give: the current Saigon setting, and gentle if the
+  // style is gentle or the gentle setting is on. Only the text is refreshed, so the radios keep focus.
+  function renderCardStats() {
+    Object.keys(ROUTES).forEach(function (id) {
+      var el = document.querySelector('#style-' + id + ' ~ .style-body .style-stats');
+      if (!el) return;
+      var built = buildRoute(id, {}, state.saigon, ROUTES[id].gentle || state.gentle);
+      var st = routeStats(built);
+      el.textContent = T('styles.stats', { f: st.flights, h: st.hikes, l: approx(st.longest).replace('≈ ', ''), b: fmtMoney(budgetFor(built, COSTS)) });
+    });
   }
 
   function renderSwaps(route) {
@@ -592,7 +599,11 @@
     var has = function (id) { return route.stops.some(function (s) { return s.id === id; }); };
     var book = [bookItem('b.xmas')];
     if (has('catba')) book.push(bookItem('b.cruise'));
-    if (has('dalat')) book.push(bookItem('b.dalat'));
+    // the guide line is about the Tà Năng day (third Đà Lạt day, a hike); gentle or short stays do not have it
+    var taNang = route.stops.some(function (s) {
+      return s.id === 'dalat' && s.days.some(function (d) { return d.o === 3 && d.pace === 'hike'; });
+    });
+    if (taNang) book.push(bookItem('b.dalat'));
     if (has('cattien')) book.push(bookItem('b.cattien'));
     if (has('caobang')) book.push(bookItem('b.caobang'));
     book.push(bookItem('b.transfer'));
@@ -860,6 +871,7 @@
     renderStops(current);
     renderWeather(current);
     renderLogistics(current);
+    renderCardStats();
     $('#copy-status').textContent = '';
     $('#copy-fallback').hidden = true;
   }
