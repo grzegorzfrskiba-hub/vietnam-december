@@ -4,6 +4,7 @@
 const UI = {
   en: {
     'lang.aria': 'Language',
+    'nav.aria': 'Sections', 'nav.styles': 'Trip styles', 'nav.shape': 'At a glance', 'nav.days': 'Day by day', 'nav.weather': 'Weather', 'nav.logistics': 'Before you go', 'nav.top': 'Back to top',
     'hero.alt': 'A woman rowing a small boat on the river below limestone cliffs at Tràng An, Ninh Bình',
     'hero.eyebrow': '{days} days · December 2026 · Hồ Chí Minh City → Hà Nội',
     'hero.h1': 'Vietnam, south <em>to</em> north',
@@ -86,6 +87,7 @@ const UI = {
   },
   de: {
     'lang.aria': 'Sprache',
+    'nav.aria': 'Abschnitte', 'nav.styles': 'Reisestile', 'nav.shape': 'Auf einen Blick', 'nav.days': 'Tag für Tag', 'nav.weather': 'Wetter', 'nav.logistics': 'Vor der Reise', 'nav.top': 'Nach oben',
     'hero.alt': 'Eine Frau rudert ein kleines Boot auf dem Fluss unter den Kalksteinfelsen von Tràng An, Ninh Bình',
     'hero.eyebrow': '{days} Tage · Dezember 2026 · Hồ Chí Minh City → Hà Nội',
     'hero.h1': 'Vietnam, von Süden <em>nach</em> Norden',

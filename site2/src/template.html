@@ -195,7 +195,7 @@ ul, ol { padding: 0; list-style: none; }
 
 /* Route split view */
 .route { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
-.map-col { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); }
+.map-col { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 64px); }
 .map svg { width: 100%; height: auto; max-height: calc(100vh - 80px); display: block; }
 .map-hint { display: none; }
 @media (min-width: 901px) {
@@ -403,9 +403,16 @@ footer a { color: var(--muted); }
   .lb-nav { top: auto; bottom: 74px; }
   .leg-total { margin-left: 0; width: 100%; }
 }
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 56px); }
+.secnav { position: sticky; top: 0; z-index: 30; background: var(--surface); border-bottom: 1px solid var(--line); }
+.secnav .wrap { display: flex; gap: 18px; overflow-x: auto; scrollbar-width: none; padding-right: 112px; }
+.secnav .wrap::-webkit-scrollbar { display: none; }
+.secnav a { flex: none; padding: 12px 0; font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; }
+.secnav a:hover { color: var(--ink); }
+.totop { position: fixed; z-index: 35; right: 16px; bottom: calc(env(safe-area-inset-bottom, 0px) + 16px); width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: var(--surface); color: var(--ink); border: 1px solid var(--line); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18); }
 @media print {
   .hero { min-height: 0; }
-  .lang, .hero > img, .hero::after, .hero-cta, .copy, #swaps .swap-opt:not(:has(input:checked)), .swap-or, .gal-btn, .gal-full, .gal-count, .gal-thumbs, .lightbox, .style-card:not(:has(input:checked)) { display: none !important; }
+  .secnav, .totop, .lang, .hero > img, .hero::after, .hero-cta, .copy, #swaps .swap-opt:not(:has(input:checked)), .swap-or, .gal-btn, .gal-full, .gal-count, .gal-thumbs, .lightbox, .style-card:not(:has(input:checked)) { display: none !important; }
   .hero-text { color: #000; }
   .map-col { position: static; }
   .stop, .leg, .card { break-inside: avoid; }
@@ -417,7 +424,7 @@ footer a { color: var(--muted); }
   <button type="button" data-lang="de" aria-pressed="false" lang="de">DE</button>
 </div>
 
-<header class="hero">
+<header class="hero" id="top">
   <img src="__HERO_SRC__" alt="A woman rowing a small boat on the river below limestone cliffs at Tràng An, Ninh Bình" data-i18n-alt="hero.alt" width="__HERO_W__" height="__HERO_H__" fetchpriority="high">
   <span class="hero-where">Tràng An, Ninh Bình</span>
   <div class="hero-text">
@@ -431,6 +438,14 @@ footer a { color: var(--muted); }
 </header>
 
 <div class="facts"><div class="wrap"><p class="facts-for" id="facts-for"></p><ul id="facts"></ul></div></div>
+<nav class="secnav" aria-label="Sections" data-i18n-aria="nav.aria"><div class="wrap">
+  <a href="#styles" data-i18n="nav.styles">Trip styles</a>
+  <a href="#shape" data-i18n="nav.shape">At a glance</a>
+  <a href="#days" data-i18n="nav.days">Day by day</a>
+  <a href="#weather" data-i18n="nav.weather">Weather</a>
+  <a href="#logistics" data-i18n="nav.logistics">Before you go</a>
+</div></nav>
+<a class="totop" id="totop" href="#top" aria-label="Back to top" data-i18n-aria="nav.top" hidden><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg></a>
 
 <main>
   <section class="block wrap" id="styles">

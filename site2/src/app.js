@@ -907,6 +907,12 @@
   bindLightbox();
   bindMapZoom();
   bindCopy();
+  /* back-to-top button: shown once the photo opener has scrolled away */
+  var totop = $('#totop'), hero = $('.hero');
+  if (totop && hero && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { totop.hidden = es[0].isIntersecting; }).observe(hero);
+  }
+
   render();
 
   /* expose for testing */
