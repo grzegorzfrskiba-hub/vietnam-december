@@ -58,7 +58,7 @@ UI.pl = {
   'n.cruise': 'Statek przybija do brzegu ok. 11:00.',
   'n.bangioc': 'Bản Giốc obejrzyjcie zaraz po otwarciu o 7:00, przed weekendowym tłumem, a potem w drogę.',
   'n.long': 'Jazda zajmie cały dzień: wyruszcie wcześnie.', 'n.morning': 'Wybierzcie poranny lot.',
-  'f.for': 'Wasza trasa: {name}', 'f.days': 'dni, {nights} nocy', 'f.bases.one': 'baza wypadowa', 'f.bases.few': 'bazy wypadowe', 'f.bases.many': 'baz wypadowych', 'f.flights.one': 'lot krajowy', 'f.flights.few': 'loty krajowe', 'f.flights.many': 'lotów krajowych', 'f.hikes.one': 'dzień z wędrówką', 'f.hikes.few': 'dni z wędrówką', 'f.hikes.many': 'dni z wędrówką', 'f.longest': 'najdłuższy przejazd', 'f.budget': 'na osobę, orientacyjnie',
+  'f.for': 'Wasza trasa: {name}', 'f.days': 'dni, {nights} nocy', 'f.bases.one': 'baza wypa\u00addowa', 'f.bases.few': 'bazy wypa\u00addowe', 'f.bases.many': 'baz wypa\u00addowych', 'f.flights.one': 'lot krajowy', 'f.flights.few': 'loty krajowe', 'f.flights.many': 'lotów krajowych', 'f.hikes.one': 'dzień z wędrówką', 'f.hikes.few': 'dni z wędrówką', 'f.hikes.many': 'dni z wędrówką', 'f.longest': 'najdłuższy przejazd', 'f.budget': 'na osobę, orienta\u00adcyjnie',
   'flyhome': 'Lot do domu', 'flyhome.aria': 'Dzień {days}: lot do domu z Hà Nội',
   'why.swaps': ' Wasz wybór: ', 'why.instead': ' w zamian za ', 'why.rain': ' W Hội An i Huế będzie deszczowo.',
   'm.start': 'Start', 'm.north': 'Północ', 'm.whole': 'Cała trasa', 'm.panel': 'Mapa północy', 'm.china': 'Chiny', 'm.laos': 'Laos', 'm.cambodia': 'Kambodża', 'm.sea': 'Morze Południowochińskie', 'm.tonkin': 'Zatoka Tonkińska',

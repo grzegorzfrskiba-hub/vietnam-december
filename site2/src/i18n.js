@@ -141,7 +141,7 @@ const UI = {
     'n.cruise': 'Das Boot legt gegen 11 Uhr an.',
     'n.bangioc': 'Bản Giốc um 7 Uhr zur Öffnung ansehen, vor dem Wochenendandrang, dann losfahren.',
     'n.long': 'Ein langer Tag: früh losfahren.', 'n.morning': 'Am besten morgens fliegen.',
-    'f.for': 'Eure Route: {name}', 'f.days': 'Tage, {nights} Nächte', 'f.bases.one': 'Station', 'f.bases.few': 'Stationen', 'f.bases.many': 'Stationen', 'f.flights.one': 'Inlandsflug', 'f.flights.few': 'Inlandsflüge', 'f.flights.many': 'Inlandsflüge', 'f.hikes.one': 'Wandertag', 'f.hikes.few': 'Wandertage', 'f.hikes.many': 'Wandertage', 'f.longest': 'längster Reisetag', 'f.budget': 'pro Person, grob',
+    'f.for': 'Eure Route: {name}', 'f.days': 'Tage, {nights} Nächte', 'f.bases.one': 'Station', 'f.bases.few': 'Stationen', 'f.bases.many': 'Stationen', 'f.flights.one': 'Inlands\u00adflug', 'f.flights.few': 'Inlands\u00adflüge', 'f.flights.many': 'Inlands\u00adflüge', 'f.hikes.one': 'Wander\u00adtag', 'f.hikes.few': 'Wander\u00adtage', 'f.hikes.many': 'Wander\u00adtage', 'f.longest': 'längster Reisetag', 'f.budget': 'pro Person, grob',
     'flyhome': 'Heimflug', 'flyhome.aria': 'Tag {days}: Heimflug ab Hà Nội',
     'why.swaps': ' Eure Wahl: ', 'why.instead': ' statt ', 'why.rain': ' In Hội An und Huế wird es regnen.',
     'm.start': 'Start', 'm.north': 'Norden', 'm.whole': 'Gesamte Route', 'm.panel': 'Nordkarte', 'm.china': 'China', 'm.laos': 'Laos', 'm.cambodia': 'Kambodscha', 'm.sea': 'Südchinesisches Meer', 'm.tonkin': 'Golf von Tonkin',
