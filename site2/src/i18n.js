@@ -45,7 +45,8 @@ const UI = {
     'ft.budget': 'Budget: rough per-person ranges for two people sharing a double room, with domestic flights, transfers, food and the main activities, without international flights. Prices checked in October 2026.',
     'ft.notes.p': 'Travel times are door-to-door estimates and include about 1½ hours at the airport for each flight. Direct flights checked in October 2026 (Cần Thơ–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); confirm schedules when you book. Check opening hours, trail rules and sea conditions locally.',
     'lb.aria': 'Photo viewer', 'lb.close': 'Close photo viewer', 'lb.photo': 'Photo: ',
-    'min': 'min', 'h': 'h', 'day': 'Day', 'days': 'Days', 'night': 'night', 'nights': 'nights',
+    /* 'nights.many' (0 and 5+ nights) and 'fmt.hm' (hours and minutes) exist for Polish; English and German keep one plural and the plain "1 h 5" form */
+    'min': 'min', 'h': 'h', 'fmt.hm': '{h} h {m}', 'day': 'Day', 'days': 'Days', 'night': 'night', 'nights': 'nights', 'nights.many': 'nights',
     'fly': 'Fly', 'door': 'door to door', 'longday': 'Long travel day', 'maps': 'Route in Google Maps',
     'r.van_ferry': 'Limousine van and a short ferry', 'r.van_car': 'Limousine van or private car',
     'r.back_sgn': 'Road back to Hồ Chí Minh City airport', 'r.taxi_city': 'Taxi into the city',
@@ -129,7 +130,7 @@ const UI = {
     'ft.budget': 'Budget: grobe Spannen pro Person, zu zweit im Doppelzimmer, mit Inlandsflügen, Transfers, Essen und den wichtigsten Aktivitäten, ohne internationale Flüge. Preise im Oktober 2026 geprüft.',
     'ft.notes.p': 'Reisezeiten sind Schätzungen von Tür zu Tür und enthalten pro Flug etwa 1½ Stunden am Flughafen. Direktflüge im Oktober 2026 geprüft (Cần Thơ–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); Flugpläne bei der Buchung bestätigen. Öffnungszeiten, Wegeregeln und Seegang vor Ort prüfen.',
     'lb.aria': 'Fotoansicht', 'lb.close': 'Fotoansicht schließen', 'lb.photo': 'Foto: ',
-    'min': 'Min.', 'h': 'Std.', 'day': 'Tag', 'days': 'Tage', 'night': 'Nacht', 'nights': 'Nächte',
+    'min': 'Min.', 'h': 'Std.', 'fmt.hm': '{h} Std. {m}', 'day': 'Tag', 'days': 'Tage', 'night': 'Nacht', 'nights': 'Nächte', 'nights.many': 'Nächte',
     'fly': 'Flug', 'door': 'von Tür zu Tür', 'longday': 'Langer Reisetag', 'maps': 'Route in Google Maps',
     'r.van_ferry': 'Limousinen-Van und eine kurze Fähre', 'r.van_car': 'Limousinen-Van oder Privatwagen',
     'r.back_sgn': 'Zurück zum Flughafen Hồ Chí Minh City', 'r.taxi_city': 'Taxi in die Stadt',

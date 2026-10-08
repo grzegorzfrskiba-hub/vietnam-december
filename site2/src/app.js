@@ -12,24 +12,29 @@
 
   /* ---------- language ---------- */
   var LKEY = 'vn16-lang';
+  var LANGS = ['en', 'de', 'pl'];
+  var TR = { de: I18N_DE, pl: I18N_PL };   // translated trip content; English lives in data.js
+  var LOCALE = { en: 'en-GB', de: 'de-DE', pl: 'pl-PL' };
   var lang = 'en';
   var EXTRA_N = 3;     // nights of the optional Hồ Chí Minh City start, taken from the route's own nights
   var DAYS = 15;       // trip length incl. the flight-home day
   try { lang = localStorage.getItem(LKEY) || ''; } catch (e) { lang = ''; }
-  if (lang !== 'en' && lang !== 'de') lang = /^de\b/i.test(navigator.language || '') ? 'de' : 'en';
-  if ((location.hash || '').slice(1) === 'de') lang = 'de';
-  if ((location.hash || '').slice(1) === 'en') lang = 'en';
+  if (LANGS.indexOf(lang) < 0) {   // nothing stored: follow the browser, English when it is not one of ours
+    lang = (navigator.language || '').slice(0, 2).toLowerCase();
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+  }
+  var hashLang = (location.hash || '').slice(1);
+  if (LANGS.indexOf(hashLang) > -1) lang = hashLang;
   function T(k, vars) {
     var v = (UI[lang] && UI[lang][k]) || UI.en[k] || k;
     if (vars) Object.keys(vars).forEach(function (n) { v = v.replace('{' + n + '}', vars[n]); });
     return v.replace(/\{days\}/g, DAYS).replace(/\{nights\}/g, DAYS - 1);
   }
   function S(id) {
-    var base = STOPS[id];
-    if (lang !== 'de' || !I18N_DE.stops[id]) return base;
-    var tr = I18N_DE.stops[id];
+    var base = STOPS[id], tr = TR[lang] && TR[lang].stops[id];
+    if (!tr) return base;
     var out = Object.assign({}, base, tr);
-    var ex = I18N_DE.dayExtra[id] || {};
+    var ex = TR[lang].dayExtra[id] || {};
     out.days = base.days.map(function (d, i) {
       var o = tr.days && tr.days[i] ? Object.assign({}, d, { t: tr.days[i][0], d: tr.days[i][1] }) : Object.assign({}, d);
       if (d.e && ex.easy && ex.easy[i]) o.e = Object.assign({}, d.e, { t: ex.easy[i][0], d: ex.easy[i][1] });
@@ -39,30 +44,31 @@
     });
     return out;
   }
-  function RT(id) { return lang === 'de' ? Object.assign({}, ROUTES[id], I18N_DE.routes[id]) : ROUTES[id]; }
-  function SWT(sw) { return lang === 'de' && I18N_DE.swaps[sw.id] ? Object.assign({}, sw, I18N_DE.swaps[sw.id]) : sw; }
-  function W(id) { return lang === 'de' ? Object.assign({}, WEATHER[id], I18N_DE.weather[id] || {}) : WEATHER[id]; }
-  function PC(k) { return lang === 'de' ? I18N_DE.pace[k] : PACE[k]; }
-  function CAP(id) { return (lang === 'de' && I18N_DE.cap[id]) || PHOTOS[id].cap; }
-  function LO() { return lang === 'de' ? I18N_DE.leftOut : LEFT_OUT; }
-  function NP(id) { return lang === 'de' ? I18N_DE.night[id] : NIGHT_PTS[id]; }
+  function RT(id) { var tr = TR[lang] && TR[lang].routes[id]; return tr ? Object.assign({}, ROUTES[id], tr) : ROUTES[id]; }
+  function SWT(sw) { var tr = TR[lang] && TR[lang].swaps[sw.id]; return tr ? Object.assign({}, sw, tr) : sw; }
+  function W(id) { var tr = TR[lang] && TR[lang].weather[id]; return tr ? Object.assign({}, WEATHER[id], tr) : WEATHER[id]; }
+  function PC(k) { return (TR[lang] && TR[lang].pace[k]) || PACE[k]; }
+  function CAP(id) { return (TR[lang] && TR[lang].cap[id]) || PHOTOS[id].cap; }
+  function LO() { return (TR[lang] && TR[lang].leftOut) || LEFT_OUT; }
+  function NP(id) { return (TR[lang] && TR[lang].night[id]) || NIGHT_PTS[id]; }
 
   /* ---------- formatting ---------- */
   function fmtH(h) {
     var mins = Math.round(h * 60 / 5) * 5;
     if (mins < 60) return mins + ' ' + T('min');
     var hh = Math.floor(mins / 60), mm = mins % 60;
-    return hh + ' ' + T('h') + (mm ? ' ' + mm : '');
+    return mm ? T('fmt.hm', { h: hh, m: mm }) : hh + ' ' + T('h');
   }
+  // 'one' → night, 'few' → nights, 'many' → nights.many (English and German spell the last two alike)
+  function nightsWord(n) { return T({ one: 'night', few: 'nights', many: 'nights.many' }[nightForm(n)]); }
   function approx(h) {
     var r = Math.round(h * 2) / 2;
     var whole = Math.floor(r);
     return '≈ ' + (r % 1 ? (whole ? whole : '') + '½' : whole) + ' ' + T('h');
   }
   function fmtMoney(r) {
-    var loc = lang === 'de' ? 'de-DE' : 'en-GB';
-    var n = function (v) { return v.toLocaleString(loc); };
-    return lang === 'de' ? n(r[0]) + '–' + n(r[1]) + '\u00a0€' : '€' + n(r[0]) + '–' + n(r[1]);
+    var n = function (v) { return v.toLocaleString(LOCALE[lang]); };
+    return lang === 'en' ? '€' + n(r[0]) + '–' + n(r[1]) : n(r[0]) + '–' + n(r[1]) + '\u00a0€';
   }
   function dayRange(a, b) { return a === b ? T('day') + ' ' + a : T('days') + ' ' + a + '–' + b; }
 
@@ -254,7 +260,7 @@
           '<span class="swap-head"><span class="dot" style="--c:' + stopColor(id) + '"></span>' +
           '<span class="swap-name">' + esc(S(id).name) + '</span>' +
           (i === 0 ? '<span class="swap-default">' + esc(T('swaps.inroute')) + '</span>' : '') + '</span>' +
-          '<span class="swap-meta">' + x.nights + ' ' + (x.nights === 1 ? T('night') : T('nights')) + ' · <span class="tone tone-' + w.tone + '">' + esc(w.verdict) + '</span></span>' +
+          '<span class="swap-meta">' + x.nights + ' ' + nightsWord(x.nights) + ' · <span class="tone tone-' + w.tone + '">' + esc(w.verdict) + '</span></span>' +
           '<ul>' + sw.pts[id].map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul></label>';
       }).join('<span class="swap-or" aria-hidden="true">' + esc(T('swaps.or')) + '</span>');
       return '<fieldset class="swap"><legend>' + esc(sw.q) + '</legend><div class="swap-opts">' + opts + '</div></fieldset>';
@@ -287,7 +293,7 @@
     };
     var nightsOf = function (key, id) { return lists[key].filter(function (s) { return s[0] === id; })[0][1]; };
     var ids = route.night.keys;
-    var label = function (id, n) { return S(actual(id)).short + ' ' + n + ' ' + (n === 1 ? T('night') : T('nights')); };
+    var label = function (id, n) { return S(actual(id)).short + ' ' + n + ' ' + nightsWord(n); };
     var opts = ids.map(function (key) {
       var real = actual(key), other = actual(ids[0] === key ? ids[1] : ids[0]), pts = NP(real);
       var cons = Array.isArray(pts.con) ? pts.con : [pts.con[other]];
@@ -334,7 +340,7 @@
     var iso = tripDate(TRIP.start, day);
     if (!iso) return '';
     var p = iso.split('-').map(Number);
-    return new Date(Date.UTC(p[0], p[1] - 1, p[2])).toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-GB',
+    return new Date(Date.UTC(p[0], p[1] - 1, p[2])).toLocaleDateString(LOCALE[lang],
       { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' });
   }
 
@@ -551,7 +557,7 @@
       return legCard(s) +
         '<section class="stop' + (st.compact ? ' stop-compact' : '') + '" id="stop-' + s.num + '" data-pin="' + normStop(s.id) + '" style="--c:' + stopColor(s.id) + '">' +
         '<header class="stop-head"><span class="stop-num">' + s.num + '</span><div class="stop-title">' +
-        '<p class="eyebrow">' + dayRange(s.start, s.end) + ' · ' + s.n + ' ' + (s.n === 1 ? T('night') : T('nights')) + ' · ' + T('reg.' + st.region) + '</p>' +
+        '<p class="eyebrow">' + dayRange(s.start, s.end) + ' · ' + s.n + ' ' + nightsWord(s.n) + ' · ' + T('reg.' + st.region) + '</p>' +
         '<h3>' + esc(st.name) + '</h3><p class="stop-sub">' + esc(st.sub) + '</p></div>' +
         (st.compact ? '' : '<span class="tone tone-' + w.tone + '">' + w.lo + '–' + w.hi + ' °C · ' + esc(w.verdict) + '</span>') + '</header>' +
         gallery(s) + '<ol class="days">' + days + '</ol>' + (tips ? '<div class="tips">' + tips + '</div>' : '') + '</section>';

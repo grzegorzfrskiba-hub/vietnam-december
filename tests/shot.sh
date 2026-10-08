@@ -1,6 +1,6 @@
 #!/bin/bash
 # Usage: tests/shot.sh <hash> <width> <out.png>   e.g. tests/shot.sh de 390 /tmp/de-mobile.png
-# Hash: a style id (classic, balanced, nature, culture, slow) or a language (en, de).
+# Hash: a style id (classic, balanced, nature, culture, slow) or a language (en, de, pl).
 # Headless Chrome writes the PNG but never exits here, so we poll for the file and kill Chrome.
 set -euo pipefail
 cd "$(dirname "$0")/.."

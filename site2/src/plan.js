@@ -36,3 +36,10 @@ function tripDate(startISO, day) {
   var p = startISO.split('-').map(Number);
   return new Date(Date.UTC(p[0], p[1] - 1, p[2] + day - 1)).toISOString().slice(0, 10);
 }
+
+/* Plural class of a night count: 'one', 'few' (2–4, 22–24…, but not 12–14) or 'many'. English and German use one plural, Polish two. */
+function nightForm(n) {
+  var last = n % 10, lastTwo = n % 100;
+  if (n === 1) return 'one';
+  return last >= 2 && last <= 4 && (lastTwo < 12 || lastTwo > 14) ? 'few' : 'many';
+}

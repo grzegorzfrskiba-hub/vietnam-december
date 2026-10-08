@@ -407,7 +407,8 @@ footer a { color: var(--muted); }
 }
 html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 56px); }
 .secnav { position: sticky; top: 0; z-index: 30; background: var(--surface); border-bottom: 1px solid var(--line); }
-.secnav .wrap { display: flex; gap: 18px; overflow-x: auto; scrollbar-width: none; padding-right: 112px; }
+/* padding-right keeps the last link clear of the fixed language pill: 132px wide (three buttons) + 12px from the edge + 10px air */
+.secnav .wrap { display: flex; gap: 18px; overflow-x: auto; scrollbar-width: none; padding-right: 154px; }
 .secnav .wrap::-webkit-scrollbar { display: none; }
 .secnav a { flex: none; padding: 12px 0; font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; }
 .secnav a:hover { color: var(--ink); }
@@ -424,6 +425,7 @@ html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 56px); }
 <div class="lang" role="group" aria-label="Language" data-i18n-aria="lang.aria">
   <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
   <button type="button" data-lang="de" aria-pressed="false" lang="de">DE</button>
+  <button type="button" data-lang="pl" aria-pressed="false" lang="pl">PL</button>
 </div>
 
 <header class="hero" id="top">

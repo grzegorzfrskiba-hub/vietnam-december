@@ -23,3 +23,9 @@ eq(tripDate('2026-12-05', 1), '2026-12-05', 'day 1');
 eq(tripDate('2026-12-05', 27), '2026-12-31', 'end of year');
 eq(tripDate('2026-12-05', 28), '2027-01-01', 'new year');
 print('tripDate ok');
+// Polish: noce for 2–4 (also 22–24, 32–34…), nocy for the rest, including 11–14 and 21
+[[1, 'one'], [2, 'few'], [3, 'few'], [4, 'few'], [0, 'many'], [5, 'many'], [11, 'many'], [12, 'many'], [13, 'many'], [14, 'many'],
+ [21, 'many'], [22, 'few'], [24, 'few'], [25, 'many'], [112, 'many'], [122, 'few']].forEach(function (c) {
+  eq(nightForm(c[0]), c[1], 'nightForm(' + c[0] + ')');
+});
+print('nightForm ok');

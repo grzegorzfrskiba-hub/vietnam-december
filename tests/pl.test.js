@@ -1,4 +1,4 @@
-/* Polish: UI.pl has every UI.en key (same order, same {placeholders} and tags) plus the two keys Polish needs,
+/* Polish: UI.pl has exactly the UI.en keys (same order, same {placeholders} and tags),
    and I18N_PL covers every English text in data.js and every photo caption. Every gap is listed by name. */
 (function () {
   var fails = [];
@@ -8,12 +8,10 @@
   function list(v, n) { return Array.isArray(v) && v.length === n && v.every(text); }
 
   /* ---------- UI ---------- */
-  var PL_ONLY = ['nights.many', 'fmt.hm'];   // plural for 0 and 5+ nights; a duration such as 1 h 05
   var pl = UI.pl || {};
   var enKeys = Object.keys(UI.en), plKeys = Object.keys(pl);
   enKeys.forEach(function (k) { need(text(pl[k]), 'UI.pl[\'' + k + '\']'); });
-  PL_ONLY.forEach(function (k) { need(text(pl[k]), 'UI.pl[\'' + k + '\']'); });
-  plKeys.forEach(function (k) { need(k in UI.en || PL_ONLY.indexOf(k) > -1, 'unexpected key UI.pl[\'' + k + '\']'); });
+  plKeys.forEach(function (k) { need(k in UI.en, 'unexpected key UI.pl[\'' + k + '\']'); });
   need(JSON.stringify(plKeys.filter(function (k) { return k in UI.en; })) === JSON.stringify(enKeys.filter(function (k) { return k in pl; })),
     'UI.pl keys are not in the order of UI.en');
   // the page fills in {placeholders} and renders hero.h1 as HTML; strings starting or ending with a space are glued to others
