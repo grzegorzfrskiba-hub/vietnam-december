@@ -6,7 +6,7 @@ Object.keys(STOPS).forEach(function (id) {
 print('data ok');
 function pair(r, what) { ok(r && r.length === 2 && r[0] > 0 && r[1] >= r[0], 'bad range for ' + what + ': ' + JSON.stringify(r)); }
 Object.keys(STOPS).filter(function (id) { return id !== 'hanoiStop'; }).forEach(function (id) { pair(COSTS.nightPP[id], 'nightPP.' + id); });
-Object.keys(COSTS.extrasPP).forEach(function (id) { pair(COSTS.extrasPP[id], 'extrasPP.' + id); });
+Object.keys(COSTS.extrasPP).forEach(function (id) { pair(COSTS.extrasPP[id], 'extrasPP.' + id); ok(id in STOPS, 'extrasPP key is not a stop: ' + id); });
 ['flightPP', 'roadHourPP', 'carHourPP', 'dayPP'].forEach(function (k) { pair(COSTS[k], k); });
 print('costs ok');
 Object.keys(BOOK_LINKS).forEach(function (k) {
