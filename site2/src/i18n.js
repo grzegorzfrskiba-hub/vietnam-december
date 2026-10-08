@@ -6,20 +6,20 @@ const UI = {
     'lang.aria': 'Language',
     'nav.aria': 'Sections', 'nav.styles': 'Trip styles', 'nav.shape': 'At a glance', 'nav.days': 'Day by day', 'nav.weather': 'Weather', 'nav.logistics': 'Before you go', 'nav.top': 'Back to top',
     'hero.alt': 'A woman rowing a small boat on the river below limestone cliffs at Tràng An, Ninh Bình',
-    'hero.eyebrow': '{days} days · December 2026 · Hồ Chí Minh City → Hà Nội',
+    'hero.eyebrow': '{days} days · 11–25 December 2026 · Hồ Chí Minh City → Hà Nội',
     'hero.h1': 'Vietnam, south <em>to</em> north',
     'hero.lede': 'Five complete routes for friends and family: nature, hiking, culture, slow days, and an easy one for travelling with parents. Each one is built for December weather, with honest travel times and the crowded places swapped for quieter ones nearby.',
     'hero.cta1': 'Pick a trip style', 'hero.cta2': 'See the {days} days',
     'styles.eyebrow': 'Step 1', 'styles.h2': 'Pick a trip style', 'styles.legend': 'Trip style', 'styles.sel': 'Selected',
     'styles.stats': 'Flights {f} · Hiking days {h} · Longest travel day {l} · {b} pp',
-    'styles.p': 'Each style is a complete 16-day route, planned and checked by hand. Start with our pick, or choose the one that sounds most like your group. Everything below updates.',
+    'styles.p': 'Each style is a complete {days}-day route, planned and checked by hand. Start with our pick, or choose the one that sounds most like your group. Everything below updates.',
     'swaps.eyebrow': 'Step 2', 'swaps.h3': 'Decide together',
     'swaps.p': 'Where the route has a real either/or, both sides are here. A swap changes one stop and keeps the rest of the trip as it is.',
     'e.q': 'Travelling with older parents?', 'e.name': 'Gentle version', 'e.tag': 'Any style', 'e.on': 'On', 'e.off': 'Off',
     'e.p1': 'Hikes become easy walks, boat trips or scenic drives', 'e.p2': 'Cars with a driver instead of bicycles or motorbikes',
     'e.p3': 'Long drives stay as they are (Cao Bằng is 6–8 hours); Easy classics has the shortest transfers',
     'e.badge': 'Gentle', 't.rain': 'If it pours: ', 'why.gentle': ' The gentle version is on: no hikes, no bikes.',
-    'x.q': 'Start with 3 days in Hồ Chí Minh City?', 'x.name': 'First 3 days in Hồ Chí Minh City', 'x.tag': 'Within the 16 days', 'x.add': 'Add', 'x.added': 'Added',
+    'x.q': 'Start with 3 days in Hồ Chí Minh City?', 'x.name': 'First 3 days in Hồ Chí Minh City', 'x.tag': 'Within the {days} days', 'x.add': 'Add', 'x.added': 'Added',
     'x.p1': 'Day 1 to land and do very little', 'x.p2': 'Day 2 in the Cần Giờ mangroves, day 3 in Chợ Lớn and on the river',
     'n.q': 'The spare night: {a} or {b}?', 'n.p': 'With the city days, one stop gets a night less. Choose which one keeps it.',
     'x.cut': 'To make room: {x}', 'x.less': '{s} {a} → {b} nights', 'x.less1': '{s} {a} → 1 night', 'x.drop': '{s} left out', 'x.same': 'Nothing else changes',
@@ -40,7 +40,7 @@ const UI = {
     'lo.eyebrow': 'Not in any route', 'lo.h2': 'Left out on purpose', 'lo.p': 'Famous places we decided against for this trip, and why.',
     'lg.eyebrow': 'Before you go', 'lg.h2': 'Flights, bookings and packing',
     'lg.flights': 'Flights', 'lg.book': 'Book ahead', 'lg.pack': 'Pack',
-    'lg.home': 'Hà Nội → home', 'lg.intl': 'International',
+    'lg.home': 'Hà Nội → home: CA884, then CA931, 4:30 am', 'lg.arrive': 'VN30 lands in Hồ Chí Minh City, 6:35 am', 'lg.intl': 'International',
     'ft.photos': 'Photos · Wikimedia Commons', 'ft.notes': 'Notes',
     'ft.budget': 'Budget: rough per-person ranges for two people sharing a double room, with domestic flights, transfers, food and the main activities, without international flights. Prices checked in October 2026.',
     'ft.notes.p': 'Travel times are door-to-door estimates and include about 1½ hours at the airport for each flight. Direct flights checked in October 2026 (Cần Thơ–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); confirm schedules when you book. Check opening hours, trail rules and sea conditions locally.',
@@ -64,9 +64,9 @@ const UI = {
     'g.prev': 'Previous photo', 'g.next': 'Next photo', 'g.full': 'View full screen',
     'reg.South': 'South', 'reg.Central': 'Central', 'reg.North': 'North',
     't.dec': 'December', 't.gem': 'Hidden gem', 't.skip': 'Skip', 't.instead': 'Instead: ',
-    'home.h3': 'Fly home from Hà Nội', 'home.t': 'Last morning',
-    'home.d': 'Coffee by West Lake, or Long Biên bridge at dawn, then about 45 minutes to Nội Bài airport. Allow 3 hours for an international flight.',
-    'b.xmas': 'If your dates touch Christmas or New Year, book flights and the best rooms by early November.',
+    'home.h3': 'Fly home from Hà Nội', 'home.t': 'Christmas Eve, then the night flight',
+    'home.d': 'On the last evening, 24 December: Christmas Eve dinner in the Old Quarter (book the table ahead), and St Joseph’s Cathedral, lit up and busy. Then a few hours’ sleep in an Old Quarter hotel. Taxi at about 1:30 am: at night it is about 40 minutes to Nội Bài, which leaves two hours for check-in before CA884 at 4:30 am.',
+    'b.xmas': 'The trip ends on Christmas Eve, in high season: book the domestic flights and the best rooms by early November, and reserve the Christmas Eve dinner in Hà Nội.',
     'b.cruise': 'A Lan Hạ Bay cruise that starts from Cát Bà, with free date changes in case of fog or a storm.',
     'b.dalat_bidoup': 'A guide for Bidoup–Núi Bà, booked at the park visitor centre.',
     'b.dalat': 'A licensed local guide for the Tà Năng hills, and a guide for Bidoup–Núi Bà.',
@@ -74,7 +74,7 @@ const UI = {
     'b.caobang': 'A car with a driver, or an easy-rider guide, for the Cao Bằng days.',
     'b.transfer': 'Limousine vans and buses between towns, a day or two ahead.',
     'b.homestay': 'Homestays in {x} a few weeks ahead: the good ones are small.',
-    'b.evening': 'An evening flight home on Day {days}, so the last morning is free.',
+    'b.lastnight': 'The last night: a hotel in the Old Quarter. Ask reception to book the 1:30 am taxi to Nội Bài.',
     'p.warm': 'A warm layer and a hat: nights drop to 11–14 °C in the north and in Đà Lạt.',
     'p.rain_central': 'A light rain jacket, and proper rain gear for Hội An and Huế.',
     'p.rain': 'A light rain jacket. It rarely rains, but the bay is often misty and damp.',
@@ -84,26 +84,26 @@ const UI = {
     'p.sun': 'Swimwear and sun protection for the south.',
     'p.cash': 'Cash in small notes: homestays and boats rarely take cards.',
     'p.apps': 'Grab and offline Google Maps on your phones.',
-    'pt.title': 'Vietnam, {days} days in December: ', 'pt.home': 'Day {days}: fly home from Hà Nội', 'pt.flights': 'Flights: '
+    'pt.title': 'Vietnam, {days} days in December: ', 'pt.home': 'Day {days}: fly home from Hà Nội (CA884 + CA931, 4:30 am)', 'pt.arrive': 'Day 1: land in Hồ Chí Minh City (VN30, 6:35 am)', 'pt.flights': 'Flights: '
   },
   de: {
     'lang.aria': 'Sprache',
     'nav.aria': 'Abschnitte', 'nav.styles': 'Reisestile', 'nav.shape': 'Auf einen Blick', 'nav.days': 'Tag für Tag', 'nav.weather': 'Wetter', 'nav.logistics': 'Vor der Reise', 'nav.top': 'Nach oben',
     'hero.alt': 'Eine Frau rudert ein kleines Boot auf dem Fluss unter den Kalksteinfelsen von Tràng An, Ninh Bình',
-    'hero.eyebrow': '{days} Tage · Dezember 2026 · Hồ Chí Minh City → Hà Nội',
+    'hero.eyebrow': '{days} Tage · 11.–25. Dezember 2026 · Hồ Chí Minh City → Hà Nội',
     'hero.h1': 'Vietnam, von Süden <em>nach</em> Norden',
     'hero.lede': 'Fünf fertige Routen für Freunde und Familie: Natur, Wandern, Kultur, ruhige Tage und eine entspannte Route für die Reise mit Eltern. Jede ist auf das Dezemberwetter abgestimmt, mit ehrlichen Reisezeiten und ruhigeren Alternativen statt überlaufener Orte.',
     'hero.cta1': 'Reisestil wählen', 'hero.cta2': 'Die {days} Tage ansehen',
     'styles.eyebrow': 'Schritt 1', 'styles.h2': 'Wählt euren Reisestil', 'styles.legend': 'Reisestil', 'styles.sel': 'Ausgewählt',
     'styles.stats': 'Flüge {f} · Wandertage {h} · Längster Reisetag {l} · {b} p. P.',
-    'styles.p': 'Jeder Stil ist eine komplette 16-Tage-Route, von Hand geplant und geprüft. Startet mit unserem Tipp oder wählt den Stil, der am besten zu eurer Gruppe passt. Alles darunter passt sich an.',
+    'styles.p': 'Jeder Stil ist eine komplette {days}-Tage-Route, von Hand geplant und geprüft. Startet mit unserem Tipp oder wählt den Stil, der am besten zu eurer Gruppe passt. Alles darunter passt sich an.',
     'swaps.eyebrow': 'Schritt 2', 'swaps.h3': 'Gemeinsam entscheiden',
     'swaps.p': 'Wo die Route eine echte Entweder-oder-Frage hat, stehen hier beide Seiten. Ein Tausch ändert eine Station, der Rest der Reise bleibt gleich.',
     'e.q': 'Mit älteren Eltern unterwegs?', 'e.name': 'Sanfte Variante', 'e.tag': 'Für jeden Stil', 'e.on': 'An', 'e.off': 'Aus',
     'e.p1': 'Wanderungen werden zu leichten Spaziergängen, Bootsfahrten oder Panoramafahrten', 'e.p2': 'Autos mit Fahrer statt Fahrrad oder Motorrad',
     'e.p3': 'Lange Fahrten bleiben (nach Cao Bằng 6–8 Stunden); die Sanften Klassiker haben die kürzesten Transfers',
     'e.badge': 'Sanft', 't.rain': 'Bei Starkregen: ', 'why.gentle': ' Die sanfte Variante ist an: keine Wanderungen, keine Fahrräder.',
-    'x.q': 'Mit 3 Tagen in Hồ Chí Minh City beginnen?', 'x.name': 'Erst 3 Tage in Hồ Chí Minh City', 'x.tag': 'Innerhalb der 16 Tage', 'x.add': 'Hinzufügen', 'x.added': 'Dabei',
+    'x.q': 'Mit 3 Tagen in Hồ Chí Minh City beginnen?', 'x.name': 'Erst 3 Tage in Hồ Chí Minh City', 'x.tag': 'Innerhalb der {days} Tage', 'x.add': 'Hinzufügen', 'x.added': 'Dabei',
     'x.p1': 'Tag 1 zum Ankommen und Nichtstun', 'x.p2': 'Tag 2 in den Mangroven von Cần Giờ, Tag 3 in Chợ Lớn und am Fluss',
     'n.q': 'Die übrige Nacht: {a} oder {b}?', 'n.p': 'Mit den Stadttagen hat ein Ort eine Nacht weniger. Wählt, welcher sie behält.',
     'x.cut': 'Dafür kürzer: {x}', 'x.less': '{s} {a} → {b} Nächte', 'x.less1': '{s} {a} → 1 Nacht', 'x.drop': '{s} entfällt', 'x.same': 'Sonst ändert sich nichts',
@@ -124,7 +124,7 @@ const UI = {
     'lo.eyebrow': 'In keiner Route', 'lo.h2': 'Bewusst weggelassen', 'lo.p': 'Berühmte Orte, gegen die wir uns für diese Reise entschieden haben, und warum.',
     'lg.eyebrow': 'Vor der Reise', 'lg.h2': 'Flüge, Buchungen und Packliste',
     'lg.flights': 'Flüge', 'lg.book': 'Vorab buchen', 'lg.pack': 'Einpacken',
-    'lg.home': 'Hà Nội → nach Hause', 'lg.intl': 'International',
+    'lg.home': 'Hà Nội → nach Hause: CA884, dann CA931, 4:30 Uhr', 'lg.arrive': 'VN30 landet in Hồ Chí Minh City, 6:35 Uhr', 'lg.intl': 'International',
     'ft.photos': 'Fotos · Wikimedia Commons', 'ft.notes': 'Hinweise',
     'ft.budget': 'Budget: grobe Spannen pro Person, zu zweit im Doppelzimmer, mit Inlandsflügen, Transfers, Essen und den wichtigsten Aktivitäten, ohne internationale Flüge. Preise im Oktober 2026 geprüft.',
     'ft.notes.p': 'Reisezeiten sind Schätzungen von Tür zu Tür und enthalten pro Flug etwa 1½ Stunden am Flughafen. Direktflüge im Oktober 2026 geprüft (Cần Thơ–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); Flugpläne bei der Buchung bestätigen. Öffnungszeiten, Wegeregeln und Seegang vor Ort prüfen.',
@@ -148,9 +148,9 @@ const UI = {
     'g.prev': 'Vorheriges Foto', 'g.next': 'Nächstes Foto', 'g.full': 'Vollbild',
     'reg.South': 'Süden', 'reg.Central': 'Mitte', 'reg.North': 'Norden',
     't.dec': 'Dezember', 't.gem': 'Geheimtipp', 't.skip': 'Auslassen', 't.instead': 'Stattdessen: ',
-    'home.h3': 'Heimflug ab Hà Nội', 'home.t': 'Letzter Morgen',
-    'home.d': 'Kaffee am Westsee oder die Long-Biên-Brücke im Morgengrauen, dann etwa 45 Minuten zum Flughafen Nội Bài. Für einen internationalen Flug drei Stunden einplanen.',
-    'b.xmas': 'Wenn eure Reise Weihnachten oder Neujahr berührt, Flüge und die besten Unterkünfte bis Anfang November buchen.',
+    'home.h3': 'Heimflug ab Hà Nội', 'home.t': 'Heiligabend, dann der Nachtflug',
+    'home.d': 'Am letzten Abend, dem 24. Dezember: Weihnachtsessen in der Altstadt (Tisch vorab reservieren) und die St.-Joseph-Kathedrale, festlich beleuchtet und voller Menschen. Danach ein paar Stunden Schlaf in einem Hotel in der Altstadt. Gegen 1:30 Uhr mit dem Taxi los: nachts sind es etwa 40 Minuten bis Nội Bài, so bleiben zwei Stunden zum Einchecken vor CA884 um 4:30 Uhr.',
+    'b.xmas': 'Die Reise endet an Heiligabend, mitten in der Hochsaison: Inlandsflüge und die besten Unterkünfte bis Anfang November buchen und das Weihnachtsessen in Hà Nội reservieren.',
     'b.cruise': 'Eine Kreuzfahrt in der Lan-Hạ-Bucht ab Cát Bà, mit kostenloser Umbuchung bei Nebel oder Sturm.',
     'b.dalat_bidoup': 'Einen Guide für Bidoup–Núi Bà, zu buchen im Besucherzentrum des Parks.',
     'b.dalat': 'Einen lizenzierten lokalen Guide für die Hügel von Tà Năng und einen Guide für Bidoup–Núi Bà.',
@@ -158,7 +158,7 @@ const UI = {
     'b.caobang': 'Ein Auto mit Fahrer oder einen Easy-Rider-Guide für die Tage in Cao Bằng.',
     'b.transfer': 'Limousinen-Vans und Busse zwischen den Orten, ein bis zwei Tage vorher.',
     'b.homestay': 'Homestays in {x} ein paar Wochen vorher: Die guten sind klein.',
-    'b.evening': 'Einen Abendflug nach Hause an Tag {days}, damit der letzte Morgen frei bleibt.',
+    'b.lastnight': 'Die letzte Nacht: ein Hotel in der Altstadt. Das Taxi um 1:30 Uhr nach Nội Bài an der Rezeption bestellen.',
     'p.warm': 'Eine warme Schicht und eine Mütze: Nachts wird es im Norden und in Đà Lạt 11–14 °C kalt.',
     'p.rain_central': 'Eine leichte Regenjacke und richtige Regenkleidung für Hội An und Huế.',
     'p.rain': 'Eine leichte Regenjacke. Es regnet selten, aber in der Bucht ist es oft neblig und feucht.',
@@ -168,7 +168,7 @@ const UI = {
     'p.sun': 'Badesachen und Sonnenschutz für den Süden.',
     'p.cash': 'Bargeld in kleinen Scheinen: Homestays und Boote nehmen selten Karten.',
     'p.apps': 'Grab und Offline-Karten von Google Maps auf den Handys.',
-    'pt.title': 'Vietnam, {days} Tage im Dezember: ', 'pt.home': 'Tag {days}: Heimflug ab Hà Nội', 'pt.flights': 'Flüge: '
+    'pt.title': 'Vietnam, {days} Tage im Dezember: ', 'pt.home': 'Tag {days}: Heimflug ab Hà Nội (CA884 + CA931, 4:30 Uhr)', 'pt.arrive': 'Tag 1: Landung in Hồ Chí Minh City (VN30, 6:35 Uhr)', 'pt.flights': 'Flüge: '
   }
 };
 
@@ -303,7 +303,7 @@ const I18N_DE = {
     hanoi: {
       name: 'Hà Nội', sub: 'Die Hauptstadt und der Heimflug',
       days: [
-        ['Zurück in Hà Nội', 'Ein Spaziergang um den Hoàn-Kiếm-See und ein Abschiedsessen in der Altstadt.'],
+        ['Zurück in Hà Nội', 'Ein Spaziergang um den Hoàn-Kiếm-See und durch die Gassen der Altstadt.'],
         ['Literaturtempel und Museum für Ethnologie', 'Der Literaturtempel um 7:30 Uhr, vor den Gruppen. Dann das Museum für Ethnologie mit Dorfhäusern in Originalgröße im Garten.'],
         ['Das Dorf Đường Lâm', 'Tagesausflug, je etwa 1½ Stunden pro Strecke, nach Đường Lâm: Gassen aus Laterit, ein Gemeindehaus aus dem 17. Jahrhundert und Mittagessen bei einer Familie.'],
         ['Keramik und der Fluss', 'Das Töpferdorf Bát Tràng am Roten Fluss, dann bei Sonnenuntergang zu Fuß über die Long-Biên-Brücke zurück.']
@@ -325,8 +325,8 @@ const I18N_DE = {
       blurb: 'Märkte im Delta, Hội An und die Kaisergräber von Huế, die alte Hauptstadt bei Ninh Bình, die Bucht und Hà Nội.',
       why: 'Für Kultur und gutes Essen, mit der Bucht als Pause. Der Haken: In Hội An und Huế ist Regenzeit.' },
     slow: { name: 'Entspannt & Strand', tag: 'Wenigste Ortswechsel',
-      blurb: 'Vier Strandtage im stillen Norden von Phú Quốc, dann Täler, Karst und die Bucht in ruhigem Tempo.',
-      why: 'Für ein ruhiges Tempo: fünf Stationen, lange Aufenthalte, zwei Ruhetage und nur zwei Flüge.',
+      blurb: 'Strandtage im stillen Norden von Phú Quốc, dann Täler, Karst und die Bucht in ruhigem Tempo.',
+      why: 'Für ein ruhiges Tempo: fünf Stationen, lange Aufenthalte, drei Ruhetage und nur zwei Flüge.',
       whyCity: 'Für ein ruhiges Tempo: lange Aufenthalte, ruhige Tage und nur zwei Flüge.' },
     classic: {
       name: 'Sanfte Klassiker', tag: 'Unser Tipp: mit Eltern',
@@ -443,9 +443,11 @@ const I18N_DE = {
     dalat: { easy: {
       1: ['Kiefernwald und ein Kloster am See', 'Die Seilbahn vom Robin Hill schwebt über den Kiefernwald zum Zen-Kloster Trúc Lâm oberhalb des Tuyền-Lâm-Sees. Durch die Klostergärten schlendern, dann gemütlich Boot fahren oder lange am See zu Mittag essen.'],
       2: ['Die alte Bahn und die Blumendörfer', 'Mit dem nostalgischen Zug vom Bahnhof aus den 1930er-Jahren nach Trại Mát zur Mosaik-Pagode Linh Phước, danach die Gewächshäuser des Blumendorfs Vạn Thành.'] } },
-    cattien: { easy: {
+    cattien: { solo: {
+      0: ['Dschungel bei Nacht und im Morgengrauen', 'Bis zum Nachmittag ankommen und im Park übernachten; den Gang im Morgengrauen gleich beim Einchecken im Hauptquartier buchen. Nach Einbruch der Dunkelheit eine Nachtfahrt, um Hirsche und Zibetkatzen zu sehen. Am nächsten Morgen vor Sonnenaufgang mit einem Ranger los, um die Gibbons rufen zu hören, dann Frühstück und weiter.'] }, easy: {
       1: ['Cát Tiên ganz entspannt', 'Ein kurzer geführter Spaziergang zu den Baumriesen nahe der Parkverwaltung, dann mit dem Boot über den Đồng Nai zur Primaten-Rettungsstation Dao Tiến, wo gerettete Gibbons und Languren auf die Auswilderung vorbereitet werden.'] } },
-    mekong: { easy: {
+    mekong: { solo: {
+      0: ['Das Delta in der Dämmerung und im Morgengrauen', 'Bis zum Nachmittag in einem Homestay an einem Kanal in Phong Điền, gleich außerhalb von Cần Thơ, ankommen und im Sampan durch die Kanäle der Obstgärten. Am nächsten Morgen um 5:30 Uhr im kleinen Boot zum schwimmenden Markt Cái Răng und gegen 9 Uhr zurück für die Weiterreise.'] }, easy: {
       1: ['Der schwimmende Markt im Morgengrauen', 'Um 5:30 Uhr mit dem kleinen Boot los, um vor den Ausflugsbooten in Cái Răng zu sein, dann die Seitenkanäle und eine Reisnudel-Werkstatt. Nachmittags gemütlich mit dem Boot nach Cồn Sơn zu Obstgärten und einem hausgemachten Mittagessen.'] } },
     central: {
       easy: {
@@ -468,7 +470,8 @@ const I18N_DE = {
       3: ['Eine Nacht auf der Lan-Hạ-Bucht', 'Eine Kreuzfahrt mit einer Übernachtung in die Lan-Hạ-Bucht und an den ruhigen Südrand der Hạ-Long-Bucht. Wählt ein größeres, ruhiges Schiff mit Kabinen mit eigenem Bad, nehmt statt des Kajaks das von Einheimischen geruderte Bambusboot und schaut den Sonnenuntergang vom Deck.'] } },
     caobang: { easy: {
       0: ['Nach Norden an die Grenze', 'Eine lange, aber schöne Fahrt, am besten mit Mittagspause. Übernachtung in Cao Bằng; für die nächsten Tage ein bequemes Auto mit Fahrer buchen.'] } },
-    babe: { easy: {
+    babe: { solo: {
+      0: ['Der See an einem Nachmittag', 'Bis zum frühen Nachmittag ankommen, in einem Tày-Stelzenhaus in Pác Ngòi einchecken, dann mit dem Boot zur Höhle Puông und zur Insel Ba Góa, solange es hell ist. In der Dämmerung ans Seeufer.'] }, easy: {
       1: ['Auf dem Wasser', 'Mit dem Boot zur Puông-Höhle, zum Đầu-Đẳng-Wasserfall und zur Insel Ba Góa; rudern müsst ihr nicht. Nachmittags ein gemütlicher Spaziergang am Seeufer.'],
       2: ['Ein ruhiger Morgen am See', 'Eine kurze Bootsfahrt in ein benachbartes Tày-Dorf und eine Kochstunde bei euren Gastgebern. Fragt abends nach Then-Gesang.'] } }
   }

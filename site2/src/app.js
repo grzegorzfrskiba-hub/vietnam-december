@@ -14,7 +14,7 @@
   var LKEY = 'vn16-lang';
   var lang = 'en';
   var EXTRA_N = 3;     // nights of the optional Hồ Chí Minh City start, taken from the route's own nights
-  var DAYS = 16;       // trip length incl. the flight-home day
+  var DAYS = 15;       // trip length incl. the flight-home day
   try { lang = localStorage.getItem(LKEY) || ''; } catch (e) { lang = ''; }
   if (lang !== 'en' && lang !== 'de') lang = /^de\b/i.test(navigator.language || '') ? 'de' : 'en';
   if ((location.hash || '').slice(1) === 'de') lang = 'de';
@@ -170,7 +170,7 @@
       });
       day += s.n; prev = s.id;
     });
-    if (day !== 16) throw new Error('Route ' + styleId + (saigon ? ' with the city days' : '') + ' covers ' + (day - 1) + ' nights, not 15');
+    if (day !== DAYS) throw new Error('Route ' + styleId + (saigon ? ' with the city days' : '') + ' covers ' + (day - 1) + ' nights, not ' + (DAYS - 1));
     return { style: styleId, stops: out, swaps: swaps, saigon: !!saigon, gentle: !!gentle, days: day, night: night };
   }
 
@@ -594,26 +594,27 @@
   }
   function renderLogistics(route) {
     var flights = allFlights(route);
-    $('#flight-list').innerHTML = flights.map(function (f) {
+    $('#flight-list').innerHTML = '<li><span class="mono">' + T('day') + ' 1</span><span>' + T('lg.arrive') + '</span><span class="mono">' + T('lg.intl') + '</span></li>' + flights.map(function (f) {
       return '<li><span class="mono">' + T('day') + ' ' + f.day + '</span><span>' + esc(AIRPORT_NAME[f.seg.from]) + ' → ' + esc(AIRPORT_NAME[f.seg.to]) + '</span><span class="mono">' + fmtH(f.seg.h) + '</span></li>';
     }).join('') + '<li><span class="mono">' + T('day') + ' ' + route.days + '</span><span>' + T('lg.home') + '</span><span class="mono">' + T('lg.intl') + '</span></li>';
     var has = function (id) { return route.stops.some(function (s) { return s.id === id; }); };
     var book = [bookItem('b.xmas')];
     if (has('catba')) book.push(bookItem('b.cruise'));
     // guide lines for Đà Lạt: the full line when the Tà Năng day (third day, a hike) is planned; only the Bidoup–Núi Bà
-    // line when just that hike (second day) is; gentle days are guide-free variants, so neither shows
-    var dalatHike = function (o) {
+    // line when just that hike (second day) is; gentle days are guide-free variants, so neither shows.
+    // Cát Tiên's line (the Crocodile Lake trek, its second day) follows the same rule
+    var hikeOn = function (id, o) {
       return route.stops.some(function (s) {
-        return s.id === 'dalat' && s.days.some(function (d) { return d.o === o && d.pace === 'hike'; });
+        return s.id === id && s.days.some(function (d) { return d.o === o && d.pace === 'hike'; });
       });
     };
-    if (dalatHike(3)) book.push(bookItem('b.dalat'));
-    else if (dalatHike(2)) book.push(bookItem('b.dalat_bidoup'));
-    if (has('cattien')) book.push(bookItem('b.cattien'));
+    if (hikeOn('dalat', 3)) book.push(bookItem('b.dalat'));
+    else if (hikeOn('dalat', 2)) book.push(bookItem('b.dalat_bidoup'));
+    if (hikeOn('cattien', 2)) book.push(bookItem('b.cattien'));
     if (has('caobang')) book.push(bookItem('b.caobang'));
     book.push(bookItem('b.transfer'));
     if (has('puluong') || has('babe') || has('mekong')) book.push(bookItem('b.homestay', { x: ['mekong', 'puluong', 'babe'].filter(has).map(function (id) { return S(id).short; }).join(', ') }));
-    book.push(bookItem('b.evening'));
+    book.push(bookItem('b.lastnight'));
     $('#book-list').innerHTML = book.map(function (t) { return '<li>' + t + '</li>'; }).join('');
     var pack = [T('p.warm'), T(has('central') ? 'p.rain_central' : 'p.rain'), T(route.gentle ? 'p.walk' : 'p.hike'),
       T(has('phuquoc') ? 'p.sun_pq' : 'p.sun'), T('p.cash'), T('p.apps')];
@@ -624,6 +625,7 @@
   function planText(route) {
     var lines = [T('pt.title') + RT(route.style).name];
     if (TRIP.start) lines.push(dateLabel(1) + ' – ' + dateLabel(route.days));
+    lines.push(T('pt.arrive'));
     route.stops.forEach(function (s) { lines.push(dayRange(s.start, s.end) + ': ' + S(s.id).name); });
     lines.push(T('pt.home'));
     var fl = allFlights(route).map(function (f) { return T('day') + ' ' + f.day + ' ' + AIRPORT_NAME[f.seg.from] + ' → ' + AIRPORT_NAME[f.seg.to]; });
