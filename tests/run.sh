@@ -6,7 +6,7 @@ J=/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Helpers/j
 S=site2/src
 for t in tests/*.test.js; do
   echo "== $t"
-  "$J" "$S/data.js" "$S/i18n.js" "$S/plan.js" tests/assert.js "$t"
+  "$J" "$S/data.js" "$S/i18n.js" "$S/i18n.pl.js" "$S/plan.js" tests/assert.js "$t"
 done
 echo "== lint: no hard-coded words in CSS content"
 if grep -nE "content: *\"[^\"]*[A-Za-z]{3,}" "$S/template.html"; then echo "FAIL: translate this text via UI keys"; exit 1; fi

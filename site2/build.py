@@ -89,7 +89,7 @@ def main():
     assert not missing, missing
     data_js = open(os.path.join(ROOT, "src", "data.js"), encoding="utf-8").read()
     app_js = open(os.path.join(ROOT, "src", "app.js"), encoding="utf-8").read()
-    i18n_js = open(os.path.join(ROOT, "src", "i18n.js"), encoding="utf-8").read()
+    i18n_js = open(os.path.join(ROOT, "src", "i18n.js"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "src", "i18n.pl.js"), encoding="utf-8").read()
     plan_js = open(os.path.join(ROOT, "src", "plan.js"), encoding="utf-8").read()
     basemap_js = open(os.path.join(ROOT, "src", "basemap.js"), encoding="utf-8").read()
     template = open(os.path.join(ROOT, "src", "template.html"), encoding="utf-8").read()
