@@ -43,3 +43,24 @@ function nightForm(n) {
   if (n === 1) return 'one';
   return last >= 2 && last <= 4 && (lastTwo < 12 || lastTwo > 14) ? 'few' : 'many';
 }
+
+/* The page language: a #hash that names one of langs wins, then a stored choice, then the browser's primary language subtag
+   (de-AT gives de; deu is another language), else the first language. */
+function pickLang(stored, browser, hash, langs) {
+  var fromHash = String(hash || '').replace(/^#/, '');
+  if (langs.indexOf(fromHash) > -1) return fromHash;
+  if (langs.indexOf(stored) > -1) return stored;
+  var primary = String(browser || '').split(/[-_]/)[0].toLowerCase();
+  return langs.indexOf(primary) > -1 ? primary : langs[0];
+}
+
+/* Polish typography: a one-letter word (a i o u w z) gets a no-break space after it, so no line ends on it. It must start the text
+   or follow white space, ( „ or –. A run like "i w domu" needs several passes (a match uses up the space in front of the next word), so repeat. */
+function tieShort(text) {
+  var before;
+  do {
+    before = text;
+    text = text.replace(/(^|[\s(„–])([aiouwzAIOUWZ]) /g, '$1$2\u00a0');
+  } while (text !== before);
+  return text;
+}

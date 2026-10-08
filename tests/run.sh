@@ -10,4 +10,6 @@ for t in tests/*.test.js; do
 done
 echo "== lint: no hard-coded words in CSS content"
 if grep -nE "content: *\"[^\"]*[A-Za-z]{3,}" "$S/template.html"; then echo "FAIL: translate this text via UI keys"; exit 1; fi
+echo "== lint: app.js picks languages and counted words through data, not by name"
+if grep -nE "lang (===|!==) 'de'|T\('(night|nights|f\.bases|f\.flights|f\.hikes)'\)" "$S/app.js"; then echo "FAIL: use TR[lang] and countWord(key, n)"; exit 1; fi
 echo "ALL PASS"

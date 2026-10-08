@@ -12,3 +12,11 @@ Object.keys(UI).forEach(function (code) {
   ok(UI[code]['fmt.hm'].indexOf('{h}') > -1 && UI[code]['fmt.hm'].indexOf('{m}') > -1, 'UI.' + code + '[\'fmt.hm\'] needs {h} and {m}');
 });
 print('fmt.hm ok');
+// counted words come in three forms, chosen by nightForm() in plan.js; the old single keys must be gone
+['nights', 'f.bases', 'f.flights', 'f.hikes'].forEach(function (family) {
+  ['one', 'few', 'many'].forEach(function (form) {
+    Object.keys(UI).forEach(function (code) { ok(UI[code][family + '.' + form], 'UI.' + code + ' lacks ' + family + '.' + form); });
+  });
+});
+['night', 'nights', 'f.bases', 'f.flights', 'f.hikes'].forEach(function (k) { ok(!(k in UI.en), 'UI.en still has the old key ' + k); });
+print('counted words ok');

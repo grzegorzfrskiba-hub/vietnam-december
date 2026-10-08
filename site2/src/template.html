@@ -342,9 +342,11 @@ body.mz-open .lang { opacity: 0; pointer-events: none; }
 .book-links { display: block; font-size: 13px; margin-top: 2px; }
 .card li { padding-left: 16px; position: relative; }
 .card li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-#flight-list li { padding-left: 0; display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 8px; }
+/* first column: wide enough for the longest label in one line ("Dzień 15" is 8 mono characters, 60px at 12.5px) */
+#flight-list li { padding-left: 0; display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 8px; }
 #flight-list li::before { display: none; }
 #flight-list .mono { color: var(--muted); font-size: 12.5px; padding-top: 2px; }
+#flight-list .mono:first-child { white-space: nowrap; }
 
 footer { margin-top: clamp(56px, 8vw, 96px); border-top: 1px solid var(--line); padding-block: 32px 48px; color: var(--muted); font-size: 12.5px; }
 footer h2 { font: 400 11px var(--mono); letter-spacing: 0.12em; text-transform: uppercase; margin: 18px 0 10px; }

@@ -29,3 +29,37 @@ print('tripDate ok');
   eq(nightForm(c[0]), c[1], 'nightForm(' + c[0] + ')');
 });
 print('nightForm ok');
+// page language: a #hash that names a language wins, then a stored language, then the browser's primary language subtag, else the first language
+function pick(stored, browser, hash) { return pickLang(stored, browser, hash, ['en', 'de', 'pl']); }
+eq(pick('en', 'pl-PL', ''), 'en', 'stored en beats a Polish browser');
+eq(pick('de', 'pl-PL', ''), 'de', 'stored de beats a Polish browser');
+eq(pick('', 'pl-PL', ''), 'pl', 'nothing stored, Polish browser');
+eq(pick('', 'de-AT', ''), 'de', 'nothing stored, Austrian German browser');
+eq(pick('', 'en-US', ''), 'en', 'nothing stored, English browser');
+eq(pick('', 'fr-FR', ''), 'en', 'a browser language we do not offer');
+eq(pick('', 'deu', ''), 'en', 'deu is a different language code, not de');
+eq(pick('', 'plt', ''), 'en', 'plt is a different language code, not pl');
+eq(pick('', 'pl_PL', ''), 'pl', 'underscore tag');
+eq(pick('', 'DE', ''), 'de', 'upper-case tag');
+eq(pick('', '', ''), 'en', 'no browser language');
+eq(pick(null, undefined, undefined), 'en', 'missing values');
+eq(pick('xx', 'pl-PL', ''), 'pl', 'a stored value that is no language: browser rule');
+eq(pick('de', 'en-US', '#pl'), 'pl', 'hash pl overrides stored de');
+eq(pick('de', 'en-US', 'pl'), 'pl', 'hash given without the #');
+eq(pick('pl', 'de-DE', '#en'), 'en', 'hash en overrides stored pl');
+eq(pick('de', 'pl-PL', '#nature'), 'de', 'a trip-style hash leaves the language alone');
+print('pickLang ok');
+// Polish typography: one-letter words are tied to the next word with a no-break space
+var NB = '\u00a0';
+eq(tieShort('Wietnam, z południa na północ'), 'Wietnam, z' + NB + 'południa na północ', 'z mid-text');
+eq(tieShort('W domu'), 'W' + NB + 'domu', 'capital at the start');
+eq(tieShort('i w domu'), 'i' + NB + 'w' + NB + 'domu', 'a run of one-letter words');
+eq(tieShort('Hà Nội, a potem Huế i Hội An'), 'Hà Nội, a' + NB + 'potem Huế i' + NB + 'Hội An', 'a and i');
+eq(tieShort('(w domu) i „o tym” oraz x–u nas'), '(w' + NB + 'domu) i' + NB + '„o' + NB + 'tym” oraz x–u' + NB + 'nas', 'after ( „ and –');
+eq(tieShort('Cần Giờ o 6:00, z lampionami i u gospodarzy'), 'Cần Giờ o' + NB + '6:00, z' + NB + 'lampionami i' + NB + 'u' + NB + 'gospodarzy', 'o u z i');
+// no change: letters inside words, a one-letter word with nothing after it, letters that are not Polish one-letter words, ties already made
+['dla przyjaciół', 'Đà Lạt i', 'ok. 5 km', 'XVIII wieku', 'ma uczciwie', 'e-mail a', 'C w', 'z' + NB + 'południa'].forEach(function (s) {
+  eq(tieShort(s), s, 'unchanged: ' + s);
+});
+eq(tieShort(tieShort('i w domu')), tieShort('i w domu'), 'idempotent');
+print('tieShort ok');

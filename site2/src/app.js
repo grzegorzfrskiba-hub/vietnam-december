@@ -18,13 +18,9 @@
   var lang = 'en';
   var EXTRA_N = 3;     // nights of the optional Hồ Chí Minh City start, taken from the route's own nights
   var DAYS = 15;       // trip length incl. the flight-home day
-  try { lang = localStorage.getItem(LKEY) || ''; } catch (e) { lang = ''; }
-  if (LANGS.indexOf(lang) < 0) {   // nothing stored: follow the browser, English when it is not one of ours
-    lang = (navigator.language || '').slice(0, 2).toLowerCase();
-    if (LANGS.indexOf(lang) < 0) lang = 'en';
-  }
-  var hashLang = (location.hash || '').slice(1);
-  if (LANGS.indexOf(hashLang) > -1) lang = hashLang;
+  var stored = '';
+  try { stored = localStorage.getItem(LKEY) || ''; } catch (e) { /* storage unavailable */ }
+  lang = pickLang(stored, navigator.language, location.hash, LANGS);
   function T(k, vars) {
     var v = (UI[lang] && UI[lang][k]) || UI.en[k] || k;
     if (vars) Object.keys(vars).forEach(function (n) { v = v.replace('{' + n + '}', vars[n]); });
@@ -59,8 +55,8 @@
     var hh = Math.floor(mins / 60), mm = mins % 60;
     return mm ? T('fmt.hm', { h: hh, m: mm }) : hh + ' ' + T('h');
   }
-  // 'one' → night, 'few' → nights, 'many' → nights.many (English and German spell the last two alike)
-  function nightsWord(n) { return T({ one: 'night', few: 'nights', many: 'nights.many' }[nightForm(n)]); }
+  // the counted word for n: key.one, key.few or key.many ('nights', 'f.bases', …); English and German spell the last two alike
+  function countWord(key, n) { return T(key + '.' + nightForm(n)); }
   function approx(h) {
     var r = Math.round(h * 2) / 2;
     var whole = Math.floor(r);
@@ -260,7 +256,7 @@
           '<span class="swap-head"><span class="dot" style="--c:' + stopColor(id) + '"></span>' +
           '<span class="swap-name">' + esc(S(id).name) + '</span>' +
           (i === 0 ? '<span class="swap-default">' + esc(T('swaps.inroute')) + '</span>' : '') + '</span>' +
-          '<span class="swap-meta">' + x.nights + ' ' + nightsWord(x.nights) + ' · <span class="tone tone-' + w.tone + '">' + esc(w.verdict) + '</span></span>' +
+          '<span class="swap-meta">' + x.nights + ' ' + countWord('nights', x.nights) + ' · <span class="tone tone-' + w.tone + '">' + esc(w.verdict) + '</span></span>' +
           '<ul>' + sw.pts[id].map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul></label>';
       }).join('<span class="swap-or" aria-hidden="true">' + esc(T('swaps.or')) + '</span>');
       return '<fieldset class="swap"><legend>' + esc(sw.q) + '</legend><div class="swap-opts">' + opts + '</div></fieldset>';
@@ -293,7 +289,7 @@
     };
     var nightsOf = function (key, id) { return lists[key].filter(function (s) { return s[0] === id; })[0][1]; };
     var ids = route.night.keys;
-    var label = function (id, n) { return S(actual(id)).short + ' ' + n + ' ' + nightsWord(n); };
+    var label = function (id, n) { return S(actual(id)).short + ' ' + n + ' ' + countWord('nights', n); };
     var opts = ids.map(function (key) {
       var real = actual(key), other = actual(ids[0] === key ? ids[1] : ids[0]), pts = NP(real);
       var cons = Array.isArray(pts.con) ? pts.con : [pts.con[other]];
@@ -329,9 +325,9 @@
     var st = routeStats(route);
     $('#facts').innerHTML =
       '<li><b>' + route.days + '</b><span>' + T('f.days') + '</span></li>' +
-      '<li><b>' + st.bases + '</b><span>' + T('f.bases') + '</span></li>' +
-      '<li><b>' + st.flights + '</b><span>' + T('f.flights') + '</span></li>' +
-      '<li><b>' + st.hikes + '</b><span>' + T('f.hikes') + '</span></li>' +
+      '<li><b>' + st.bases + '</b><span>' + countWord('f.bases', st.bases) + '</span></li>' +
+      '<li><b>' + st.flights + '</b><span>' + countWord('f.flights', st.flights) + '</span></li>' +
+      '<li><b>' + st.hikes + '</b><span>' + countWord('f.hikes', st.hikes) + '</span></li>' +
       '<li><b>' + approx(st.longest).replace('≈ ', '') + '</b><span>' + T('f.longest') + '</span></li>' +
       '<li><b class="money">' + fmtMoney(budgetFor(route, COSTS)) + '</b><span>' + T('f.budget') + '</span></li>';
   }
@@ -557,7 +553,7 @@
       return legCard(s) +
         '<section class="stop' + (st.compact ? ' stop-compact' : '') + '" id="stop-' + s.num + '" data-pin="' + normStop(s.id) + '" style="--c:' + stopColor(s.id) + '">' +
         '<header class="stop-head"><span class="stop-num">' + s.num + '</span><div class="stop-title">' +
-        '<p class="eyebrow">' + dayRange(s.start, s.end) + ' · ' + s.n + ' ' + nightsWord(s.n) + ' · ' + T('reg.' + st.region) + '</p>' +
+        '<p class="eyebrow">' + dayRange(s.start, s.end) + ' · ' + s.n + ' ' + countWord('nights', s.n) + ' · ' + T('reg.' + st.region) + '</p>' +
         '<h3>' + esc(st.name) + '</h3><p class="stop-sub">' + esc(st.sub) + '</p></div>' +
         (st.compact ? '' : '<span class="tone tone-' + w.tone + '">' + w.lo + '–' + w.hi + ' °C · ' + esc(w.verdict) + '</span>') + '</header>' +
         gallery(s) + '<ol class="days">' + days + '</ol>' + (tips ? '<div class="tips">' + tips + '</div>' : '') + '</section>';
@@ -872,6 +868,16 @@
 
   /* ---------- wiring ---------- */
   var current = null;
+  // Polish: no line may end on a one-letter word, so each gets a no-break space after it (the text rule is tieShort in plan.js)
+  function tieShortWords(root) {
+    if (lang !== 'pl') return;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), node;
+    while ((node = walker.nextNode())) {
+      if (/^(SCRIPT|STYLE|TEXTAREA)$/i.test(node.parentNode.nodeName)) continue;
+      var tied = tieShort(node.nodeValue);
+      if (tied !== node.nodeValue) node.nodeValue = tied;
+    }
+  }
   function render() {
     current = buildRoute(state.style, state.choice, state.saigon, state.gentle);
     applyStatic();
@@ -887,6 +893,7 @@
     renderCardStats();
     $('#copy-status').textContent = '';
     $('#copy-fallback').hidden = true;
+    tieShortWords(document.body);
   }
 
   document.addEventListener('change', function (e) {

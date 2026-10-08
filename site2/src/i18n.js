@@ -45,8 +45,9 @@ const UI = {
     'ft.budget': 'Budget: rough per-person ranges for two people sharing a double room, with domestic flights, transfers, food and the main activities, without international flights. Prices checked in October 2026.',
     'ft.notes.p': 'Travel times are door-to-door estimates and include about 1½ hours at the airport for each flight. Direct flights checked in October 2026 (Cần Thơ–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); confirm schedules when you book. Check opening hours, trail rules and sea conditions locally.',
     'lb.aria': 'Photo viewer', 'lb.close': 'Close photo viewer', 'lb.photo': 'Photo: ',
-    /* 'nights.many' (0 and 5+ nights) and 'fmt.hm' (hours and minutes) exist for Polish; English and German keep one plural and the plain "1 h 5" form */
-    'min': 'min', 'h': 'h', 'fmt.hm': '{h} h {m}', 'day': 'Day', 'days': 'Days', 'night': 'night', 'nights': 'nights', 'nights.many': 'nights',
+    /* counted words ('nights', 'f.bases', 'f.flights', 'f.hikes') have three forms, .one .few .many, picked by nightForm() in plan.js:
+       English and German repeat the plural for .few and .many. 'fmt.hm' is hours and minutes, "1 h 5" */
+    'min': 'min', 'h': 'h', 'fmt.hm': '{h} h {m}', 'day': 'Day', 'days': 'Days', 'nights.one': 'night', 'nights.few': 'nights', 'nights.many': 'nights',
     'fly': 'Fly', 'door': 'door to door', 'longday': 'Long travel day', 'maps': 'Route in Google Maps',
     'r.van_ferry': 'Limousine van and a short ferry', 'r.van_car': 'Limousine van or private car',
     'r.back_sgn': 'Road back to Hồ Chí Minh City airport', 'r.taxi_city': 'Taxi into the city',
@@ -56,7 +57,7 @@ const UI = {
     'n.cruise': 'The cruise docks around 11 am.',
     'n.bangioc': 'See Bản Giốc when it opens at 7 am, before the weekend crowds, then drive.',
     'n.long': 'A long day: leave early.', 'n.morning': 'Take a morning flight.',
-    'f.for': 'Your route: {name}', 'f.days': 'days, {nights} nights', 'f.bases': 'bases', 'f.flights': 'domestic flights', 'f.hikes': 'hiking days', 'f.longest': 'longest travel day', 'f.budget': 'per person, rough',
+    'f.for': 'Your route: {name}', 'f.days': 'days, {nights} nights', 'f.bases.one': 'base', 'f.bases.few': 'bases', 'f.bases.many': 'bases', 'f.flights.one': 'domestic flight', 'f.flights.few': 'domestic flights', 'f.flights.many': 'domestic flights', 'f.hikes.one': 'hiking day', 'f.hikes.few': 'hiking days', 'f.hikes.many': 'hiking days', 'f.longest': 'longest travel day', 'f.budget': 'per person, rough',
     'flyhome': 'Fly home', 'flyhome.aria': 'Day {days}: fly home from Hà Nội',
     'why.swaps': ' Your swaps: ', 'why.instead': ' instead of ', 'why.rain': ' Hội An and Huế will be rainy.',
     'm.start': 'Start', 'm.north': 'North', 'm.whole': 'Whole route', 'm.panel': 'North panel', 'm.china': 'China', 'm.laos': 'Laos', 'm.cambodia': 'Cambodia', 'm.sea': 'South China Sea', 'm.tonkin': 'Gulf of Tonkin',
@@ -130,7 +131,7 @@ const UI = {
     'ft.budget': 'Budget: grobe Spannen pro Person, zu zweit im Doppelzimmer, mit Inlandsflügen, Transfers, Essen und den wichtigsten Aktivitäten, ohne internationale Flüge. Preise im Oktober 2026 geprüft.',
     'ft.notes.p': 'Reisezeiten sind Schätzungen von Tür zu Tür und enthalten pro Flug etwa 1½ Stunden am Flughafen. Direktflüge im Oktober 2026 geprüft (Cần Thơ–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); Flugpläne bei der Buchung bestätigen. Öffnungszeiten, Wegeregeln und Seegang vor Ort prüfen.',
     'lb.aria': 'Fotoansicht', 'lb.close': 'Fotoansicht schließen', 'lb.photo': 'Foto: ',
-    'min': 'Min.', 'h': 'Std.', 'fmt.hm': '{h} Std. {m}', 'day': 'Tag', 'days': 'Tage', 'night': 'Nacht', 'nights': 'Nächte', 'nights.many': 'Nächte',
+    'min': 'Min.', 'h': 'Std.', 'fmt.hm': '{h} Std. {m}', 'day': 'Tag', 'days': 'Tage', 'nights.one': 'Nacht', 'nights.few': 'Nächte', 'nights.many': 'Nächte',
     'fly': 'Flug', 'door': 'von Tür zu Tür', 'longday': 'Langer Reisetag', 'maps': 'Route in Google Maps',
     'r.van_ferry': 'Limousinen-Van und eine kurze Fähre', 'r.van_car': 'Limousinen-Van oder Privatwagen',
     'r.back_sgn': 'Zurück zum Flughafen Hồ Chí Minh City', 'r.taxi_city': 'Taxi in die Stadt',
@@ -140,7 +141,7 @@ const UI = {
     'n.cruise': 'Das Boot legt gegen 11 Uhr an.',
     'n.bangioc': 'Bản Giốc um 7 Uhr zur Öffnung ansehen, vor dem Wochenendandrang, dann losfahren.',
     'n.long': 'Ein langer Tag: früh losfahren.', 'n.morning': 'Am besten morgens fliegen.',
-    'f.for': 'Eure Route: {name}', 'f.days': 'Tage, {nights} Nächte', 'f.bases': 'Stationen', 'f.flights': 'Inlandsflüge', 'f.hikes': 'Wandertage', 'f.longest': 'längster Reisetag', 'f.budget': 'pro Person, grob',
+    'f.for': 'Eure Route: {name}', 'f.days': 'Tage, {nights} Nächte', 'f.bases.one': 'Station', 'f.bases.few': 'Stationen', 'f.bases.many': 'Stationen', 'f.flights.one': 'Inlandsflug', 'f.flights.few': 'Inlandsflüge', 'f.flights.many': 'Inlandsflüge', 'f.hikes.one': 'Wandertag', 'f.hikes.few': 'Wandertage', 'f.hikes.many': 'Wandertage', 'f.longest': 'längster Reisetag', 'f.budget': 'pro Person, grob',
     'flyhome': 'Heimflug', 'flyhome.aria': 'Tag {days}: Heimflug ab Hà Nội',
     'why.swaps': ' Eure Wahl: ', 'why.instead': ' statt ', 'why.rain': ' In Hội An und Huế wird es regnen.',
     'm.start': 'Start', 'm.north': 'Norden', 'm.whole': 'Gesamte Route', 'm.panel': 'Nordkarte', 'm.china': 'China', 'm.laos': 'Laos', 'm.cambodia': 'Kambodscha', 'm.sea': 'Südchinesisches Meer', 'm.tonkin': 'Golf von Tonkin',

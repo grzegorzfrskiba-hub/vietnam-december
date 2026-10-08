@@ -1,6 +1,8 @@
 /* Polish interface text and Polish versions of the trip content. Loaded right after i18n.js.
    Same shape as I18N_DE, but complete: every text in data.js and every photo caption has a Polish version.
-   Two keys exist for Polish grammar: 'nights.many' is the plural for 0 and 5+ nights (also 12–14, 22–24…),
+   Counted words ('nights', 'f.bases', 'f.flights', 'f.hikes') have three forms, picked by nightForm() in plan.js:
+   .one for 1; .few for numbers ending in 2–4 except 12–14 (2–4, 22–24, 32–34…); .many for the rest (0, 5–21, 25–31…).
+   English and German have the same keys and repeat the plural for .few and .many.
    'fmt.hm' formats a duration in hours and minutes. */
 
 UI.pl = {
@@ -46,7 +48,7 @@ UI.pl = {
   'ft.budget': 'Budżet: orientacyjne widełki na osobę w pokoju dwuosobowym, z lotami krajowymi, przejazdami, jedzeniem i głównymi atrakcjami, bez lotów międzynarodowych. Ceny sprawdzone w październiku 2026.',
   'ft.notes.p': 'Czasy podróży to szacunki od drzwi do drzwi i obejmują ok. 1½ godz. na lotnisku przy każdym locie. Połączenia bezpośrednie sprawdzone w październiku 2026 (Cần Thơ–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); rozkłady potwierdźcie przy rezerwacji. Godziny otwarcia, zasady na szlakach i warunki na morzu sprawdzajcie na miejscu.',
   'lb.aria': 'Przeglądarka zdjęć', 'lb.close': 'Zamknij przeglądarkę zdjęć', 'lb.photo': 'Fot. ',
-  'min': 'min', 'h': 'godz.', 'fmt.hm': '{h} godz. {m} min', 'day': 'Dzień', 'days': 'Dni', 'night': 'noc', 'nights': 'noce', 'nights.many': 'nocy',
+  'min': 'min', 'h': 'godz.', 'fmt.hm': '{h} godz. {m} min', 'day': 'Dzień', 'days': 'Dni', 'nights.one': 'noc', 'nights.few': 'noce', 'nights.many': 'nocy',
   'fly': 'Lot', 'door': 'od drzwi do drzwi', 'longday': 'Długi dzień w drodze', 'maps': 'Trasa w Mapach Google',
   'r.van_ferry': 'Minibus typu limousine i krótki prom', 'r.van_car': 'Minibus typu limousine albo prywatny samochód',
   'r.back_sgn': 'Powrót drogą na lotnisko w Hồ Chí Minh City', 'r.taxi_city': 'Taksówka do miasta',
@@ -56,7 +58,7 @@ UI.pl = {
   'n.cruise': 'Statek przybija do brzegu ok. 11:00.',
   'n.bangioc': 'Bản Giốc obejrzyjcie zaraz po otwarciu o 7:00, przed weekendowym tłumem, a potem w drogę.',
   'n.long': 'Jazda zajmie cały dzień: wyruszcie wcześnie.', 'n.morning': 'Wybierzcie poranny lot.',
-  'f.for': 'Wasza trasa: {name}', 'f.days': 'dni, {nights} nocy', 'f.bases': 'bazy wypadowe', 'f.flights': 'loty krajowe', 'f.hikes': 'dni z wędrówką', 'f.longest': 'najdłuższy przejazd', 'f.budget': 'na osobę, orientacyjnie',
+  'f.for': 'Wasza trasa: {name}', 'f.days': 'dni, {nights} nocy', 'f.bases.one': 'baza wypadowa', 'f.bases.few': 'bazy wypadowe', 'f.bases.many': 'baz wypadowych', 'f.flights.one': 'lot krajowy', 'f.flights.few': 'loty krajowe', 'f.flights.many': 'lotów krajowych', 'f.hikes.one': 'dzień z wędrówką', 'f.hikes.few': 'dni z wędrówką', 'f.hikes.many': 'dni z wędrówką', 'f.longest': 'najdłuższy przejazd', 'f.budget': 'na osobę, orientacyjnie',
   'flyhome': 'Lot do domu', 'flyhome.aria': 'Dzień {days}: lot do domu z Hà Nội',
   'why.swaps': ' Wasz wybór: ', 'why.instead': ' w zamian za ', 'why.rain': ' W Hội An i Huế będzie deszczowo.',
   'm.start': 'Start', 'm.north': 'Północ', 'm.whole': 'Cała trasa', 'm.panel': 'Mapa północy', 'm.china': 'Chiny', 'm.laos': 'Laos', 'm.cambodia': 'Kambodża', 'm.sea': 'Morze Południowochińskie', 'm.tonkin': 'Zatoka Tonkińska',
