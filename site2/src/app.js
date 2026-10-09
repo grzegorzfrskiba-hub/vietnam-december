@@ -121,6 +121,7 @@
       return '<label class="style-card" for="style-' + id + '">' +
         '<input type="radio" name="style" id="style-' + id + '" value="' + id + '"' + (state.style === id ? ' checked' : '') + '>' +
         '<span class="style-img">' + img(r.cover, '', '(max-width: 640px) 34vw, (max-width: 1000px) 50vw, 240px') + '</span>' +
+        '<span class="style-map" aria-hidden="true"></span>' +
         '<span class="style-body"><span class="style-tag"><span class="style-sel">✓ ' + esc(T('styles.sel')) + ' · </span>' + esc(r.tag) + '</span>' +
         '<span class="style-name">' + esc(r.name) + '</span>' +
         '<span class="style-blurb">' + esc(r.blurb) + '</span>' +
@@ -128,6 +129,13 @@
         '<span class="style-stats"></span></span></label>';
     }).join('');
     $('#style-list').innerHTML = html;
+    // the land outlines for the card maps, drawn once and reused by every card through <use>
+    if (!document.getElementById('mini-defs')) {
+      document.body.insertAdjacentHTML('beforeend', '<svg id="mini-defs" width="0" height="0" style="position:absolute" aria-hidden="true"><defs>' +
+        ['north', 'whole'].map(function (k) {
+          return '<g id="mini-' + k + '"><path class="m-land-o" d="' + BASEMAP[k].other + '"/><path class="m-land" d="' + BASEMAP[k].vn + '"/></g>';
+        }).join('') + '</defs></svg>');
+    }
   }
   // each card shows the trip that clicking it would give: the current Saigon setting, and gentle if the
   // style is gentle or the gentle setting is on; the selected card shows the current trip, exactly as the
@@ -145,6 +153,7 @@
       var full = gentle ? routeStats(routeFor(id, choice, state.saigon, false)).hikes : st.hikes;
       var hikes = full > st.hikes ? T('styles.hoff', { h: st.hikes, n: full }) : st.hikes;
       el.textContent = T('styles.stats', { f: st.flights, h: hikes, t: approx(st.road).replace('≈ ', ''), l: approx(st.longest).replace('≈ ', ''), e: st.early, b: fmtMoney(budgetFor(built, COSTS)) });
+      el.parentNode.parentNode.querySelector('.style-map').innerHTML = miniMap(built, false) + miniMap(built, true);
       el.parentNode.querySelector('.style-places').textContent = built.stops.filter(function (s) { return s.id !== 'hanoiStop'; })
         .map(function (s) { return S(s.id).short; }).join(' · ');
     });
@@ -404,6 +413,48 @@
       '<p class="map-legend"><span><svg width="24" height="6" aria-hidden="true"><line class="m-road" x1="0" x2="24" y1="3" y2="3"/></svg>' + T('m.road') + '</span>' +
       '<span><svg width="24" height="6" aria-hidden="true"><line class="m-fly" x1="0" x2="24" y1="3" y2="3"/></svg>' + T('m.flight') + '</span>' +
       '<span class="map-note">' + T('m.scale') + '</span><button type="button" class="map-hint">' + T('m.zoom') + '</button></p>';
+  }
+
+  /* A small copy of the route map for a style card: the whole country (cut to Vietnam's width) beside the north,
+     in the coordinates of the big map. No labels: the colours match the strip, and the places are listed below.
+     Places the route skips stay as faint dots, so the cards can be compared at a glance.
+     tall: the phone version, the north above the whole country as in the big map. CSS shows one of the two. */
+  var MINI_SOUTH = ['cattien', 'dalat', 'mekong', 'phuquoc', 'central'], MINI_NORTH = ['puluong', 'ninhbinh', 'catba', 'caobang', 'babe', 'hanoi'];
+  function miniMap(route, tall) {
+    var r = function (v) { return v.toFixed(1); };
+    var inRoute = {};
+    route.stops.forEach(function (s) { inRoute[normStop(s.id)] = true; });
+    function lines(f) {
+      var out = [];
+      route.stops.forEach(function (s) {
+        if (s.leg) s.leg.segs.forEach(function (g) {
+          var a = proj(f, PT[g.from]), b = proj(f, PT[g.to]);
+          out.push(g.mode === 'fly' ? '<path class="m-fly" d="' + curve(a, b) + '"/>' :
+            '<line class="m-road" x1="' + r(a[0]) + '" y1="' + r(a[1]) + '" x2="' + r(b[0]) + '" y2="' + r(b[1]) + '"/>');
+        });
+      });
+      return out.join('');
+    }
+    function dots(f, ids, big) {
+      return ids.map(function (id) {
+        var p = proj(f, PT[id]);
+        return inRoute[id] ? '<circle class="m-dot" cx="' + r(p[0]) + '" cy="' + r(p[1]) + '" r="' + big + '" style="--c:' + stopColor(id) + '"/>' :
+          '<circle class="m-faint" cx="' + r(p[0]) + '" cy="' + r(p[1]) + '" r="' + big * 0.6 + '"/>';
+      }).join('');
+    }
+    var st = proj(CF, PT.start);
+    var start = inRoute.saigon ? '<circle class="m-dot" cx="' + r(st[0]) + '" cy="' + r(st[1]) + '" r="8" style="--c:' + stopColor('saigon') + '"/>' :
+      '<rect class="m-startbox" x="' + r(st[0] - 6) + '" y="' + r(st[1] - 6) + '" width="12" height="12" rx="2"/>';
+    var i0 = proj(CF, [NF.lat0, NF.lon0]), i1 = proj(CF, [NF.lat0 - NF.h / NF.s, NF.lon0 + NF.w / NF.s]);
+    // wide: the whole country cut to Vietnam's width on the left, the north on the right
+    var cw = tall ? 270 : 138, cx = 0, cy = tall ? 332 : 0, nx = tall ? 0 : 148;
+    return '<svg class="' + (tall ? 'mini-tall' : 'mini-wide') + '" viewBox="0 0 ' + (tall ? '270 654' : '418 322') + '">' +
+      '<svg x="' + cx + '" y="' + cy + '" width="' + cw + '" height="322" viewBox="0 ' + CF.y + ' ' + cw + ' 322"><rect class="m-frame" x="0" y="' + CF.y + '" width="' + cw + '" height="322"/>' +
+      '<use href="#mini-whole"/><rect class="m-inset" x="' + r(i0[0]) + '" y="' + r(i0[1]) + '" width="' + r(i1[0] - i0[0]) + '" height="' + r(i1[1] - i0[1]) + '"/>' +
+      lines(CF) + dots(CF, MINI_SOUTH, 8) + dots(CF, MINI_NORTH, 5) + start + '</svg>' +
+      '<svg x="' + nx + '" y="0" width="270" height="322" viewBox="0 0 270 322"><rect class="m-frame" x="0" y="0" width="270" height="322"/>' +
+      '<use href="#mini-north"/>' + lines(NF) + dots(NF, MINI_NORTH, 11) + '</svg>' +
+      '<rect class="m-edge" x="' + cx + '" y="' + cy + '" width="' + cw + '" height="322" rx="6"/><rect class="m-edge" x="' + nx + '" y="0" width="270" height="322" rx="6"/></svg>';
   }
 
   /* ---------- stops ---------- */

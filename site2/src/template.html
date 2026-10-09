@@ -121,6 +121,15 @@ ul, ol { padding: 0; list-style: none; }
 .style-card:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
 .style-img img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
 .style-body { display: grid; gap: 6px; padding: 14px 16px 16px; }
+/* the card's mini route map: thicker lines than the big map, because it is drawn at about half the size */
+.style-map { display: block; padding: 12px 16px 0; }
+.style-map svg { display: block; width: 100%; height: auto; }
+.style-map .mini-tall { display: none; }
+.style-map .m-road { stroke-width: 5; }
+.style-map .m-fly { stroke-width: 3; stroke-dasharray: 8 7; }
+.style-map .m-inset { stroke-width: 2; stroke-dasharray: 5 5; }
+.style-map .m-edge { stroke-width: 2; }
+.m-startbox { fill: var(--ink); }
 .style-tag { font: 500 11px var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .style-card:has(input:checked) .style-tag { color: var(--accent); }
 .style-sel { display: none; }
@@ -393,9 +402,14 @@ footer a { color: var(--muted); }
   .facts li:nth-child(n+4) { border-top: 1px solid var(--line); }
   .facts b.money { font-size: 16px; overflow-wrap: anywhere; }
   .style-list { grid-template-columns: minmax(0, 1fr); }
-  .style-card { flex-direction: row; }
-  .style-img { flex: 0 0 34%; }
-  .style-img img { height: 100%; aspect-ratio: auto; }
+  /* phone: photo and mini map in a narrow left column, the text on the right */
+  .style-card { display: grid; grid-template-columns: 34% minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+  .style-img { grid-column: 1; grid-row: 1; }
+  .style-img img { aspect-ratio: 4 / 3; }
+  .style-map { grid-column: 1; grid-row: 2; padding: 8px; }
+  .style-map .mini-wide { display: none; }
+  .style-map .mini-tall { display: block; }
+  .style-body { grid-column: 2; grid-row: 1 / span 2; }
   .swap-opts { grid-template-columns: minmax(0, 1fr); }
   .swap-or { justify-self: center; }
   .strip { grid-template-columns: repeat(8, minmax(0, 1fr)); }
@@ -432,7 +446,7 @@ html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 56px); }
   .swap-opts { grid-template-columns: minmax(0, 1fr); }
   .map-col { position: static; break-inside: avoid; }
   .map svg { max-width: 220px; }
-  .style-img { display: none; }
+  .style-img, .style-map { display: none; }
   /* a stop may run over a page break; its days, journeys and boxes stay whole */
   .stop { break-inside: auto; }
   .gal { max-width: 360px; break-inside: avoid; }
