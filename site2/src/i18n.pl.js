@@ -58,6 +58,8 @@ UI.pl = {
   'r.taxi_sgn': 'Taksówka na lotnisko w Hồ Chí Minh City', 'r.taxi_dli': 'Taksówka na lotnisko w Đà Lạt', 'r.taxi_pqc': 'Taksówka na lotnisko w Phú Quốc', 'r.taxi_hui': 'Taksówka na lotnisko w Huế',
   'n.bangioc': 'Bản Giốc obejrzyjcie zaraz po otwarciu o 7:00, przed weekendowym tłumem, a potem w drogę.',
   'n.long': 'Jazda zajmie cały dzień: wyruszcie wcześnie.', 'n.morning': 'Wybierzcie poranny lot.',
+  'n.long_boat': 'Po łodzi o 7:00 w Tràng An jeszcze 8 godzin drogi: w Cao Bằng będziecie ok. 19:00. Żeby dojechać za dnia, pomińcie łódź i wyjedźcie o 8:00.',
+  'n.afternoon': 'Najpierw długa droga na lotnisko: wybierzcie lot po południu.',
   'f.for': 'Wasza trasa: {name}', 'f.days': 'dni, {nights} nocy', 'f.bases.one': 'baza wypa\u00addowa', 'f.bases.few': 'bazy wypa\u00addowe', 'f.bases.many': 'baz wypa\u00addowych', 'f.flights.one': 'lot krajowy', 'f.flights.few': 'loty krajowe', 'f.flights.many': 'lotów krajowych', 'f.hikes.one': 'dzień z wędrówką', 'f.hikes.few': 'dni z wędrówką', 'f.hikes.many': 'dni z wędrówką', 'f.longest': 'najdłuższy przejazd', 'f.budget': 'na osobę, orienta\u00adcyjnie',
   'flyhome': 'Lot do domu', 'flyhome.aria': 'Dzień {days}: lot do domu z Hà Nội',
   'why.swaps': ' Wasz wybór: ', 'why.instead': ' w zamian za ', 'why.rain': ' W Hội An i Huế będzie deszczowo.',

@@ -48,6 +48,12 @@ combos.forEach(function (c) {
     if (s.id === 'saigon') { need(i === 0 && !s.leg, 'city days not first'); return; }
     need(s.leg && s.leg.segs.length && s.leg.total > 0, 'no leg into ' + s.id);
     if (s.leg) s.leg.segs.forEach(function (g) { need(typeof g.h === 'number' && g.h > 0, 'segment without hours into ' + s.id); });
+    if (s.leg && s.leg.note) {
+      need(s.leg.note in UI.en, 'note without text: ' + s.leg.note);
+      // after one night the morning has its own plan (the 7 am boat, the dawn market), so no "leave early"
+      need(!(i > 0 && r.stops[i - 1].n === 1 && s.leg.note === 'n.long'), '"leave early" after one night in ' + s.leg.from);
+      need(!(s.leg.note === 'n.morning' && s.leg.segs[0].mode === 'road' && s.leg.segs[0].h >= 2), '"morning flight" after ' + s.leg.segs[0].h + ' h of road');
+    }
     // a flight from anywhere but the arrival airport starts with the ride from the stop to the airport
     if (s.leg && s.leg.flights && s.leg.from !== 'start') need(s.leg.segs[0].mode === 'road' && s.leg.segs[0].from === s.leg.from, 'no ride to the airport from ' + s.leg.from);
   });

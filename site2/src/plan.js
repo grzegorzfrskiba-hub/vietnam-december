@@ -83,8 +83,9 @@ function flySeg(a, b) { return { mode: 'fly', from: a, to: b, h: FLY[a + '-' + b
 function roadSeg(a, b, h, k) { return { mode: 'road', from: a, to: b, h: h, k: k }; }
 
 /* One travel leg between two stops ('start' is the arrival airport, 'saigon' a hotel in the city): road and flight segments,
-   door-to-door hours and a note key. A flight starts with the ride from the stop to its airport. */
-function buildLeg(from, to) {
+   door-to-door hours and a note key. A flight starts with the ride from the stop to its airport.
+   fromNights: nights at the stop it leaves; after one night the morning there has its own plan (solo). */
+function buildLeg(from, to, fromNights) {
   var segs = [];
   var air;
   var dep = from === 'saigon' ? 'start' : from;   // after the city days the trip goes on as from Day 1, plus the ride to the airport
@@ -124,8 +125,11 @@ function buildLeg(from, to) {
   var total = segs.reduce(function (sum, s) { return sum + s.h; }, 0) + 1.5 * flights;
   var note = '';
   if (from === 'caobang' && to === 'babe') note = 'n.bangioc';
-  if (from === 'ninhbinh' && to === 'caobang') note = 'n.long';
-  if (from === 'dalat' || from === 'phuquoc' || from === 'central' || from === 'mekong') {
+  // after one night in Ninh Bình the 7 am boat comes first, so the 8 hours to Cao Bằng end in the evening
+  if (from === 'ninhbinh' && to === 'caobang') note = fromNights === 1 ? 'n.long_boat' : 'n.long';
+  // hours of road before the airport rule out a morning flight
+  if (flights && segs[0].mode === 'road' && segs[0].h >= 2) note = 'n.afternoon';
+  else if (from === 'dalat' || from === 'phuquoc' || from === 'central' || from === 'mekong') {
     if (flights && !note) note = 'n.morning';
   }
   var maps = null;
@@ -162,19 +166,19 @@ function buildRoute(styleId, choice, saigon, gentle, dayPlans) {
     if (pick !== def) stops = stops.map(function (s) { return s.id === def ? { id: pick, n: s.n } : s; });
   });
   if (saigon) stops.unshift({ id: 'saigon', n: EXTRA_N });
-  var day = 1, prev = 'start', out = [];
+  var day = 1, prev = 'start', prevN = 0, out = [];
   stops.forEach(function (s, i) {
     var tmpl = dayPlans(s.id).slice().sort(function (x, y) { return x.p - y.p; })
       .slice(0, s.n).sort(function (x, y) { return x.o - y.o; });
     if (tmpl.length !== s.n) throw new Error('Not enough day plans for ' + s.id);
     out.push({
       // the city add-on has no leg in: the trip starts there
-      id: s.id, n: s.n, num: i + 1, start: day, end: day + s.n - 1, leg: s.id === 'saigon' ? null : buildLeg(prev, s.id),
+      id: s.id, n: s.n, num: i + 1, start: day, end: day + s.n - 1, leg: s.id === 'saigon' ? null : buildLeg(prev, s.id, prevN),
       // gentle: swap in the day's easy version (no hikes, no bikes) where it has one
       // a one-night stop uses its folded plan (solo) when it has one
       days: tmpl.map(function (t, k) { return Object.assign({ day: day + k }, t, s.n === 1 && t.solo ? t.solo : gentle && t.e ? Object.assign({ gentle: true }, t.e) : {}); })
     });
-    day += s.n; prev = s.id;
+    day += s.n; prev = s.id; prevN = s.n;
   });
   if (day !== DAYS) throw new Error('Route ' + styleId + (saigon ? ' with the city days' : '') + ' covers ' + (day - 1) + ' nights, not ' + (DAYS - 1));
   return { style: styleId, stops: out, swaps: swaps, saigon: !!saigon, gentle: !!gentle, days: day, night: night };
