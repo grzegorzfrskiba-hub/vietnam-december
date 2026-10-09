@@ -277,17 +277,17 @@ const SWAPS = [
   }
 ];
 
-/* Travel legs. Hours are door to door estimates; flights add about 1.5 h at the airports. */
+/* Travel legs. Hours are door to door estimates; flights add about 1.5 h at the airports. Sources: research/road-times-2026-10.md. */
 const FLY = { 'SGN-DLI': 0.9, 'SGN-PQC': 1, 'SGN-DAD': 1.3, 'SGN-HAN': 2.2, 'VCA-DAD': 1.5, 'VCA-HAN': 2.2,
   'PQC-HAN': 2.1, 'DLI-HAN': 1.8, 'DLI-DAD': 1.1, 'HUI-HAN': 1.2 };
 const AIRPORT_NAME = { SGN: 'Hồ Chí Minh City', VCA: 'Cần Thơ', PQC: 'Phú Quốc', DLI: 'Đà Lạt', DAD: 'Đà Nẵng', HUI: 'Huế', HAN: 'Hà Nội' };
 const EXIT_AIR = { start: 'SGN', mekong: 'VCA', phuquoc: 'PQC', dalat: 'DLI', central: 'HUI' };
-const ROAD_FROM_HAN = { puluong: 4, ninhbinh: 2, catba: 3.5, caobang: 6, babe: 5, hanoi: 0.75, hanoiStop: 0.75 };
+const ROAD_FROM_HAN = { puluong: 4, ninhbinh: 2, catba: 4, caobang: 6, babe: 5, hanoi: 0.75, hanoiStop: 0.75 };
 const ROAD = {
-  'hanoi-ninhbinh': 2, 'hanoi-catba': 3.5, 'hanoi-caobang': 6, 'hanoi-babe': 5, 'hanoi-puluong': 4,
-  'puluong-ninhbinh': 2.5, 'puluong-catba': 6, 'puluong-hanoi': 4,
-  'ninhbinh-catba': 3, 'ninhbinh-hanoi': 2, 'ninhbinh-caobang': 8, 'ninhbinh-babe': 7, 'ninhbinh-puluong': 2.5,
-  'catba-hanoi': 3.5, 'catba-ninhbinh': 3, 'catba-caobang': 9,
+  'hanoi-ninhbinh': 2, 'hanoi-catba': 4, 'hanoi-caobang': 6, 'hanoi-babe': 5, 'hanoi-puluong': 4,
+  'puluong-ninhbinh': 3, 'puluong-catba': 6, 'puluong-hanoi': 4,
+  'ninhbinh-catba': 4, 'ninhbinh-hanoi': 2, 'ninhbinh-caobang': 8, 'ninhbinh-babe': 7, 'ninhbinh-puluong': 3,
+  'catba-hanoi': 4, 'catba-ninhbinh': 4, 'catba-caobang': 9,
   'caobang-babe': 5, 'caobang-hanoi': 7, 'babe-hanoi': 5
 };
 const NORTH = new Set(['puluong', 'ninhbinh', 'catba', 'caobang', 'babe', 'hanoi', 'hanoiStop']);
