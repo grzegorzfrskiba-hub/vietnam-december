@@ -112,30 +112,35 @@
   function renderStyles() {
     var html = Object.keys(ROUTES).map(function (id) {
       var r = RT(id);
-      var places = r.stops.filter(function (s) { return s[0] !== 'hanoiStop'; })
-        .map(function (s) { return S(s[0]).short; }).join(' · ');
       return '<label class="style-card" for="style-' + id + '">' +
         '<input type="radio" name="style" id="style-' + id + '" value="' + id + '"' + (state.style === id ? ' checked' : '') + '>' +
         '<span class="style-img">' + img(r.cover, '', '(max-width: 700px) 50vw, 280px') + '</span>' +
         '<span class="style-body"><span class="style-tag"><span class="style-sel">✓ ' + esc(T('styles.sel')) + ' · </span>' + esc(r.tag) + '</span>' +
         '<span class="style-name">' + esc(r.name) + '</span>' +
         '<span class="style-blurb">' + esc(r.blurb) + '</span>' +
-        '<span class="style-places">' + esc(places) + '</span>' +
+        '<span class="style-places"></span>' +
         '<span class="style-stats"></span></span></label>';
     }).join('');
     $('#style-list').innerHTML = html;
   }
   // each card shows the trip that clicking it would give: the current Saigon setting, and gentle if the
   // style is gentle or the gentle setting is on; the selected card shows the current trip, exactly as the
-  // facts bar: the user's swaps, spare-night pick and gentle setting. Only the text is refreshed, so the radios keep focus.
+  // facts bar: the user's swaps, spare-night pick and gentle setting. Places and numbers come from that trip,
+  // so they follow the swaps and the city days. Only the text is refreshed, so the radios keep focus.
   function renderCardStats() {
     Object.keys(ROUTES).forEach(function (id) {
       var el = document.querySelector('#style-' + id + ' ~ .style-body .style-stats');
       if (!el) return;
-      var sel = id === state.style;
-      var built = routeFor(id, sel ? state.choice : {}, state.saigon, sel ? state.gentle : ROUTES[id].gentle || state.gentle);
+      var sel = id === state.style, choice = sel ? state.choice : {};
+      var gentle = sel ? state.gentle : ROUTES[id].gentle || state.gentle;
+      var built = routeFor(id, choice, state.saigon, gentle);
       var st = routeStats(built);
-      el.textContent = T('styles.stats', { f: st.flights, h: st.hikes, l: approx(st.longest).replace('≈ ', ''), b: fmtMoney(budgetFor(built, COSTS)) });
+      // with the gentle version on, say how many hiking days the style has without it
+      var full = gentle ? routeStats(routeFor(id, choice, state.saigon, false)).hikes : st.hikes;
+      var hikes = full > st.hikes ? T('styles.hoff', { h: st.hikes, n: full }) : st.hikes;
+      el.textContent = T('styles.stats', { f: st.flights, h: hikes, l: approx(st.longest).replace('≈ ', ''), b: fmtMoney(budgetFor(built, COSTS)) });
+      el.parentNode.querySelector('.style-places').textContent = built.stops.filter(function (s) { return s.id !== 'hanoiStop'; })
+        .map(function (s) { return S(s.id).short; }).join(' · ');
     });
   }
 

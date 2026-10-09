@@ -15,6 +15,7 @@ UI.pl = {
   'hero.cta1': 'Wybierz styl podróży', 'hero.cta2': 'Zobacz plan na {days} dni',
   'styles.eyebrow': 'Krok 1', 'styles.h2': 'Wybierzcie styl podróży', 'styles.legend': 'Styl podróży', 'styles.sel': 'Wybrany',
   'styles.stats': 'Loty {f} · Dni z wędrówką {h} · Najdłuższy przejazd {l} · {b}/os.',
+  'styles.hoff': '{h} ({n} bez wersji łagodnej)',
   'styles.p': 'Każdy styl to gotowa trasa na {days} dni, zaplanowana i sprawdzona ręcznie. Zacznijcie od naszej propozycji albo wybierzcie ten, który najbardziej pasuje do waszej grupy. Wszystko poniżej zmieni się razem z wyborem.',
   'swaps.eyebrow': 'Krok 2', 'swaps.h3': 'Zdecydujcie razem',
   'swaps.p': 'Tam, gdzie trasa naprawdę wymaga wyboru, pokazujemy obie możliwości. Zamiana dotyczy jednego miejsca, a reszta podróży zostaje bez zmian.',
