@@ -15,7 +15,7 @@ function routeStats(route) {
 }
 
 /* Per-person estimate [low, high], rounded to 10: sharing a double room, no international flights.
-   The gentle version travels by private car instead of vans and buses. */
+   The gentle version travels by private car instead of vans and buses. Day trips cost what the planned day says (pp). */
 function budgetFor(route, costs) {
   var lo = 0, hi = 0;
   function add(r, k) { lo += r[0] * k; hi += r[1] * k; }
@@ -24,6 +24,7 @@ function budgetFor(route, costs) {
     var id = s.id === 'hanoiStop' ? 'hanoi' : s.id;
     add(costs.nightPP[id], s.n);
     if (costs.extrasPP[id]) add(costs.extrasPP[id], 1);
+    s.days.forEach(function (d) { if (d.pp) add(d.pp, 1); });
     if (s.leg) s.leg.segs.forEach(function (g) { if (g.mode === 'fly') add(costs.flightPP, 1); else add(road, g.h); });
   });
   add(costs.dayPP, route.days);

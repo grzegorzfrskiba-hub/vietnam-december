@@ -8,6 +8,14 @@ function pair(r, what) { ok(r && r.length === 2 && r[0] > 0 && r[1] >= r[0], 'ba
 Object.keys(STOPS).filter(function (id) { return id !== 'hanoiStop'; }).forEach(function (id) { pair(COSTS.nightPP[id], 'nightPP.' + id); });
 Object.keys(COSTS.extrasPP).forEach(function (id) { pair(COSTS.extrasPP[id], 'extrasPP.' + id); ok(id in STOPS, 'extrasPP key is not a stop: ' + id); });
 ['flightPP', 'roadHourPP', 'carHourPP', 'dayPP'].forEach(function (k) { pair(COSTS[k], k); });
+// a day's trip cost is a range; a day that has a cost and a gentle version prices the gentle one too, or it would inherit the hike's guide
+Object.keys(STOPS).forEach(function (id) {
+  STOPS[id].days.forEach(function (d, i) {
+    if (d.pp) pair(d.pp, id + ' day ' + i + ' pp');
+    if (d.e && d.e.pp) pair(d.e.pp, id + ' day ' + i + ' gentle pp');
+    if (d.pp && d.e) ok(d.e.pp, id + ' day ' + i + ' has a cost but its gentle version has none');
+  });
+});
 print('costs ok');
 Object.keys(BOOK_LINKS).forEach(function (k) {
   ok(k in UI.en, 'BOOK_LINKS key without text: ' + k);

@@ -17,6 +17,9 @@ eq(budgetFor(r2, costs), [150, 260], 'budget, public transport');
 r2.gentle = true;
 // road by private car: lo 145 - 5 + 25 = 165 → 170; hi 255 - 10 + 50 = 295 → 300
 eq(budgetFor(r2, costs), [170, 300], 'budget, gentle uses private car');
+r2.stops[0].days = [{ pace: 'travel' }, { pace: 'nature', pp: [12, 21] }];
+// a day trip adds its own cost: lo 165 + 12 = 177 → 180; hi 295 + 21 = 316 → 320
+eq(budgetFor(r2, costs), [180, 320], 'budget, day trips');
 print('budgetFor ok');
 eq(tripDate(null, 3), null, 'no start date');
 eq(tripDate('2026-12-05', 1), '2026-12-05', 'day 1');

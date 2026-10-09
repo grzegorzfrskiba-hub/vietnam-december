@@ -1,5 +1,7 @@
 /* Trip data: stops, hand-built routes, swaps, travel legs, December weather.
-   A day's `e` is its gentle version (no hikes, no bikes) for the parents switch; `rain` is a wet-day plan. */
+   A day's `e` is its gentle version (no hikes, no bikes) for the parents switch; `rain` is a wet-day plan.
+   `pp` is what that day's trips cost per person, [low, high] in euros: cars with a driver, guides, tickets
+   (research/budget-2026-10.md). A gentle version with its own costs carries its own `pp`. */
 
 const PACE = {
   travel:  'Travel day',
@@ -27,7 +29,7 @@ const STOPS = {
     photos: ['saigon_0', 'saigon_1', 'saigon_2', 'saigon_3', 'saigon_4'],
     days: [
       { p: 1, o: 1, pace: 'rest', t: 'Land and slow down', d: 'No plans on purpose. Sleep off the flight, then coffee at a neighbourhood café, a massage and a swim. At sunset take the Saigon Waterbus (if it is running) from Bạch Đằng pier up the river to Thảo Điền and eat by the water.' },
-      { p: 2, o: 2, pace: 'nature', t: 'The Cần Giờ mangroves', d: 'A day trip south, about 2 hours by car with a short ferry at Bình Khánh, to the Cần Giờ mangrove forest, a UNESCO biosphere reserve. A boat through the channels at Vàm Sát, the bird-watching tower, then seafood on the beach at Cần Thạnh before driving back.' },
+      { p: 2, o: 2, pace: 'nature', pp: [35, 60], t: 'The Cần Giờ mangroves', d: 'A day trip south, about 2 hours by car with a short ferry at Bình Khánh, to the Cần Giờ mangrove forest, a UNESCO biosphere reserve. A boat through the channels at Vàm Sát, the bird-watching tower, then seafood on the beach at Cần Thạnh before driving back.' },
       { p: 3, o: 3, pace: 'culture', t: 'Saigon the local way', d: 'Chợ Lớn in the morning: Bình Tây market, the incense coils of Thiên Hậu temple and dim sum on Hà Tôn Quyền street. Afternoon in the cafés of the old apartment blocks, then dinner at the snail and seafood stalls on Vĩnh Khánh street in District 4.' }
     ],
     gem: 'Cần Giờ: real mangrove forest inside the city limits, with almost no foreign visitors.',
@@ -40,8 +42,8 @@ const STOPS = {
     photos: ['dalat_0', 'dalat_1', 'dalat_2', 'dalat_4', 'dalat_3'],
     days: [
       { p: 1, o: 1, pace: 'travel', t: 'Up to the highlands', d: 'Skip the town centre and head west to the ridges above the Tà Nung valley for sunset over pine hills and coffee farms. Sleep in a lodge outside town, where the nights are quiet and starry.' },
-      { p: 2, o: 2, pace: 'hike', t: 'Bidoup–Núi Bà cloud forest', d: 'A guided trek through old pines, mossy forest and wild orchids toward Hòn Giao. December is the dry season, so the trails are firm. Book a guide at the park visitor centre.', e: { pace: 'nature', t: 'Pine forest and a lake monastery', d: 'The cable car from Robin Hill glides over the pine forest to Trúc Lâm, a quiet Zen monastery above Tuyền Lâm lake. Walk its gardens, then a slow boat on the lake or a long lakeside lunch.' } },
-      { p: 3, o: 3, pace: 'hike', t: 'The Tà Năng grass hills', d: 'A day hike on the first part of the Tà Năng–Phan Dũng trail, often called Vietnam’s most beautiful trek. The hills turn gold in the dry season. Only go with a licensed local guide, who arranges the permit: after accidents the route was closed to hikers without a guide, and walking it alone is still not allowed. Confirm the current rules with the operator when you book.', e: { pace: 'culture', t: 'The old railway and the flower villages', d: 'The vintage train from Đà Lạt’s 1930s station to Trại Mát and the mosaic Linh Phước pagoda, then the greenhouses of the Vạn Thành flower village.' } },
+      { p: 2, o: 2, pace: 'hike', pp: [20, 30], t: 'Bidoup–Núi Bà cloud forest', d: 'A guided trek through old pines, mossy forest and wild orchids toward Hòn Giao. December is the dry season, so the trails are firm. Book a guide at the park visitor centre.', e: { pace: 'nature', pp: [15, 25], t: 'Pine forest and a lake monastery', d: 'The cable car from Robin Hill glides over the pine forest to Trúc Lâm, a quiet Zen monastery above Tuyền Lâm lake. Walk its gardens, then a slow boat on the lake or a long lakeside lunch.' } },
+      { p: 3, o: 3, pace: 'hike', pp: [31, 44], t: 'The Tà Năng grass hills', d: 'A day hike on the first part of the Tà Năng–Phan Dũng trail, often called Vietnam’s most beautiful trek. The hills turn gold in the dry season. Only go with a licensed local guide, who arranges the permit: after accidents the route was closed to hikers without a guide, and walking it alone is still not allowed. Confirm the current rules with the operator when you book.', e: { pace: 'culture', pp: [16, 26], t: 'The old railway and the flower villages', d: 'The vintage train from Đà Lạt’s 1930s station to Trại Mát and the mosaic Linh Phước pagoda, then the greenhouses of the Vạn Thành flower village.' } },
       { p: 4, o: 4, pace: 'culture', t: 'Tea hills and a coffee farm', d: 'Sunrise over the Cầu Đất tea hills, then a K’Ho family coffee farm at the foot of Lang Biang. The wild sunflowers are over by December, but the last pink grass may still colour the slopes.' }
     ],
     gem: 'Bidoup–Núi Bà. Most visitors to Đà Lạt never leave town.',
@@ -89,9 +91,9 @@ const STOPS = {
     region: 'Central', place: 'Hue, Vietnam', label: { dx: 13, dy: 4, a: 'start' },
     photos: ['hoian_0', 'hoian_1', 'hue_0', 'hue_4', 'hoian_2'],
     days: [
-      { p: 1, o: 1, pace: 'travel', t: 'Hội An’s back roads', d: 'From Đà Nẵng airport it is 45 minutes to Hội An. Cycle out to Trà Quế vegetable village and the water-coconut channels of Cẩm Thanh.', e: { pace: 'travel', t: 'Hội An at an easy pace', d: 'From Đà Nẵng airport it is 45 minutes to Hội An. A cooking class in Trà Quế vegetable village (by taxi), then the old town around 5 pm as the lanterns come on, a sampan ride on the Thu Bồn and dinner before the crowds peak at about 7. Touristy, and still lovely.' }, rain: 'A cooking class or a lantern-making workshop, and the covered market.' },
-      { p: 2, o: 2, pace: 'culture', t: 'The old town at 6 am, then the Hải Vân Pass', d: 'See Hội An’s old town before the day-trippers arrive. Then drive, or ride with a guide, over the Hải Vân Pass to Huế, stopping at Lăng Cô lagoon.', e: { pace: 'culture', t: 'The old town at 6 am, then the Hải Vân Pass by car', d: 'See Hội An’s old town before the day-trippers arrive. Then a car with a driver over the Hải Vân Pass to Huế, stopping at Lăng Cô lagoon.' }, rain: 'If the pass is in cloud, take the tunnel and spend the time in Hội An’s assembly halls or at a tailor.' },
-      { p: 3, o: 3, pace: 'culture', t: 'Huế by bicycle', d: 'Cycle to the tombs of Minh Mạng and Tự Đức along the Perfume River, then Thiên Mụ pagoda in the late afternoon.', e: { pace: 'culture', t: 'Huế by boat and car', d: 'A dragon boat up the Perfume River to Thiên Mụ pagoda, then the tombs of Minh Mạng and Tự Đức by car. The Imperial City is flat and easy on foot.' }, rain: 'The Imperial City’s covered galleries and the Museum of Royal Antiquities, then a long lunch of bún bò Huế.' },
+      { p: 1, o: 1, pace: 'travel', t: 'Hội An’s back roads', d: 'From Đà Nẵng airport it is 45 minutes to Hội An. Cycle out to Trà Quế vegetable village and the water-coconut channels of Cẩm Thanh.', e: { pace: 'travel', pp: [35, 55], t: 'Hội An at an easy pace', d: 'From Đà Nẵng airport it is 45 minutes to Hội An. A cooking class in Trà Quế vegetable village (by taxi), then the old town around 5 pm as the lanterns come on, a sampan ride on the Thu Bồn and dinner before the crowds peak at about 7. Touristy, and still lovely.' }, rain: 'A cooking class or a lantern-making workshop, and the covered market.' },
+      { p: 2, o: 2, pace: 'culture', pp: [25, 65], t: 'The old town at 6 am, then the Hải Vân Pass', d: 'See Hội An’s old town before the day-trippers arrive. Then drive, or ride with a guide, over the Hải Vân Pass to Huế, stopping at Lăng Cô lagoon.', e: { pace: 'culture', pp: [25, 40], t: 'The old town at 6 am, then the Hải Vân Pass by car', d: 'See Hội An’s old town before the day-trippers arrive. Then a car with a driver over the Hải Vân Pass to Huế, stopping at Lăng Cô lagoon.' }, rain: 'If the pass is in cloud, take the tunnel and spend the time in Hội An’s assembly halls or at a tailor.' },
+      { p: 3, o: 3, pace: 'culture', pp: [15, 18], t: 'Huế by bicycle', d: 'Cycle to the tombs of Minh Mạng and Tự Đức along the Perfume River, then Thiên Mụ pagoda in the late afternoon.', e: { pace: 'culture', pp: [40, 56], t: 'Huế by boat and car', d: 'A dragon boat up the Perfume River to Thiên Mụ pagoda, then the tombs of Minh Mạng and Tự Đức by car. The Imperial City is flat and easy on foot.' }, rain: 'The Imperial City’s covered galleries and the Museum of Royal Antiquities, then a long lunch of bún bò Huế.' },
       { p: 4, o: 4, pace: 'nature', t: 'Huế’s countryside', d: 'The tile-roofed bridge at Thanh Toàn among the rice fields, then the Tam Giang lagoon at sunset.', rain: 'A Huế cooking class, or the old garden houses of Kim Long by car.' }
     ],
     gem: 'Thanh Toàn, a covered bridge from the 1770s in the rice fields east of Huế.',
@@ -105,7 +107,7 @@ const STOPS = {
     photos: ['puluong_1', 'puluong_2', 'puluong_3', 'puluong_0', 'puluong_5'],
     days: [
       { p: 1, o: 1, pace: 'travel', t: 'Into the valleys', d: 'Check into a bamboo homestay above the terraces in Bản Đôn or Kho Mường. Evening walk through the village.' },
-      { p: 2, o: 2, pace: 'hike', t: 'Ridges, villages and a waterfall', d: 'A full-day guided trek: the turquoise pools of Hiêu waterfall, Kho Mường village and its cave, and the ridges between the valleys.', e: { pace: 'nature', t: 'The valleys from the road', d: 'A car with a driver along the valley road, the lower pools of Hiêu waterfall (a short, easy walk), then Kho Mường village and a long lunch in a stilt house.' } },
+      { p: 2, o: 2, pace: 'hike', pp: [25, 52], t: 'Ridges, villages and a waterfall', d: 'A full-day guided trek: the turquoise pools of Hiêu waterfall, Kho Mường village and its cave, and the ridges between the valleys.', e: { pace: 'nature', pp: [20, 35], t: 'The valleys from the road', d: 'A car with a driver along the valley road, the lower pools of Hiêu waterfall (a short, easy walk), then Kho Mường village and a long lunch in a stilt house.' } },
       { p: 3, o: 3, pace: 'rest', t: 'A slow day in the valley', d: 'Bamboo water wheels, a bamboo raft on the river, weaving in a stilt house and a long lunch at the homestay. The rice is harvested by December, so mornings are misty and quiet.' }
     ],
     gem: 'The turquoise pools of Hiêu waterfall.',
@@ -118,7 +120,7 @@ const STOPS = {
     photos: ['ninhbinh_0', 'ninhbinh_3', 'ninhbinh_4', 'ninhbinh_5', 'ninhbinh_6'],
     days: [
       { p: 1, o: 1, pace: 'travel', t: 'Arrive among the karst', d: 'Stay in the lanes behind Tam Cốc. If you arrive by mid-afternoon, take the rowed boat on Vân Long’s wetland at golden hour.', solo: { pace: 'boat', t: 'Karst at dusk and at dawn', d: 'Stay in the lanes behind Tam Cốc and arrive by mid-afternoon for the rowed boat on Vân Long’s wetland at golden hour. Next morning, be at the Tràng An pier when it opens at 7 am for the cave route, then drive on.' } },
-      { p: 2, o: 2, pace: 'boat', t: 'Tràng An at 7 am', d: 'Be at the pier when it opens and take the longest cave route before the tour buses arrive. Then cycle the village lanes, or visit Hoa Lư, the 10th-century capital, and its temples to the first kings (rebuilt in the 1600s).', e: { pace: 'boat', t: 'Tràng An at 7 am', d: 'Be at the pier when it opens and take the longest cave route before the tour buses arrive; the boats are rowed for you. Then Hoa Lư, the 10th-century capital, and its temples by car.' } }
+      { p: 2, o: 2, pace: 'boat', pp: [2, 4], t: 'Tràng An at 7 am', d: 'Be at the pier when it opens and take the longest cave route before the tour buses arrive. Then cycle the village lanes, or visit Hoa Lư, the 10th-century capital, and its temples to the first kings (rebuilt in the 1600s).', e: { pace: 'boat', pp: [9, 16], t: 'Tràng An at 7 am', d: 'Be at the pier when it opens and take the longest cave route before the tour buses arrive; the boats are rowed for you. Then Hoa Lư, the 10th-century capital, and its temples by car.' } }
     ],
     gem: 'Delacour’s langurs on Vân Long’s cliffs, one of the rarest primates in the world.',
     skip: 'Hang Múa viewpoint at sunset: 500 steps, shoulder to shoulder.',
@@ -314,7 +316,7 @@ const WEATHER = {
 const COSTS = {
   currency: 'EUR', checked: 'October 2026',
   nightPP: { saigon: [16, 31], dalat: [14, 34], cattien: [13, 31], mekong: [11, 25], phuquoc: [22, 49], central: [15, 34], puluong: [15, 41], ninhbinh: [11, 27], catba: [14, 26], caobang: [9, 21], babe: [8, 26], hanoi: [15, 41] },
-  extrasPP: { catba: [75, 130], dalat: [38, 54], cattien: [17, 48], ninhbinh: [9, 10], caobang: [41, 62], babe: [13, 17], mekong: [10, 21] },
+  extrasPP: { catba: [75, 130], cattien: [17, 48], ninhbinh: [9, 10], caobang: [41, 62], babe: [13, 17], mekong: [10, 21] },
   flightPP: [40, 95], roadHourPP: [2.5, 5], carHourPP: [10, 18], dayPP: [22, 45]
 };
 
