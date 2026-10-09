@@ -1,26 +1,26 @@
 # Co dalej — planer „Vietnam in December”
 
-Stan na 9.10.2026: `main` = `f07930b`, wszystko opublikowane (strona, artifact, plik offline). Szczegóły każdego punktu: [audyt-2026-10-09.md](audyt-2026-10-09.md).
+Stan na 9.10.2026: opublikowane jest `f07930b` (strona, artifact, plik offline). Paczka (a) jest na `main` lokalnie, niewypchnięta i nieopublikowana. Szczegóły każdego punktu: [audyt-2026-10-09.md](audyt-2026-10-09.md).
 
 Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz ją w sekcji „Zrobione”.
 
 ## Kolejka
 
-### (a) Logika tras — wybrana, następna w kolejce
-- [ ] Cát Bà ≥ 3 noce w każdej kombinacji. Dziś reguła jest łamana w 28 ze 138 kombinacji:
+### (a) Logika tras — zrobione 9.10.2026 (czeka na publikację)
+- [x] Cát Bà ≥ 3 noce w każdej kombinacji. Dziś reguła jest łamana w 28 ze 138 kombinacji:
   - Balanced + dni w HCMC + dodatkowa noc „Ninh Bình”;
   - Nature & hiking + zamiana „zatoka zamiast dolin”, bo Cát Bà dziedziczy 2 noce Pù Luông.
-- [ ] Rejs po Lan Hạ na drugą noc na Cát Bà. Dziś jest zawsze ostatnią nocą, więc w domyślnej trasie wypada w noc 23/24.12, a łódź wraca ok. 12:00. Notka `n.cruise`: zmienić „ok. 11” na „ok. 12:00”.
-- [ ] Dojazd z noclegu na lotnisko wylotu w `buildLeg`: Đà Lạt, Phú Quốc, Huế i hotel w HCMC (ten ostatni tylko po dniach w HCMC).
-- [ ] Poprawić `ROAD`:
+- [x] Rejs po Lan Hạ na drugą noc na Cát Bà. Dziś jest zawsze ostatnią nocą, więc w domyślnej trasie wypada w noc 23/24.12, a łódź wraca ok. 12:00. Notka `n.cruise`: zmienić „ok. 11” na „ok. 12:00”.
+- [x] Dojazd z noclegu na lotnisko wylotu w `buildLeg`: Đà Lạt, Phú Quốc, Huế i hotel w HCMC (ten ostatni tylko po dniach w HCMC).
+- [x] Poprawić `ROAD`:
   - Ninh Bình–Cát Bà: 4 h;
   - Hà Nội–Cát Bà: 4 h;
   - Pù Luông–Ninh Bình: 3 h.
-- [ ] Zaznaczona karta stylu ma pokazywać to samo co pasek liczb (Easy classics po wyłączeniu wersji łagodnej).
-- [ ] Plany jednonocne a następny przejazd:
+- [x] Zaznaczona karta stylu ma pokazywać to samo co pasek liczb (Easy classics po wyłączeniu wersji łagodnej).
+- [x] Plany jednonocne a następny przejazd:
   - Ninh Bình na 1 noc → 8 h do Cao Bằng;
   - Mekong na 1 noc → notka „morning flight”.
-- [ ] Test, który przechodzi wszystkie kombinacje (14 nocy, ciągłe dni, Cát Bà ≥ 3, wersja łagodna bez wędrówek, rejs nie ostatniej nocy).
+- [x] Test, który przechodzi wszystkie kombinacje (14 nocy, ciągłe dni, Cát Bà ≥ 3, wersja łagodna bez wędrówek, rejs nie ostatniej nocy).
 
 ### (b) Teksty i fakty
 - [ ] Opisy, które obiecują coś, czego wariant nie ma:
@@ -33,6 +33,11 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
   - `x.p2`;
   - „mapa podąża za przewijaniem”, choć na telefonie stoi;
   - lista miejsc na karcie nie nadąża za zamianami.
+- [ ] Teksty, które zdezaktualizowała paczka (a):
+  - Easy classics i Culture bez wersji łagodnej mają teraz 1 i 0 dni wędrówek (dzień Ngự Lâm na Cát Bà jest tylko przy 4 nocach); Balanced ma 2 (bez HCMC) albo 1 (z HCMC), więc „two hiking days” w `why` pasuje tylko bez HCMC;
+  - przy 3 nocach na Cát Bà Việt Hải jest tylko w ramach rejsu: `gem` Cát Bà, `swaps.pts.catba` („a car-free village”) i `b.cruise` powinny mówić, żeby wybrać rejs, który tam zawija (Full Moon tak; Cat Ba Ventures do sprawdzenia);
+  - Nature: „two long travel days” i „fewest towns” sprawdzić od nowa, bo zamiana „zatoka czy doliny” nie jest już oferowana;
+  - `home.d`: dopisać, że 24.12 przyjeżdżacie z Cát Bà ok. 12:00–13:00 (wyjazd po śniadaniu, 4 h).
 - [ ] Fakty do poprawienia:
   - Świątynia Literatury od 8:00;
   - Bản Giốc zimą ok. 7:30, a „weekend” nie pasuje do 22/23.12;
@@ -76,6 +81,7 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
 - [ ] Czy plik offline wysłany przez WhatsApp otwiera się na iPhonie z JavaScriptem. Podgląd może pokazać pustą stronę.
 
 ## Zrobione
+- **9.10.2026:** paczka (a) „Logika tras”: składanie trasy w `plan.js`, test wszystkich kombinacji (`tests/routes.test.js`, dziś 106), Cát Bà ≥ 3 noce (bez nocy „Ninh Bình” w Balanced, bez zamiany zatoki w Nature), rejs na drugą noc, dojazdy na lotniska, czasy w `ROAD` (`research/road-times-2026-10.md`), notki po planach jednonocnych, karta stylu = pasek liczb. Commity `36d4712`…`700ed9c`, niewypchnięte.
 - **9.10.2026:** wersja polska (EN/DE/PL), odmiana liczebników, pełny dokument HTML z viewport dla GitHub Pages. Opublikowane (`f07930b`).
 - **9.10.2026:** audyt całej strony: [audyt-2026-10-09.md](audyt-2026-10-09.md).
 - **8.10.2026:** poprawki z pierwszego audytu: statystyki na kartach, budżet, daty, linki rezerwacji, menu sekcji, Tà Năng tylko z przewodnikiem. Plan: [plans/2026-10-08-vietnam-planer-poprawki-z-audytu.md](plans/2026-10-08-vietnam-planer-poprawki-z-audytu.md).
