@@ -3,7 +3,7 @@
 
 const UI = {
   en: {
-    'lang.aria': 'Language',
+    'doc.title': 'Vietnam in December', 'lang.aria': 'Language',
     'nav.aria': 'Sections', 'nav.styles': 'Trip styles', 'nav.shape': 'At a glance', 'nav.days': 'Day by day', 'nav.weather': 'Weather', 'nav.logistics': 'Before you go', 'nav.top': 'Back to top',
     'hero.alt': 'A woman rowing a small boat on the river below limestone cliffs at Tràng An, Ninh Bình',
     'hero.eyebrow': '{days} days · 11–25 December 2026 · Hồ Chí Minh City → Hà Nội',
@@ -94,7 +94,7 @@ const UI = {
     'pt.title': 'Vietnam, {days} days in December: ', 'pt.link': 'This plan on the page: ', 'pt.home': 'Day {days}: fly home from Hà Nội (CA884 + CA931, 4:30 am)', 'pt.arrive': 'Day 1: land in Hồ Chí Minh City (VN30, 6:35 am)', 'pt.flights': 'Flights: '
   },
   de: {
-    'lang.aria': 'Sprache',
+    'doc.title': 'Vietnam im Dezember', 'lang.aria': 'Sprache',
     'nav.aria': 'Abschnitte', 'nav.styles': 'Reisestile', 'nav.shape': 'Auf einen Blick', 'nav.days': 'Tag für Tag', 'nav.weather': 'Wetter', 'nav.logistics': 'Vor der Reise', 'nav.top': 'Nach oben',
     'hero.alt': 'Eine Frau rudert ein kleines Boot auf dem Fluss unter den Kalksteinfelsen von Tràng An, Ninh Bình',
     'hero.eyebrow': '{days} Tage · 11.–25. Dezember 2026 · Hồ Chí Minh City → Hà Nội',

@@ -79,10 +79,43 @@ def clean_artist(a):
     return a or "Unknown"
 
 
-def full_document(fragment):
-    """The page fragment as a complete HTML document: doctype, charset and viewport meta, no body margin. For files that are served as they are."""
+SITE_URL = "https://grzegorzfrskiba-hub.github.io/vietnam-december/"
+# Link preview (WhatsApp and others), one language for everyone: German, because the friend and his parents get the link.
+PREVIEW = {
+    "title": "Vietnam im Dezember: 15 Tage von Süden nach Norden",
+    "description": "Fünf fertige Routen für den 11.–25. Dezember 2026, von Hồ Chí Minh City nach Hà Nội. Wählt gemeinsam euren Reisestil.",
+    "alt": "Ein Ruderboot auf dem Fluss unter den Kalksteinfelsen von Tràng An, Ninh Bình",
+}
+OG_SIZE = (1200, 630)
+# tab icon: karst peaks on the page's accent green
+ICON = ("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='#0c6a5a'/>"
+        "<path d='M8 50 15 30 21 38 30 13 39 33 45 24 56 50z' fill='#fff'/></svg>")
+
+
+def head_extras(preview):
+    """Tab icon for every full document; the link preview tags only for the public page, whose URL they name."""
+    from urllib.parse import quote
+    out = '<link rel="icon" href="data:image/svg+xml,%s">\n' % quote(ICON, safe="/:=' ")
+    if preview:
+        esc = lambda t: t.replace("&", "&amp;").replace('"', "&quot;")
+        out += ('<meta name="description" content="%s">\n' % esc(PREVIEW["description"])
+                + '<meta property="og:type" content="website">\n<meta property="og:locale" content="de_DE">\n'
+                + '<meta property="og:url" content="%s">\n' % SITE_URL
+                + '<meta property="og:title" content="%s">\n' % esc(PREVIEW["title"])
+                + '<meta property="og:description" content="%s">\n' % esc(PREVIEW["description"])
+                + '<meta property="og:image" content="%simg/og.jpg">\n' % SITE_URL
+                + '<meta property="og:image:width" content="%d">\n<meta property="og:image:height" content="%d">\n' % OG_SIZE
+                + '<meta property="og:image:alt" content="%s">\n' % esc(PREVIEW["alt"])
+                + '<meta name="twitter:card" content="summary_large_image">\n')
+    return out
+
+
+def full_document(fragment, preview=False):
+    """The page fragment as a complete HTML document: doctype, charset and viewport meta, tab icon, no body margin.
+    For files that are served as they are."""
     return ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+            + head_extras(preview)
             + fragment.replace("<style>", "<style>\nbody { margin: 0; }", 1).replace("</style>", "</style>\n</head>\n<body>", 1)
             + "\n</body>\n</html>\n")
 
@@ -133,6 +166,14 @@ def main():
             web[pid]["srcset"] = ", ".join(srcset + ["img/%s.jpg %dw" % (pid, w)])
         (w, h), b = encode(im, 1600 if pid == HERO else 1200, 68)
         off[pid] = dict(base, src="data:image/jpeg;base64," + base64.b64encode(b).decode(), w=w, h=h)
+        if pid == HERO:
+            # link preview image: the hero cut to 1200 x 630, kept low so the rower stays in the picture
+            ow, oh = OG_SIZE
+            k = max(ow / im.width, oh / im.height)
+            big = im.resize((round(im.width * k), round(im.height * k)), Image.LANCZOS)
+            top = round((big.height - oh) * 0.95)
+            left = (big.width - ow) // 2
+            big.crop((left, top, left + ow, top + oh)).save(os.path.join(OUT_WEB, "img", "og.jpg"), "JPEG", quality=78, optimize=True, progressive=True)
 
     def page(photos):
         script = (data_js + "\n" + basemap_js + "\n" + i18n_js + "\n" + plan_js + "\nconst PHOTOS = " + json.dumps(photos, ensure_ascii=False) + ";\nconst HERO = " + json.dumps(HERO) + ";\n" + app_js)
@@ -146,7 +187,7 @@ def main():
     web_page = page(web)
     open(os.path.join(OUT_WEB, "index.html"), "w", encoding="utf-8").write(web_page)
     # GitHub Pages serves files as they are, so it gets the full document and its own copy of the images
-    open(os.path.join(OUT_PAGES, "index.html"), "w", encoding="utf-8").write(full_document(web_page))
+    open(os.path.join(OUT_PAGES, "index.html"), "w", encoding="utf-8").write(full_document(web_page, preview=True))
     shutil.copytree(os.path.join(OUT_WEB, "img"), os.path.join(OUT_PAGES, "img"))
     open(os.path.join(OUT_OFF, "Vietnam-in-December.html"), "w", encoding="utf-8").write(full_document(page(off)))
 

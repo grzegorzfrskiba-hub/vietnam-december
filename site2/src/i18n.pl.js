@@ -6,7 +6,7 @@
    'fmt.hm' formats a duration in hours and minutes. */
 
 UI.pl = {
-  'lang.aria': 'Język',
+  'doc.title': 'Wietnam w grudniu', 'lang.aria': 'Język',
   'nav.aria': 'Sekcje', 'nav.styles': 'Style podróży', 'nav.shape': 'W skrócie', 'nav.days': 'Dzień po dniu', 'nav.weather': 'Pogoda', 'nav.logistics': 'Przed wyjazdem', 'nav.top': 'Na górę',
   'hero.alt': 'Kobieta wiosłuje małą łodzią po rzece u stóp wapiennych skał w Tràng An, Ninh Bình',
   'hero.eyebrow': '{days} dni · 11–25 grudnia 2026 · Hồ Chí Minh City → Hà Nội',
