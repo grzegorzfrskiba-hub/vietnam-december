@@ -82,30 +82,34 @@ function roadText(from, to) {
 function flySeg(a, b) { return { mode: 'fly', from: a, to: b, h: FLY[a + '-' + b] }; }
 function roadSeg(a, b, h, k) { return { mode: 'road', from: a, to: b, h: h, k: k }; }
 
-/* One travel leg between two stops ('start' is the arrival airport): road and flight segments, door-to-door hours and a note key. */
+/* One travel leg between two stops ('start' is the arrival airport, 'saigon' a hotel in the city): road and flight segments,
+   door-to-door hours and a note key. A flight starts with the ride from the stop to its airport. */
 function buildLeg(from, to) {
   var segs = [];
   var air;
+  var dep = from === 'saigon' ? 'start' : from;   // after the city days the trip goes on as from Day 1, plus the ride to the airport
+  function toAirport() {
+    var a = TO_AIR[from];
+    if (a) segs.push(roadSeg(from, a[0], a[1], a[2]));
+    return a ? a[0] : 'SGN';
+  }
   if (NORTH.has(to)) {
-    if (from === 'start' || !NORTH.has(from)) {
-      air = EXIT_AIR[from];
-      if (from === 'cattien') { segs.push(roadSeg('cattien', 'SGN', 4, 'r.back_sgn')); air = 'SGN'; }
+    if (dep === 'start' || !NORTH.has(dep)) {
+      air = toAirport();
       segs.push(flySeg(air, 'HAN'));
       segs.push(roadSeg('HAN', to, ROAD_FROM_HAN[to], to === 'hanoi' || to === 'hanoiStop' ? 'r.taxi_city' : roadText('HAN', to)));
     } else {
       segs.push(roadSeg(from, to, roadHours(from, to), roadText(from, to)));
     }
   } else if (to === 'central') {
-    air = EXIT_AIR[from];
-    if (from === 'cattien') { segs.push(roadSeg('cattien', 'SGN', 4, 'r.back_sgn')); air = 'SGN'; }
-    if (from === 'mekong') segs.push(roadSeg('mekong', 'VCA', 0.75, 'r.taxi_vca'));
+    air = toAirport();
     segs.push(flySeg(air, 'DAD'));
     segs.push(roadSeg('DAD', 'central', 0.75, 'r.taxi_hoian'));
-  } else if (from === 'start') {
+  } else if (dep === 'start') {
     if (to === 'mekong') segs.push(roadSeg('start', 'mekong', 3.5, 'r.bus_mekong'));
     if (to === 'cattien') segs.push(roadSeg('start', 'cattien', 4, 'r.car_cattien'));
-    if (to === 'dalat') { segs.push(flySeg('SGN', 'DLI')); segs.push(roadSeg('DLI', 'dalat', 0.75, 'r.taxi_dalat')); }
-    if (to === 'phuquoc') { segs.push(flySeg('SGN', 'PQC')); segs.push(roadSeg('PQC', 'phuquoc', 0.75, 'r.taxi_pq')); }
+    if (to === 'dalat') { segs.push(flySeg(toAirport(), 'DLI')); segs.push(roadSeg('DLI', 'dalat', 0.75, 'r.taxi_dalat')); }
+    if (to === 'phuquoc') { segs.push(flySeg(toAirport(), 'PQC')); segs.push(roadSeg('PQC', 'phuquoc', 0.75, 'r.taxi_pq')); }
   } else if (from === 'cattien' && to === 'dalat') {
     segs.push(roadSeg('cattien', 'dalat', 4.5, 'r.car_baoloc'));
   } else if (from === 'mekong' && to === 'dalat') {
@@ -164,8 +168,8 @@ function buildRoute(styleId, choice, saigon, gentle, dayPlans) {
       .slice(0, s.n).sort(function (x, y) { return x.o - y.o; });
     if (tmpl.length !== s.n) throw new Error('Not enough day plans for ' + s.id);
     out.push({
-      // the city add-on has no leg in; the next stop leaves from the city exactly as Day 1 would
-      id: s.id, n: s.n, num: i + 1, start: day, end: day + s.n - 1, leg: s.id === 'saigon' ? null : buildLeg(prev === 'saigon' ? 'start' : prev, s.id),
+      // the city add-on has no leg in: the trip starts there
+      id: s.id, n: s.n, num: i + 1, start: day, end: day + s.n - 1, leg: s.id === 'saigon' ? null : buildLeg(prev, s.id),
       // gentle: swap in the day's easy version (no hikes, no bikes) where it has one
       // a one-night stop uses its folded plan (solo) when it has one
       days: tmpl.map(function (t, k) { return Object.assign({ day: day + k }, t, s.n === 1 && t.solo ? t.solo : gentle && t.e ? Object.assign({ gentle: true }, t.e) : {}); })

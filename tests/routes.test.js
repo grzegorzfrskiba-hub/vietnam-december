@@ -48,6 +48,8 @@ combos.forEach(function (c) {
     if (s.id === 'saigon') { need(i === 0 && !s.leg, 'city days not first'); return; }
     need(s.leg && s.leg.segs.length && s.leg.total > 0, 'no leg into ' + s.id);
     if (s.leg) s.leg.segs.forEach(function (g) { need(typeof g.h === 'number' && g.h > 0, 'segment without hours into ' + s.id); });
+    // a flight from anywhere but the arrival airport starts with the ride from the stop to the airport
+    if (s.leg && s.leg.flights && s.leg.from !== 'start') need(s.leg.segs[0].mode === 'road' && s.leg.segs[0].from === s.leg.from, 'no ride to the airport from ' + s.leg.from);
   });
 
   // the gentle version has no hikes

@@ -55,6 +55,7 @@ UI.pl = {
   'r.taxi_vca': 'Taksówka na lotnisko w Cần Thơ', 'r.taxi_hoian': 'Taksówka do Hội An',
   'r.bus_mekong': 'Autobus albo prywatny samochód do Phong Điền', 'r.car_cattien': 'Prywatny samochód albo autobus, potem prom przez rzekę',
   'r.taxi_dalat': 'Taksówka w górę, do Đà Lạt', 'r.taxi_pq': 'Taksówka na północne wybrzeże', 'r.car_baoloc': 'Prywatny samochód w górę, przez Bảo Lộc',
+  'r.taxi_sgn': 'Taksówka na lotnisko w Hồ Chí Minh City', 'r.taxi_dli': 'Taksówka na lotnisko w Đà Lạt', 'r.taxi_pqc': 'Taksówka na lotnisko w Phú Quốc', 'r.taxi_hui': 'Taksówka na lotnisko w Huế',
   'n.cruise': 'Statek przybija do brzegu ok. 11:00.',
   'n.bangioc': 'Bản Giốc obejrzyjcie zaraz po otwarciu o 7:00, przed weekendowym tłumem, a potem w drogę.',
   'n.long': 'Jazda zajmie cały dzień: wyruszcie wcześnie.', 'n.morning': 'Wybierzcie poranny lot.',

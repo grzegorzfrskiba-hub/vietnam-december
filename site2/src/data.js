@@ -281,7 +281,9 @@ const SWAPS = [
 const FLY = { 'SGN-DLI': 0.9, 'SGN-PQC': 1, 'SGN-DAD': 1.3, 'SGN-HAN': 2.2, 'VCA-DAD': 1.5, 'VCA-HAN': 2.2,
   'PQC-HAN': 2.1, 'DLI-HAN': 1.8, 'DLI-DAD': 1.1, 'HUI-HAN': 1.2 };
 const AIRPORT_NAME = { SGN: 'Hồ Chí Minh City', VCA: 'Cần Thơ', PQC: 'Phú Quốc', DLI: 'Đà Lạt', DAD: 'Đà Nẵng', HUI: 'Huế', HAN: 'Hà Nội' };
-const EXIT_AIR = { start: 'SGN', mekong: 'VCA', phuquoc: 'PQC', dalat: 'DLI', central: 'HUI' };
+/* From a stop to its airport before a flight: [airport, hours, text]. Day 1 starts at the airport, so 'start' needs no ride. */
+const TO_AIR = { saigon: ['SGN', 0.5, 'r.taxi_sgn'], cattien: ['SGN', 4, 'r.back_sgn'], mekong: ['VCA', 0.75, 'r.taxi_vca'],
+  phuquoc: ['PQC', 0.75, 'r.taxi_pqc'], dalat: ['DLI', 0.75, 'r.taxi_dli'], central: ['HUI', 0.5, 'r.taxi_hui'] };
 const ROAD_FROM_HAN = { puluong: 4, ninhbinh: 2, catba: 4, caobang: 6, babe: 5, hanoi: 0.75, hanoiStop: 0.75 };
 const ROAD = {
   'hanoi-ninhbinh': 2, 'hanoi-catba': 4, 'hanoi-caobang': 6, 'hanoi-babe': 5, 'hanoi-puluong': 4,
