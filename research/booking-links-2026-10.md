@@ -32,6 +32,12 @@ Kryteria: firma ma siedzibę w Cát Bà, rejs rusza z portu na wyspie (nie z Tu�
 Odrzucone: Cat Ba Du Ky (catbaduky.com; Beo Port, ale na stronie tylko 3 opinie i 145 USD), GetYourGuide/Viator (pośrednicy, nie operatorzy), Cat Ba Panorama (tylko jednodniowa wycieczka).
 Przypomnienie dla użytkownika: wybierając wariant, zapytać o bezpłatną zmianę terminu przy mgle lub sztormie (tekst `b.cruise`).
 
+**Việt Hải (sprawdzone 9.10.2026).** Po paczce (a) rejs jest drugą nocą, a przy 3 nocach na Cát Bà dnia w Việt Hải nie ma, więc wioskę widać tylko z rejsu.
+- Full Moon 2D1N zawija do Việt Hải drugiego dnia o 8:00: 5 km rowerem, powrót ok. 9:30. Strona nie wspomina o meleksach. Cena 130 USD (wcześniej 155), z busem, wstępami, przewodnikiem i posiłkami.
+- Cat Ba Ventures 2D1N (link wyżej, kajaki) do Việt Hải nie zawija: drugi dzień to wyspa Đầu Bê i laguny. Việt Hải ma dopiero wariant 3D2N.
+
+Dlatego od 9.10.2026 Full Moon jest pierwszym linkiem, a tekst `b.cruise` mówi, że to ten rejs zawija do Việt Hải.
+
 ## Bidoup–Núi Bà (`b.dalat`)
 
 - https://bidoupnuiba.gov.vn/ — oficjalna strona parku narodowego (Ban Quản lý Vườn quốc gia Bidoup Núi Bà, Lâm Đồng); trasy (Langbiang 1 dzień, Bidoup 17 km), kamping, noclegi i cennik usług, kontakt (tel. 0263 3502005, vqgbdnb@lamdong.gov.vn, Zalo/Messenger); przełącznik VN/EN (treść głównie po wietnamsku). Status 200. Etykieta w planerze: „Bidoup–Núi Bà park”.

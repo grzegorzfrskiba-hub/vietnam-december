@@ -137,7 +137,7 @@ const STOPS = {
       { p: 3, o: 3, pace: 'rest', t: 'Back on land, a slow afternoon', d: 'The boat docks back on Cát Bà around 12:00. A long seafood lunch by the harbour, then the small Cát Cò beaches and a massage. The sea is brisk in December, around 22 °C.' },
       { p: 2, o: 2, pace: 'boat', t: 'Overnight on Lan Hạ Bay', d: 'Board a two-day, one-night cruise that starts on Cát Bà and sails into Lan Hạ Bay and the quiet southern edge of Hạ Long Bay. Kayak, visit a floating village and sleep on the boat.', e: { pace: 'boat', t: 'Overnight on Lan Hạ Bay', d: 'A two-day, one-night cruise into Lan Hạ Bay and the quiet southern edge of Hạ Long Bay. Pick a bigger, steadier boat with en-suite cabins, take the bamboo boat rowed by locals instead of a kayak, and watch the sunset from the deck.' } }
     ],
-    gem: 'Việt Hải, a village with no cars inside the national park.',
+    gem: 'Việt Hải, a village with no cars inside the national park. The Full Moon cruise stops there; with three nights it is your way in.',
     skip: 'Hạ Long cruises from Tuần Châu, and the crowded Sửng Sốt cave and Ti Tốp island stops.',
     instead: 'A cruise that starts from Cát Bà.'
   },
@@ -264,7 +264,7 @@ const SWAPS = [
   {
     id: 'water', a: 'catba', b: 'puluong', q: 'The bay or the valleys?',
     pts: {
-      catba: ['A night on a boat among the karst islands', 'Kayaking, a car-free village, seafood', 'Cool and often misty; the sea is about 22 °C'],
+      catba: ['A night on a boat among the karst islands', 'Kayaking or a rowed bamboo boat, island beaches, seafood', 'Cool and often misty; the sea is about 22 °C'],
       puluong: ['Bamboo homestays and a full day in the valleys', 'Rice valleys, water wheels and Thái villages', 'Rice is harvested by December; misty mornings']
     }
   },
@@ -346,7 +346,7 @@ const BIDOUP_LINK = [{ label: 'Bidoup–Núi Bà', url: 'https://bidoupnuiba.gov
 const BOOK_LINKS = {
   'b.xmas': [{ label: 'Vietnam Airlines', url: 'https://www.vietnamairlines.com/' }, { label: 'Vietjet', url: 'https://www.vietjetair.com/' }, { label: 'Google Flights', url: 'https://www.google.com/travel/flights' }],
   'b.transfer': [{ label: '12Go', url: 'https://12go.asia/en/vietnam/transport' }],
-  'b.cruise': [{ label: 'Cat Ba Ventures', url: 'https://catbaventures.com/tours/cat-ba/sailing-expeditions-kayaking.html' }, { label: 'Full Moon Travel Asia', url: 'https://fullmoontravelasia.com/cat-ba-overnight-cruise-lan-ha-bay-viet-hai-village/' }],
+  'b.cruise': [{ label: 'Full Moon Travel Asia', url: 'https://fullmoontravelasia.com/cat-ba-overnight-cruise-lan-ha-bay-viet-hai-village/' }, { label: 'Cat Ba Ventures', url: 'https://catbaventures.com/tours/cat-ba/sailing-expeditions-kayaking.html' }],
   'b.dalat': BIDOUP_LINK,
   'b.dalat_bidoup': BIDOUP_LINK
 };

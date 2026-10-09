@@ -73,7 +73,7 @@ UI.pl = {
   'home.h3': 'Lot do domu z Hà Nội', 'home.t': 'Wigilia, a potem nocny lot',
   'home.d': 'Ostatniego dnia, 24 grudnia, około południa jesteście z powrotem w Hà Nội. Wieczorem kolacja wigilijna na Starym Mieście (stolik zarezerwujcie wcześniej), a potem katedra św. Józefa, rozświetlona i pełna ludzi. Ulice wokół niej są zamknięte dla aut w godz. 18–24, a tłum jest największy ok. 23:00, więc idźcie pieszo, najlepiej przed 20:00. Potem kilka godzin snu w hotelu na Starym Mieście. Taksówka ok. 1:30 w nocy: o tej porze jazda do Nội Bài trwa ok. 40 min, więc na odprawę przed CA884 o 4:30 zostają dwie godziny.',
   'b.xmas': 'Podróż kończy się w Wigilię, w szczycie sezonu: loty krajowe i najlepsze pokoje zarezerwujcie do początku listopada, a w Hà Nội pamiętajcie o rezerwacji kolacji wigilijnej.',
-  'b.cruise': 'Rejs po Zatoce Lan Hạ, który zaczyna się na Cát Bà, z bezpłatną zmianą terminu w razie mgły albo sztormu.',
+  'b.cruise': 'Rejs po Zatoce Lan Hạ, który zaczyna się na Cát Bà, z bezpłatną zmianą terminu w razie mgły albo sztormu. Rejs Full Moon zawija też do wioski Việt Hải (rowerem, 5 km po płaskim).',
   'b.dalat_bidoup': 'Przewodnika po Bidoup–Núi Bà – rezerwuje się go w centrum informacji turystycznej parku.',
   'b.dalat': 'Licencjonowanego lokalnego przewodnika na wzgórza Tà Năng i przewodnika po Bidoup–Núi Bà.',
   'b.cattien': 'Wędrówkę nad Jezioro Krokodyli i pozwolenie – dzień wcześniej w siedzibie parku Cát Tiên.',
@@ -193,7 +193,7 @@ const I18N_PL = {
         ['Z powrotem na lądzie, spokojne popołudnie', 'Statek wraca na Cát Bà ok. 12:00. Długi obiad z owocami morza przy porcie, potem małe plaże Cát Cò i masaż. W grudniu woda jest orzeźwiająca, ok. 22 °C.'],
         ['Noc na Zatoce Lan Hạ', 'Dwudniowy rejs z jednym noclegiem: statek wypływa z Cát Bà i płynie przez Zatokę Lan Hạ aż po spokojny południowy skraj Zatoki Hạ Long. Kajaki, wizyta w pływającej wiosce i noc na pokładzie.']
       ],
-      gem: 'Việt Hải, wioska bez samochodów na terenie parku narodowego.',
+      gem: 'Việt Hải, wioska bez samochodów na terenie parku narodowego. Zawija tam rejs Full Moon; przy trzech nocach to wasz sposób, żeby tam dotrzeć.',
       skip: 'Rejsy po Hạ Long z Tuần Châu i zatłoczone postoje przy jaskini Sửng Sốt i na wyspie Ti Tốp.',
       instead: 'rejs, który zaczyna się na Cát Bà.'
     },
@@ -262,7 +262,7 @@ const I18N_PL = {
       pts: { dalat: ['Suche, słoneczne dni i zimne noce (ok. 13 °C)', 'Las sosnowy i najlepsze tereny do wędrówek na całej trasie', 'Przede wszystkim przyroda, niewiele atrakcji do odhaczenia'],
         central: ['Hội An, przełęcz Hải Vân i cesarskie Huế', 'Pora deszczowa: ok. 20 dni z deszczem w grudniu', 'Przede wszystkim kultura, mniej przyrody'] } },
     water: { q: 'Zatoka czy doliny?',
-      pts: { catba: ['Noc na statku wśród krasowych wysp', 'Kajaki, wioska bez samochodów, owoce morza', 'Chłodno i często mgliście; morze ma ok. 22 °C'],
+      pts: { catba: ['Noc na statku wśród krasowych wysp', 'Kajak albo bambusowa łódź z wioślarzem, plaże na wyspie, owoce morza', 'Chłodno i często mgliście; morze ma ok. 22 °C'],
         puluong: ['Noclegi u gospodarzy w bambusowych domach i cały dzień w dolinach', 'Ryżowe doliny, koła wodne i wioski ludu Thái', 'W grudniu ryż jest już zebrany; mgliste poranki'] } },
     south: { q: 'Delta czy dżungla?',
       pts: { mekong: ['Pływający targ, sady i życie u gospodarzy', 'Płasko, łatwo i bardzo towarzysko', 'W grudniu ciepło i sucho'],
