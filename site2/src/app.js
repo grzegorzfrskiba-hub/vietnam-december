@@ -126,13 +126,14 @@
     $('#style-list').innerHTML = html;
   }
   // each card shows the trip that clicking it would give: the current Saigon setting, and gentle if the
-  // style is gentle or the gentle setting is on; the selected card also follows the
-  // user's swaps and spare-night pick. Only the text is refreshed, so the radios keep focus.
+  // style is gentle or the gentle setting is on; the selected card shows the current trip, exactly as the
+  // facts bar: the user's swaps, spare-night pick and gentle setting. Only the text is refreshed, so the radios keep focus.
   function renderCardStats() {
     Object.keys(ROUTES).forEach(function (id) {
       var el = document.querySelector('#style-' + id + ' ~ .style-body .style-stats');
       if (!el) return;
-      var built = routeFor(id, id === state.style ? state.choice : {}, state.saigon, ROUTES[id].gentle || state.gentle);
+      var sel = id === state.style;
+      var built = routeFor(id, sel ? state.choice : {}, state.saigon, sel ? state.gentle : ROUTES[id].gentle || state.gentle);
       var st = routeStats(built);
       el.textContent = T('styles.stats', { f: st.flights, h: st.hikes, l: approx(st.longest).replace('≈ ', ''), b: fmtMoney(budgetFor(built, COSTS)) });
     });
