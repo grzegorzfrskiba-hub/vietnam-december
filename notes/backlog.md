@@ -82,11 +82,11 @@ Decyzje użytkownika (9.10.2026): link zawsze do strony na GitHubie, podgląd po
 - [x] Lista „Zarezerwuj do…”: bez dat, od najpilniejszego. Doszły dwie pozycje: hotel w HCMC od nocy 10/11.12 (przy dniach w HCMC) i lot Đà Lạt–Đà Nẵng (gdy jest na trasie).
 - [x] Łączne godziny w drodze przy każdym stylu i liczba pobudek przed 6:00 (dni z `early: true` w `data.js`, na dniu plakietka „Up before 6”). Nocna taksówka 15. dnia nie jest liczona, bo jest w każdej trasie.
 
-## Do decyzji użytkownika (z paczki (b), 9.10.2026)
-- [ ] Việt Hải w wersji łagodnej: rejs Full Moon dojeżdża tam tylko rowerem (5 km po płaskim), a wersja łagodna obiecuje „bez rowerów”. Pominąć, dopytać operatora o melex czy zostawić? Dziś `b.cruise` mówi uczciwie „rowerem”.
-- [ ] Link Cat Ba Ventures w `b.cruise` (drugi): jego rejs 2D1N to wyprawa kajakowa bez Việt Hải. Zostawić czy usunąć?
-- [ ] Dopisek „0 (3 bez wersji łagodnej)” jest na wszystkich kartach stylów, gdzie liczby się różnią. Zostawić czy tylko przy Nature?
-- [ ] Ceny bez źródła, przyjęte jako szacunki (`research/budget-2026-10.md`): auto na dzień w Pù Luông, auto Tam Cốc–Hoa Lư, jednodniowy Tà Năng.
+## Decyzje użytkownika (z paczki (b)): wszystkie cztery zostają bez zmian (9.10.2026)
+- [x] Zostaje jak jest. Việt Hải w wersji łagodnej: rejs Full Moon dojeżdża tam tylko rowerem (5 km po płaskim), a wersja łagodna obiecuje „bez rowerów”. Pominąć, dopytać operatora o melex czy zostawić? Dziś `b.cruise` mówi uczciwie „rowerem”.
+- [x] Zostaje jak jest. Link Cat Ba Ventures w `b.cruise` (drugi): jego rejs 2D1N to wyprawa kajakowa bez Việt Hải. Zostawić czy usunąć?
+- [x] Zostaje jak jest. Dopisek „0 (3 bez wersji łagodnej)” jest na wszystkich kartach stylów, gdzie liczby się różnią. Zostawić czy tylko przy Nature?
+- [x] Zostaje jak jest. Ceny bez źródła, przyjęte jako szacunki (`research/budget-2026-10.md`): auto na dzień w Pù Luông, auto Tam Cốc–Hoa Lư, jednodniowy Tà Năng.
 
 ## Do sprawdzenia poza kodem (organizator)
 - [ ] Godzina CA884 na bilecie. Zimowy rozkład Air China podaje 04:00, nie 04:30 (AeroRoutes, 4.08.2026). Jeśli to prawda, taxi powinno jechać ok. 0:30–0:45.
