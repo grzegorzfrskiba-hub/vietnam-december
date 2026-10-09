@@ -16,8 +16,6 @@
   var TR = { de: I18N_DE, pl: I18N_PL };   // translated trip content; English lives in data.js
   var LOCALE = { en: 'en-GB', de: 'de-DE', pl: 'pl-PL' };
   var lang = 'en';
-  var EXTRA_N = 3;     // nights of the optional Hồ Chí Minh City start, taken from the route's own nights
-  var DAYS = 15;       // trip length incl. the flight-home day
   var stored = '';
   try { stored = localStorage.getItem(LKEY) || ''; } catch (e) { /* storage unavailable */ }
   lang = pickLang(stored, navigator.language, location.hash, LANGS);
@@ -68,113 +66,12 @@
   }
   function dayRange(a, b) { return a === b ? T('day') + ' ' + a : T('days') + ' ' + a + '–' + b; }
 
-  /* ---------- legs ---------- */
-  function normStop(id) { return id === 'hanoiStop' ? 'hanoi' : id; }
-  function roadHours(a, b) {
-    var x = normStop(a), y = normStop(b);
-    var v = ROAD[x + '-' + y];
-    return v != null ? v : ROAD[y + '-' + x];
-  }
-  function roadText(from, to) {
-    if (from === 'catba' || to === 'catba') return 'r.van_ferry';
-    return 'r.van_car';
-  }
-  function F(a, b) {
-    return { mode: 'fly', from: a, to: b, h: FLY[a + '-' + b] };
-  }
-  function R(a, b, h, k) { return { mode: 'road', from: a, to: b, h: h, k: k }; }
+  /* ---------- legs (built in plan.js) ---------- */
   function segText(g) { return g.mode === 'fly' ? T('fly') + ' ' + AIRPORT_NAME[g.from] + ' → ' + AIRPORT_NAME[g.to] : T(g.k); }
 
-  function buildLeg(from, to) {
-    var segs = [];
-    var air;
-    if (NORTH.has(to)) {
-      if (from === 'start' || !NORTH.has(from)) {
-        air = EXIT_AIR[from];
-        if (from === 'cattien') { segs.push(R('cattien', 'SGN', 4, 'r.back_sgn')); air = 'SGN'; }
-        segs.push(F(air, 'HAN'));
-        segs.push(R('HAN', to, ROAD_FROM_HAN[to], to === 'hanoi' || to === 'hanoiStop' ? 'r.taxi_city' : roadText('HAN', to)));
-      } else {
-        segs.push(R(from, to, roadHours(from, to), roadText(from, to)));
-      }
-    } else if (to === 'central') {
-      air = EXIT_AIR[from];
-      if (from === 'cattien') { segs.push(R('cattien', 'SGN', 4, 'r.back_sgn')); air = 'SGN'; }
-      if (from === 'mekong') segs.push(R('mekong', 'VCA', 0.75, 'r.taxi_vca'));
-      segs.push(F(air, 'DAD'));
-      segs.push(R('DAD', 'central', 0.75, 'r.taxi_hoian'));
-    } else if (from === 'start') {
-      if (to === 'mekong') segs.push(R('start', 'mekong', 3.5, 'r.bus_mekong'));
-      if (to === 'cattien') segs.push(R('start', 'cattien', 4, 'r.car_cattien'));
-      if (to === 'dalat') { segs.push(F('SGN', 'DLI')); segs.push(R('DLI', 'dalat', 0.75, 'r.taxi_dalat')); }
-      if (to === 'phuquoc') { segs.push(F('SGN', 'PQC')); segs.push(R('PQC', 'phuquoc', 0.75, 'r.taxi_pq')); }
-    } else if (from === 'cattien' && to === 'dalat') {
-      segs.push(R('cattien', 'dalat', 4.5, 'r.car_baoloc'));
-    } else if (from === 'mekong' && to === 'dalat') {
-      segs.push(R('mekong', 'SGN', 3.5, 'r.back_sgn'));
-      segs.push(F('SGN', 'DLI'));
-      segs.push(R('DLI', 'dalat', 0.75, 'r.taxi_dalat'));
-    }
-    if (!segs.length || segs.some(function (s) { return s.h == null; })) {
-      throw new Error('No leg defined from ' + from + ' to ' + to);
-    }
-    var flights = segs.filter(function (s) { return s.mode === 'fly'; }).length;
-    var total = segs.reduce(function (sum, s) { return sum + s.h; }, 0) + 1.5 * flights;
-    var note = '';
-    if (from === 'catba') note = 'n.cruise';
-    if (from === 'caobang' && to === 'babe') note = 'n.bangioc';
-    if (from === 'ninhbinh' && to === 'caobang') note = 'n.long';
-    if (from === 'dalat' || from === 'phuquoc' || from === 'central' || from === 'mekong') {
-      if (flights && !note) note = 'n.morning';
-    }
-    var maps = null;
-    if (!flights) {
-      var origin = from === 'start' ? 'Ho Chi Minh City, Vietnam' : STOPS[from].place;
-      maps = 'https://www.google.com/maps/dir/?api=1&origin=' + encodeURIComponent(origin) +
-        '&destination=' + encodeURIComponent(STOPS[to].place) + '&travelmode=driving';
-    }
-    return { from: from, to: to, segs: segs, flights: flights, total: total, long: total >= 7, note: note, maps: maps };
-  }
-
-  /* ---------- route ---------- */
-  function buildRoute(styleId, choice, saigon, gentle) {
-    var R0 = ROUTES[styleId];
-    var night = null, list = saigon ? R0.city : R0.stops;
-    if (saigon && R0.cityNight) {
-      var keys = Object.keys(R0.cityNight);
-      night = { keys: keys, pick: R0.cityNight[choice.night] ? choice.night : keys[0] };
-      list = R0.cityNight[night.pick];
-    }
-    var stops = list.map(function (s) { return { id: s[0], n: s[1] }; });
-    var swaps = [];
-    SWAPS.forEach(function (sw) {
-      var hasA = stops.some(function (s) { return s.id === sw.a; });
-      var hasB = stops.some(function (s) { return s.id === sw.b; });
-      if (hasA === hasB) return;
-      var def = hasA ? sw.a : sw.b;
-      var pick = (choice[sw.id] === sw.a || choice[sw.id] === sw.b) ? choice[sw.id] : def;
-      var nights = stops.filter(function (s) { return s.id === def; })[0].n;
-      swaps.push({ sw: sw, def: def, pick: pick, nights: nights });
-      if (pick !== def) stops = stops.map(function (s) { return s.id === def ? { id: pick, n: s.n } : s; });
-    });
-    if (saigon) stops.unshift({ id: 'saigon', n: EXTRA_N });
-    var day = 1, prev = 'start', out = [];
-    stops.forEach(function (s, i) {
-      var tmpl = S(s.id).days.slice().sort(function (x, y) { return x.p - y.p; })
-        .slice(0, s.n).sort(function (x, y) { return x.o - y.o; });
-      if (tmpl.length !== s.n) throw new Error('Not enough day plans for ' + s.id);
-      out.push({
-        // the city add-on has no leg in; the next stop leaves from the city exactly as Day 1 would
-        id: s.id, n: s.n, num: i + 1, start: day, end: day + s.n - 1, leg: s.id === 'saigon' ? null : buildLeg(prev === 'saigon' ? 'start' : prev, s.id),
-        // gentle: swap in the day's easy version (no hikes, no bikes) where it has one
-        // a one-night stop uses its folded plan (solo) when it has one
-        days: tmpl.map(function (t, k) { return Object.assign({ day: day + k }, t, s.n === 1 && t.solo ? t.solo : gentle && t.e ? Object.assign({ gentle: true }, t.e) : {}); })
-      });
-      day += s.n; prev = s.id;
-    });
-    if (day !== DAYS) throw new Error('Route ' + styleId + (saigon ? ' with the city days' : '') + ' covers ' + (day - 1) + ' nights, not ' + (DAYS - 1));
-    return { style: styleId, stops: out, swaps: swaps, saigon: !!saigon, gentle: !!gentle, days: day, night: night };
-  }
+  /* ---------- route (built in plan.js, with the day plans in the page language) ---------- */
+  function dayPlans(id) { return S(id).days; }
+  function routeFor(styleId, choice, saigon, gentle) { return buildRoute(styleId, choice, saigon, gentle, dayPlans); }
 
   /* ---------- state ---------- */
   var KEY = 'vn16-plan-v3';
@@ -235,7 +132,7 @@
     Object.keys(ROUTES).forEach(function (id) {
       var el = document.querySelector('#style-' + id + ' ~ .style-body .style-stats');
       if (!el) return;
-      var built = buildRoute(id, id === state.style ? state.choice : {}, state.saigon, ROUTES[id].gentle || state.gentle);
+      var built = routeFor(id, id === state.style ? state.choice : {}, state.saigon, ROUTES[id].gentle || state.gentle);
       var st = routeStats(built);
       el.textContent = T('styles.stats', { f: st.flights, h: st.hikes, l: approx(st.longest).replace('≈ ', ''), b: fmtMoney(budgetFor(built, COSTS)) });
     });
@@ -270,8 +167,8 @@
       r.stops.forEach(function (s) { if (s.id !== 'saigon') m[s.id] = (m[s.id] || 0) + s.n; });
       return m;
     };
-    var a = nightsIn(buildRoute(route.style, state.choice, false, route.gentle));
-    var b = nightsIn(buildRoute(route.style, state.choice, true, route.gentle));
+    var a = nightsIn(routeFor(route.style, state.choice, false, route.gentle));
+    var b = nightsIn(routeFor(route.style, state.choice, true, route.gentle));
     var parts = Object.keys(a).filter(function (id) { return a[id] !== b[id]; }).map(function (id) {
       return b[id] ? T(b[id] === 1 ? 'x.less1' : 'x.less', { s: S(id).short, a: a[id], b: b[id] }) : T('x.drop', { s: S(id).short });
     });
@@ -879,7 +776,7 @@
     }
   }
   function render() {
-    current = buildRoute(state.style, state.choice, state.saigon, state.gentle);
+    current = routeFor(state.style, state.choice, state.saigon, state.gentle);
     applyStatic();
     renderSwaps(current);
     renderExtra(current);
@@ -948,5 +845,5 @@
   render();
 
   /* expose for testing */
-  window.__trip = { buildRoute: buildRoute, ROUTES: ROUTES, SWAPS: SWAPS, setLang: setLang };
+  window.__trip = { buildRoute: routeFor, ROUTES: ROUTES, SWAPS: SWAPS, setLang: setLang };
 })();

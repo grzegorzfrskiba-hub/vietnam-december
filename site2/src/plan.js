@@ -64,3 +64,114 @@ function tieShort(text) {
   } while (text !== before);
   return text;
 }
+
+/* ---------- building a route ---------- */
+var EXTRA_N = 3;     // nights of the optional Hồ Chí Minh City start, taken from the route's own nights
+var DAYS = 15;       // trip length incl. the flight-home day
+
+function normStop(id) { return id === 'hanoiStop' ? 'hanoi' : id; }
+function roadHours(a, b) {
+  var x = normStop(a), y = normStop(b);
+  var v = ROAD[x + '-' + y];
+  return v != null ? v : ROAD[y + '-' + x];
+}
+function roadText(from, to) {
+  if (from === 'catba' || to === 'catba') return 'r.van_ferry';
+  return 'r.van_car';
+}
+function flySeg(a, b) { return { mode: 'fly', from: a, to: b, h: FLY[a + '-' + b] }; }
+function roadSeg(a, b, h, k) { return { mode: 'road', from: a, to: b, h: h, k: k }; }
+
+/* One travel leg between two stops ('start' is the arrival airport): road and flight segments, door-to-door hours and a note key. */
+function buildLeg(from, to) {
+  var segs = [];
+  var air;
+  if (NORTH.has(to)) {
+    if (from === 'start' || !NORTH.has(from)) {
+      air = EXIT_AIR[from];
+      if (from === 'cattien') { segs.push(roadSeg('cattien', 'SGN', 4, 'r.back_sgn')); air = 'SGN'; }
+      segs.push(flySeg(air, 'HAN'));
+      segs.push(roadSeg('HAN', to, ROAD_FROM_HAN[to], to === 'hanoi' || to === 'hanoiStop' ? 'r.taxi_city' : roadText('HAN', to)));
+    } else {
+      segs.push(roadSeg(from, to, roadHours(from, to), roadText(from, to)));
+    }
+  } else if (to === 'central') {
+    air = EXIT_AIR[from];
+    if (from === 'cattien') { segs.push(roadSeg('cattien', 'SGN', 4, 'r.back_sgn')); air = 'SGN'; }
+    if (from === 'mekong') segs.push(roadSeg('mekong', 'VCA', 0.75, 'r.taxi_vca'));
+    segs.push(flySeg(air, 'DAD'));
+    segs.push(roadSeg('DAD', 'central', 0.75, 'r.taxi_hoian'));
+  } else if (from === 'start') {
+    if (to === 'mekong') segs.push(roadSeg('start', 'mekong', 3.5, 'r.bus_mekong'));
+    if (to === 'cattien') segs.push(roadSeg('start', 'cattien', 4, 'r.car_cattien'));
+    if (to === 'dalat') { segs.push(flySeg('SGN', 'DLI')); segs.push(roadSeg('DLI', 'dalat', 0.75, 'r.taxi_dalat')); }
+    if (to === 'phuquoc') { segs.push(flySeg('SGN', 'PQC')); segs.push(roadSeg('PQC', 'phuquoc', 0.75, 'r.taxi_pq')); }
+  } else if (from === 'cattien' && to === 'dalat') {
+    segs.push(roadSeg('cattien', 'dalat', 4.5, 'r.car_baoloc'));
+  } else if (from === 'mekong' && to === 'dalat') {
+    segs.push(roadSeg('mekong', 'SGN', 3.5, 'r.back_sgn'));
+    segs.push(flySeg('SGN', 'DLI'));
+    segs.push(roadSeg('DLI', 'dalat', 0.75, 'r.taxi_dalat'));
+  }
+  if (!segs.length || segs.some(function (s) { return s.h == null; })) {
+    throw new Error('No leg defined from ' + from + ' to ' + to);
+  }
+  var flights = segs.filter(function (s) { return s.mode === 'fly'; }).length;
+  var total = segs.reduce(function (sum, s) { return sum + s.h; }, 0) + 1.5 * flights;
+  var note = '';
+  if (from === 'catba') note = 'n.cruise';
+  if (from === 'caobang' && to === 'babe') note = 'n.bangioc';
+  if (from === 'ninhbinh' && to === 'caobang') note = 'n.long';
+  if (from === 'dalat' || from === 'phuquoc' || from === 'central' || from === 'mekong') {
+    if (flights && !note) note = 'n.morning';
+  }
+  var maps = null;
+  if (!flights) {
+    var origin = from === 'start' ? 'Ho Chi Minh City, Vietnam' : STOPS[from].place;
+    maps = 'https://www.google.com/maps/dir/?api=1&origin=' + encodeURIComponent(origin) +
+      '&destination=' + encodeURIComponent(STOPS[to].place) + '&travelmode=driving';
+  }
+  return { from: from, to: to, segs: segs, flights: flights, total: total, long: total >= 7, note: note, maps: maps };
+}
+
+/* The trip for one set of choices: stops with nights, day numbers, legs and the day plans.
+   choice: { night, <swap id>: stop id }. dayPlans(id) gives a stop's days in the page language (default: English). */
+function buildRoute(styleId, choice, saigon, gentle, dayPlans) {
+  dayPlans = dayPlans || function (id) { return STOPS[id].days; };
+  var R0 = ROUTES[styleId];
+  var night = null, list = saigon ? R0.city : R0.stops;
+  if (saigon && R0.cityNight) {
+    var keys = Object.keys(R0.cityNight);
+    night = { keys: keys, pick: R0.cityNight[choice.night] ? choice.night : keys[0] };
+    list = R0.cityNight[night.pick];
+  }
+  var stops = list.map(function (s) { return { id: s[0], n: s[1] }; });
+  var swaps = [];
+  SWAPS.forEach(function (sw) {
+    var hasA = stops.some(function (s) { return s.id === sw.a; });
+    var hasB = stops.some(function (s) { return s.id === sw.b; });
+    if (hasA === hasB) return;
+    var def = hasA ? sw.a : sw.b;
+    var pick = (choice[sw.id] === sw.a || choice[sw.id] === sw.b) ? choice[sw.id] : def;
+    var nights = stops.filter(function (s) { return s.id === def; })[0].n;
+    swaps.push({ sw: sw, def: def, pick: pick, nights: nights });
+    if (pick !== def) stops = stops.map(function (s) { return s.id === def ? { id: pick, n: s.n } : s; });
+  });
+  if (saigon) stops.unshift({ id: 'saigon', n: EXTRA_N });
+  var day = 1, prev = 'start', out = [];
+  stops.forEach(function (s, i) {
+    var tmpl = dayPlans(s.id).slice().sort(function (x, y) { return x.p - y.p; })
+      .slice(0, s.n).sort(function (x, y) { return x.o - y.o; });
+    if (tmpl.length !== s.n) throw new Error('Not enough day plans for ' + s.id);
+    out.push({
+      // the city add-on has no leg in; the next stop leaves from the city exactly as Day 1 would
+      id: s.id, n: s.n, num: i + 1, start: day, end: day + s.n - 1, leg: s.id === 'saigon' ? null : buildLeg(prev === 'saigon' ? 'start' : prev, s.id),
+      // gentle: swap in the day's easy version (no hikes, no bikes) where it has one
+      // a one-night stop uses its folded plan (solo) when it has one
+      days: tmpl.map(function (t, k) { return Object.assign({ day: day + k }, t, s.n === 1 && t.solo ? t.solo : gentle && t.e ? Object.assign({ gentle: true }, t.e) : {}); })
+    });
+    day += s.n; prev = s.id;
+  });
+  if (day !== DAYS) throw new Error('Route ' + styleId + (saigon ? ' with the city days' : '') + ' covers ' + (day - 1) + ' nights, not ' + (DAYS - 1));
+  return { style: styleId, stops: out, swaps: swaps, saigon: !!saigon, gentle: !!gentle, days: day, night: night };
+}
