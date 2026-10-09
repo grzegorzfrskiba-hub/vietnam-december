@@ -42,7 +42,7 @@ const STOPS = {
       { p: 1, o: 1, pace: 'travel', t: 'Up to the highlands', d: 'Skip the town centre and head west to the ridges above the Tà Nung valley for sunset over pine hills and coffee farms. Sleep in a lodge outside town, where the nights are quiet and starry.' },
       { p: 2, o: 2, pace: 'hike', t: 'Bidoup–Núi Bà cloud forest', d: 'A guided trek through old pines, mossy forest and wild orchids toward Hòn Giao. December is the dry season, so the trails are firm. Book a guide at the park visitor centre.', e: { pace: 'nature', t: 'Pine forest and a lake monastery', d: 'The cable car from Robin Hill glides over the pine forest to Trúc Lâm, a quiet Zen monastery above Tuyền Lâm lake. Walk its gardens, then a slow boat on the lake or a long lakeside lunch.' } },
       { p: 3, o: 3, pace: 'hike', t: 'The Tà Năng grass hills', d: 'A day hike on the first part of the Tà Năng–Phan Dũng trail, often called Vietnam’s most beautiful trek. The hills turn gold in the dry season. Only go with a licensed local guide, who arranges the permit: after accidents the route was closed to hikers without a guide, and walking it alone is still not allowed. Confirm the current rules with the operator when you book.', e: { pace: 'culture', t: 'The old railway and the flower villages', d: 'The vintage train from Đà Lạt’s 1930s station to Trại Mát and the mosaic Linh Phước pagoda, then the greenhouses of the Vạn Thành flower village.' } },
-      { p: 4, o: 4, pace: 'culture', t: 'Tea hills and a coffee farm', d: 'Sunrise over the Cầu Đất tea hills, then a K’Ho family coffee farm at the foot of Lang Biang. Wild sunflowers and pink grass bloom on the slopes in December.' }
+      { p: 4, o: 4, pace: 'culture', t: 'Tea hills and a coffee farm', d: 'Sunrise over the Cầu Đất tea hills, then a K’Ho family coffee farm at the foot of Lang Biang. The wild sunflowers are over by December, but the last pink grass may still colour the slopes.' }
     ],
     gem: 'Bidoup–Núi Bà. Most visitors to Đà Lạt never leave town.',
     skip: 'The Crazy House, the flower parks and the Datanla coaster.',
@@ -118,7 +118,7 @@ const STOPS = {
     photos: ['ninhbinh_0', 'ninhbinh_3', 'ninhbinh_4', 'ninhbinh_5', 'ninhbinh_6'],
     days: [
       { p: 1, o: 1, pace: 'travel', t: 'Arrive among the karst', d: 'Stay in the lanes behind Tam Cốc. If you arrive by mid-afternoon, take the rowed boat on Vân Long’s wetland at golden hour.', solo: { pace: 'boat', t: 'Karst at dusk and at dawn', d: 'Stay in the lanes behind Tam Cốc and arrive by mid-afternoon for the rowed boat on Vân Long’s wetland at golden hour. Next morning, be at the Tràng An pier when it opens at 7 am for the cave route, then drive on.' } },
-      { p: 2, o: 2, pace: 'boat', t: 'Tràng An at 7 am', d: 'Be at the pier when it opens and take the longest cave route before the tour buses arrive. Then cycle the village lanes, or visit the 10th-century temples at Hoa Lư.', e: { pace: 'boat', t: 'Tràng An at 7 am', d: 'Be at the pier when it opens and take the longest cave route before the tour buses arrive; the boats are rowed for you. Then the 10th-century temples at Hoa Lư by car.' } }
+      { p: 2, o: 2, pace: 'boat', t: 'Tràng An at 7 am', d: 'Be at the pier when it opens and take the longest cave route before the tour buses arrive. Then cycle the village lanes, or visit Hoa Lư, the 10th-century capital, and its temples to the first kings (rebuilt in the 1600s).', e: { pace: 'boat', t: 'Tràng An at 7 am', d: 'Be at the pier when it opens and take the longest cave route before the tour buses arrive; the boats are rowed for you. Then Hoa Lư, the 10th-century capital, and its temples by car.' } }
     ],
     gem: 'Delacour’s langurs on Vân Long’s cliffs, one of the rarest primates in the world.',
     skip: 'Hang Múa viewpoint at sunset: 500 steps, shoulder to shoulder.',
@@ -132,7 +132,7 @@ const STOPS = {
     days: [
       { p: 1, o: 1, pace: 'travel', t: 'To the island', d: 'Limousine van and a short ferry. Sunset from Cannon Fort, then seafood by the harbour.', e: { pace: 'travel', t: 'To the island', d: 'Limousine van and a short ferry. A slow evening along the harbour and seafood by the water.' } },
       { p: 4, o: 4, pace: 'hike', t: 'Việt Hải and the national park', d: 'Hike to Ngự Lâm peak in Cát Bà National Park, then cycle on to Việt Hải, a car-free village ringed by cliffs.', e: { pace: 'nature', t: 'Việt Hải without the climb', d: 'A boat from Cát Bà town to the Việt Hải pier, then about 5 km of flat lane into the village by electric cart or bicycle, and lunch among the cliffs.' } },
-      { p: 3, o: 3, pace: 'rest', t: 'Back on land, a slow afternoon', d: 'The boat docks back on Cát Bà around 12:00. A long seafood lunch by the harbour, then the small Cát Cò beaches and a massage. The sea is brisk in December, around 20 °C.' },
+      { p: 3, o: 3, pace: 'rest', t: 'Back on land, a slow afternoon', d: 'The boat docks back on Cát Bà around 12:00. A long seafood lunch by the harbour, then the small Cát Cò beaches and a massage. The sea is brisk in December, around 22 °C.' },
       { p: 2, o: 2, pace: 'boat', t: 'Overnight on Lan Hạ Bay', d: 'Board a two-day, one-night cruise that starts on Cát Bà and sails into Lan Hạ Bay and the quiet southern edge of Hạ Long Bay. Kayak, visit a floating village and sleep on the boat.', e: { pace: 'boat', t: 'Overnight on Lan Hạ Bay', d: 'A two-day, one-night cruise into Lan Hạ Bay and the quiet southern edge of Hạ Long Bay. Pick a bigger, steadier boat with en-suite cabins, take the bamboo boat rowed by locals instead of a kayak, and watch the sunset from the deck.' } }
     ],
     gem: 'Việt Hải, a village with no cars inside the national park.',
@@ -177,7 +177,7 @@ const STOPS = {
     photos: ['hanoi_0', 'hanoi_1', 'hanoi_3', 'hanoi_5'],
     days: [
       { p: 1, o: 1, pace: 'travel', t: 'Back in Hà Nội', d: 'A walk around Hoàn Kiếm lake and through the Old Quarter lanes.' },
-      { p: 2, o: 2, pace: 'culture', t: 'Temple of Literature and the Museum of Ethnology', d: 'The Temple of Literature at 7:30 am, before the groups. Then the Museum of Ethnology, with full-size village houses in its garden.' },
+      { p: 2, o: 2, pace: 'culture', t: 'Temple of Literature and the Museum of Ethnology', d: 'The Temple of Literature when it opens at 8 am, before the groups. Then the Museum of Ethnology, with full-size village houses in its garden.' },
       { p: 3, o: 3, pace: 'culture', t: 'Đường Lâm village', d: 'A day trip, about 1½ hours each way, to Đường Lâm: laterite-stone lanes, a 17th-century communal house and lunch with a local family.' },
       { p: 4, o: 4, pace: 'culture', t: 'Pottery and the river', d: 'Bát Tràng pottery village on the Red River, then walk back across Long Biên bridge at sunset.' }
     ],
@@ -262,7 +262,7 @@ const SWAPS = [
   {
     id: 'water', a: 'catba', b: 'puluong', q: 'The bay or the valleys?',
     pts: {
-      catba: ['A night on a boat among the karst islands', 'Kayaking, a car-free village, seafood', 'Cool and often misty; the sea is about 20 °C'],
+      catba: ['A night on a boat among the karst islands', 'Kayaking, a car-free village, seafood', 'Cool and often misty; the sea is about 22 °C'],
       puluong: ['Bamboo homestays and a full-day trek', 'Rice valleys, water wheels and Thái villages', 'Rice is harvested by December; misty mornings']
     }
   },
@@ -335,7 +335,7 @@ const LEFT_OUT = [
   { name: 'Sapa', why: 'Cold and foggy in December, with frosty nights, and the busiest trekking town in the north. Cao Bằng and Ba Bể give you the mountains without the crowds.' },
   { name: 'The Hà Giang loop', why: 'Spectacular, but now a conveyor belt of easy-rider group tours. Better on a longer trip, outside the peak months.' },
   { name: 'Hạ Long Bay from Hạ Long City', why: 'Hundreds of boats on the same circuit. Lan Hạ Bay from Cát Bà has the same karst with far fewer boats.' },
-  { name: 'Phong Nha', why: 'December is the wet season on the central coast, and the big cave expeditions only start again around February.' },
+  { name: 'Phong Nha', why: 'December is the wet season on the central coast, and the big cave expeditions only start again at the end of January.' },
   { name: 'Côn Đảo and Sơn Trà', why: 'Rough seas and rain in December. Both make an easy spring weekend from Hồ Chí Minh City.' }
 ];
 

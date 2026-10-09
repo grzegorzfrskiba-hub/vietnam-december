@@ -46,7 +46,7 @@ UI.pl = {
   'lg.home': 'Hà Nội → do domu: CA884, potem CA931, o 4:30', 'lg.arrive': 'VN30 ląduje w Hồ Chí Minh City o 6:35', 'lg.intl': 'Międzynarodowy',
   'ft.photos': 'Zdjęcia · Wikimedia Commons', 'ft.notes': 'Uwagi',
   'ft.budget': 'Budżet: orientacyjne widełki na osobę w pokoju dwuosobowym, z lotami krajowymi, przejazdami, jedzeniem i głównymi atrakcjami, bez lotów międzynarodowych. Ceny sprawdzone w październiku 2026.',
-  'ft.notes.p': 'Czasy podróży to szacunki od drzwi do drzwi i obejmują ok. 1½ godz. na lotnisku przy każdym locie. Połączenia bezpośrednie sprawdzone w październiku 2026 (Cần Thơ–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); rozkłady potwierdźcie przy rezerwacji. Godziny otwarcia, zasady na szlakach i warunki na morzu sprawdzajcie na miejscu.',
+  'ft.notes.p': 'Czasy podróży to szacunki od drzwi do drzwi i obejmują ok. 1½ godz. na lotnisku przy każdym locie. Połączenia bezpośrednie sprawdzone w październiku 2026 (Cần Thơ–Đà Nẵng, Đà Lạt–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); rozkłady potwierdźcie przy rezerwacji. Đà Lạt–Đà Nẵng to rzadkie połączenie (Vietnam Airlines ok. raz dziennie, Vietjet ok. trzy razy w tygodniu), więc ten lot zarezerwujcie najpierw. Godziny otwarcia, zasady na szlakach i warunki na morzu sprawdzajcie na miejscu.',
   'lb.aria': 'Przeglądarka zdjęć', 'lb.close': 'Zamknij przeglądarkę zdjęć', 'lb.photo': 'Fot. ',
   'min': 'min', 'h': 'godz.', 'fmt.hm': '{h} godz. {m} min', 'day': 'Dzień', 'days': 'Dni', 'nights.one': 'noc', 'nights.few': 'noce', 'nights.many': 'nocy',
   'fly': 'Lot', 'door': 'od drzwi do drzwi', 'longday': 'Długi dzień w drodze', 'maps': 'Trasa w Mapach Google',
@@ -56,7 +56,7 @@ UI.pl = {
   'r.bus_mekong': 'Autobus albo prywatny samochód do Phong Điền', 'r.car_cattien': 'Prywatny samochód albo autobus, potem prom przez rzekę',
   'r.taxi_dalat': 'Taksówka w górę, do Đà Lạt', 'r.taxi_pq': 'Taksówka na północne wybrzeże', 'r.car_baoloc': 'Prywatny samochód w górę, przez Bảo Lộc',
   'r.taxi_sgn': 'Taksówka na lotnisko w Hồ Chí Minh City', 'r.taxi_dli': 'Taksówka na lotnisko w Đà Lạt', 'r.taxi_pqc': 'Taksówka na lotnisko w Phú Quốc', 'r.taxi_hui': 'Taksówka na lotnisko w Huế',
-  'n.bangioc': 'Bản Giốc obejrzyjcie zaraz po otwarciu o 7:00, przed weekendowym tłumem, a potem w drogę.',
+  'n.bangioc': 'Bản Giốc obejrzyjcie zaraz po otwarciu (zimą ok. 7:30), zanim przyjadą wycieczki, a potem w drogę.',
   'n.long': 'Jazda zajmie cały dzień: wyruszcie wcześnie.', 'n.morning': 'Wybierzcie poranny lot.',
   'n.long_boat': 'Po łodzi o 7:00 w Tràng An jeszcze 8 godzin drogi: w Cao Bằng będziecie ok. 19:00. Żeby dojechać za dnia, pomińcie łódź i wyjedźcie o 8:00.',
   'n.afternoon': 'Najpierw długa droga na lotnisko: wybierzcie lot po południu.',
@@ -70,7 +70,7 @@ UI.pl = {
   'reg.South': 'południowy Wietnam', 'reg.Central': 'środkowy Wietnam', 'reg.North': 'północny Wietnam',
   't.dec': 'Grudzień', 't.gem': 'Ukryta perełka', 't.skip': 'Do pominięcia', 't.instead': 'Zamiast tego: ',
   'home.h3': 'Lot do domu z Hà Nội', 'home.t': 'Wigilia, a potem nocny lot',
-  'home.d': 'W ostatni wieczór, 24 grudnia: kolacja wigilijna na Starym Mieście (stolik zarezerwujcie wcześniej) i katedra św. Józefa, rozświetlona i pełna ludzi. Potem kilka godzin snu w hotelu na Starym Mieście. Taksówka ok. 1:30 w nocy: o tej porze jazda do Nội Bài trwa ok. 40 min, więc na odprawę przed CA884 o 4:30 zostają dwie godziny.',
+  'home.d': 'Ostatniego dnia, 24 grudnia, około południa jesteście z powrotem w Hà Nội. Wieczorem kolacja wigilijna na Starym Mieście (stolik zarezerwujcie wcześniej), a potem katedra św. Józefa, rozświetlona i pełna ludzi. Ulice wokół niej są zamknięte dla aut w godz. 18–24, a tłum jest największy ok. 23:00, więc idźcie pieszo, najlepiej przed 20:00. Potem kilka godzin snu w hotelu na Starym Mieście. Taksówka ok. 1:30 w nocy: o tej porze jazda do Nội Bài trwa ok. 40 min, więc na odprawę przed CA884 o 4:30 zostają dwie godziny.',
   'b.xmas': 'Podróż kończy się w Wigilię, w szczycie sezonu: loty krajowe i najlepsze pokoje zarezerwujcie do początku listopada, a w Hà Nội pamiętajcie o rezerwacji kolacji wigilijnej.',
   'b.cruise': 'Rejs po Zatoce Lan Hạ, który zaczyna się na Cát Bà, z bezpłatną zmianą terminu w razie mgły albo sztormu.',
   'b.dalat_bidoup': 'Przewodnika po Bidoup–Núi Bà – rezerwuje się go w centrum informacji turystycznej parku.',
@@ -112,7 +112,7 @@ const I18N_PL = {
         ['W górę, na wyżynę', 'Omińcie centrum i jedźcie na zachód, na grzbiety nad doliną Tà Nung, by o zmierzchu patrzeć na sosnowe wzgórza i plantacje kawy. Nocleg w pensjonacie za miastem, gdzie noce są ciche i rozgwieżdżone.'],
         ['Las mglisty Bidoup–Núi Bà', 'Wędrówka z przewodnikiem wśród starych sosen, omszałego lasu i dzikich storczyków w stronę Hòn Giao. Grudzień to pora sucha, więc szlaki są pewne pod nogami. Przewodnika zarezerwujcie w centrum informacji turystycznej parku.'],
         ['Trawiaste wzgórza Tà Năng', 'Jednodniowa wędrówka pierwszym odcinkiem szlaku Tà Năng–Phan Dũng, często nazywanego najpiękniejszą trasą trekkingową Wietnamu. W porze suchej wzgórza złocieją. Idźcie tylko z licencjonowanym lokalnym przewodnikiem, który załatwia pozwolenie: po wypadkach szlak zamknięto dla wędrowców bez przewodnika i nadal nie wolno chodzić nim na własną rękę. Aktualne zasady potwierdźcie u organizatora przy rezerwacji.'],
-        ['Herbaciane wzgórza i plantacja kawy', 'Wschód słońca nad herbacianymi wzgórzami Cầu Đất, potem rodzinna plantacja kawy ludu K’Ho u stóp góry Lang Biang. W grudniu na zboczach kwitną dzikie słoneczniki i różowa trawa.']
+        ['Herbaciane wzgórza i plantacja kawy', 'Wschód słońca nad herbacianymi wzgórzami Cầu Đất, potem rodzinna plantacja kawy ludu K’Ho u stóp góry Lang Biang. W grudniu dzikie słoneczniki już przekwitły, ale na zboczach może jeszcze różowieć trawa.']
       ],
       gem: 'Bidoup–Núi Bà. Większość odwiedzających Đà Lạt w ogóle nie wyjeżdża poza miasto.',
       skip: 'Crazy House, parki kwiatowe i letni tor saneczkowy Datanla.',
@@ -176,7 +176,7 @@ const I18N_PL = {
       name: 'Ninh Bình', sub: 'Łodzie wiosłowe wśród wapiennych turni', short: 'Ninh Bình',
       days: [
         ['Między krasowe wzgórza', 'Nocleg w uliczkach za Tam Cốc. Jeśli dotrzecie najpóźniej w połowie popołudnia, wybierzcie się o złotej godzinie na przejażdżkę łodzią wiosłową po mokradłach Vân Long.'],
-        ['Tràng An o 7:00', 'Bądźcie na przystani na otwarcie i wybierzcie najdłuższą trasę przez jaskinie, zanim przyjadą autokary. Potem rowerami po wiejskich uliczkach albo do świątyń z X wieku w Hoa Lư.']
+        ['Tràng An o 7:00', 'Bądźcie na przystani na otwarcie i wybierzcie najdłuższą trasę przez jaskinie, zanim przyjadą autokary. Potem rowerami po wiejskich uliczkach albo do Hoa Lư, stolicy z X wieku, i świątyń jej pierwszych królów (odbudowanych w XVII wieku).']
       ],
       gem: 'Langury Delacoura na skałach Vân Long – jedne z najrzadszych naczelnych na świecie.',
       skip: 'Punkt widokowy Hang Múa o zachodzie słońca: 500 schodów i tłum ramię w ramię.',
@@ -187,7 +187,7 @@ const I18N_PL = {
       days: [
         ['Na wyspę', 'Minibus typu limousine i krótki prom. Zachód słońca z Cannon Fort, potem owoce morza przy porcie.'],
         ['Việt Hải i park narodowy', 'Wędrówka na szczyt Ngự Lâm w Parku Narodowym Cát Bà, potem rowerami dalej do Việt Hải, wioski bez samochodów otoczonej skalnymi ścianami.'],
-        ['Z powrotem na lądzie, spokojne popołudnie', 'Statek wraca na Cát Bà ok. 12:00. Długi obiad z owocami morza przy porcie, potem małe plaże Cát Cò i masaż. W grudniu woda jest orzeźwiająca, ok. 20 °C.'],
+        ['Z powrotem na lądzie, spokojne popołudnie', 'Statek wraca na Cát Bà ok. 12:00. Długi obiad z owocami morza przy porcie, potem małe plaże Cát Cò i masaż. W grudniu woda jest orzeźwiająca, ok. 22 °C.'],
         ['Noc na Zatoce Lan Hạ', 'Dwudniowy rejs z jednym noclegiem: statek wypływa z Cát Bà i płynie przez Zatokę Lan Hạ aż po spokojny południowy skraj Zatoki Hạ Long. Kajaki, wizyta w pływającej wiosce i noc na pokładzie.']
       ],
       gem: 'Việt Hải, wioska bez samochodów na terenie parku narodowego.',
@@ -224,7 +224,7 @@ const I18N_PL = {
       name: 'Hà Nội', sub: 'Stolica i lot do domu', short: 'Hà Nội',
       days: [
         ['Z powrotem w Hà Nội', 'Spacer wokół jeziora Hoàn Kiếm i uliczkami Starego Miasta.'],
-        ['Świątynia Literatury i Muzeum Etnologii', 'Świątynia Literatury o 7:30, zanim przyjdą grupy. Potem Muzeum Etnologii z wiejskimi domami naturalnej wielkości w ogrodzie.'],
+        ['Świątynia Literatury i Muzeum Etnologii', 'Świątynia Literatury na otwarcie o 8:00, zanim przyjdą grupy. Potem Muzeum Etnologii z wiejskimi domami naturalnej wielkości w ogrodzie.'],
         ['Wioska Đường Lâm', 'Jednodniowa wycieczka do Đường Lâm, ok. 1½ godz. w każdą stronę: uliczki z laterytu, XVII-wieczny dom wspólnoty i obiad u miejscowej rodziny.'],
         ['Ceramika i rzeka', 'Wioska garncarzy Bát Tràng nad Rzeką Czerwoną, a o zachodzie słońca spacer z powrotem przez most Long Biên.']
       ],
@@ -259,7 +259,7 @@ const I18N_PL = {
       pts: { dalat: ['Suche, słoneczne dni i zimne noce (ok. 13 °C)', 'Las sosnowy i najlepsze tereny do wędrówek na całej trasie', 'Przede wszystkim przyroda, niewiele atrakcji do odhaczenia'],
         central: ['Hội An, przełęcz Hải Vân i grobowce Huế', 'Pora deszczowa: ok. 20 dni z deszczem w grudniu', 'Przede wszystkim kultura, mniej przyrody'] } },
     water: { q: 'Zatoka czy doliny?',
-      pts: { catba: ['Noc na statku wśród krasowych wysp', 'Kajaki, wioska bez samochodów, owoce morza', 'Chłodno i często mgliście; morze ma ok. 20 °C'],
+      pts: { catba: ['Noc na statku wśród krasowych wysp', 'Kajaki, wioska bez samochodów, owoce morza', 'Chłodno i często mgliście; morze ma ok. 22 °C'],
         puluong: ['Noclegi u gospodarzy w bambusowych domach i całodniowa wędrówka', 'Ryżowe doliny, koła wodne i wioski ludu Thái', 'W grudniu ryż jest już zebrany; mgliste poranki'] } },
     south: { q: 'Delta czy dżungla?',
       pts: { mekong: ['Pływający targ, sady i życie u gospodarzy', 'Płasko, łatwo i bardzo towarzysko', 'W grudniu ciepło i sucho'],
@@ -283,7 +283,7 @@ const I18N_PL = {
     { name: 'Sapa', why: 'W grudniu zimno i mglisto, nocami przymrozki, a do tego to najbardziej oblegane miasteczko trekkingowe na północy. Cao Bằng i Ba Bể to góry bez tłumów.' },
     { name: 'Pętla Hà Giang', why: 'Spektakularna, ale dziś to taśmociąg grupowych wycieczek motocyklowych z przewodnikami easy rider. Lepiej przy okazji dłuższej podróży, poza szczytem sezonu.' },
     { name: 'Zatoka Hạ Long z miasta Hạ Long', why: 'Setki statków na tej samej pętli. Zatoka Lan Hạ z Cát Bà ma ten sam krasowy krajobraz i dużo mniej statków.' },
-    { name: 'Phong Nha', why: 'W grudniu na środkowym wybrzeżu trwa pora deszczowa, a wielkie wyprawy jaskiniowe ruszają ponownie dopiero ok. lutego.' },
+    { name: 'Phong Nha', why: 'W grudniu na środkowym wybrzeżu trwa pora deszczowa, a wielkie wyprawy jaskiniowe ruszają ponownie dopiero pod koniec stycznia.' },
     { name: 'Côn Đảo i Sơn Trà', why: 'W grudniu wzburzone morze i deszcz. Na oba łatwo wyskoczyć wiosną na weekend z Hồ Chí Minh City.' }
   ],
   cap: {
@@ -381,7 +381,7 @@ const I18N_PL = {
       1: ['Doliny widziane z drogi', 'Samochodem z kierowcą drogą wzdłuż dolin, do dolnych basenów wodospadu Hiêu (krótki, łatwy spacer), potem wioska Kho Mường i długi obiad w domu na palach.'] } },
     ninhbinh: { solo: {
       0: ['Krasowe wzgórza o zmierzchu i o świcie', 'Nocleg w uliczkach za Tam Cốc; dotrzyjcie najpóźniej w połowie popołudnia, żeby o złotej godzinie popłynąć łodzią wiosłową po mokradłach Vân Long. Następnego ranka bądźcie o 7:00 na przystani w Tràng An, gdy ją otwierają, popłyńcie trasą przez jaskinie, a potem jedźcie dalej.'] }, easy: {
-      1: ['Tràng An o 7:00', 'Bądźcie na przystani na otwarcie i wybierzcie najdłuższą trasę przez jaskinie, zanim przyjadą autokary; wiosłować nie musicie. Potem samochodem do świątyń z X wieku w Hoa Lư.'] } },
+      1: ['Tràng An o 7:00', 'Bądźcie na przystani na otwarcie i wybierzcie najdłuższą trasę przez jaskinie, zanim przyjadą autokary; wiosłować nie musicie. Potem samochodem do Hoa Lư, stolicy z X wieku, i jej świątyń.'] } },
     catba: { easy: {
       0: ['Na wyspę', 'Minibus typu limousine i krótki prom. Spokojny wieczór przy porcie i owoce morza nad wodą.'],
       1: ['Việt Hải bez wspinaczki', 'Łodzią z miasteczka Cát Bà do przystani Việt Hải, potem ok. 5 km płaską drogą do wioski – meleksem albo rowerem – i obiad wśród skał.'],

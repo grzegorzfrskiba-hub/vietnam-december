@@ -43,7 +43,7 @@ const UI = {
     'lg.home': 'Hà Nội → home: CA884, then CA931, 4:30 am', 'lg.arrive': 'VN30 lands in Hồ Chí Minh City, 6:35 am', 'lg.intl': 'International',
     'ft.photos': 'Photos · Wikimedia Commons', 'ft.notes': 'Notes',
     'ft.budget': 'Budget: rough per-person ranges for two people sharing a double room, with domestic flights, transfers, food and the main activities, without international flights. Prices checked in October 2026.',
-    'ft.notes.p': 'Travel times are door-to-door estimates and include about 1½ hours at the airport for each flight. Direct flights checked in October 2026 (Cần Thơ–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); confirm schedules when you book. Check opening hours, trail rules and sea conditions locally.',
+    'ft.notes.p': 'Travel times are door-to-door estimates and include about 1½ hours at the airport for each flight. Direct flights checked in October 2026 (Cần Thơ–Đà Nẵng, Đà Lạt–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); confirm schedules when you book. Đà Lạt–Đà Nẵng is a thin route (Vietnam Airlines about once a day, Vietjet about three times a week), so book it first. Check opening hours, trail rules and sea conditions locally.',
     'lb.aria': 'Photo viewer', 'lb.close': 'Close photo viewer', 'lb.photo': 'Photo: ',
     /* counted words ('nights', 'f.bases', 'f.flights', 'f.hikes') have three forms, .one .few .many, picked by nightForm() in plan.js:
        English and German repeat the plural for .few and .many. 'fmt.hm' is hours and minutes, "1 h 5" */
@@ -55,7 +55,7 @@ const UI = {
     'r.bus_mekong': 'Bus or private car to Phong Điền', 'r.car_cattien': 'Private car or bus, then the river ferry',
     'r.taxi_dalat': 'Taxi up to Đà Lạt', 'r.taxi_pq': 'Taxi to the north coast', 'r.car_baoloc': 'Private car up through Bảo Lộc',
     'r.taxi_sgn': 'Taxi to Hồ Chí Minh City airport', 'r.taxi_dli': 'Taxi to Đà Lạt airport', 'r.taxi_pqc': 'Taxi to Phú Quốc airport', 'r.taxi_hui': 'Taxi to Huế airport',
-    'n.bangioc': 'See Bản Giốc when it opens at 7 am, before the weekend crowds, then drive.',
+    'n.bangioc': 'See Bản Giốc when it opens (around 7:30 am in winter), before the tour groups arrive, then drive.',
     'n.long': 'A long day: leave early.', 'n.morning': 'Take a morning flight.',
     'n.long_boat': 'After the 7 am boat at Tràng An, 8 hours on the road: you reach Cao Bằng around 7 pm. To arrive in daylight, skip the boat and leave by 8.',
     'n.afternoon': 'A long drive to the airport first: take an afternoon flight.',
@@ -69,7 +69,7 @@ const UI = {
     'reg.South': 'South', 'reg.Central': 'Central', 'reg.North': 'North',
     't.dec': 'December', 't.gem': 'Hidden gem', 't.skip': 'Skip', 't.instead': 'Instead: ',
     'home.h3': 'Fly home from Hà Nội', 'home.t': 'Christmas Eve, then the night flight',
-    'home.d': 'On the last evening, 24 December: Christmas Eve dinner in the Old Quarter (book the table ahead), and St Joseph’s Cathedral, lit up and busy. Then a few hours’ sleep in an Old Quarter hotel. Taxi at about 1:30 am: at night it is about 40 minutes to Nội Bài, which leaves two hours for check-in before CA884 at 4:30 am.',
+    'home.d': 'On the last day, 24 December, you are back in Hà Nội around midday. In the evening: Christmas Eve dinner in the Old Quarter (book the table ahead), then St Joseph’s Cathedral, lit up and busy. The streets around it are closed to cars from 6 pm to midnight and the crowd peaks around 11 pm, so walk there, ideally before 8 pm. Then a few hours’ sleep in an Old Quarter hotel. Taxi at about 1:30 am: at night it is about 40 minutes to Nội Bài, which leaves two hours for check-in before CA884 at 4:30 am.',
     'b.xmas': 'The trip ends on Christmas Eve, in high season: book the domestic flights and the best rooms by early November, and reserve the Christmas Eve dinner in Hà Nội.',
     'b.cruise': 'A Lan Hạ Bay cruise that starts from Cát Bà, with free date changes in case of fog or a storm.',
     'b.dalat_bidoup': 'A guide for Bidoup–Núi Bà, booked at the park visitor centre.',
@@ -131,7 +131,7 @@ const UI = {
     'lg.home': 'Hà Nội → nach Hause: CA884, dann CA931, 4:30 Uhr', 'lg.arrive': 'VN30 landet in Hồ Chí Minh City, 6:35 Uhr', 'lg.intl': 'International',
     'ft.photos': 'Fotos · Wikimedia Commons', 'ft.notes': 'Hinweise',
     'ft.budget': 'Budget: grobe Spannen pro Person, zu zweit im Doppelzimmer, mit Inlandsflügen, Transfers, Essen und den wichtigsten Aktivitäten, ohne internationale Flüge. Preise im Oktober 2026 geprüft.',
-    'ft.notes.p': 'Reisezeiten sind Schätzungen von Tür zu Tür und enthalten pro Flug etwa 1½ Stunden am Flughafen. Direktflüge im Oktober 2026 geprüft (Cần Thơ–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); Flugpläne bei der Buchung bestätigen. Öffnungszeiten, Wegeregeln und Seegang vor Ort prüfen.',
+    'ft.notes.p': 'Reisezeiten sind Schätzungen von Tür zu Tür und enthalten pro Flug etwa 1½ Stunden am Flughafen. Direktflüge im Oktober 2026 geprüft (Cần Thơ–Đà Nẵng, Đà Lạt–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); Flugpläne bei der Buchung bestätigen. Đà Lạt–Đà Nẵng wird selten geflogen (Vietnam Airlines etwa einmal täglich, Vietjet etwa dreimal pro Woche), deshalb diesen Flug zuerst buchen. Öffnungszeiten, Wegeregeln und Seegang vor Ort prüfen.',
     'lb.aria': 'Fotoansicht', 'lb.close': 'Fotoansicht schließen', 'lb.photo': 'Foto: ',
     'min': 'Min.', 'h': 'Std.', 'fmt.hm': '{h} Std. {m}', 'day': 'Tag', 'days': 'Tage', 'nights.one': 'Nacht', 'nights.few': 'Nächte', 'nights.many': 'Nächte',
     'fly': 'Flug', 'door': 'von Tür zu Tür', 'longday': 'Langer Reisetag', 'maps': 'Route in Google Maps',
@@ -141,7 +141,7 @@ const UI = {
     'r.bus_mekong': 'Bus oder Privatwagen nach Phong Điền', 'r.car_cattien': 'Privatwagen oder Bus, dann die Flussfähre',
     'r.taxi_dalat': 'Taxi hinauf nach Đà Lạt', 'r.taxi_pq': 'Taxi an die Nordküste', 'r.car_baoloc': 'Privatwagen über Bảo Lộc hinauf',
     'r.taxi_sgn': 'Taxi zum Flughafen Hồ Chí Minh City', 'r.taxi_dli': 'Taxi zum Flughafen Đà Lạt', 'r.taxi_pqc': 'Taxi zum Flughafen Phú Quốc', 'r.taxi_hui': 'Taxi zum Flughafen Huế',
-    'n.bangioc': 'Bản Giốc um 7 Uhr zur Öffnung ansehen, vor dem Wochenendandrang, dann losfahren.',
+    'n.bangioc': 'Bản Giốc zur Öffnung ansehen (im Winter gegen 7:30 Uhr), bevor die Reisegruppen kommen, dann losfahren.',
     'n.long': 'Ein langer Tag: früh losfahren.', 'n.morning': 'Am besten morgens fliegen.',
     'n.long_boat': 'Nach dem Boot um 7 Uhr in Tràng An noch 8 Stunden Fahrt: Ankunft in Cao Bằng gegen 19 Uhr. Wer bei Tageslicht ankommen will, lässt das Boot aus und fährt um 8 Uhr los.',
     'n.afternoon': 'Erst die lange Fahrt zum Flughafen: am besten nachmittags fliegen.',
@@ -155,7 +155,7 @@ const UI = {
     'reg.South': 'Süden', 'reg.Central': 'Mitte', 'reg.North': 'Norden',
     't.dec': 'Dezember', 't.gem': 'Geheimtipp', 't.skip': 'Auslassen', 't.instead': 'Stattdessen: ',
     'home.h3': 'Heimflug ab Hà Nội', 'home.t': 'Heiligabend, dann der Nachtflug',
-    'home.d': 'Am letzten Abend, dem 24. Dezember: Weihnachtsessen in der Altstadt (Tisch vorab reservieren) und die St.-Joseph-Kathedrale, festlich beleuchtet und voller Menschen. Danach ein paar Stunden Schlaf in einem Hotel in der Altstadt. Gegen 1:30 Uhr mit dem Taxi los: nachts sind es etwa 40 Minuten bis Nội Bài, so bleiben zwei Stunden zum Einchecken vor CA884 um 4:30 Uhr.',
+    'home.d': 'Am letzten Tag, dem 24. Dezember, seid ihr gegen Mittag zurück in Hà Nội. Am Abend: ein festliches Abendessen an Heiligabend in der Altstadt (Tisch vorab reservieren), dann die St.-Joseph-Kathedrale, festlich beleuchtet und voller Menschen. Die Straßen rundherum sind von 18 bis 24 Uhr für Autos gesperrt, und gegen 23 Uhr ist der Andrang am größten: also zu Fuß hin, am besten vor 20 Uhr. Danach ein paar Stunden Schlaf in einem Hotel in der Altstadt. Gegen 1:30 Uhr mit dem Taxi los: nachts sind es etwa 40 Minuten bis Nội Bài, so bleiben zwei Stunden zum Einchecken vor CA884 um 4:30 Uhr.',
     'b.xmas': 'Die Reise endet an Heiligabend, mitten in der Hochsaison: Inlandsflüge und die besten Unterkünfte bis Anfang November buchen und das Weihnachtsessen in Hà Nội reservieren.',
     'b.cruise': 'Eine Kreuzfahrt in der Lan-Hạ-Bucht ab Cát Bà, mit kostenloser Umbuchung bei Nebel oder Sturm.',
     'b.dalat_bidoup': 'Einen Guide für Bidoup–Núi Bà, zu buchen im Besucherzentrum des Parks.',
@@ -198,7 +198,7 @@ const I18N_DE = {
         ['Hinauf ins Hochland', 'Das Stadtzentrum auslassen und nach Westen auf die Hügelkämme über dem Tà-Nung-Tal fahren: Sonnenuntergang über Kiefernhügeln und Kaffeefarmen. Übernachtung in einer Lodge außerhalb der Stadt, wo die Nächte still und sternenklar sind.'],
         ['Nebelwald von Bidoup–Núi Bà', 'Geführte Wanderung durch alte Kiefern, moosigen Wald und wilde Orchideen Richtung Hòn Giao. Im Dezember ist Trockenzeit, die Wege sind fest. Einen Guide im Besucherzentrum des Nationalparks buchen.'],
         ['Die Grashügel von Tà Năng', 'Tageswanderung auf dem ersten Abschnitt des Tà-Năng–Phan-Dũng-Trails, oft die schönste Wanderung Vietnams genannt. In der Trockenzeit leuchten die Hügel golden. Nur mit einem lizenzierten lokalen Guide, der die Genehmigung besorgt: Nach Unfällen wurde die Route für Wanderer ohne Guide gesperrt, allein ist sie bis heute nicht erlaubt. Die aktuellen Regeln bei der Buchung beim Veranstalter bestätigen.'],
-        ['Teehügel und eine Kaffeefarm', 'Sonnenaufgang über den Teehügeln von Cầu Đất, dann die Kaffeefarm einer K’Ho-Familie am Fuß des Lang Biang. Im Dezember blühen an den Hängen wilde Sonnenblumen und rosa Gras.']
+        ['Teehügel und eine Kaffeefarm', 'Sonnenaufgang über den Teehügeln von Cầu Đất, dann die Kaffeefarm einer K’Ho-Familie am Fuß des Lang Biang. Die wilden Sonnenblumen sind im Dezember verblüht, aber an den Hängen kann noch das letzte rosa Gras stehen.']
       ],
       gem: 'Bidoup–Núi Bà. Die meisten Besucher von Đà Lạt verlassen die Stadt nie.',
       skip: 'Das Crazy House, die Blumenparks und die Sommerrodelbahn von Datanla.',
@@ -262,7 +262,7 @@ const I18N_DE = {
       name: 'Ninh Bình', sub: 'Ruderboote zwischen Kalksteintürmen',
       days: [
         ['Ankunft zwischen den Karstbergen', 'Unterkunft in den Gassen hinter Tam Cốc. Wer bis zum mittleren Nachmittag ankommt, nimmt zur goldenen Stunde das Ruderboot im Feuchtgebiet von Vân Long.'],
-        ['Tràng An um 7 Uhr', 'Zur Öffnung am Anleger sein und die längste Höhlenroute nehmen, bevor die Reisebusse kommen. Danach mit dem Rad durch die Dorfgassen oder zu den Tempeln aus dem 10. Jahrhundert in Hoa Lư.']
+        ['Tràng An um 7 Uhr', 'Zur Öffnung am Anleger sein und die längste Höhlenroute nehmen, bevor die Reisebusse kommen. Danach mit dem Rad durch die Dorfgassen oder nach Hoa Lư, der Hauptstadt des 10. Jahrhunderts, mit den Tempeln ihrer ersten Könige (im 17. Jahrhundert neu errichtet).']
       ],
       gem: 'Delacour-Languren an den Felsen von Vân Long, eine der seltensten Primatenarten der Welt.',
       skip: 'Der Aussichtspunkt Hang Múa bei Sonnenuntergang: 500 Stufen, Schulter an Schulter.',
@@ -273,7 +273,7 @@ const I18N_DE = {
       days: [
         ['Auf die Insel', 'Limousinen-Van und eine kurze Fähre. Sonnenuntergang vom Cannon Fort, dann Meeresfrüchte am Hafen.'],
         ['Việt Hải und der Nationalpark', 'Wanderung zum Gipfel Ngự Lâm im Nationalpark Cát Bà, dann mit dem Rad weiter nach Việt Hải, einem autofreien Dorf zwischen Felswänden.'],
-        ['Zurück an Land, ein ruhiger Nachmittag', 'Das Boot legt gegen 12 Uhr wieder auf Cát Bà an. Ein langes Mittagessen mit Meeresfrüchten am Hafen, dann die kleinen Cát-Cò-Strände und eine Massage. Das Meer ist im Dezember frisch, etwa 20 °C.'],
+        ['Zurück an Land, ein ruhiger Nachmittag', 'Das Boot legt gegen 12 Uhr wieder auf Cát Bà an. Ein langes Mittagessen mit Meeresfrüchten am Hafen, dann die kleinen Cát-Cò-Strände und eine Massage. Das Meer ist im Dezember frisch, etwa 22 °C.'],
         ['Eine Nacht in der Lan-Hạ-Bucht', 'An Bord einer Kreuzfahrt mit einer Übernachtung, die auf Cát Bà beginnt und durch die Lan-Hạ-Bucht bis an den ruhigen Südrand der Hạ-Long-Bucht fährt. Kajak fahren, ein schwimmendes Dorf besuchen und an Bord schlafen.']
       ],
       gem: 'Việt Hải, ein Dorf ohne Autos im Nationalpark.',
@@ -310,7 +310,7 @@ const I18N_DE = {
       name: 'Hà Nội', sub: 'Die Hauptstadt und der Heimflug',
       days: [
         ['Zurück in Hà Nội', 'Ein Spaziergang um den Hoàn-Kiếm-See und durch die Gassen der Altstadt.'],
-        ['Literaturtempel und Museum für Ethnologie', 'Der Literaturtempel um 7:30 Uhr, vor den Gruppen. Dann das Museum für Ethnologie mit Dorfhäusern in Originalgröße im Garten.'],
+        ['Literaturtempel und Museum für Ethnologie', 'Der Literaturtempel zur Öffnung um 8 Uhr, vor den Gruppen. Dann das Museum für Ethnologie mit Dorfhäusern in Originalgröße im Garten.'],
         ['Das Dorf Đường Lâm', 'Tagesausflug, je etwa 1½ Stunden pro Strecke, nach Đường Lâm: Gassen aus Laterit, ein Gemeindehaus aus dem 17. Jahrhundert und Mittagessen bei einer Familie.'],
         ['Keramik und der Fluss', 'Das Töpferdorf Bát Tràng am Roten Fluss, dann bei Sonnenuntergang zu Fuß über die Long-Biên-Brücke zurück.']
       ],
@@ -345,7 +345,7 @@ const I18N_DE = {
       pts: { dalat: ['Trockene, sonnige Tage und kalte Nächte (um 13 °C)', 'Kiefernwald und die beste Wandergegend der Reise', 'Natur zuerst, wenig Sehenswürdigkeiten zum Abhaken'],
         central: ['Hội An, der Hải-Vân-Pass und die Gräber von Huế', 'Regenzeit: rund 20 Regentage im Dezember', 'Kultur zuerst, weniger Natur'] } },
     water: { q: 'Die Bucht oder die Täler?',
-      pts: { catba: ['Eine Nacht auf dem Boot zwischen den Karstinseln', 'Kajak, ein autofreies Dorf, Meeresfrüchte', 'Kühl und oft neblig; das Meer hat etwa 20 °C'],
+      pts: { catba: ['Eine Nacht auf dem Boot zwischen den Karstinseln', 'Kajak, ein autofreies Dorf, Meeresfrüchte', 'Kühl und oft neblig; das Meer hat etwa 22 °C'],
         puluong: ['Bambus-Homestays und eine Ganztageswanderung', 'Reistäler, Wasserräder und Thái-Dörfer', 'Im Dezember ist der Reis geerntet; neblige Morgen'] } },
     south: { q: 'Das Delta oder der Dschungel?',
       pts: { mekong: ['Schwimmender Markt, Obstgärten und Homestay-Leben', 'Flach, einfach und sehr gesellig', 'Warm und trocken im Dezember'],
@@ -369,7 +369,7 @@ const I18N_DE = {
     { name: 'Sapa', why: 'Im Dezember kalt und neblig, mit frostigen Nächten, und der vollste Trekking-Ort im Norden. Cao Bằng und Ba Bể bieten die Berge ohne das Gedränge.' },
     { name: 'Der Hà-Giang-Loop', why: 'Spektakulär, aber inzwischen ein Fließband von Easy-Rider-Gruppentouren. Besser auf einer längeren Reise außerhalb der Hauptsaison.' },
     { name: 'Die Hạ-Long-Bucht ab Hạ Long City', why: 'Hunderte Boote auf derselben Runde. Die Lan-Hạ-Bucht ab Cát Bà hat denselben Karst mit viel weniger Booten.' },
-    { name: 'Phong Nha', why: 'Im Dezember ist an der Zentralküste Regenzeit, und die großen Höhlenexpeditionen beginnen erst wieder um Februar.' },
+    { name: 'Phong Nha', why: 'Im Dezember ist an der Zentralküste Regenzeit, und die großen Höhlenexpeditionen beginnen erst wieder ab Ende Januar.' },
     { name: 'Côn Đảo und Sơn Trà', why: 'Raue See und Regen im Dezember. Beide sind ein einfaches Frühlingswochenende ab Hồ Chí Minh City.' }
   ],
   cap: {
@@ -467,7 +467,7 @@ const I18N_DE = {
       1: ['Die Täler von der Straße aus', 'Mit Auto und Fahrer die Talstraße entlang, zu den unteren Becken des Hiêu-Wasserfalls (ein kurzer, leichter Weg), dann ins Dorf Kho Mường und ein langes Mittagessen im Stelzenhaus.'] } },
     ninhbinh: { solo: {
       0: ['Karst in der Dämmerung und am Morgen', 'Unterkunft in den Gassen hinter Tam Cốc; bis zum Nachmittag ankommen und zur goldenen Stunde im Ruderboot durch das Feuchtgebiet Vân Long. Am nächsten Morgen um 7 Uhr zur Öffnung am Anleger von Tràng An für die Höhlenroute, dann weiter.'] }, easy: {
-      1: ['Tràng An um 7 Uhr', 'Zur Öffnung am Anleger sein und die längste Höhlenroute nehmen, bevor die Reisebusse kommen; gerudert wird für euch. Danach mit dem Auto zu den Tempeln von Hoa Lư aus dem 10. Jahrhundert.'] } },
+      1: ['Tràng An um 7 Uhr', 'Zur Öffnung am Anleger sein und die längste Höhlenroute nehmen, bevor die Reisebusse kommen; gerudert wird für euch. Danach mit dem Auto nach Hoa Lư, der Hauptstadt des 10. Jahrhunderts, und zu ihren Tempeln.'] } },
     catba: { easy: {
       0: ['Auf die Insel', 'Limousinen-Van und eine kurze Fähre. Ein ruhiger Abend am Hafen und Meeresfrüchte am Wasser.'],
       1: ['Việt Hải ohne Aufstieg', 'Mit dem Boot von Cát Bà zum Anleger von Việt Hải, dann etwa 5 km auf flachem Weg ins Dorf, mit dem Elektrowagen oder dem Fahrrad, und Mittagessen zwischen den Felsen.'],
