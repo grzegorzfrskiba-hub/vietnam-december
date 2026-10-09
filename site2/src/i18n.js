@@ -20,7 +20,7 @@ const UI = {
     'e.p3': 'Long drives stay as they are (Cao Bằng is 6–8 hours); Easy classics has the shortest transfers',
     'e.badge': 'Gentle', 't.rain': 'If it pours: ', 'why.gentle': ' The gentle version is on: no hikes, no bikes.',
     'x.q': 'Start with 3 days in Hồ Chí Minh City?', 'x.name': 'First 3 days in Hồ Chí Minh City', 'x.tag': 'Within the {days} days', 'x.add': 'Add', 'x.added': 'Added',
-    'x.p1': 'Day 1 to land and do very little', 'x.p2': 'Day 2 in the Cần Giờ mangroves, day 3 in Chợ Lớn and on the river',
+    'x.p1': 'Day 1 to land, rest and see the river at sunset', 'x.p2': 'Day 2 in the Cần Giờ mangroves, day 3 in Chợ Lớn and the food streets of District 4',
     'n.q': 'The spare night: {a} or {b}?', 'n.p': 'With the city days, one stop gets a night less. Choose which one keeps it.',
     'x.cut': 'To make room: {x}', 'x.less': '{s} {a} → {b} nights', 'x.less1': '{s} {a} → 1 night', 'x.drop': '{s} left out', 'x.same': 'Nothing else changes',
     'why.saigon': ' It starts with three days in Hồ Chí Minh City.',
@@ -31,7 +31,7 @@ const UI = {
     'copy.btn': 'Copy the plan for WhatsApp', 'copy.aria': 'Plan as text',
     'copy.ok': 'Copied. Paste it into your chat.', 'copy.fail': 'Copy the selected text below.',
     'days.eyebrow': 'Day by day', 'days.h2': 'The route', 'map.aria': 'Route map',
-    'days.p': 'Each stop with its photos, a plan for every day and the journey to get there. The map is drawn to scale and follows you as you scroll.',
+    'days.p': 'Each stop with its photos, a plan for every day and the journey to get there. The map is drawn to scale; on a wide screen it stays in view as you scroll.',
     'wx.eyebrow': 'Weather', 'wx.h2': 'December, stop by stop',
     'wx.p': 'December is dry in the south and the north, with cold nights in the mountains. The central coast is the exception: it is in its rainy season.',
     'wx.col1': 'Stop', 'wx.col2': 'Night to day', 'wx.col3': 'Rain in December',
@@ -76,12 +76,14 @@ const UI = {
     'b.dalat': 'A licensed local guide for the Tà Năng hills, and a guide for Bidoup–Núi Bà.',
     'b.cattien': 'The Crocodile Lake trek and permit at Cát Tiên headquarters, the day before.',
     'b.caobang': 'A car with a driver, or an easy-rider guide, for the Cao Bằng days.',
+    'b.caobang_gentle': 'A comfortable car with a driver for the Cao Bằng days.',
     'b.transfer': 'Limousine vans and buses between towns, a day or two ahead.',
     'b.homestay': 'Homestays in {x} a few weeks ahead: the good ones are small.',
     'b.lastnight': 'The last night: a hotel in the Old Quarter. Ask reception to book the 1:30 am taxi to Nội Bài.',
     'p.warm': 'A warm layer and a hat: nights drop to 11–14 °C in the north and in Đà Lạt.',
     'p.rain_central': 'A light rain jacket, and proper rain gear for Hội An and Huế.',
     'p.rain': 'A light rain jacket. It rarely rains, but the bay is often misty and damp.',
+    'p.rain_dry': 'A light rain jacket. December is dry here, but mornings in the north are often misty and damp.',
     'p.hike': 'Hiking shoes with grip, and quick-dry clothes.',
     'p.walk': 'Comfortable walking shoes with grip: old towns and boat piers can be slippery.',
     'p.sun_pq': 'Swimwear and sun protection for the south and Phú Quốc.',
@@ -108,7 +110,7 @@ const UI = {
     'e.p3': 'Lange Fahrten bleiben (nach Cao Bằng 6–8 Stunden); die Sanften Klassiker haben die kürzesten Transfers',
     'e.badge': 'Sanft', 't.rain': 'Bei Starkregen: ', 'why.gentle': ' Die sanfte Variante ist an: keine Wanderungen, keine Fahrräder.',
     'x.q': 'Mit 3 Tagen in Hồ Chí Minh City beginnen?', 'x.name': 'Erst 3 Tage in Hồ Chí Minh City', 'x.tag': 'Innerhalb der {days} Tage', 'x.add': 'Hinzufügen', 'x.added': 'Dabei',
-    'x.p1': 'Tag 1 zum Ankommen und Nichtstun', 'x.p2': 'Tag 2 in den Mangroven von Cần Giờ, Tag 3 in Chợ Lớn und am Fluss',
+    'x.p1': 'Tag 1 zum Ankommen und Ausruhen, abends auf den Fluss', 'x.p2': 'Tag 2 in den Mangroven von Cần Giờ, Tag 3 in Chợ Lớn und in den Garküchen von Bezirk 4',
     'n.q': 'Die übrige Nacht: {a} oder {b}?', 'n.p': 'Mit den Stadttagen hat ein Ort eine Nacht weniger. Wählt, welcher sie behält.',
     'x.cut': 'Dafür kürzer: {x}', 'x.less': '{s} {a} → {b} Nächte', 'x.less1': '{s} {a} → 1 Nacht', 'x.drop': '{s} entfällt', 'x.same': 'Sonst ändert sich nichts',
     'why.saigon': ' Vorher gibt es drei Tage in Hồ Chí Minh City.',
@@ -119,7 +121,7 @@ const UI = {
     'copy.btn': 'Plan für WhatsApp kopieren', 'copy.aria': 'Plan als Text',
     'copy.ok': 'Kopiert. Jetzt im Chat einfügen.', 'copy.fail': 'Den markierten Text unten kopieren.',
     'days.eyebrow': 'Tag für Tag', 'days.h2': 'Die Route', 'map.aria': 'Routenkarte',
-    'days.p': 'Jede Station mit Fotos, einem Plan für jeden Tag und der Anreise. Die Karte ist maßstabsgetreu und folgt euch beim Scrollen.',
+    'days.p': 'Jede Station mit Fotos, einem Plan für jeden Tag und der Anreise. Die Karte ist maßstabsgetreu; auf einem großen Bildschirm bleibt sie beim Scrollen im Blick.',
     'wx.eyebrow': 'Wetter', 'wx.h2': 'Dezember, Station für Station',
     'wx.p': 'Im Dezember ist es im Süden und im Norden trocken, mit kalten Nächten in den Bergen. Die Ausnahme ist die Zentralküste: Dort ist Regenzeit.',
     'wx.col1': 'Station', 'wx.col2': 'Nacht bis Tag', 'wx.col3': 'Regen im Dezember',
@@ -162,12 +164,14 @@ const UI = {
     'b.dalat': 'Einen lizenzierten lokalen Guide für die Hügel von Tà Năng und einen Guide für Bidoup–Núi Bà.',
     'b.cattien': 'Die Wanderung zum Krokodilsee samt Genehmigung am Vortag im Hauptquartier von Cát Tiên.',
     'b.caobang': 'Ein Auto mit Fahrer oder einen Easy-Rider-Guide für die Tage in Cao Bằng.',
+    'b.caobang_gentle': 'Ein bequemes Auto mit Fahrer für die Tage in Cao Bằng.',
     'b.transfer': 'Limousinen-Vans und Busse zwischen den Orten, ein bis zwei Tage vorher.',
     'b.homestay': 'Homestays in {x} ein paar Wochen vorher: Die guten sind klein.',
     'b.lastnight': 'Die letzte Nacht: ein Hotel in der Altstadt. Das Taxi um 1:30 Uhr nach Nội Bài an der Rezeption bestellen.',
     'p.warm': 'Eine warme Schicht und eine Mütze: Nachts wird es im Norden und in Đà Lạt 11–14 °C kalt.',
     'p.rain_central': 'Eine leichte Regenjacke und richtige Regenkleidung für Hội An und Huế.',
     'p.rain': 'Eine leichte Regenjacke. Es regnet selten, aber in der Bucht ist es oft neblig und feucht.',
+    'p.rain_dry': 'Eine leichte Regenjacke. Im Dezember ist es hier trocken, aber die Morgen im Norden sind oft neblig und feucht.',
     'p.hike': 'Wanderschuhe mit gutem Profil und schnell trocknende Kleidung.',
     'p.walk': 'Bequeme Schuhe mit gutem Profil: Altstädte und Bootsstege können rutschig sein.',
     'p.sun_pq': 'Badesachen und Sonnenschutz für den Süden und Phú Quốc.',
@@ -193,7 +197,7 @@ const I18N_DE = {
       instead: 'Cần Giờ und der Bình-Tây-Markt in Chợ Lớn.'
     },
     dalat: {
-      name: 'Hochland von Đà Lạt', sub: 'Der Wald von Bidoup–Núi Bà und die Grashügel von Tà Năng',
+      name: 'Hochland von Đà Lạt', sub: 'Kiefernhügel, ruhige Lodges und kalte, klare Nächte',
       days: [
         ['Hinauf ins Hochland', 'Das Stadtzentrum auslassen und nach Westen auf die Hügelkämme über dem Tà-Nung-Tal fahren: Sonnenuntergang über Kiefernhügeln und Kaffeefarmen. Übernachtung in einer Lodge außerhalb der Stadt, wo die Nächte still und sternenklar sind.'],
         ['Nebelwald von Bidoup–Núi Bà', 'Geführte Wanderung durch alte Kiefern, moosigen Wald und wilde Orchideen Richtung Hòn Giao. Im Dezember ist Trockenzeit, die Wege sind fest. Einen Guide im Besucherzentrum des Nationalparks buchen.'],
@@ -202,7 +206,7 @@ const I18N_DE = {
       ],
       gem: 'Bidoup–Núi Bà. Die meisten Besucher von Đà Lạt verlassen die Stadt nie.',
       skip: 'Das Crazy House, die Blumenparks und die Sommerrodelbahn von Datanla.',
-      instead: 'Der Nationalpark und die Hügel von Tà Năng.'
+      instead: 'Der Kiefernwald und die Dörfer außerhalb der Stadt.'
     },
     cattien: {
       name: 'Nationalpark Cát Tiên', sub: 'Tieflanddschungel, Gibbons und eine Nachtsafari',
@@ -235,7 +239,7 @@ const I18N_DE = {
       instead: 'Die Nordküste und der Nationalpark.'
     },
     central: {
-      name: 'Hội An & Huế', sub: 'Die ruhige Seite von Hội An, der Hải-Vân-Pass und die Kaisergräber',
+      name: 'Hội An & Huế', sub: 'Die ruhige Seite von Hội An, der Hải-Vân-Pass und das kaiserliche Huế',
       days: [
         ['Hội Ans Nebenstraßen', 'Vom Flughafen Đà Nẵng sind es 45 Minuten nach Hội An. Mit dem Fahrrad hinaus zum Gemüsedorf Trà Quế und zu den Wasserkokos-Kanälen von Cẩm Thanh.'],
         ['Die Altstadt um 6 Uhr, dann der Hải-Vân-Pass', 'Die Altstadt von Hội An ansehen, bevor die Tagesbesucher kommen. Dann mit dem Auto oder mit einem Guide auf dem Motorrad über den Hải-Vân-Pass nach Huế, mit Halt an der Lagune Lăng Cô.'],
@@ -322,11 +326,11 @@ const I18N_DE = {
   routes: {
     balanced: { name: 'Ausgewogen', tag: 'Von allem etwas',
       blurb: 'Von allem etwas, mit Schwerpunkt Natur: Hochlandwald, Karstflüsse, die Bucht und der hohe Norden.',
-      why: 'Für Natur mit etwas Kultur: durchgehend trockene Orte, zwei Wandertage, eine Nacht auf dem Boot und zwei kurze Flüge.',
-      whyCity: 'Für Natur mit etwas Kultur: durchgehend trockene Orte, ein Tag im Nebelwald, eine Nacht auf dem Boot und zwei kurze Flüge.' },
+      why: 'Für Natur mit etwas Kultur: durchgehend trockene Orte, drei Tage im Hochland, eine Nacht auf dem Boot und zwei kurze Flüge.',
+      whyCity: 'Für Natur mit etwas Kultur: durchgehend trockene Orte, zwei Tage im Hochland, eine Nacht auf dem Boot und zwei kurze Flüge.' },
     nature: { name: 'Natur & Wandern', tag: 'Am meisten Wandern',
       blurb: 'Dschungel zum Auftakt, das Hochland um Đà Lạt, die Grate von Pù Luông und das Karstland an der Grenze.',
-      why: 'Für Wanderer: die meisten Wandertage und die wenigsten Städte, dafür zwei lange Reisetage.' },
+      why: 'Für Wanderer: die meisten Wandertage, dafür die meisten Ortswechsel und zwei lange Reisetage.' },
     culture: { name: 'Kultur & Essen', tag: 'Am meisten zu sehen',
       blurb: 'Märkte im Delta, Hội An und die Kaisergräber von Huế, die alte Hauptstadt bei Ninh Bình, die Bucht und Hà Nội.',
       why: 'Für Kultur und gutes Essen, mit der Bucht als Pause. Der Haken: In Hội An und Huế ist Regenzeit.' },
@@ -337,16 +341,16 @@ const I18N_DE = {
     classic: {
       name: 'Sanfte Klassiker', tag: 'Unser Tipp: mit Eltern',
       blurb: 'Die berühmten Orte, ganz entspannt: die kühlen Hügel von Đà Lạt, das Laternenstädtchen Hội An und das kaiserliche Huế, Ninh Bình im Ruderboot, eine bequeme Nacht auf der Lan-Hạ-Bucht und Hà Nội.',
-      why: 'Gebaut für die Reise mit Eltern: keine Wanderungen und keine Motorräder, Autos mit Fahrer, kurze Transfers und nur kurze Flüge. Der Haken: In Hội An und Huế ist Regenzeit, deshalb hat dort jeder Tag einen Regenplan.'
+      why: 'Für die Reise mit Eltern: Autos mit Fahrer, kurze Transfers und nur kurze Flüge, in der sanften Variante ohne Wanderungen und Motorräder. Der Haken: In Hội An und Huế ist Regenzeit, deshalb hat dort jeder Tag einen Regenplan.'
     }
   },
   swaps: {
     coast: { q: 'Trockenes Hochland oder die regnerische Zentralküste?',
       pts: { dalat: ['Trockene, sonnige Tage und kalte Nächte (um 13 °C)', 'Kiefernwald und die beste Wandergegend der Reise', 'Natur zuerst, wenig Sehenswürdigkeiten zum Abhaken'],
-        central: ['Hội An, der Hải-Vân-Pass und die Gräber von Huế', 'Regenzeit: rund 20 Regentage im Dezember', 'Kultur zuerst, weniger Natur'] } },
+        central: ['Hội An, der Hải-Vân-Pass und das kaiserliche Huế', 'Regenzeit: rund 20 Regentage im Dezember', 'Kultur zuerst, weniger Natur'] } },
     water: { q: 'Die Bucht oder die Täler?',
       pts: { catba: ['Eine Nacht auf dem Boot zwischen den Karstinseln', 'Kajak, ein autofreies Dorf, Meeresfrüchte', 'Kühl und oft neblig; das Meer hat etwa 22 °C'],
-        puluong: ['Bambus-Homestays und eine Ganztageswanderung', 'Reistäler, Wasserräder und Thái-Dörfer', 'Im Dezember ist der Reis geerntet; neblige Morgen'] } },
+        puluong: ['Bambus-Homestays und ein ganzer Tag in den Tälern', 'Reistäler, Wasserräder und Thái-Dörfer', 'Im Dezember ist der Reis geerntet; neblige Morgen'] } },
     south: { q: 'Das Delta oder der Dschungel?',
       pts: { mekong: ['Schwimmender Markt, Obstgärten und Homestay-Leben', 'Flach, einfach und sehr gesellig', 'Warm und trocken im Dezember'],
         cattien: ['Gibbons im Morgengrauen und eine Nachtsafari', 'Waldgänge mit einem Ranger', 'Beginn der Trockenzeit: weniger Blutegel'] } }
@@ -432,15 +436,15 @@ const I18N_DE = {
     hanoi_5: 'Ein Stelzenhaus im Garten des Museums für Ethnologie'
   },
   night: {
-    dalat: { pro: ['Ein dritter Tag im Hochland, für die Grashügel von Tà Năng', 'Trockene, sonnige Tage und kühle Nächte'],
+    dalat: { pro: ['Ein dritter Tag im Hochland: die Grashügel von Tà Năng, in der sanften Variante die alte Bahn und die Blumendörfer', 'Trockene, sonnige Tage und kühle Nächte'],
       con: ['Ninh Bình schrumpft auf einen Abend und eine frühe Bootsfahrt in Tràng An vor der Abreise'] },
     central: { pro: ['Ein Tag mehr für Huế und sein Umland', 'Puffer im Plan, falls der Regen einen Tag verdirbt'],
       con: ['Ninh Bình schrumpft auf einen Abend und eine frühe Bootsfahrt in Tràng An vor der Abreise'] },
-    puluong: { pro: ['Ein ruhiger Tag im Tal nach der Wanderung', 'Eine Nacht mehr in einer Bambus-Unterkunft'],
+    puluong: { pro: ['Ein ruhiger Tag im Tal nach dem langen Tag draußen', 'Eine Nacht mehr in einer Bambus-Unterkunft'],
       con: ['Ninh Bình schrumpft auf einen Abend und eine frühe Bootsfahrt in Tràng An vor der Abreise'] },
     ninhbinh: { pro: ['Ein ganzer, entspannter Tag im Karst: Tràng An, Hoa Lư und Vân Long', 'Kein früher Start am Tag der Weiterreise'],
-      con: { puluong: 'Pù Luông wird zu Ankunft plus Wanderung, ohne ruhigen Tag',
-      dalat: 'Đà Lạt verliert seinen dritten Tag und die Grashügel von Tà Năng', central: 'Hội An & Huế bekommt einen Tag weniger und weniger Puffer für Regen' } }
+      con: { puluong: 'Pù Luông wird zu Ankunft plus einem vollen Tag, ohne ruhigen Tag',
+      dalat: 'Đà Lạt verliert seinen dritten Tag', central: 'Hội An & Huế bekommt einen Tag weniger und weniger Puffer für Regen' } }
   },
   /* gentle versions [title, text], one-night versions (solo) and rain plans, by index into each stop's days in data.js */
   dayExtra: {
@@ -455,7 +459,7 @@ const I18N_DE = {
       1: ['Der schwimmende Markt im Morgengrauen', 'Um 5:30 Uhr mit dem kleinen Boot los, um vor den Ausflugsbooten in Cái Răng zu sein, dann die Seitenkanäle und eine Reisnudel-Werkstatt. Nachmittags gemütlich mit dem Boot nach Cồn Sơn zu Obstgärten und einem hausgemachten Mittagessen.'] } },
     central: {
       easy: {
-        0: ['Hội An ganz gemütlich', 'Vom Flughafen Đà Nẵng sind es 45 Minuten nach Hội An. Ein Kochkurs im Gemüsedorf Trà Quế (mit dem Taxi), dann die Altstadt in der Dämmerung, wenn die Laternen angehen, mit einer Sampan-Fahrt auf dem Thu Bồn. Touristisch, und trotzdem wunderschön.'],
+        0: ['Hội An ganz gemütlich', 'Vom Flughafen Đà Nẵng sind es 45 Minuten nach Hội An. Ein Kochkurs im Gemüsedorf Trà Quế (mit dem Taxi), dann gegen 17 Uhr in die Altstadt, wenn die Laternen angehen, eine Sampan-Fahrt auf dem Thu Bồn und Abendessen, bevor gegen 19 Uhr das Gedränge am größten ist. Touristisch, und trotzdem wunderschön.'],
         1: ['Die Altstadt um 6 Uhr, dann mit dem Auto über den Hải-Vân-Pass', 'Hội Ans Altstadt sehen, bevor die Tagesgäste kommen. Dann mit Auto und Fahrer über den Hải-Vân-Pass nach Huế, mit Halt an der Lagune von Lăng Cô.'],
         2: ['Huế mit Boot und Auto', 'Mit dem Drachenboot den Parfümfluss hinauf zur Thiên-Mụ-Pagode, dann mit dem Auto zu den Gräbern von Minh Mạng und Tự Đức. Die Kaiserstadt ist flach und gut zu Fuß zu schaffen.'] },
       rain: {

@@ -511,12 +511,12 @@
     if (hikeOn('dalat', 3)) book.push(bookItem('b.dalat'));
     else if (hikeOn('dalat', 2)) book.push(bookItem('b.dalat_bidoup'));
     if (hikeOn('cattien', 2)) book.push(bookItem('b.cattien'));
-    if (has('caobang')) book.push(bookItem('b.caobang'));
+    if (has('caobang')) book.push(bookItem(route.gentle ? 'b.caobang_gentle' : 'b.caobang'));   // no motorbikes in the gentle version
     book.push(bookItem('b.transfer'));
     if (has('puluong') || has('babe') || has('mekong')) book.push(bookItem('b.homestay', { x: ['mekong', 'puluong', 'babe'].filter(has).map(function (id) { return S(id).short; }).join(', ') }));
     book.push(bookItem('b.lastnight'));
     $('#book-list').innerHTML = book.map(function (t) { return '<li>' + t + '</li>'; }).join('');
-    var pack = [T('p.warm'), T(has('central') ? 'p.rain_central' : 'p.rain'), T(route.gentle ? 'p.walk' : 'p.hike'),
+    var pack = [T('p.warm'), T(has('central') ? 'p.rain_central' : has('catba') ? 'p.rain' : 'p.rain_dry'), T(route.gentle ? 'p.walk' : 'p.hike'),
       T(has('phuquoc') ? 'p.sun_pq' : 'p.sun'), T('p.cash'), T('p.apps')];
     $('#pack-list').innerHTML = pack.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
   }

@@ -35,7 +35,7 @@ const STOPS = {
     instead: 'Cần Giờ, and Bình Tây market in Chợ Lớn.'
   },
   dalat: {
-    name: 'Đà Lạt highlands', sub: 'Bidoup–Núi Bà forest and the Tà Năng grass hills', short: 'Đà Lạt',
+    name: 'Đà Lạt highlands', sub: 'Pine hills, quiet lodges and cold, clear nights', short: 'Đà Lạt',
     region: 'South', place: 'Da Lat, Vietnam', label: { dx: 0, dy: -15, a: 'middle' },
     photos: ['dalat_0', 'dalat_1', 'dalat_2', 'dalat_4', 'dalat_3'],
     days: [
@@ -46,7 +46,7 @@ const STOPS = {
     ],
     gem: 'Bidoup–Núi Bà. Most visitors to Đà Lạt never leave town.',
     skip: 'The Crazy House, the flower parks and the Datanla coaster.',
-    instead: 'The national park and the Tà Năng hills.'
+    instead: 'The pine forest and the villages beyond the town.'
   },
   cattien: {
     name: 'Cát Tiên National Park', sub: 'Lowland jungle, gibbons and a night safari', short: 'Cát Tiên',
@@ -85,11 +85,11 @@ const STOPS = {
     instead: 'The north coast and the national park.'
   },
   central: {
-    name: 'Hội An & Huế', sub: 'The quiet side of Hội An, the Hải Vân Pass and the imperial tombs', short: 'Hội An & Huế',
+    name: 'Hội An & Huế', sub: 'The quiet side of Hội An, the Hải Vân Pass and imperial Huế', short: 'Hội An & Huế',
     region: 'Central', place: 'Hue, Vietnam', label: { dx: 13, dy: 4, a: 'start' },
     photos: ['hoian_0', 'hoian_1', 'hue_0', 'hue_4', 'hoian_2'],
     days: [
-      { p: 1, o: 1, pace: 'travel', t: 'Hội An’s back roads', d: 'From Đà Nẵng airport it is 45 minutes to Hội An. Cycle out to Trà Quế vegetable village and the water-coconut channels of Cẩm Thanh.', e: { pace: 'travel', t: 'Hội An at an easy pace', d: 'From Đà Nẵng airport it is 45 minutes to Hội An. A cooking class in Trà Quế vegetable village (by taxi), then the old town at dusk when the lanterns come on, with a sampan ride on the Thu Bồn. Touristy, and still lovely.' }, rain: 'A cooking class or a lantern-making workshop, and the covered market.' },
+      { p: 1, o: 1, pace: 'travel', t: 'Hội An’s back roads', d: 'From Đà Nẵng airport it is 45 minutes to Hội An. Cycle out to Trà Quế vegetable village and the water-coconut channels of Cẩm Thanh.', e: { pace: 'travel', t: 'Hội An at an easy pace', d: 'From Đà Nẵng airport it is 45 minutes to Hội An. A cooking class in Trà Quế vegetable village (by taxi), then the old town around 5 pm as the lanterns come on, a sampan ride on the Thu Bồn and dinner before the crowds peak at about 7. Touristy, and still lovely.' }, rain: 'A cooking class or a lantern-making workshop, and the covered market.' },
       { p: 2, o: 2, pace: 'culture', t: 'The old town at 6 am, then the Hải Vân Pass', d: 'See Hội An’s old town before the day-trippers arrive. Then drive, or ride with a guide, over the Hải Vân Pass to Huế, stopping at Lăng Cô lagoon.', e: { pace: 'culture', t: 'The old town at 6 am, then the Hải Vân Pass by car', d: 'See Hội An’s old town before the day-trippers arrive. Then a car with a driver over the Hải Vân Pass to Huế, stopping at Lăng Cô lagoon.' }, rain: 'If the pass is in cloud, take the tunnel and spend the time in Hội An’s assembly halls or at a tailor.' },
       { p: 3, o: 3, pace: 'culture', t: 'Huế by bicycle', d: 'Cycle to the tombs of Minh Mạng and Tự Đức along the Perfume River, then Thiên Mụ pagoda in the late afternoon.', e: { pace: 'culture', t: 'Huế by boat and car', d: 'A dragon boat up the Perfume River to Thiên Mụ pagoda, then the tombs of Minh Mạng and Tự Đức by car. The Imperial City is flat and easy on foot.' }, rain: 'The Imperial City’s covered galleries and the Museum of Royal Antiquities, then a long lunch of bún bò Huế.' },
       { p: 4, o: 4, pace: 'nature', t: 'Huế’s countryside', d: 'The tile-roofed bridge at Thanh Toàn among the rice fields, then the Tam Giang lagoon at sunset.', rain: 'A Huế cooking class, or the old garden houses of Kim Long by car.' }
@@ -191,7 +191,7 @@ const ROUTES = {
   classic: {
     name: 'Easy classics', tag: 'Our pick: with parents', cover: 'catba_0', gentle: true,
     blurb: 'The famous places, done gently: Đà Lạt’s cool hills, lantern-lit Hội An and imperial Huế, Ninh Bình by rowing boat, a comfortable night on Lan Hạ Bay and Hà Nội.',
-    why: 'Built for travelling with parents: no hikes and no motorbikes, cars with a driver, short transfers and only short flights. The catch: Hội An and Huế are in their rainy season, so every day there has a rain plan.',
+    why: 'Built for travelling with parents: cars with a driver, short transfers and only short flights, and in the gentle version no hikes and no motorbikes. The catch: Hội An and Huế are in their rainy season, so every day there has a rain plan.',
     stops: [['dalat', 2], ['central', 4], ['ninhbinh', 2], ['catba', 3], ['hanoi', 3]],
     city: [['dalat', 2], ['central', 3], ['ninhbinh', 2], ['catba', 3], ['hanoi', 1]],
     // calmer option first (the default) for the parents
@@ -203,8 +203,8 @@ const ROUTES = {
   balanced: {
     name: 'Balanced', tag: 'A bit of everything', cover: 'caobang_0',
     blurb: 'A bit of everything, weighted to nature: highland forest, karst rivers, the bay and the far north.',
-    why: 'Built for nature with some culture: dry places all the way, two hiking days, one night on a boat and two short flights.',
-    whyCity: 'Built for nature with some culture: dry places all the way, a day in the cloud forest, one night on a boat and two short flights.',
+    why: 'Built for nature with some culture: dry places all the way, three days in the highlands, one night on a boat and two short flights.',
+    whyCity: 'Built for nature with some culture: dry places all the way, two days in the highlands, one night on a boat and two short flights.',
     stops: [['dalat', 3], ['ninhbinh', 2], ['catba', 3], ['hanoiStop', 1], ['caobang', 2], ['babe', 2], ['hanoi', 1]],
     // no spare-night choice: Ninh Bình could only take it from Cát Bà, which keeps 3 nights
     city: [['dalat', 2], ['ninhbinh', 1], ['catba', 3], ['hanoiStop', 1], ['caobang', 2], ['babe', 1], ['hanoi', 1]]
@@ -212,7 +212,7 @@ const ROUTES = {
   nature: {
     name: 'Nature & hiking', tag: 'Most trail time', cover: 'dalat_0',
     blurb: 'Jungle at the start, the Đà Lạt highlands, Pù Luông’s ridges and the karst border country.',
-    why: 'Built for hiking: the most trail days and the fewest towns, at the cost of two long travel days.',
+    why: 'Built for hiking: the most trail days, at the cost of the most moves and two long travel days.',
     stops: [['cattien', 2], ['dalat', 3], ['puluong', 2], ['ninhbinh', 2], ['caobang', 2], ['babe', 2], ['hanoi', 1]],
     city: [['cattien', 1], ['dalat', 3], ['puluong', 2], ['ninhbinh', 1], ['caobang', 2], ['babe', 1], ['hanoi', 1]],
     cityNight: {
@@ -256,14 +256,14 @@ const SWAPS = [
     id: 'coast', a: 'dalat', b: 'central', q: 'Dry highlands or the rainy central coast?',
     pts: {
       dalat: ['Dry, sunny days and cold nights (around 13 °C)', 'Pine forest and the best hiking country on the trip', 'Nature first, few sights to tick off'],
-      central: ['Hội An, the Hải Vân Pass and Huế’s tombs', 'Rainy season: around 20 wet days in December', 'Culture first, less nature']
+      central: ['Hội An, the Hải Vân Pass and imperial Huế', 'Rainy season: around 20 wet days in December', 'Culture first, less nature']
     }
   },
   {
     id: 'water', a: 'catba', b: 'puluong', q: 'The bay or the valleys?',
     pts: {
       catba: ['A night on a boat among the karst islands', 'Kayaking, a car-free village, seafood', 'Cool and often misty; the sea is about 22 °C'],
-      puluong: ['Bamboo homestays and a full-day trek', 'Rice valleys, water wheels and Thái villages', 'Rice is harvested by December; misty mornings']
+      puluong: ['Bamboo homestays and a full day in the valleys', 'Rice valleys, water wheels and Thái villages', 'Rice is harvested by December; misty mornings']
     }
   },
   {
@@ -320,15 +320,15 @@ const COSTS = {
 
 /* Pros and cons for the spare-night choice (`cityNight`). Swapped-in stops (dalat, central) have their own. */
 const NIGHT_PTS = {
-  dalat: { pro: ['A third day in the highlands, for the Tà Năng grass hills', 'Dry, sunny days and cool nights'],
+  dalat: { pro: ['A third day in the highlands: the Tà Năng grass hills, or the old railway and the flower villages in the gentle version', 'Dry, sunny days and cool nights'],
     con: ['Ninh Bình shrinks to one evening and an early boat at Tràng An before you leave'] },
   central: { pro: ['One more day for Huế and its countryside', 'Slack in the plan if the rain spoils a day'],
     con: ['Ninh Bình shrinks to one evening and an early boat at Tràng An before you leave'] },
-  puluong: { pro: ['A slow day in the valley after the trek', 'One more night in a bamboo homestay'],
+  puluong: { pro: ['A slow day in the valley after the full day out', 'One more night in a bamboo homestay'],
     con: ['Ninh Bình shrinks to one evening and an early boat at Tràng An before you leave'] },
   ninhbinh: { pro: ['A full, unhurried day among the karst: Tràng An, Hoa Lư and Vân Long', 'No early start on the day you move on'],
-    con: { puluong: 'Pù Luông becomes arrival plus the trek, with no slow day',
-      dalat: 'Đà Lạt drops its third day and the Tà Năng grass hills', central: 'Hội An & Huế gets a day less, with less slack for rain' } }
+    con: { puluong: 'Pù Luông becomes arrival plus one full day, with no slow day',
+      dalat: 'Đà Lạt drops its third day', central: 'Hội An & Huế gets a day less, with less slack for rain' } }
 };
 
 const LEFT_OUT = [
