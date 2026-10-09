@@ -3,6 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c6a5a'/%3E%3Cpath d='M8 50 15 30 21 38 30 13 39 33 45 24 56 50z' fill='%23fff'/%3E%3C/svg%3E">
+<meta name="description" content="Fünf fertige Routen für den 11.–25. Dezember 2026, von Hồ Chí Minh City nach Hà Nội. Wählt gemeinsam euren Reisestil.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="https://grzegorzfrskiba-hub.github.io/vietnam-december/">
+<meta property="og:title" content="Vietnam im Dezember: 15 Tage von Süden nach Norden">
+<meta property="og:description" content="Fünf fertige Routen für den 11.–25. Dezember 2026, von Hồ Chí Minh City nach Hà Nội. Wählt gemeinsam euren Reisestil.">
+<meta property="og:image" content="https://grzegorzfrskiba-hub.github.io/vietnam-december/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ein Ruderboot auf dem Fluss unter den Kalksteinfelsen von Tràng An, Ninh Bình">
+<meta name="twitter:card" content="summary_large_image">
 <title>Vietnam in December</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -185,6 +197,7 @@ ul, ol { padding: 0; list-style: none; }
 .swap-opt li.pro::before { content: "+"; color: var(--accent); font-weight: 600; }
 .swap-opt li.con::before { content: "−"; color: var(--wet); font-weight: 600; }
 .pace-gentle { background: transparent; color: var(--accent); border: 1px dashed var(--accent); }
+.pace-early { background: transparent; color: var(--warm); border: 1px dashed var(--warm); }
 
 /* Strip */
 .strip { display: grid; grid-template-columns: repeat(var(--cols, 16), minmax(0, 1fr)); gap: 4px; }
@@ -347,6 +360,7 @@ body.mz-open .lang { opacity: 0; pointer-events: none; }
 .logi { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; min-width: 0; }
 .card h3 { font-size: 22px; margin-bottom: 10px; }
+.card-note { margin: -4px 0 12px; font-size: 13px; color: var(--muted); }
 .card ul { display: grid; gap: 8px; font-size: 14.5px; }
 .book-links { display: block; font-size: 13px; margin-top: 2px; }
 .card li { padding-left: 16px; position: relative; }
@@ -553,7 +567,7 @@ html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 56px); }
     </div>
     <div class="logi">
       <div class="card"><h3 data-i18n="lg.flights">Flights</h3><ul id="flight-list"></ul></div>
-      <div class="card"><h3 data-i18n="lg.book">Book ahead</h3><ul id="book-list"></ul></div>
+      <div class="card"><h3 data-i18n="lg.book">Book ahead</h3><p class="card-note" data-i18n="lg.book_p">Most urgent first.</p><ul id="book-list"></ul></div>
       <div class="card"><h3 data-i18n="lg.pack">Pack</h3><ul id="pack-list"></ul></div>
     </div>
   </section>
@@ -582,7 +596,9 @@ html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 56px); }
 /* Trip data: stops, hand-built routes, swaps, travel legs, December weather.
    A day's `e` is its gentle version (no hikes, no bikes) for the parents switch; `rain` is a wet-day plan.
    `pp` is what that day's trips cost per person, [low, high] in euros: cars with a driver, guides, tickets
-   (research/budget-2026-10.md). A gentle version with its own costs carries its own `pp`. */
+   (research/budget-2026-10.md). A gentle version with its own costs carries its own `pp`.
+   `early: true` marks a day that starts before 6 am (a sunrise trip, the 5:30 boat, the old town at 6); a gentle or
+   one-night version says `early` itself when it differs. The night taxi on day 15 is the same for every route, so it is not marked. */
 
 const PACE = {
   travel:  'Travel day',
@@ -625,7 +641,7 @@ const STOPS = {
       { p: 1, o: 1, pace: 'travel', t: 'Up to the highlands', d: 'Skip the town centre and head west to the ridges above the Tà Nung valley for sunset over pine hills and coffee farms. Sleep in a lodge outside town, where the nights are quiet and starry.' },
       { p: 2, o: 2, pace: 'hike', pp: [20, 30], t: 'Bidoup–Núi Bà cloud forest', d: 'A guided trek through old pines, mossy forest and wild orchids toward Hòn Giao. December is the dry season, so the trails are firm. Book a guide at the park visitor centre.', e: { pace: 'nature', pp: [15, 25], t: 'Pine forest and a lake monastery', d: 'The cable car from Robin Hill glides over the pine forest to Trúc Lâm, a quiet Zen monastery above Tuyền Lâm lake. Walk its gardens, then a slow boat on the lake or a long lakeside lunch.' } },
       { p: 3, o: 3, pace: 'hike', pp: [31, 44], t: 'The Tà Năng grass hills', d: 'A day hike on the first part of the Tà Năng–Phan Dũng trail, often called Vietnam’s most beautiful trek. The hills turn gold in the dry season. Only go with a licensed local guide, who arranges the permit: after accidents the route was closed to hikers without a guide, and walking it alone is still not allowed. Confirm the current rules with the operator when you book.', e: { pace: 'culture', pp: [16, 26], t: 'The old railway and the flower villages', d: 'The vintage train from Đà Lạt’s 1930s station to Trại Mát and the mosaic Linh Phước pagoda, then the greenhouses of the Vạn Thành flower village.' } },
-      { p: 4, o: 4, pace: 'culture', t: 'Tea hills and a coffee farm', d: 'Sunrise over the Cầu Đất tea hills, then a K’Ho family coffee farm at the foot of Lang Biang. The wild sunflowers are over by December, but the last pink grass may still colour the slopes.' }
+      { p: 4, o: 4, pace: 'culture', early: true, t: 'Tea hills and a coffee farm', d: 'Sunrise over the Cầu Đất tea hills, then a K’Ho family coffee farm at the foot of Lang Biang. The wild sunflowers are over by December, but the last pink grass may still colour the slopes.' }
     ],
     gem: 'Bidoup–Núi Bà. Most visitors to Đà Lạt never leave town.',
     skip: 'The Crazy House, the flower parks and the Datanla coaster.',
@@ -636,8 +652,8 @@ const STOPS = {
     region: 'South', place: 'Cat Tien National Park, Vietnam', label: { dx: 13, dy: 4, a: 'start' },
     photos: ['cattien_0', 'cattien_1', 'cattien_3', 'cattien_4'],
     days: [
-      { p: 1, o: 1, pace: 'travel', t: 'Into the jungle', d: 'Cross the Đồng Nai river on the small ferry to the park headquarters and sleep inside the park. After dark, a night drive to spot deer and civets.', solo: { pace: 'nature', t: 'Jungle at night and at dawn', d: 'Arrive by mid-afternoon and sleep inside the park; book the dawn walk at headquarters when you check in. After dark, a night drive to spot deer and civets. Next morning, out before dawn with a ranger to hear the gibbons call, then breakfast and on.' } },
-      { p: 2, o: 2, pace: 'hike', t: 'Gibbons and Crocodile Lake', d: 'Out before dawn with a ranger to hear the gibbons call, then the forest trail to Bàu Sấu, Crocodile Lake. Book the trek and the permit at headquarters the day before.', e: { pace: 'nature', t: 'Cát Tiên the easy way', d: 'A short guided walk to the giant trees near headquarters, then a boat across the Đồng Nai river to the Dao Tiến primate rescue centre, where rescued gibbons and langurs are prepared for release.' } }
+      { p: 1, o: 1, pace: 'travel', t: 'Into the jungle', d: 'Cross the Đồng Nai river on the small ferry to the park headquarters and sleep inside the park. After dark, a night drive to spot deer and civets.', solo: { pace: 'nature', early: true, t: 'Jungle at night and at dawn', d: 'Arrive by mid-afternoon and sleep inside the park; book the dawn walk at headquarters when you check in. After dark, a night drive to spot deer and civets. Next morning, out before dawn with a ranger to hear the gibbons call, then breakfast and on.' } },
+      { p: 2, o: 2, pace: 'hike', early: true, t: 'Gibbons and Crocodile Lake', d: 'Out before dawn with a ranger to hear the gibbons call, then the forest trail to Bàu Sấu, Crocodile Lake. Book the trek and the permit at headquarters the day before.', e: { pace: 'nature', early: false, t: 'Cát Tiên the easy way', d: 'A short guided walk to the giant trees near headquarters, then a boat across the Đồng Nai river to the Dao Tiến primate rescue centre, where rescued gibbons and langurs are prepared for release.' } }
     ],
     gem: 'One of the last large lowland forests in the south, four hours from Hồ Chí Minh City.'
   },
@@ -646,8 +662,8 @@ const STOPS = {
     region: 'South', place: 'Phong Dien, Can Tho, Vietnam', label: { dx: -13, dy: 4, a: 'end' },
     photos: ['mekong_0', 'mekong_2', 'mekong_3', 'mekong_1'],
     days: [
-      { p: 1, o: 1, pace: 'travel', t: 'Down to the delta', d: 'Check into a homestay on a canal in Phong Điền, just outside Cần Thơ. In the late afternoon, a small sampan through the fruit-orchard canals.', solo: { pace: 'boat', t: 'The delta at dusk and at dawn', d: 'Arrive by mid-afternoon at a canal-side homestay in Phong Điền, just outside Cần Thơ, and take a sampan through the orchard canals. Next morning, leave at 5:30 am by small boat for the Cái Răng floating market and be back by 9 for the onward trip.' } },
-      { p: 2, o: 2, pace: 'culture', t: 'The floating market at dawn', d: 'Leave at 5:30 am by small boat to reach Cái Răng before the tour boats, then the side canals and a rice-noodle workshop. In the afternoon, bikes on Cồn Sơn islet.', e: { pace: 'culture', t: 'The floating market at dawn', d: 'Leave at 5:30 am by small boat to reach Cái Răng before the tour boats, then the side canals and a rice-noodle workshop. In the afternoon, a slow boat to Cồn Sơn islet for fruit gardens and a home-cooked lunch.' } }
+      { p: 1, o: 1, pace: 'travel', t: 'Down to the delta', d: 'Check into a homestay on a canal in Phong Điền, just outside Cần Thơ. In the late afternoon, a small sampan through the fruit-orchard canals.', solo: { pace: 'boat', early: true, t: 'The delta at dusk and at dawn', d: 'Arrive by mid-afternoon at a canal-side homestay in Phong Điền, just outside Cần Thơ, and take a sampan through the orchard canals. Next morning, leave at 5:30 am by small boat for the Cái Răng floating market and be back by 9 for the onward trip.' } },
+      { p: 2, o: 2, pace: 'culture', early: true, t: 'The floating market at dawn', d: 'Leave at 5:30 am by small boat to reach Cái Răng before the tour boats, then the side canals and a rice-noodle workshop. In the afternoon, bikes on Cồn Sơn islet.', e: { pace: 'culture', t: 'The floating market at dawn', d: 'Leave at 5:30 am by small boat to reach Cái Răng before the tour boats, then the side canals and a rice-noodle workshop. In the afternoon, a slow boat to Cồn Sơn islet for fruit gardens and a home-cooked lunch.' } }
     ],
     gem: 'Cồn Sơn, a community-run islet a short boat ride from Cần Thơ.',
     skip: 'Day tours from Mỹ Tho and Cái Bè: coach groups on the same coconut-candy stops.',
@@ -673,7 +689,7 @@ const STOPS = {
     photos: ['hoian_0', 'hoian_1', 'hue_0', 'hue_4', 'hoian_2'],
     days: [
       { p: 1, o: 1, pace: 'travel', t: 'Hội An’s back roads', d: 'From Đà Nẵng airport it is 45 minutes to Hội An. Cycle out to Trà Quế vegetable village and the water-coconut channels of Cẩm Thanh.', e: { pace: 'travel', pp: [35, 55], t: 'Hội An at an easy pace', d: 'From Đà Nẵng airport it is 45 minutes to Hội An. A cooking class in Trà Quế vegetable village (by taxi), then the old town around 5 pm as the lanterns come on, a sampan ride on the Thu Bồn and dinner before the crowds peak at about 7. Touristy, and still lovely.' }, rain: 'A cooking class or a lantern-making workshop, and the covered market.' },
-      { p: 2, o: 2, pace: 'culture', pp: [25, 65], t: 'The old town at 6 am, then the Hải Vân Pass', d: 'See Hội An’s old town before the day-trippers arrive. Then drive, or ride with a guide, over the Hải Vân Pass to Huế, stopping at Lăng Cô lagoon.', e: { pace: 'culture', pp: [25, 40], t: 'The old town at 6 am, then the Hải Vân Pass by car', d: 'See Hội An’s old town before the day-trippers arrive. Then a car with a driver over the Hải Vân Pass to Huế, stopping at Lăng Cô lagoon.' }, rain: 'If the pass is in cloud, take the tunnel and spend the time in Hội An’s assembly halls or at a tailor.' },
+      { p: 2, o: 2, pace: 'culture', early: true, pp: [25, 65], t: 'The old town at 6 am, then the Hải Vân Pass', d: 'See Hội An’s old town before the day-trippers arrive. Then drive, or ride with a guide, over the Hải Vân Pass to Huế, stopping at Lăng Cô lagoon.', e: { pace: 'culture', pp: [25, 40], t: 'The old town at 6 am, then the Hải Vân Pass by car', d: 'See Hội An’s old town before the day-trippers arrive. Then a car with a driver over the Hải Vân Pass to Huế, stopping at Lăng Cô lagoon.' }, rain: 'If the pass is in cloud, take the tunnel and spend the time in Hội An’s assembly halls or at a tailor.' },
       { p: 3, o: 3, pace: 'culture', pp: [15, 18], t: 'Huế by bicycle', d: 'Cycle to the tombs of Minh Mạng and Tự Đức along the Perfume River, then Thiên Mụ pagoda in the late afternoon.', e: { pace: 'culture', pp: [40, 56], t: 'Huế by boat and car', d: 'A dragon boat up the Perfume River to Thiên Mụ pagoda, then the tombs of Minh Mạng and Tự Đức by car. The Imperial City is flat and easy on foot.' }, rain: 'The Imperial City’s covered galleries and the Museum of Royal Antiquities, then a long lunch of bún bò Huế.' },
       { p: 4, o: 4, pace: 'nature', t: 'Huế’s countryside', d: 'The tile-roofed bridge at Thanh Toàn among the rice fields, then the Tam Giang lagoon at sunset.', rain: 'A Huế cooking class, or the old garden houses of Kim Long by car.' }
     ],
@@ -875,6 +891,7 @@ const ROAD = {
 };
 const NORTH = new Set(['puluong', 'ninhbinh', 'catba', 'caobang', 'babe', 'hanoi', 'hanoiStop']);
 
+const SITE_URL = 'https://grzegorzfrskiba-hub.github.io/vietnam-december/';   // the public page: links in the copied plan go here, also from the private artifact
 const TRIP = { start: '2026-12-11' }; // Day 1, e.g. '2026-12-05'; null hides all dates
 
 /* December averages. Sources in the footer. */
@@ -940,7 +957,7 @@ const BASEMAP = {"north":{"vn":"M-6 328 -6 326 0.7 321.9 2.5 318.9 7.4 319.1 10.
 
 const UI = {
   en: {
-    'lang.aria': 'Language',
+    'doc.title': 'Vietnam in December', 'lang.aria': 'Language',
     'nav.aria': 'Sections', 'nav.styles': 'Trip styles', 'nav.shape': 'At a glance', 'nav.days': 'Day by day', 'nav.weather': 'Weather', 'nav.logistics': 'Before you go', 'nav.top': 'Back to top',
     'hero.alt': 'A woman rowing a small boat on the river below limestone cliffs at Tràng An, Ninh Bình',
     'hero.eyebrow': '{days} days · 11–25 December 2026 · Hồ Chí Minh City → Hà Nội',
@@ -948,7 +965,7 @@ const UI = {
     'hero.lede': 'Five complete routes for friends and family: nature, hiking, culture, slow days, and an easy one for travelling with parents. Each one is built for December weather, with honest travel times and the crowded places swapped for quieter ones nearby.',
     'hero.cta1': 'Pick a trip style', 'hero.cta2': 'See the {days} days',
     'styles.eyebrow': 'Step 1', 'styles.h2': 'Pick a trip style', 'styles.legend': 'Trip style', 'styles.sel': 'Selected',
-    'styles.stats': 'Flights {f} · Hiking days {h} · Longest travel day {l} · {b} pp',
+    'styles.stats': 'Flights {f} · Hiking days {h} · On the road {t}, longest day {l} · Early starts {e} · {b} pp', 'early': 'Up before 6',
     'styles.hoff': '{h} ({n} without the gentle version)',
     'styles.p': 'Each style is a complete {days}-day route, planned and checked by hand. Start with our pick, or choose the one that sounds most like your group. Everything below updates.',
     'swaps.eyebrow': 'Step 2', 'swaps.h3': 'Decide together',
@@ -977,7 +994,7 @@ const UI = {
     'wx.wet': 'wet days', 'wx.station': 'Station: ',
     'lo.eyebrow': 'Not in any route', 'lo.h2': 'Left out on purpose', 'lo.p': 'Famous places we decided against for this trip, and why.',
     'lg.eyebrow': 'Before you go', 'lg.h2': 'Flights, bookings and packing',
-    'lg.flights': 'Flights', 'lg.book': 'Book ahead', 'lg.pack': 'Pack',
+    'lg.flights': 'Flights', 'lg.book': 'Book ahead', 'lg.book_p': 'Most urgent first.', 'lg.pack': 'Pack',
     'lg.home': 'Hà Nội → home: CA884, then CA931, 4:30 am', 'lg.arrive': 'VN30 lands in Hồ Chí Minh City, 6:35 am', 'lg.intl': 'International',
     'ft.photos': 'Photos · Wikimedia Commons', 'ft.notes': 'Notes',
     'ft.budget': 'Budget: rough per-person ranges for two people sharing a double room, with domestic flights, transfers, food and the main activities, without international flights. Prices checked in October 2026.',
@@ -1008,6 +1025,8 @@ const UI = {
     't.dec': 'December', 't.gem': 'Hidden gem', 't.skip': 'Skip', 't.instead': 'Instead: ',
     'home.h3': 'Fly home from Hà Nội', 'home.t': 'Christmas Eve, then the night flight',
     'home.d': 'On the last day, 24 December, you are back in Hà Nội around midday. In the evening: Christmas Eve dinner in the Old Quarter (book the table ahead), then St Joseph’s Cathedral, lit up and busy. The streets around it are closed to cars from 6 pm to midnight and the crowd peaks around 11 pm, so walk there, ideally before 8 pm. Then a few hours’ sleep in an Old Quarter hotel. Taxi at about 1:30 am: at night it is about 40 minutes to Nội Bài, which leaves two hours for check-in before CA884 at 4:30 am.',
+    'b.hotel_sgn': 'A hotel in Hồ Chí Minh City from the night of 10 to 11 December, or a guaranteed early check-in: you land at 6:35 am.',
+    'b.flight_dad': 'The Đà Lạt–Đà Nẵng flight first: Vietnam Airlines flies it about once a day, Vietjet about three times a week.',
     'b.xmas': 'The trip ends on Christmas Eve, in high season: book the domestic flights and the best rooms by early November, and reserve the Christmas Eve dinner in Hà Nội.',
     'b.cruise': 'A Lan Hạ Bay cruise that starts from Cát Bà, with free date changes in case of fog or a storm. Full Moon’s cruise also stops at Việt Hải village (by bicycle, 5 km on the flat).',
     'b.dalat_bidoup': 'A guide for Bidoup–Núi Bà, booked at the park visitor centre.',
@@ -1028,10 +1047,10 @@ const UI = {
     'p.sun': 'Swimwear and sun protection for the south.',
     'p.cash': 'Cash in small notes: homestays and boats rarely take cards.',
     'p.apps': 'Grab and offline Google Maps on your phones.',
-    'pt.title': 'Vietnam, {days} days in December: ', 'pt.home': 'Day {days}: fly home from Hà Nội (CA884 + CA931, 4:30 am)', 'pt.arrive': 'Day 1: land in Hồ Chí Minh City (VN30, 6:35 am)', 'pt.flights': 'Flights: '
+    'pt.title': 'Vietnam, {days} days in December: ', 'pt.link': 'This plan on the page: ', 'pt.home': 'Day {days}: fly home from Hà Nội (CA884 + CA931, 4:30 am)', 'pt.arrive': 'Day 1: land in Hồ Chí Minh City (VN30, 6:35 am)', 'pt.flights': 'Flights: '
   },
   de: {
-    'lang.aria': 'Sprache',
+    'doc.title': 'Vietnam im Dezember', 'lang.aria': 'Sprache',
     'nav.aria': 'Abschnitte', 'nav.styles': 'Reisestile', 'nav.shape': 'Auf einen Blick', 'nav.days': 'Tag für Tag', 'nav.weather': 'Wetter', 'nav.logistics': 'Vor der Reise', 'nav.top': 'Nach oben',
     'hero.alt': 'Eine Frau rudert ein kleines Boot auf dem Fluss unter den Kalksteinfelsen von Tràng An, Ninh Bình',
     'hero.eyebrow': '{days} Tage · 11.–25. Dezember 2026 · Hồ Chí Minh City → Hà Nội',
@@ -1039,7 +1058,7 @@ const UI = {
     'hero.lede': 'Fünf fertige Routen für Freunde und Familie: Natur, Wandern, Kultur, ruhige Tage und eine entspannte Route für die Reise mit Eltern. Jede ist auf das Dezemberwetter abgestimmt, mit realistischen Reisezeiten und ruhigeren Alternativen statt überlaufener Orte.',
     'hero.cta1': 'Reisestil wählen', 'hero.cta2': 'Die {days} Tage ansehen',
     'styles.eyebrow': 'Schritt 1', 'styles.h2': 'Wählt euren Reisestil', 'styles.legend': 'Reisestil', 'styles.sel': 'Ausgewählt',
-    'styles.stats': 'Flüge {f} · Wandertage {h} · Längster Reisetag {l} · {b} p.\u00a0P.',
+    'styles.stats': 'Flüge {f} · Wandertage {h} · Unterwegs {t}, längster Tag {l} · Frühe Starts {e} · {b} p.\u00a0P.', 'early': 'Aufstehen vor 6',
     'styles.hoff': '{h} ({n} ohne sanfte Variante)',
     'styles.p': 'Jeder Stil ist eine komplette {days}-Tage-Route, von Hand geplant und geprüft. Startet mit unserem Tipp oder wählt den Stil, der am besten zu eurer Gruppe passt. Alles weiter unten wird automatisch angepasst.',
     'swaps.eyebrow': 'Schritt 2', 'swaps.h3': 'Gemeinsam entscheiden',
@@ -1068,7 +1087,7 @@ const UI = {
     'wx.wet': 'Regentage', 'wx.station': 'Messstation: ',
     'lo.eyebrow': 'Auf keiner Route', 'lo.h2': 'Bewusst weggelassen', 'lo.p': 'Berühmte Orte, gegen die wir uns für diese Reise entschieden haben, und warum.',
     'lg.eyebrow': 'Vor der Reise', 'lg.h2': 'Flüge, Buchungen und Packliste',
-    'lg.flights': 'Flüge', 'lg.book': 'Vorab buchen', 'lg.pack': 'Einpacken',
+    'lg.flights': 'Flüge', 'lg.book': 'Vorab buchen', 'lg.book_p': 'Das Dringendste zuerst.', 'lg.pack': 'Einpacken',
     'lg.home': 'Hà Nội → nach Hause: CA884, dann CA931, 4:30\u00a0Uhr', 'lg.arrive': 'VN30 landet in Hồ Chí Minh City, 6:35\u00a0Uhr', 'lg.intl': 'Langstrecke',
     'ft.photos': 'Fotos · Wikimedia Commons', 'ft.notes': 'Hinweise',
     'ft.budget': 'Budget: grobe Spannen pro Person, zu zweit im Doppelzimmer, mit Inlandsflügen, Transfers, Essen und den wichtigsten Aktivitäten, ohne internationale Flüge. Preisstand: Oktober 2026.',
@@ -1097,6 +1116,8 @@ const UI = {
     't.dec': 'Dezember', 't.gem': 'Geheimtipp', 't.skip': 'Auslassen', 't.instead': 'Stattdessen: ',
     'home.h3': 'Heimflug ab Hà Nội', 'home.t': 'Heiligabend, dann der Nachtflug',
     'home.d': 'Am letzten Tag, dem 24. Dezember, seid ihr gegen Mittag zurück in Hà Nội. Am Abend: ein festliches Abendessen an Heiligabend in der Altstadt (Tisch vorab reservieren), dann die St.-Joseph-Kathedrale, festlich beleuchtet und voller Menschen. Die Straßen rundherum sind von 18 bis 24\u00a0Uhr für Autos gesperrt, und gegen 23\u00a0Uhr ist der Andrang am größten: also zu Fuß hin, am besten vor 20\u00a0Uhr. Danach ein paar Stunden Schlaf in einem Hotel in der Altstadt. Gegen 1:30\u00a0Uhr mit dem Taxi los: nachts sind es etwa 40 Minuten bis Nội Bài, so bleiben zwei Stunden zum Einchecken vor CA884 um 4:30\u00a0Uhr.',
+    'b.hotel_sgn': 'Ein Hotel in Hồ Chí Minh City ab der Nacht vom 10. auf den 11. Dezember oder einen garantierten frühen Check-in: Ihr landet um 6:35\u00a0Uhr.',
+    'b.flight_dad': 'Den Flug Đà Lạt–Đà Nẵng zuerst: Vietnam Airlines fliegt ihn etwa einmal täglich, Vietjet etwa dreimal pro Woche.',
     'b.xmas': 'Die Reise endet an Heiligabend, mitten in der Hochsaison: Inlandsflüge und die besten Unterkünfte bis Anfang November buchen und den Tisch für Heiligabend in Hà Nội reservieren.',
     'b.cruise': 'Eine Bootstour mit Übernachtung in der Lan-Hạ-Bucht ab Cát Bà, mit kostenloser Umbuchung bei Nebel oder Sturm. Die Tour von Full Moon hält auch im Dorf Việt Hải (mit dem Fahrrad, 5 km flach).',
     'b.dalat_bidoup': 'Einen Guide für Bidoup–Núi Bà, zu buchen im Besucherzentrum des Parks.',
@@ -1117,7 +1138,7 @@ const UI = {
     'p.sun': 'Badesachen und Sonnenschutz für den Süden.',
     'p.cash': 'Bargeld in kleinen Scheinen: In Homestays und auf Booten kann man selten mit Karte zahlen.',
     'p.apps': 'Grab und Offline-Karten von Google Maps auf den Handys.',
-    'pt.title': 'Vietnam, {days} Tage im Dezember: ', 'pt.home': 'Tag {days}: Heimflug ab Hà Nội (CA884 + CA931, 4:30\u00a0Uhr)', 'pt.arrive': 'Tag 1: Landung in Hồ Chí Minh City (VN30, 6:35\u00a0Uhr)', 'pt.flights': 'Flüge: '
+    'pt.title': 'Vietnam, {days} Tage im Dezember: ', 'pt.link': 'Dieser Plan auf der Seite: ', 'pt.home': 'Tag {days}: Heimflug ab Hà Nội (CA884 + CA931, 4:30\u00a0Uhr)', 'pt.arrive': 'Tag 1: Landung in Hồ Chí Minh City (VN30, 6:35\u00a0Uhr)', 'pt.flights': 'Flüge: '
   }
 };
 
@@ -1431,7 +1452,7 @@ const I18N_DE = {
    'fmt.hm' formats a duration in hours and minutes. */
 
 UI.pl = {
-  'lang.aria': 'Język',
+  'doc.title': 'Wietnam w grudniu', 'lang.aria': 'Język',
   'nav.aria': 'Sekcje', 'nav.styles': 'Style podróży', 'nav.shape': 'W skrócie', 'nav.days': 'Dzień po dniu', 'nav.weather': 'Pogoda', 'nav.logistics': 'Przed wyjazdem', 'nav.top': 'Na górę',
   'hero.alt': 'Kobieta wiosłuje małą łodzią po rzece u stóp wapiennych skał w Tràng An, Ninh Bình',
   'hero.eyebrow': '{days} dni · 11–25 grudnia 2026 · Hồ Chí Minh City → Hà Nội',
@@ -1439,7 +1460,7 @@ UI.pl = {
   'hero.lede': 'Pięć gotowych tras dla przyjaciół i rodziny: przyroda, wędrówki, kultura, leniwe dni i jedna łatwa – na podróż z rodzicami. Każda jest dopasowana do grudniowej pogody, ma uczciwie policzone czasy przejazdów, a zamiast zatłoczonych miejsc proponuje spokojniejsze w pobliżu.',
   'hero.cta1': 'Wybierz styl podróży', 'hero.cta2': 'Zobacz plan na {days} dni',
   'styles.eyebrow': 'Krok 1', 'styles.h2': 'Wybierzcie styl podróży', 'styles.legend': 'Styl podróży', 'styles.sel': 'Wybrany',
-  'styles.stats': 'Loty {f} · Dni z wędrówką {h} · Najdłuższy przejazd {l} · {b}/os.',
+  'styles.stats': 'Loty {f} · Dni z wędrówką {h} · W drodze {t}, najdłuższy dzień {l} · Wczesne pobudki {e} · {b}/os.', 'early': 'Pobudka przed 6',
   'styles.hoff': '{h} ({n} bez wersji łagodnej)',
   'styles.p': 'Każdy styl to gotowa trasa na {days} dni, zaplanowana i sprawdzona ręcznie. Zacznijcie od naszej propozycji albo wybierzcie ten, który najbardziej pasuje do waszej grupy. Wszystko poniżej zmieni się razem z wyborem.',
   'swaps.eyebrow': 'Krok 2', 'swaps.h3': 'Zdecydujcie razem',
@@ -1468,7 +1489,7 @@ UI.pl = {
   'wx.wet': 'dni z deszczem', 'wx.station': 'Stacja: ',
   'lo.eyebrow': 'Poza trasami', 'lo.h2': 'Celowo pominięte', 'lo.p': 'Słynne miejsca, z których w tej podróży rezygnujemy – i dlaczego.',
   'lg.eyebrow': 'Przed wyjazdem', 'lg.h2': 'Loty, rezerwacje i pakowanie',
-  'lg.flights': 'Loty', 'lg.book': 'Zarezerwujcie wcześniej', 'lg.pack': 'Co spakować',
+  'lg.flights': 'Loty', 'lg.book': 'Zarezerwujcie wcześniej', 'lg.book_p': 'Od najpilniejszego.', 'lg.pack': 'Co spakować',
   'lg.home': 'Hà Nội → do domu: CA884, potem CA931, o 4:30', 'lg.arrive': 'VN30 ląduje w Hồ Chí Minh City o 6:35', 'lg.intl': 'Międzynarodowy',
   'ft.photos': 'Zdjęcia · Wikimedia Commons', 'ft.notes': 'Uwagi',
   'ft.budget': 'Budżet: orientacyjne widełki na osobę w pokoju dwuosobowym, z lotami krajowymi, przejazdami, jedzeniem i głównymi atrakcjami, bez lotów międzynarodowych. Ceny sprawdzone w październiku 2026.',
@@ -1497,6 +1518,8 @@ UI.pl = {
   't.dec': 'Grudzień', 't.gem': 'Ukryta perełka', 't.skip': 'Do pominięcia', 't.instead': 'Zamiast tego: ',
   'home.h3': 'Lot do domu z Hà Nội', 'home.t': 'Wigilia, a potem nocny lot',
   'home.d': 'Ostatniego dnia, 24 grudnia, około południa jesteście z powrotem w Hà Nội. Wieczorem kolacja wigilijna na Starym Mieście (stolik zarezerwujcie wcześniej), a potem katedra św. Józefa, rozświetlona i pełna ludzi. Ulice wokół niej są zamknięte dla aut w godz. 18–24, a tłum jest największy ok. 23:00, więc idźcie pieszo, najlepiej przed 20:00. Potem kilka godzin snu w hotelu na Starym Mieście. Taksówka ok. 1:30 w nocy: o tej porze jazda do Nội Bài trwa ok. 40 min, więc na odprawę przed CA884 o 4:30 zostają dwie godziny.',
+  'b.hotel_sgn': 'Hotel w Hồ Chí Minh City od nocy z 10 na 11 grudnia albo gwarantowane wczesne zameldowanie: lądujecie o 6:35.',
+  'b.flight_dad': 'Najpierw lot Đà Lạt–Đà Nẵng: Vietnam Airlines lata ok. raz dziennie, Vietjet ok. 3 razy w tygodniu.',
   'b.xmas': 'Podróż kończy się w Wigilię, w szczycie sezonu: loty krajowe i najlepsze pokoje zarezerwujcie do początku listopada, a w Hà Nội pamiętajcie o rezerwacji kolacji wigilijnej.',
   'b.cruise': 'Rejs po Zatoce Lan Hạ, który zaczyna się na Cát Bà, z bezpłatną zmianą terminu w razie mgły albo sztormu. Rejs Full Moon zawija też do wioski Việt Hải (rowerem, 5 km po płaskim).',
   'b.dalat_bidoup': 'Przewodnika po Bidoup–Núi Bà – rezerwuje się go w centrum informacji turystycznej parku.',
@@ -1517,7 +1540,7 @@ UI.pl = {
   'p.sun': 'Stroje kąpielowe i ochronę przeciwsłoneczną na południe.',
   'p.cash': 'Gotówkę w drobnych nominałach: u gospodarzy i na łodziach rzadko można zapłacić kartą.',
   'p.apps': 'W telefonach: Grab i mapy Google offline.',
-  'pt.title': 'Wietnam, {days} dni w grudniu: ', 'pt.home': 'Dzień {days}: lot do domu z Hà Nội (CA884 + CA931, 4:30)', 'pt.arrive': 'Dzień 1: przylot do Hồ Chí Minh City (VN30, 6:35)', 'pt.flights': 'Loty: '
+  'pt.title': 'Wietnam, {days} dni w grudniu: ', 'pt.link': 'Ten plan na stronie: ', 'pt.home': 'Dzień {days}: lot do domu z Hà Nội (CA884 + CA931, 4:30)', 'pt.arrive': 'Dzień 1: przylot do Hồ Chí Minh City (VN30, 6:35)', 'pt.flights': 'Loty: '
 };
 
 const I18N_PL = {
@@ -1827,16 +1850,17 @@ const I18N_PL = {
 
 /* Counts for one built route: domestic flights, hiking days, the longest travel day (hours) and bases (the Hà Nội stopover is not a base). */
 function routeStats(route) {
-  var flights = 0, hikes = 0, longest = 0;
+  var flights = 0, hikes = 0, longest = 0, road = 0, early = 0;   // road: hours door to door over all the journeys
   route.stops.forEach(function (s) {
     if (s.leg) {
       s.leg.segs.forEach(function (g) { if (g.mode === 'fly') flights++; });
       longest = Math.max(longest, s.leg.total);
+      road += s.leg.total;
     }
-    s.days.forEach(function (d) { if (d.pace === 'hike') hikes++; });
+    s.days.forEach(function (d) { if (d.pace === 'hike') hikes++; if (d.early) early++; });
   });
   var bases = route.stops.filter(function (s) { return s.id !== 'hanoiStop'; }).length;
-  return { flights: flights, hikes: hikes, longest: longest, bases: bases };
+  return { flights: flights, hikes: hikes, longest: longest, bases: bases, road: road, early: early };
 }
 
 /* Per-person estimate [low, high], rounded to 10: sharing a double room, no international flights.
@@ -1870,11 +1894,14 @@ function nightForm(n) {
   return last >= 2 && last <= 4 && (lastTwo < 12 || lastTwo > 14) ? 'few' : 'many';
 }
 
-/* The page language: a #hash that names one of langs wins, then a stored choice, then the browser's primary language subtag
-   (de-AT gives de; deu is another language), else the first language. */
+/* The page language: a #hash that names one of langs (#de, or lang=de in a variant link) wins, then a stored choice,
+   then the browser's primary language subtag (de-AT gives de; deu is another language), else the first language. */
 function pickLang(stored, browser, hash, langs) {
-  var fromHash = String(hash || '').replace(/^#/, '');
-  if (langs.indexOf(fromHash) > -1) return fromHash;
+  var parts = String(hash || '').replace(/^#/, '').split('&');
+  for (var i = 0; i < parts.length; i++) {
+    var p = parts[i].replace(/^lang=/, '');
+    if (langs.indexOf(p) > -1) return p;
+  }
   if (langs.indexOf(stored) > -1) return stored;
   var primary = String(browser || '').split(/[-_]/)[0].toLowerCase();
   return langs.indexOf(primary) > -1 ? primary : langs[0];
@@ -2010,6 +2037,32 @@ function buildRoute(styleId, choice, saigon, gentle, dayPlans) {
   return { style: styleId, stops: out, swaps: swaps, saigon: !!saigon, gentle: !!gentle, days: day, night: night };
 }
 
+/* A link to one variant of the trip, kept after the # so it never reaches a server:
+   #nature&south=mekong&night=ninhbinh&hcmc=1&gentle=0&lang=de. Every choice the route offers is written out. */
+function variantHash(route, lang) {
+  var parts = [route.style];
+  route.swaps.forEach(function (x) { parts.push(x.sw.id + '=' + x.pick); });
+  if (route.night) parts.push('night=' + route.night.pick);
+  parts.push('hcmc=' + (route.saigon ? 1 : 0), 'gentle=' + (route.gentle ? 1 : 0));
+  if (lang) parts.push('lang=' + lang);
+  return '#' + parts.join('&');
+}
+
+/* The choices in a #hash: { style, choice, saigon, gentle }, or null when it names no style (#de, #day-5).
+   saigon and gentle are left out when the link does not set them (#classic); unknown or stale values are dropped. */
+function parseVariant(hash) {
+  var parts = String(hash || '').replace(/^#/, '').split('&');
+  if (!ROUTES.hasOwnProperty(parts[0])) return null;
+  var out = { style: parts[0], choice: {} };
+  parts.slice(1).forEach(function (p) {
+    var kv = p.split('='), k = kv[0], v = kv[1];
+    if ((k === 'hcmc' || k === 'gentle') && (v === '0' || v === '1')) out[k === 'hcmc' ? 'saigon' : 'gentle'] = v === '1';
+    else if (k === 'night' && ROUTES[out.style].cityNight && ROUTES[out.style].cityNight.hasOwnProperty(v)) out.choice.night = v;
+    else SWAPS.forEach(function (sw) { if (sw.id === k && (v === sw.a || v === sw.b)) out.choice[k] = v; });
+  });
+  return out;
+}
+
 const PHOTOS = {"saigon_0": {"cap": "The Saigon river at blue hour", "artist": "Radek Kucharski", "license": "CC BY 2.0", "page": "https://commons.wikimedia.org/wiki/File:Saigon_at_Blue_Hour.jpg", "src": "img/saigon_0.jpg", "w": 1400, "h": 788, "srcset": "img/saigon_0-480.jpg 480w, img/saigon_0-960.jpg 960w, img/saigon_0.jpg 1400w"}, "saigon_1": {"cap": "A lone mangrove off the Cần Giờ coast", "artist": "Bao Nguyen", "license": "CC BY 2.0", "page": "https://commons.wikimedia.org/wiki/File:C%E1%BA%A7n_Gi%E1%BB%9D_-_48731286041.jpg", "src": "img/saigon_1.jpg", "w": 1400, "h": 933, "srcset": "img/saigon_1-480.jpg 480w, img/saigon_1-960.jpg 960w, img/saigon_1.jpg 1400w"}, "saigon_2": {"cap": "Boardwalk through the Rừng Sác mangroves, Cần Giờ", "artist": "Phương Huy", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:R%E1%BB%ABng_s%C3%A1c_C%E1%BA%A7n_Gi%E1%BB%9D_n%C4%83m_2019_(C%C4%83n_c%E1%BB%A9)_(1).jpg", "src": "img/saigon_2.jpg", "w": 1400, "h": 883, "srcset": "img/saigon_2-480.jpg 480w, img/saigon_2-960.jpg 960w, img/saigon_2.jpg 1400w"}, "saigon_3": {"cap": "Incense at Thiên Hậu temple, Chợ Lớn", "artist": "frank mckenna frankiefoto", "license": "CC0", "page": "https://commons.wikimedia.org/wiki/File:Incensories_at_Thien_Hau_Temple,_Ho_Chi_Minh_City,_2016.jpg", "src": "img/saigon_3.jpg", "w": 1400, "h": 788, "srcset": "img/saigon_3-480.jpg 480w, img/saigon_3-960.jpg 960w, img/saigon_3.jpg 1400w"}, "saigon_4": {"cap": "Dried goods at Bình Tây market", "artist": "Jean-Pierre Dalbéra from Paris, France", "license": "CC BY 2.0", "page": "https://commons.wikimedia.org/wiki/File:Le_march%C3%A9_de_Binh_Thay_(H%C3%B4_Chi_Minh-Ville)_(6798206655).jpg", "src": "img/saigon_4.jpg", "w": 1400, "h": 933, "srcset": "img/saigon_4-480.jpg 480w, img/saigon_4-960.jpg 960w, img/saigon_4.jpg 1400w"}, "dalat_0": {"cap": "On the Tà Năng trail in the dry season", "artist": "VinhNguyen.1257", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:T%C3%A0_N%C4%83ng_%E2%80%93_Phan_D%C5%A9ng_trail_grass_hills_in_the_dry_season.jpg", "src": "img/dalat_0.jpg", "w": 1400, "h": 1050, "srcset": "img/dalat_0-480.jpg 480w, img/dalat_0-960.jpg 960w, img/dalat_0.jpg 1400w"}, "dalat_1": {"cap": "Stream and pool at Hòn Giao, Bidoup–Núi Bà National Park", "artist": "Dotrihieu", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Hon_Giao,_Bidoup_Nui_Ba_National_Park.jpg", "src": "img/dalat_1.jpg", "w": 1400, "h": 1052, "srcset": "img/dalat_1-480.jpg 480w, img/dalat_1-960.jpg 960w, img/dalat_1.jpg 1400w"}, "dalat_2": {"cap": "Old pines in Bidoup–Núi Bà after rain", "artist": "Toni Wöhrl and Sang Cai", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Pine_trees_in_Bidoup-Nui_Ba_National_Park.jpg", "src": "img/dalat_2.jpg", "w": 1400, "h": 933, "srcset": "img/dalat_2-480.jpg 480w, img/dalat_2-960.jpg 960w, img/dalat_2.jpg 1400w"}, "dalat_4": {"cap": "Looking out from Lang Biang mountain", "artist": "The Erica Chang", "license": "CC BY 3.0", "page": "https://commons.wikimedia.org/wiki/File:Lang_Biang_mountain_in_Da_Lat_Vietnam_-_panoramio.jpg", "src": "img/dalat_4.jpg", "w": 1400, "h": 1050, "srcset": "img/dalat_4-480.jpg 480w, img/dalat_4-960.jpg 960w, img/dalat_4.jpg 1400w"}, "dalat_3": {"cap": "Tents on the Tà Năng grass hills", "artist": "VinhNguyen.1257", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Camping_in_grass_hill_in_Ta_Nang_-_Phan_Dung_trekking_trail.jpg", "src": "img/dalat_3.jpg", "w": 1400, "h": 1050, "srcset": "img/dalat_3-480.jpg 480w, img/dalat_3-960.jpg 960w, img/dalat_3.jpg 1400w"}, "cattien_0": {"cap": "Fishing boat on a wetland lake in Cát Tiên", "artist": "1April1950", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Cat_Tien_Nat_Park_C_2021-11-06_by_1April1950.jpg", "src": "img/cattien_0.jpg", "w": 1400, "h": 1050, "srcset": "img/cattien_0-480.jpg 480w, img/cattien_0-960.jpg 960w, img/cattien_0.jpg 1400w"}, "cattien_1": {"cap": "Sunset over the Cát Tiên wetlands", "artist": "1April1950", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Cat_Tien_Nat_Park_D_2021-11-06_by_1April1950.jpg", "src": "img/cattien_1.jpg", "w": 1400, "h": 1050, "srcset": "img/cattien_1-480.jpg 480w, img/cattien_1-960.jpg 960w, img/cattien_1.jpg 1400w"}, "cattien_3": {"cap": "Buttress roots of a lowland forest giant", "artist": "Vyacheslav Argenberg", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File:Cat_Tien_Park,_Vietnam,_tropical_forest,_roots.jpg", "src": "img/cattien_3.jpg", "w": 1400, "h": 933, "srcset": "img/cattien_3-480.jpg 480w, img/cattien_3-960.jpg 960w, img/cattien_3.jpg 1400w"}, "cattien_4": {"cap": "Wetland seen from the forest edge", "artist": "1April1950", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Cat_Tien_Nat_Park_B_2021-11-06_by_1April1950.jpg", "src": "img/cattien_4.jpg", "w": 1400, "h": 996, "srcset": "img/cattien_4-480.jpg 480w, img/cattien_4-960.jpg 960w, img/cattien_4.jpg 1400w"}, "mekong_0": {"cap": "A rower on the Mekong just before sunrise", "artist": "Radek Kucharski", "license": "CC BY 2.0", "page": "https://commons.wikimedia.org/wiki/File:Mekong_Delta_just_before_sunrise.jpg", "src": "img/mekong_0.jpg", "w": 1400, "h": 933, "srcset": "img/mekong_0-480.jpg 480w, img/mekong_0-960.jpg 960w, img/mekong_0.jpg 1400w"}, "mekong_2": {"cap": "Cái Răng floating market, Cần Thơ", "artist": "Jean-Marc Astesana from Voisins le Bretonneux, France", "license": "CC BY-SA 2.0", "page": "https://commons.wikimedia.org/wiki/File:Cai_Rang_floating_market_(15886375226).jpg", "src": "img/mekong_2.jpg", "w": 1400, "h": 929, "srcset": "img/mekong_2-480.jpg 480w, img/mekong_2-960.jpg 960w, img/mekong_2.jpg 1400w"}, "mekong_3": {"cap": "Selling from a boat at Phong Điền", "artist": "Vyacheslav Argenberg", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File:Vietnam,_Phong_Dien,_Floating_market_in_Mekong_Delta,_Woman.jpg", "src": "img/mekong_3.jpg", "w": 1400, "h": 933, "srcset": "img/mekong_3-480.jpg 480w, img/mekong_3-960.jpg 960w, img/mekong_3.jpg 1400w"}, "mekong_1": {"cap": "A nipa-palm canal in the delta", "artist": "Esin Üstün from Istanbul, Turkey", "license": "CC BY 2.0", "page": "https://commons.wikimedia.org/wiki/File:Canal_in_Mekong_Delta_-_My_Tho_-_Vietnam_(15912635245).jpg", "src": "img/mekong_1.jpg", "w": 1400, "h": 933, "srcset": "img/mekong_1-480.jpg 480w, img/mekong_1-960.jpg 960w, img/mekong_1.jpg 1400w"}, "phuquoc_0": {"cap": "Granite boulders on a Phú Quốc beach", "artist": "FrogsLegs71", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File:Phu_Quoc_Beach.jpg", "src": "img/phuquoc_0.jpg", "w": 1400, "h": 1050, "srcset": "img/phuquoc_0-480.jpg 480w, img/phuquoc_0-960.jpg 960w, img/phuquoc_0.jpg 1400w"}, "phuquoc_1": {"cap": "Starfish in the shallows, Phú Quốc", "artist": "Alexey Komarov", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Starfishes_on_the_Starfish_Beach,_Phu_Quoc,_Vietnam.jpg", "src": "img/phuquoc_1.jpg", "w": 1400, "h": 933, "srcset": "img/phuquoc_1-480.jpg 480w, img/phuquoc_1-960.jpg 960w, img/phuquoc_1.jpg 1400w"}, "phuquoc_2": {"cap": "Sunset over the Gulf of Thailand", "artist": "Elmschrat", "license": "CC0", "page": "https://commons.wikimedia.org/wiki/File:1_Phu_Quoc_sunset.jpg", "src": "img/phuquoc_2.jpg", "w": 1400, "h": 1054, "srcset": "img/phuquoc_2-480.jpg 480w, img/phuquoc_2-960.jpg 960w, img/phuquoc_2.jpg 1400w"}, "phuquoc_5": {"cap": "A quiet beach near Hàm Ninh", "artist": "Tonbi ko", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Beach_near_Ham_Ninh_Phu_Quoc.JPG", "src": "img/phuquoc_5.jpg", "w": 1400, "h": 954, "srcset": "img/phuquoc_5-480.jpg 480w, img/phuquoc_5-960.jpg 960w, img/phuquoc_5.jpg 1400w"}, "hoian_0": {"cap": "Hội An's waterfront on the Thu Bồn river", "artist": "Dennis G. Jarvis", "license": "CC BY-SA 2.0", "page": "https://commons.wikimedia.org/wiki/File:Waterfront_of_Hoi_An_on_the_Thu_Bon_River.jpg", "src": "img/hoian_0.jpg", "w": 1400, "h": 930, "srcset": "img/hoian_0-480.jpg 480w, img/hoian_0-960.jpg 960w, img/hoian_0.jpg 1400w"}, "hoian_1": {"cap": "A basket boat among water-coconut palms", "artist": "Chester Ho chesterho", "license": "CC0", "page": "https://commons.wikimedia.org/wiki/File:Basket_Boat_and_the_Bamboo_forest_(Unsplash).jpg", "src": "img/hoian_1.jpg", "w": 1400, "h": 936, "srcset": "img/hoian_1-480.jpg 480w, img/hoian_1-960.jpg 960w, img/hoian_1.jpg 1400w"}, "hue_0": {"cap": "Tomb of Emperor Minh Mạng, Huế, in the mist", "artist": "Mig Gilbert from Brighton", "license": "CC BY-SA 2.0", "page": "https://commons.wikimedia.org/wiki/File:Minh_Mang_Tomb_(40497940401).jpg", "src": "img/hue_0.jpg", "w": 1400, "h": 933, "srcset": "img/hue_0-480.jpg 480w, img/hue_0-960.jpg 960w, img/hue_0.jpg 1400w"}, "hue_4": {"cap": "The Hải Vân Pass above the sea", "artist": "Tuabiht Rellahcs", "license": "CC BY 2.0", "page": "https://commons.wikimedia.org/wiki/File:Hai_Van_Pass_ocean_view.jpg", "src": "img/hue_4.jpg", "w": 1400, "h": 1050, "srcset": "img/hue_4-480.jpg 480w, img/hue_4-960.jpg 960w, img/hue_4.jpg 1400w"}, "hoian_2": {"cap": "Thanh Toàn tile-roofed bridge, near Huế", "artist": "Mig Gilbert from Brighton", "license": "CC BY-SA 2.0", "page": "https://commons.wikimedia.org/wiki/File:Thanh_Toan_tile-roofed_bridge_(39598974915).jpg", "src": "img/hoian_2.jpg", "w": 1400, "h": 933, "srcset": "img/hoian_2-480.jpg 480w, img/hoian_2-960.jpg 960w, img/hoian_2.jpg 1400w"}, "puluong_1": {"cap": "Sunset over the Pù Luông valley in November", "artist": "Wakada111", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Sunset_in_Pu_Luong-_Nov_2025.jpg", "src": "img/puluong_1.jpg", "w": 1400, "h": 1050, "srcset": "img/puluong_1-480.jpg 480w, img/puluong_1-960.jpg 960w, img/puluong_1.jpg 1400w"}, "puluong_2": {"cap": "A village among the paddies, Pù Luông", "artist": "Benjamin Smith", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:P%C3%B9_Lu%C3%B4ng_-_01.jpg", "src": "img/puluong_2.jpg", "w": 1400, "h": 935, "srcset": "img/puluong_2-480.jpg 480w, img/puluong_2-960.jpg 960w, img/puluong_2.jpg 1400w"}, "puluong_3": {"cap": "Poling a bamboo raft on the river", "artist": "Benjamin Smith", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:P%C3%B9_Lu%C3%B4ng_-_07.jpg", "src": "img/puluong_3.jpg", "w": 1400, "h": 935, "srcset": "img/puluong_3-480.jpg 480w, img/puluong_3-960.jpg 960w, img/puluong_3.jpg 1400w"}, "puluong_0": {"cap": "Pù Luông's terraces at harvest time (September)", "artist": "NKSTTSSHNVN", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Ru%E1%BB%99ng_b%E1%BA%ADc_thang_P%C3%B9_Lu%C3%B4ng_1_-_NKS.jpg", "src": "img/puluong_0.jpg", "w": 1400, "h": 933, "srcset": "img/puluong_0-480.jpg 480w, img/puluong_0-960.jpg 960w, img/puluong_0.jpg 1400w"}, "puluong_5": {"cap": "Weaving on a wooden loom at home", "artist": "Benjamin Smith", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:P%C3%B9_Lu%C3%B4ng_-_03.jpg", "src": "img/puluong_5.jpg", "w": 1400, "h": 935, "srcset": "img/puluong_5-480.jpg 480w, img/puluong_5-960.jpg 960w, img/puluong_5.jpg 1400w"}, "ninhbinh_1": {"cap": "Rowing boat below the cliffs at Tràng An", "artist": "Jakub Hałun", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File:Trang_An_Landscape_Complex,_Ninh_Binh_Province,_Vietnam,_20240202_1433_5283.jpg", "src": "img/ninhbinh_1.jpg", "w": 1920, "h": 1282, "srcset": "img/ninhbinh_1-960.jpg 960w, img/ninhbinh_1-1400.jpg 1400w, img/ninhbinh_1.jpg 1920w"}, "ninhbinh_0": {"cap": "Limestone towers at Tràng An", "artist": "Richard Mortel from Riyadh, Saudi Arabia", "license": "CC BY 2.0", "page": "https://commons.wikimedia.org/wiki/File:Trang_An_Scenic_Landscape_Complex,_northern_Vietnam_(354)_(38540830421).jpg", "src": "img/ninhbinh_0.jpg", "w": 1400, "h": 894, "srcset": "img/ninhbinh_0-480.jpg 480w, img/ninhbinh_0-960.jpg 960w, img/ninhbinh_0.jpg 1400w"}, "ninhbinh_3": {"cap": "Vân Long wetland at golden hour", "artist": "Hòa Nguyễn", "license": "CC BY 2.0", "page": "https://commons.wikimedia.org/wiki/File:Van_Long_Swamp_(24135913297).jpg", "src": "img/ninhbinh_3.jpg", "w": 1400, "h": 937, "srcset": "img/ninhbinh_3-480.jpg 480w, img/ninhbinh_3-960.jpg 960w, img/ninhbinh_3.jpg 1400w"}, "ninhbinh_4": {"cap": "A Delacour's langur on a limestone cliff", "artist": "Charles J. Sharp", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Delacour%27s_langur_(Trachypithecus_delacouri)_Van_Long.jpg", "src": "img/ninhbinh_4.jpg", "w": 1400, "h": 933, "srcset": "img/ninhbinh_4-480.jpg 480w, img/ninhbinh_4-960.jpg 960w, img/ninhbinh_4.jpg 1400w"}, "ninhbinh_5": {"cap": "Through a cave on the Tràng An boat route", "artist": "Jakub Hałun", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File:Trang_An_Landscape_Complex,_Ninh_Binh_Province,_Vietnam,_20240202_1403_5212.jpg", "src": "img/ninhbinh_5.jpg", "w": 1400, "h": 935, "srcset": "img/ninhbinh_5-480.jpg 480w, img/ninhbinh_5-960.jpg 960w, img/ninhbinh_5.jpg 1400w"}, "ninhbinh_6": {"cap": "Hoa Lư, the 10th-century royal capital", "artist": "Kien1980v", "license": "Public domain", "page": "https://commons.wikimedia.org/wiki/File:Co_do_Hoa_Lu_113.JPG", "src": "img/ninhbinh_6.jpg", "w": 1400, "h": 940, "srcset": "img/ninhbinh_6-480.jpg 480w, img/ninhbinh_6-960.jpg 960w, img/ninhbinh_6.jpg 1400w"}, "catba_0": {"cap": "Junks in Lan Hạ Bay", "artist": "Velvet", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Lan_Ha_bay_jonques.jpg", "src": "img/catba_0.jpg", "w": 1400, "h": 887, "srcset": "img/catba_0-480.jpg 480w, img/catba_0-960.jpg 960w, img/catba_0.jpg 1400w"}, "catba_3": {"cap": "Morning haze over the islands off Cát Bà", "artist": "Jakub Hałun", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File:Islands_southeast_of_Cat_Ba_Island_in_Vietnam,_20240131_1402_4656.jpg", "src": "img/catba_3.jpg", "w": 1400, "h": 935, "srcset": "img/catba_3-480.jpg 480w, img/catba_3-960.jpg 960w, img/catba_3.jpg 1400w"}, "catba_1": {"cap": "A small beach in Lan Hạ Bay", "artist": "Christophe95", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Lan_Ha_Bay_31.jpg", "src": "img/catba_1.jpg", "w": 1400, "h": 892, "srcset": "img/catba_1-480.jpg 480w, img/catba_1-960.jpg 960w, img/catba_1.jpg 1400w"}, "catba_2": {"cap": "Floating fish farm off Cát Bà", "artist": "Jakub Hałun", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File:Cat_Ba_Island,_Vietnam,_20240131_1431_4699.jpg", "src": "img/catba_2.jpg", "w": 1400, "h": 935, "srcset": "img/catba_2-480.jpg 480w, img/catba_2-960.jpg 960w, img/catba_2.jpg 1400w"}, "catba_6": {"cap": "Việt Hải village, Cát Bà National Park", "artist": "Jakub Hałun", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File:Vi%E1%BB%87t_H%E1%BA%A3i,_C%C3%A1t_B%C3%A0_Island,_Vietnam,_20240131_1211_4613.jpg", "src": "img/catba_6.jpg", "w": 1400, "h": 935, "srcset": "img/catba_6-480.jpg 480w, img/catba_6-960.jpg 960w, img/catba_6.jpg 1400w"}, "caobang_0": {"cap": "Bản Giốc waterfall from the bamboo-raft landing", "artist": "Rod Waddington from Kergunyah, Australia", "license": "CC BY-SA 2.0", "page": "https://commons.wikimedia.org/wiki/File:Ban_Gioc_(31073305668).jpg", "src": "img/caobang_0.jpg", "w": 1400, "h": 934, "srcset": "img/caobang_0-480.jpg 480w, img/caobang_0-960.jpg 960w, img/caobang_0.jpg 1400w"}, "caobang_6": {"cap": "Núi Mắt Thần, the Angel's Eye mountain", "artist": "Fogylands", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:Angels_Eye_Mountain_and_Suroundings.jpg", "src": "img/caobang_6.jpg", "w": 1400, "h": 1050, "srcset": "img/caobang_6-480.jpg 480w, img/caobang_6-960.jpg 960w, img/caobang_6.jpg 1400w"}, "caobang_1": {"cap": "Bản Giốc above the rice fields", "artist": "Ekrem Canli", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File:Ban_Gioc_Waterfalls_I.jpg", "src": "img/caobang_1.jpg", "w": 1400, "h": 933, "srcset": "img/caobang_1-480.jpg 480w, img/caobang_1-960.jpg 960w, img/caobang_1.jpg 1400w"}, "caobang_2": {"cap": "Inside Ngườm Ngao cave", "artist": "Bùi Thụy Đào Nguyên", "license": "CC BY-SA 4.0", "page": "https://commons.wikimedia.org/wiki/File:%C4%90%E1%BB%99ng_Ng%C6%B0%E1%BB%9Dm_Ngao.jpg", "src": "img/caobang_2.jpg", "w": 1400, "h": 933, "srcset": "img/caobang_2-480.jpg 480w, img/caobang_2-960.jpg 960w, img/caobang_2.jpg 1400w"}, "caobang_3": {"cap": "Karst reflected in a paddy near Bản Giốc", "artist": "Adam Jones from Kelowna, BC, Canada", "license": "CC BY-SA 2.0", "page": "https://commons.wikimedia.org/wiki/File:Scenery_around_Ban_Gioc_Waterfall_-_Trung_Kanh_District_-_Cao_Bang_Province_-_Vietnam_-_01_(48119879587).jpg", "src": "img/caobang_3.jpg", "w": 1400, "h": 1050, "srcset": "img/caobang_3-480.jpg 480w, img/caobang_3-960.jpg 960w, img/caobang_3.jpg 1400w"}, "babe_0": {"cap": "A boat on Ba Bể lake", "artist": "Adam Jones from Kelowna, BC, Canada", "license": "CC BY-SA 2.0", "page": "https://commons.wikimedia.org/wiki/File:Scene_at_Ba_Be_Lake_-_Ba_Be_-_Vietnam_-_02_(48096781746).jpg", "src": "img/babe_0.jpg", "w": 1400, "h": 1050, "srcset": "img/babe_0-480.jpg 480w, img/babe_0-960.jpg 960w, img/babe_0.jpg 1400w"}, "babe_1": {"cap": "Still water on Ba Bể", "artist": "Rolf Müller (User:Rolfmueller)", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File:Babenp_2007_01_1.jpg", "src": "img/babe_1.jpg", "w": 1400, "h": 914, "srcset": "img/babe_1-480.jpg 480w, img/babe_1-960.jpg 960w, img/babe_1.jpg 1400w"}, "babe_2": {"cap": "A Tày stilt house by the lake", "artist": "Ba Be National Park", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File:Ba_Be_stilt_houses.JPG", "src": "img/babe_2.jpg", "w": 1400, "h": 933, "srcset": "img/babe_2-480.jpg 480w, img/babe_2-960.jpg 960w, img/babe_2.jpg 1400w"}, "babe_3": {"cap": "Pác Ngòi's fields between the lake and the hills", "artist": "Ba Be National Park", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File:Pac_Ngoi_rice_field.JPG", "src": "img/babe_3.jpg", "w": 1400, "h": 933, "srcset": "img/babe_3-480.jpg 480w, img/babe_3-960.jpg 960w, img/babe_3.jpg 1400w"}, "babe_5": {"cap": "Then singing with a tính lute", "artist": "Ba Be National Park", "license": "CC BY-SA 3.0", "page": "https://commons.wikimedia.org/wiki/File:Ba-Be-Lake-_Then-singing.jpg", "src": "img/babe_5.jpg", "w": 1400, "h": 907, "srcset": "img/babe_5-480.jpg 480w, img/babe_5-960.jpg 960w, img/babe_5.jpg 1400w"}, "hanoi_0": {"cap": "A train crossing Long Biên bridge", "artist": "Quangpraha", "license": "CC0", "page": "https://commons.wikimedia.org/wiki/File:Long-bien-bridge-3371615.jpg", "src": "img/hanoi_0.jpg", "w": 1400, "h": 933, "srcset": "img/hanoi_0-480.jpg 480w, img/hanoi_0-960.jpg 960w, img/hanoi_0.jpg 1400w"}, "hanoi_1": {"cap": "Main gate of the Temple of Literature", "artist": "Jakub Hałun", "license": "CC BY 4.0", "page": "https://commons.wikimedia.org/wiki/File:Main_gate_of_the_Temple_of_Literature,_Hanoi,_Vietnam,_20240123_0929_3068.jpg", "src": "img/hanoi_1.jpg", "w": 1400, "h": 934, "srcset": "img/hanoi_1-480.jpg 480w, img/hanoi_1-960.jpg 960w, img/hanoi_1.jpg 1400w"}, "hanoi_3": {"cap": "A laterite lane in Đường Lâm village", "artist": "Quangpraha", "license": "CC0", "page": "https://commons.wikimedia.org/wiki/File:The-ancient-village-3358830.jpg", "src": "img/hanoi_3.jpg", "w": 1400, "h": 933, "srcset": "img/hanoi_3-480.jpg 480w, img/hanoi_3-960.jpg 960w, img/hanoi_3.jpg 1400w"}, "hanoi_5": {"cap": "A stilt house in the garden of the Museum of Ethnology", "artist": "Daderot", "license": "CC0", "page": "https://commons.wikimedia.org/wiki/File:Exterior_view_-_Vietnam_Museum_of_Ethnology_-_Hanoi,_Vietnam_-_DSC03432.JPG", "src": "img/hanoi_5.jpg", "w": 1400, "h": 933, "srcset": "img/hanoi_5-480.jpg 480w, img/hanoi_5-960.jpg 960w, img/hanoi_5.jpg 1400w"}};
 const HERO = "ninhbinh_1";
 /* Page logic: builds the chosen route, then renders strip, map, stops, weather and logistics. */
@@ -2094,8 +2147,13 @@ const HERO = "ninhbinh_1";
     var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
     if (saved && ROUTES[saved.style]) state = { style: saved.style, choice: saved.choice || {}, saigon: !!saved.saigon, gentle: !!saved.gentle };
   } catch (e) { /* storage unavailable */ }
-  var hash = (location.hash || '').slice(1);
-  if (ROUTES[hash]) state = { style: hash, choice: {}, saigon: state.saigon, gentle: ROUTES[hash].gentle || state.gentle };
+  // a link to a style (#classic) or to a whole variant (#nature&south=mekong&hcmc=1&gentle=0); a full variant is remembered
+  var link = parseVariant(location.hash);
+  if (link) {
+    state = { style: link.style, choice: link.choice, saigon: 'saigon' in link ? link.saigon : state.saigon,
+      gentle: 'gentle' in link ? link.gentle : ROUTES[link.style].gentle || state.gentle };
+    if ('saigon' in link || 'gentle' in link) save();
+  }
   function save() {
     try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* ignore */ }
   }
@@ -2153,7 +2211,7 @@ const HERO = "ninhbinh_1";
       // with the gentle version on, say how many hiking days the style has without it
       var full = gentle ? routeStats(routeFor(id, choice, state.saigon, false)).hikes : st.hikes;
       var hikes = full > st.hikes ? T('styles.hoff', { h: st.hikes, n: full }) : st.hikes;
-      el.textContent = T('styles.stats', { f: st.flights, h: hikes, l: approx(st.longest).replace('≈ ', ''), b: fmtMoney(budgetFor(built, COSTS)) });
+      el.textContent = T('styles.stats', { f: st.flights, h: hikes, t: approx(st.road).replace('≈ ', ''), l: approx(st.longest).replace('≈ ', ''), e: st.early, b: fmtMoney(budgetFor(built, COSTS)) });
       el.parentNode.querySelector('.style-places').textContent = built.stops.filter(function (s) { return s.id !== 'hanoiStop'; })
         .map(function (s) { return S(s.id).short; }).join(' · ');
     });
@@ -2461,7 +2519,8 @@ const HERO = "ninhbinh_1";
       var days = s.days.map(function (d) {
         return '<li class="day" id="day-' + d.day + '"><div class="day-n mono">' + T('day') + ' <b>' + d.day + '</b>' + (dateLabel(d.day) ? '<span class="day-date">' + esc(dateLabel(d.day)) + '</span>' : '') + '</div>' +
           '<div class="day-body"><h4>' + esc(d.t) + ' <span class="pace pace-' + d.pace + '">' + PC(d.pace) + '</span>' +
-          (d.gentle ? ' <span class="pace pace-gentle">' + T('e.badge') + '</span>' : '') + '</h4>' +
+          (d.gentle ? ' <span class="pace pace-gentle">' + T('e.badge') + '</span>' : '') +
+          (d.early ? ' <span class="pace pace-early">' + T('early') + '</span>' : '') + '</h4>' +
           '<p>' + esc(d.d) + '</p>' + (d.rain ? '<p class="day-rain"><b>' + T('t.rain') + '</b>' + esc(d.rain) + '</p>' : '') + '</div></li>';
       }).join('');
       var tips = '';
@@ -2518,8 +2577,14 @@ const HERO = "ninhbinh_1";
       return '<li><span class="mono">' + T('day') + ' ' + f.day + '</span><span>' + esc(AIRPORT_NAME[f.seg.from]) + ' → ' + esc(AIRPORT_NAME[f.seg.to]) + '</span><span class="mono">' + fmtH(f.seg.h) + '</span></li>';
     }).join('') + '<li><span class="mono">' + T('day') + ' ' + route.days + '</span><span>' + T('lg.home') + '</span><span class="mono">' + T('lg.intl') + '</span></li>';
     var has = function (id) { return route.stops.some(function (s) { return s.id === id; }); };
-    var book = [bookItem('b.xmas')];
+    // most urgent first: the arrival hotel and the rare flight now, then flights, beds and the Christmas table,
+    // then the bay and homestays, then guides and drivers, and the vans a day or two ahead
+    var book = [];
+    if (route.saigon) book.push(bookItem('b.hotel_sgn'));   // without the city days you fly on the same morning
+    if (flights.some(function (f) { return f.seg.from === 'DLI' && f.seg.to === 'DAD'; })) book.push(bookItem('b.flight_dad'));
+    book.push(bookItem('b.xmas'), bookItem('b.lastnight'));
     if (has('catba')) book.push(bookItem('b.cruise'));
+    if (has('puluong') || has('babe') || has('mekong')) book.push(bookItem('b.homestay', { x: ['mekong', 'puluong', 'babe'].filter(has).map(function (id) { return S(id).short; }).join(', ') }));
     // guide lines for Đà Lạt: the full line when the Tà Năng day (third day, a hike) is planned; only the Bidoup–Núi Bà
     // line when just that hike (second day) is; gentle days are guide-free variants, so neither shows.
     // Cát Tiên's line (the Crocodile Lake trek, its second day) follows the same rule
@@ -2530,11 +2595,9 @@ const HERO = "ninhbinh_1";
     };
     if (hikeOn('dalat', 3)) book.push(bookItem('b.dalat'));
     else if (hikeOn('dalat', 2)) book.push(bookItem('b.dalat_bidoup'));
-    if (hikeOn('cattien', 2)) book.push(bookItem('b.cattien'));
     if (has('caobang')) book.push(bookItem(route.gentle ? 'b.caobang_gentle' : 'b.caobang'));   // no motorbikes in the gentle version
+    if (hikeOn('cattien', 2)) book.push(bookItem('b.cattien'));   // the day before, at the park
     book.push(bookItem('b.transfer'));
-    if (has('puluong') || has('babe') || has('mekong')) book.push(bookItem('b.homestay', { x: ['mekong', 'puluong', 'babe'].filter(has).map(function (id) { return S(id).short; }).join(', ') }));
-    book.push(bookItem('b.lastnight'));
     $('#book-list').innerHTML = book.map(function (t) { return '<li>' + t + '</li>'; }).join('');
     var pack = [T('p.warm'), T(has('central') ? 'p.rain_central' : has('catba') ? 'p.rain' : 'p.rain_dry'), T(route.gentle ? 'p.walk' : 'p.hike'),
       T(has('phuquoc') ? 'p.sun_pq' : 'p.sun'), T('p.cash'), T('p.apps')];
@@ -2550,6 +2613,7 @@ const HERO = "ninhbinh_1";
     lines.push(T('pt.home'));
     var fl = allFlights(route).map(function (f) { return T('day') + ' ' + f.day + ' ' + AIRPORT_NAME[f.seg.from] + ' → ' + AIRPORT_NAME[f.seg.to]; });
     if (fl.length) lines.push(T('pt.flights') + fl.join('; '));
+    lines.push(T('pt.link') + SITE_URL + variantHash(route, lang));
     return lines.join('\n');
   }
   function bindCopy() {
@@ -2838,6 +2902,7 @@ const HERO = "ninhbinh_1";
 
   function applyStatic() {
     document.documentElement.lang = lang;
+    document.title = T('doc.title');
     document.querySelectorAll('[data-i18n]').forEach(function (el) { el.textContent = T(el.getAttribute('data-i18n')); });
     document.querySelectorAll('[data-i18n-html]').forEach(function (el) { el.innerHTML = T(el.getAttribute('data-i18n-html')); });
     document.querySelectorAll('[data-i18n-alt]').forEach(function (el) { el.alt = T(el.getAttribute('data-i18n-alt')); });
