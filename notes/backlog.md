@@ -76,6 +76,12 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
 - [ ] Lista „Zarezerwuj do…” z datami.
 - [ ] Łączne godziny w drodze przy każdym stylu.
 
+## Do decyzji użytkownika (z paczki (b), 9.10.2026)
+- [ ] Việt Hải w wersji łagodnej: rejs Full Moon dojeżdża tam tylko rowerem (5 km po płaskim), a wersja łagodna obiecuje „bez rowerów”. Pominąć, dopytać operatora o melex czy zostawić? Dziś `b.cruise` mówi uczciwie „rowerem”.
+- [ ] Link Cat Ba Ventures w `b.cruise` (drugi): jego rejs 2D1N to wyprawa kajakowa bez Việt Hải. Zostawić czy usunąć?
+- [ ] Dopisek „0 (3 bez wersji łagodnej)” jest na wszystkich kartach stylów, gdzie liczby się różnią. Zostawić czy tylko przy Nature?
+- [ ] Ceny bez źródła, przyjęte jako szacunki (`research/budget-2026-10.md`): auto na dzień w Pù Luông, auto Tam Cốc–Hoa Lư, jednodniowy Tà Năng.
+
 ## Do sprawdzenia poza kodem (organizator)
 - [ ] Godzina CA884 na bilecie. Zimowy rozkład Air China podaje 04:00, nie 04:30 (AeroRoutes, 4.08.2026). Jeśli to prawda, taxi powinno jechać ok. 0:30–0:45.
 - [ ] VN30: czy na bilecie jest SGN (Tân Sơn Nhất), a nie Long Thành, które ma ruszyć 1.12.2026.
