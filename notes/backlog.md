@@ -1,6 +1,6 @@
 # Co dalej — planer „Vietnam in December”
 
-Stan na 9.10.2026: opublikowane są wszystkie paczki z audytu (a)–(e), ostatnio `08d24ee` (strona, artifact v27, plik offline). Zostały decyzje użytkownika i sprawdzenia poza kodem (niżej). Szczegóły każdego punktu: [audyt-2026-10-09.md](audyt-2026-10-09.md).
+Stan na 9.10.2026: opublikowane są wszystkie paczki z audytu (a)–(e), ostatnio `e8417d7` (strona, artifact v28, plik offline). Zostały decyzje użytkownika i sprawdzenia poza kodem (niżej). Szczegóły każdego punktu: [audyt-2026-10-09.md](audyt-2026-10-09.md).
 
 Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz ją w sekcji „Zrobione”.
 
@@ -97,6 +97,7 @@ Decyzje użytkownika (9.10.2026): link zawsze do strony na GitHubie, podgląd po
 - [ ] Czy plik offline wysłany przez WhatsApp otwiera się na iPhonie z JavaScriptem. Podgląd może pokazać pustą stronę.
 
 ## Zrobione
+- **9.10.2026:** notka w karcie „Loty”: godziny lotów i przejazdów mogą się zmienić, sprawdzić na bilecie i u przewoźnika (EN/DE/PL). Do tego `tests/probe.sh` z sondami `nav.js` i `link.js`. Opublikowane w `e8417d7` (strona, artifact v28, plik offline).
 - **9.10.2026:** paczka (e) „Ulepszenia”: link do wariantu w kopiowanym planie, podgląd linku po niemiecku z ikonką i tytułem karty w języku strony, „Vorab buchen” od najpilniejszego z hotelem na 10/11.12 i lotem Đà Lạt–Đà Nẵng, godziny w drodze i wczesne pobudki na kartach stylów. Commity `230e171`…`0910ac3`, opublikowane w `08d24ee` (strona, artifact v27, plik offline).
 - **9.10.2026:** paczka (d) „Niemiecki”: punkty 1–34 z Aneksu A poza trzema wymienionymi w sekcji (d). Typy dni („Wandertag”, „Naturtag”, „Kulturtag”), „Kleinbus” i „Auto mit Fahrer”, pytanie o dodatkową noc, „Bootstour” zamiast „Kreuzfahrt”, „Parkverwaltung”, „Messstation”, „Motorrad-Guide („Easy Rider“)”, objaśnione „Homestay”, „Kammwanderungen”, nazwy tras („Strand & Ruhe”, „Die meisten Wandertage”, „Die wenigsten Ortswechsel”), forma „ihr” w interfejsie, „Zentralvietnam”, „Langstrecke”, twarde spacje przed Uhr, °C, Std., Min. i w „p. P.”. Tylko `i18n.js` (część DE); EN i PL bez zmian. Commity `a35e580`…`80b8e4c`, opublikowane w `2077a41` (strona, artifact v26, plik offline).
 - **9.10.2026:** paczka (c) „Telefon, wydruk, dostępność, wydajność”:
