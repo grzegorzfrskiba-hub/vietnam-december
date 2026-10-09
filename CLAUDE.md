@@ -29,6 +29,8 @@ Co jest do zrobienia i w jakiej kolejności: [notes/backlog.md](notes/backlog.md
 - Hội An i Huế w porze deszczowej to świadomy wybór; każdy dzień ma tam plan na deszcz.
 - Tà Năng tylko z licencjonowanym przewodnikiem.
 - Klucze localStorage `vn16-plan-v3` i `vn16-lang` zostają, żeby odbiorcy nie stracili wyborów.
+- Format linku do wariantu (`#nature&south=mekong&night=…&hcmc=1&gentle=0&lang=de`, `variantHash`/`parseVariant` w `plan.js`) zostaje: takie linki krążą w WhatsAppie. Nowe pola wolno tylko dopisywać.
+- Podgląd linku (og) jest po niemiecku i tylko na stronie GitHuba (`PREVIEW` w `site2/build.py`).
 
 ## Zasady pracy
 
