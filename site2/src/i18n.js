@@ -47,8 +47,8 @@ const UI = {
     'ft.notes.p': 'Travel times are door-to-door estimates and include about 1½ hours at the airport for each flight. Direct flights checked in October 2026 (Cần Thơ–Đà Nẵng, Đà Lạt–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); confirm schedules when you book. Đà Lạt–Đà Nẵng is a thin route (Vietnam Airlines about once a day, Vietjet about three times a week), so book it first. Check opening hours, trail rules and sea conditions locally.',
     'lb.aria': 'Photo viewer', 'lb.close': 'Close photo viewer', 'lb.photo': 'Photo: ',
     /* counted words ('nights', 'f.bases', 'f.flights', 'f.hikes') have three forms, .one .few .many, picked by nightForm() in plan.js:
-       English and German repeat the plural for .few and .many. 'fmt.hm' is hours and minutes, "1 h 5" */
-    'min': 'min', 'h': 'h', 'fmt.hm': '{h} h {m}', 'day': 'Day', 'days': 'Days', 'nights.one': 'night', 'nights.few': 'nights', 'nights.many': 'nights',
+       English and German repeat the plural for .few and .many. 'fmt.hm' is hours and minutes, "1 h 5 min" */
+    'min': 'min', 'h': 'h', 'fmt.hm': '{h} h {m} min', 'day': 'Day', 'days': 'Days', 'nights.one': 'night', 'nights.few': 'nights', 'nights.many': 'nights',
     'fly': 'Fly', 'door': 'door to door', 'longday': 'Long travel day', 'maps': 'Route in Google Maps',
     'r.van_ferry': 'Limousine van and a short ferry', 'r.van_car': 'Limousine van or private car',
     'r.back_sgn': 'Road back to Hồ Chí Minh City airport', 'r.taxi_city': 'Taxi into the city',
@@ -137,7 +137,7 @@ const UI = {
     'ft.budget': 'Budget: grobe Spannen pro Person, zu zweit im Doppelzimmer, mit Inlandsflügen, Transfers, Essen und den wichtigsten Aktivitäten, ohne internationale Flüge. Preise im Oktober 2026 geprüft.',
     'ft.notes.p': 'Reisezeiten sind Schätzungen von Tür zu Tür und enthalten pro Flug etwa 1½ Stunden am Flughafen. Direktflüge im Oktober 2026 geprüft (Cần Thơ–Đà Nẵng, Đà Lạt–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); Flugpläne bei der Buchung bestätigen. Đà Lạt–Đà Nẵng wird selten geflogen (Vietnam Airlines etwa einmal täglich, Vietjet etwa dreimal pro Woche), deshalb diesen Flug zuerst buchen. Öffnungszeiten, Wegeregeln und Seegang vor Ort prüfen.',
     'lb.aria': 'Fotoansicht', 'lb.close': 'Fotoansicht schließen', 'lb.photo': 'Foto: ',
-    'min': 'Min.', 'h': 'Std.', 'fmt.hm': '{h} Std. {m}', 'day': 'Tag', 'days': 'Tage', 'nights.one': 'Nacht', 'nights.few': 'Nächte', 'nights.many': 'Nächte',
+    'min': 'Min.', 'h': 'Std.', 'fmt.hm': '{h} Std. {m} Min.', 'day': 'Tag', 'days': 'Tage', 'nights.one': 'Nacht', 'nights.few': 'Nächte', 'nights.many': 'Nächte',
     'fly': 'Flug', 'door': 'von Tür zu Tür', 'longday': 'Langer Reisetag', 'maps': 'Route in Google Maps',
     'r.van_ferry': 'Limousinen-Van und eine kurze Fähre', 'r.van_car': 'Limousinen-Van oder Privatwagen',
     'r.back_sgn': 'Zurück zum Flughafen Hồ Chí Minh City', 'r.taxi_city': 'Taxi in die Stadt',
