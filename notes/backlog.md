@@ -1,6 +1,6 @@
 # Co dalej — planer „Vietnam in December”
 
-Stan na 9.10.2026: opublikowane są paczki (a), (b) i (c), ostatnio `ff63c30` (strona, artifact v25, plik offline). Następna: (d). Szczegóły każdego punktu: [audyt-2026-10-09.md](audyt-2026-10-09.md).
+Stan na 9.10.2026: opublikowane są paczki (a), (b) i (c), ostatnio `ff63c30` (strona, artifact v25, plik offline). Paczka (d) zrobiona, czeka na publikację. Szczegóły każdego punktu: [audyt-2026-10-09.md](audyt-2026-10-09.md).
 
 Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz ją w sekcji „Zrobione”.
 
@@ -64,12 +64,16 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
 - [x] Mniejsze wersje zdjęć (`srcset`). Dziś przed pierwszym przewinięciem ładuje się ok. 2,2 MB.
 - [ ] Zauważone przy okazji, poza zakresem: przyciski języka mają 40 × 32 px, mniej niż zalecane 44 px do stuknięcia.
 
-### (d) Niemiecki
-- [ ] Lista ok. 35 poprawek: Aneks A w [audyt-2026-10-09.md](audyt-2026-10-09.md). Przy okazji paczki (b) weszły już, bo te zdania i tak były przepisywane:
+### (d) Niemiecki — zrobione 9.10.2026, nieopublikowane
+- [x] Lista ok. 35 poprawek: Aneks A w [audyt-2026-10-09.md](audyt-2026-10-09.md). Przy okazji paczki (b) weszły już, bo te zdania i tak były przepisywane:
   - nr 9 (`fmt.hm`) i nr 10 (Phong Nha);
   - nr 12 tylko w `b.cruise` („Bootstour mit Übernachtung”); „Kreuzfahrt” zostaje w `instead` Cát Bà i w dniu z rejsem;
   - nr 19 tylko „Gebaut für” w `why` Sanfte Klassiker;
   - nr 32 tylko w `home.d`; `b.xmas` nadal ma „Weihnachtsessen”.
+- [ ] Z Aneksu A świadomie niezrobione (do decyzji albo zbyt ogólne):
+  - „Hồ Chí Minh City” czy „Ho-Chi-Minh-Stadt” (nr 33): zostaje „Hồ Chí Minh City”, tak samo jak na mapie i w EN/PL;
+  - liczby raz cyfrą, raz słownie, i wielkość liter w nazwach dań (nr 34): bez jednej reguły, nie ruszałem;
+  - „nachts kühl” zamiast „kalte Nächte” w pogodzie (nr 33, opcjonalne).
 
 ### (e) Ulepszenia (do decyzji)
 - [ ] Link do konkretnego wariantu, dołączany też do tekstu „Kopiuj plan na WhatsApp”.
@@ -92,6 +96,7 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
 - [ ] Czy plik offline wysłany przez WhatsApp otwiera się na iPhonie z JavaScriptem. Podgląd może pokazać pustą stronę.
 
 ## Zrobione
+- **9.10.2026:** paczka (d) „Niemiecki”: punkty 1–34 z Aneksu A poza trzema wymienionymi w sekcji (d). Typy dni („Wandertag”, „Naturtag”, „Kulturtag”), „Kleinbus” i „Auto mit Fahrer”, pytanie o dodatkową noc, „Bootstour” zamiast „Kreuzfahrt”, „Parkverwaltung”, „Messstation”, „Motorrad-Guide („Easy Rider“)”, objaśnione „Homestay”, „Kammwanderungen”, nazwy tras („Strand & Ruhe”, „Die meisten Wandertage”, „Die wenigsten Ortswechsel”), forma „ihr” w interfejsie, „Zentralvietnam”, „Langstrecke”, twarde spacje przed Uhr, °C, Std., Min. i w „p. P.”. Tylko `i18n.js` (część DE); EN i PL bez zmian. Commity `a35e580`…`80b8e4c`.
 - **9.10.2026:** paczka (c) „Telefon, wydruk, dostępność, wydajność”:
   - menu sekcji na telefonie kończy się przed przełącznikiem języka (sprawdzone przy 320, 390 i 430 px w EN/DE/PL);
   - wydruk: ciemny tytuł na białym, tylko wybrana dodatkowa noc na całą szerokość, miejsca mogą przechodzić przez stronę, mniejsza mapa i zdjęcia, autorzy zdjęć w 3 kolumnach. Classic 21 → 16 stron, w żadnym stylu nie ma strony zapełnionej poniżej 45% (poza ostatnią). Kolory ciemnego motywu działają tylko na ekranie, więc wydruk jest zawsze jasny. Nowy `tests/print.sh`;
