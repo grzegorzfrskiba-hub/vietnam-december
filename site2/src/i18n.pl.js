@@ -56,7 +56,6 @@ UI.pl = {
   'r.bus_mekong': 'Autobus albo prywatny samochód do Phong Điền', 'r.car_cattien': 'Prywatny samochód albo autobus, potem prom przez rzekę',
   'r.taxi_dalat': 'Taksówka w górę, do Đà Lạt', 'r.taxi_pq': 'Taksówka na północne wybrzeże', 'r.car_baoloc': 'Prywatny samochód w górę, przez Bảo Lộc',
   'r.taxi_sgn': 'Taksówka na lotnisko w Hồ Chí Minh City', 'r.taxi_dli': 'Taksówka na lotnisko w Đà Lạt', 'r.taxi_pqc': 'Taksówka na lotnisko w Phú Quốc', 'r.taxi_hui': 'Taksówka na lotnisko w Huế',
-  'n.cruise': 'Statek przybija do brzegu ok. 11:00.',
   'n.bangioc': 'Bản Giốc obejrzyjcie zaraz po otwarciu o 7:00, przed weekendowym tłumem, a potem w drogę.',
   'n.long': 'Jazda zajmie cały dzień: wyruszcie wcześnie.', 'n.morning': 'Wybierzcie poranny lot.',
   'f.for': 'Wasza trasa: {name}', 'f.days': 'dni, {nights} nocy', 'f.bases.one': 'baza wypa\u00addowa', 'f.bases.few': 'bazy wypa\u00addowe', 'f.bases.many': 'baz wypa\u00addowych', 'f.flights.one': 'lot krajowy', 'f.flights.few': 'loty krajowe', 'f.flights.many': 'lotów krajowych', 'f.hikes.one': 'dzień z wędrówką', 'f.hikes.few': 'dni z wędrówką', 'f.hikes.many': 'dni z wędrówką', 'f.longest': 'najdłuższy przejazd', 'f.budget': 'na osobę, orienta\u00adcyjnie',
@@ -186,7 +185,7 @@ const I18N_PL = {
       days: [
         ['Na wyspę', 'Minibus typu limousine i krótki prom. Zachód słońca z Cannon Fort, potem owoce morza przy porcie.'],
         ['Việt Hải i park narodowy', 'Wędrówka na szczyt Ngự Lâm w Parku Narodowym Cát Bà, potem rowerami dalej do Việt Hải, wioski bez samochodów otoczonej skalnymi ścianami.'],
-        ['Spokojny dzień na wyspie', 'Małe plaże Cát Cò, masaż i długi obiad z owocami morza. W grudniu woda jest orzeźwiająca, ok. 20 °C.'],
+        ['Z powrotem na lądzie, spokojne popołudnie', 'Statek wraca na Cát Bà ok. 12:00. Długi obiad z owocami morza przy porcie, potem małe plaże Cát Cò i masaż. W grudniu woda jest orzeźwiająca, ok. 20 °C.'],
         ['Noc na Zatoce Lan Hạ', 'Dwudniowy rejs z jednym noclegiem: statek wypływa z Cát Bà i płynie przez Zatokę Lan Hạ aż po spokojny południowy skraj Zatoki Hạ Long. Kajaki, wizyta w pływającej wiosce i noc na pokładzie.']
       ],
       gem: 'Việt Hải, wioska bez samochodów na terenie parku narodowego.',

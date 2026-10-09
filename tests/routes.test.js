@@ -53,7 +53,13 @@ combos.forEach(function (c) {
   });
 
   // Cát Bà, when on the route, has at least 3 nights
-  r.stops.forEach(function (s) { if (s.id === 'catba') need(s.n >= 3, 'Cát Bà ' + s.n + ' nights'); });
+  // and the cruise is its second night, never the last: the boat docks around noon, and a later night is the fog reserve
+  r.stops.forEach(function (s) {
+    if (s.id !== 'catba') return;
+    need(s.n >= 3, 'Cát Bà ' + s.n + ' nights');
+    var cruise = s.days.map(function (d) { return d.pace; }).indexOf('boat');
+    need(cruise === 1, 'Cát Bà cruise on night ' + (cruise + 1) + ' of ' + s.n);
+  });
 
   // the gentle version has no hikes
   if (c.gentle) r.stops.forEach(function (s) { s.days.forEach(function (d) { need(d.pace !== 'hike', 'hike on day ' + d.day + ' (' + s.id + ')'); }); });

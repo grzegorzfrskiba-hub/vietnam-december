@@ -124,15 +124,16 @@ const STOPS = {
     skip: 'Hang Múa viewpoint at sunset: 500 steps, shoulder to shoulder.',
     instead: 'Vân Long at golden hour.'
   },
+  /* The cruise is the second night: the boat docks around noon, and the night after it leaves room to move the cruise if fog cancels it. */
   catba: {
     name: 'Cát Bà & Lan Hạ Bay', sub: 'A jungle island on the quiet side of Hạ Long', short: 'Cát Bà',
     region: 'North', place: 'Cat Ba Island, Vietnam', label: { dx: 13, dy: 4, a: 'start' },
     photos: ['catba_0', 'catba_3', 'catba_1', 'catba_2', 'catba_6'],
     days: [
       { p: 1, o: 1, pace: 'travel', t: 'To the island', d: 'Limousine van and a short ferry. Sunset from Cannon Fort, then seafood by the harbour.', e: { pace: 'travel', t: 'To the island', d: 'Limousine van and a short ferry. A slow evening along the harbour and seafood by the water.' } },
-      { p: 3, o: 2, pace: 'hike', t: 'Việt Hải and the national park', d: 'Hike to Ngự Lâm peak in Cát Bà National Park, then cycle on to Việt Hải, a car-free village ringed by cliffs.', e: { pace: 'nature', t: 'Việt Hải without the climb', d: 'A boat from Cát Bà town to the Việt Hải pier, then about 5 km of flat lane into the village by electric cart or bicycle, and lunch among the cliffs.' } },
-      { p: 4, o: 3, pace: 'rest', t: 'A slow island day', d: 'The small Cát Cò beaches, a massage and a long seafood lunch. The sea is brisk in December, around 20 °C.' },
-      { p: 2, o: 4, pace: 'boat', t: 'Overnight on Lan Hạ Bay', d: 'Board a two-day, one-night cruise that starts on Cát Bà and sails into Lan Hạ Bay and the quiet southern edge of Hạ Long Bay. Kayak, visit a floating village and sleep on the boat.', e: { pace: 'boat', t: 'Overnight on Lan Hạ Bay', d: 'A two-day, one-night cruise into Lan Hạ Bay and the quiet southern edge of Hạ Long Bay. Pick a bigger, steadier boat with en-suite cabins, take the bamboo boat rowed by locals instead of a kayak, and watch the sunset from the deck.' } }
+      { p: 4, o: 4, pace: 'hike', t: 'Việt Hải and the national park', d: 'Hike to Ngự Lâm peak in Cát Bà National Park, then cycle on to Việt Hải, a car-free village ringed by cliffs.', e: { pace: 'nature', t: 'Việt Hải without the climb', d: 'A boat from Cát Bà town to the Việt Hải pier, then about 5 km of flat lane into the village by electric cart or bicycle, and lunch among the cliffs.' } },
+      { p: 3, o: 3, pace: 'rest', t: 'Back on land, a slow afternoon', d: 'The boat docks back on Cát Bà around 12:00. A long seafood lunch by the harbour, then the small Cát Cò beaches and a massage. The sea is brisk in December, around 20 °C.' },
+      { p: 2, o: 2, pace: 'boat', t: 'Overnight on Lan Hạ Bay', d: 'Board a two-day, one-night cruise that starts on Cát Bà and sails into Lan Hạ Bay and the quiet southern edge of Hạ Long Bay. Kayak, visit a floating village and sleep on the boat.', e: { pace: 'boat', t: 'Overnight on Lan Hạ Bay', d: 'A two-day, one-night cruise into Lan Hạ Bay and the quiet southern edge of Hạ Long Bay. Pick a bigger, steadier boat with en-suite cabins, take the bamboo boat rowed by locals instead of a kayak, and watch the sunset from the deck.' } }
     ],
     gem: 'Việt Hải, a village with no cars inside the national park.',
     skip: 'Hạ Long cruises from Tuần Châu, and the crowded Sửng Sốt cave and Ti Tốp island stops.',

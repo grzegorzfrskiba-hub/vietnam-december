@@ -55,7 +55,6 @@ const UI = {
     'r.bus_mekong': 'Bus or private car to Phong Điền', 'r.car_cattien': 'Private car or bus, then the river ferry',
     'r.taxi_dalat': 'Taxi up to Đà Lạt', 'r.taxi_pq': 'Taxi to the north coast', 'r.car_baoloc': 'Private car up through Bảo Lộc',
     'r.taxi_sgn': 'Taxi to Hồ Chí Minh City airport', 'r.taxi_dli': 'Taxi to Đà Lạt airport', 'r.taxi_pqc': 'Taxi to Phú Quốc airport', 'r.taxi_hui': 'Taxi to Huế airport',
-    'n.cruise': 'The cruise docks around 11 am.',
     'n.bangioc': 'See Bản Giốc when it opens at 7 am, before the weekend crowds, then drive.',
     'n.long': 'A long day: leave early.', 'n.morning': 'Take a morning flight.',
     'f.for': 'Your route: {name}', 'f.days': 'days, {nights} nights', 'f.bases.one': 'base', 'f.bases.few': 'bases', 'f.bases.many': 'bases', 'f.flights.one': 'domestic flight', 'f.flights.few': 'domestic flights', 'f.flights.many': 'domestic flights', 'f.hikes.one': 'hiking day', 'f.hikes.few': 'hiking days', 'f.hikes.many': 'hiking days', 'f.longest': 'longest travel day', 'f.budget': 'per person, rough',
@@ -140,7 +139,6 @@ const UI = {
     'r.bus_mekong': 'Bus oder Privatwagen nach Phong Điền', 'r.car_cattien': 'Privatwagen oder Bus, dann die Flussfähre',
     'r.taxi_dalat': 'Taxi hinauf nach Đà Lạt', 'r.taxi_pq': 'Taxi an die Nordküste', 'r.car_baoloc': 'Privatwagen über Bảo Lộc hinauf',
     'r.taxi_sgn': 'Taxi zum Flughafen Hồ Chí Minh City', 'r.taxi_dli': 'Taxi zum Flughafen Đà Lạt', 'r.taxi_pqc': 'Taxi zum Flughafen Phú Quốc', 'r.taxi_hui': 'Taxi zum Flughafen Huế',
-    'n.cruise': 'Das Boot legt gegen 11 Uhr an.',
     'n.bangioc': 'Bản Giốc um 7 Uhr zur Öffnung ansehen, vor dem Wochenendandrang, dann losfahren.',
     'n.long': 'Ein langer Tag: früh losfahren.', 'n.morning': 'Am besten morgens fliegen.',
     'f.for': 'Eure Route: {name}', 'f.days': 'Tage, {nights} Nächte', 'f.bases.one': 'Station', 'f.bases.few': 'Stationen', 'f.bases.many': 'Stationen', 'f.flights.one': 'Inlands\u00adflug', 'f.flights.few': 'Inlands\u00adflüge', 'f.flights.many': 'Inlands\u00adflüge', 'f.hikes.one': 'Wander\u00adtag', 'f.hikes.few': 'Wander\u00adtage', 'f.hikes.many': 'Wander\u00adtage', 'f.longest': 'längster Reisetag', 'f.budget': 'pro Person, grob',
@@ -271,7 +269,7 @@ const I18N_DE = {
       days: [
         ['Auf die Insel', 'Limousinen-Van und eine kurze Fähre. Sonnenuntergang vom Cannon Fort, dann Meeresfrüchte am Hafen.'],
         ['Việt Hải und der Nationalpark', 'Wanderung zum Gipfel Ngự Lâm im Nationalpark Cát Bà, dann mit dem Rad weiter nach Việt Hải, einem autofreien Dorf zwischen Felswänden.'],
-        ['Ein ruhiger Inseltag', 'Die kleinen Cát-Cò-Strände, eine Massage und ein langes Mittagessen mit Meeresfrüchten. Das Meer ist im Dezember frisch, etwa 20 °C.'],
+        ['Zurück an Land, ein ruhiger Nachmittag', 'Das Boot legt gegen 12 Uhr wieder auf Cát Bà an. Ein langes Mittagessen mit Meeresfrüchten am Hafen, dann die kleinen Cát-Cò-Strände und eine Massage. Das Meer ist im Dezember frisch, etwa 20 °C.'],
         ['Eine Nacht in der Lan-Hạ-Bucht', 'An Bord einer Kreuzfahrt mit einer Übernachtung, die auf Cát Bà beginnt und durch die Lan-Hạ-Bucht bis an den ruhigen Südrand der Hạ-Long-Bucht fährt. Kajak fahren, ein schwimmendes Dorf besuchen und an Bord schlafen.']
       ],
       gem: 'Việt Hải, ein Dorf ohne Autos im Nationalpark.',

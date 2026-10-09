@@ -123,7 +123,6 @@ function buildLeg(from, to) {
   var flights = segs.filter(function (s) { return s.mode === 'fly'; }).length;
   var total = segs.reduce(function (sum, s) { return sum + s.h; }, 0) + 1.5 * flights;
   var note = '';
-  if (from === 'catba') note = 'n.cruise';
   if (from === 'caobang' && to === 'babe') note = 'n.bangioc';
   if (from === 'ninhbinh' && to === 'caobang') note = 'n.long';
   if (from === 'dalat' || from === 'phuquoc' || from === 'central' || from === 'mekong') {
