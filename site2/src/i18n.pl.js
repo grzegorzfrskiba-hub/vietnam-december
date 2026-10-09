@@ -349,12 +349,10 @@ const I18N_PL = {
       con: ['Z Ninh Bình zostaje jeden wieczór i wczesna łódź w Tràng An przed wyjazdem'] },
     central: { pro: ['Jeszcze jeden dzień na Huế i okolice', 'Zapas w planie, gdyby deszcz zepsuł któryś dzień'],
       con: ['Z Ninh Bình zostaje jeden wieczór i wczesna łódź w Tràng An przed wyjazdem'] },
-    catba: { pro: ['Cały dzień w Việt Hải, a do tego noc na statku', 'Więcej czasu na zatoce, największej atrakcji północy'],
-      con: ['Z Ninh Bình zostaje jeden wieczór i wczesna łódź w Tràng An przed wyjazdem'] },
     puluong: { pro: ['Spokojny dzień w dolinie po wędrówce', 'Jeszcze jedna noc u gospodarzy w bambusowym domu'],
       con: ['Z Ninh Bình zostaje jeden wieczór i wczesna łódź w Tràng An przed wyjazdem'] },
     ninhbinh: { pro: ['Cały dzień bez pośpiechu wśród krasowych wzgórz: Tràng An, Hoa Lư i Vân Long', 'Bez wczesnego wstawania w dniu dalszej podróży'],
-      con: { catba: 'Cát Bà to już tylko przyjazd i rejs, bez dnia na wyspie', puluong: 'Pù Luông to już tylko przyjazd i wędrówka, bez spokojnego dnia',
+      con: { puluong: 'Pù Luông to już tylko przyjazd i wędrówka, bez spokojnego dnia',
       dalat: 'Đà Lạt traci trzeci dzień i trawiaste wzgórza Tà Năng', central: 'Hội An & Huế mają o dzień mniej i mniejszy zapas na deszcz' } }
   },
   /* gentle versions [title, text], one-night versions (solo) and rain plans, by index into each stop's days in data.js */

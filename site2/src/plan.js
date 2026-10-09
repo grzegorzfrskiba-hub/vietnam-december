@@ -155,9 +155,10 @@ function buildRoute(styleId, choice, saigon, gentle, dayPlans) {
     var hasA = stops.some(function (s) { return s.id === sw.a; });
     var hasB = stops.some(function (s) { return s.id === sw.b; });
     if (hasA === hasB) return;
-    var def = hasA ? sw.a : sw.b;
-    var pick = (choice[sw.id] === sw.a || choice[sw.id] === sw.b) ? choice[sw.id] : def;
+    var def = hasA ? sw.a : sw.b, other = hasA ? sw.b : sw.a;
     var nights = stops.filter(function (s) { return s.id === def; })[0].n;
+    if (nights < (MIN_NIGHTS[other] || 1)) return;   // e.g. Cát Bà for Pù Luông's two nights in Nature & hiking
+    var pick = (choice[sw.id] === sw.a || choice[sw.id] === sw.b) ? choice[sw.id] : def;
     swaps.push({ sw: sw, def: def, pick: pick, nights: nights });
     if (pick !== def) stops = stops.map(function (s) { return s.id === def ? { id: pick, n: s.n } : s; });
   });

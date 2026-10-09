@@ -205,12 +205,8 @@ const ROUTES = {
     why: 'Built for nature with some culture: dry places all the way, two hiking days, one night on a boat and two short flights.',
     whyCity: 'Built for nature with some culture: dry places all the way, a day in the cloud forest, one night on a boat and two short flights.',
     stops: [['dalat', 3], ['ninhbinh', 2], ['catba', 3], ['hanoiStop', 1], ['caobang', 2], ['babe', 2], ['hanoi', 1]],
-    city: [['dalat', 2], ['ninhbinh', 1], ['catba', 3], ['hanoiStop', 1], ['caobang', 2], ['babe', 1], ['hanoi', 1]],
-    /* with the city days one night is short: the group picks where the spare one goes (first = default) */
-    cityNight: {
-      catba: [['dalat', 2], ['ninhbinh', 1], ['catba', 3], ['hanoiStop', 1], ['caobang', 2], ['babe', 1], ['hanoi', 1]],
-      ninhbinh: [['dalat', 2], ['ninhbinh', 2], ['catba', 2], ['hanoiStop', 1], ['caobang', 2], ['babe', 1], ['hanoi', 1]]
-    }
+    // no spare-night choice: Ninh Bình could only take it from Cát Bà, which keeps 3 nights
+    city: [['dalat', 2], ['ninhbinh', 1], ['catba', 3], ['hanoiStop', 1], ['caobang', 2], ['babe', 1], ['hanoi', 1]]
   },
   nature: {
     name: 'Nature & hiking', tag: 'Most trail time', cover: 'dalat_0',
@@ -252,7 +248,8 @@ const ROUTES = {
 
 /* `city`: the same route with three nights handed to the Hồ Chí Minh City days, so the trip stays 15 days.
    `whyCity` replaces `why` where the shorter version changes the facts. */
-/* A swap is offered when the route contains exactly one of the two stops. */
+/* A swap is offered when the route contains exactly one of the two stops, and the stop swapped in keeps its minimum nights. */
+const MIN_NIGHTS = { catba: 3 };   // the bay needs a day either side of the cruise, for weather
 const SWAPS = [
   {
     id: 'coast', a: 'dalat', b: 'central', q: 'Dry highlands or the rainy central coast?',
@@ -320,18 +317,16 @@ const COSTS = {
   flightPP: [40, 95], roadHourPP: [2.5, 5], carHourPP: [10, 18], dayPP: [22, 45]
 };
 
-/* Pros and cons for the spare-night choice (Balanced, Nature & hiking). Swapped-in stops (puluong, central) have their own. */
+/* Pros and cons for the spare-night choice (`cityNight`). Swapped-in stops (dalat, central) have their own. */
 const NIGHT_PTS = {
   dalat: { pro: ['A third day in the highlands, for the Tà Năng grass hills', 'Dry, sunny days and cool nights'],
     con: ['Ninh Bình shrinks to one evening and an early boat at Tràng An before you leave'] },
   central: { pro: ['One more day for Huế and its countryside', 'Slack in the plan if the rain spoils a day'],
     con: ['Ninh Bình shrinks to one evening and an early boat at Tràng An before you leave'] },
-  catba: { pro: ['A full day at Việt Hải as well as the night on the boat', 'More time on the bay, the highlight of the north'],
-    con: ['Ninh Bình shrinks to one evening and an early boat at Tràng An before you leave'] },
   puluong: { pro: ['A slow day in the valley after the trek', 'One more night in a bamboo homestay'],
     con: ['Ninh Bình shrinks to one evening and an early boat at Tràng An before you leave'] },
   ninhbinh: { pro: ['A full, unhurried day among the karst: Tràng An, Hoa Lư and Vân Long', 'No early start on the day you move on'],
-    con: { catba: 'Cát Bà becomes arrival plus the cruise, with no island day', puluong: 'Pù Luông becomes arrival plus the trek, with no slow day',
+    con: { puluong: 'Pù Luông becomes arrival plus the trek, with no slow day',
       dalat: 'Đà Lạt drops its third day and the Tà Năng grass hills', central: 'Hội An & Huế gets a day less, with less slack for rain' } }
 };
 

@@ -52,6 +52,9 @@ combos.forEach(function (c) {
     if (s.leg && s.leg.flights && s.leg.from !== 'start') need(s.leg.segs[0].mode === 'road' && s.leg.segs[0].from === s.leg.from, 'no ride to the airport from ' + s.leg.from);
   });
 
+  // Cát Bà, when on the route, has at least 3 nights
+  r.stops.forEach(function (s) { if (s.id === 'catba') need(s.n >= 3, 'Cát Bà ' + s.n + ' nights'); });
+
   // the gentle version has no hikes
   if (c.gentle) r.stops.forEach(function (s) { s.days.forEach(function (d) { need(d.pace !== 'hike', 'hike on day ' + d.day + ' (' + s.id + ')'); }); });
 });

@@ -22,9 +22,14 @@ Object.keys(ROUTES).forEach(function (rid) {
   var R = ROUTES[rid];
   eq(nightSum(R.stops), 14, rid + ' stops nights');
   eq(nightSum(R.city), 11, rid + ' city nights');
-  eq(JSON.stringify(R.city), JSON.stringify(R.cityNight[Object.keys(R.cityNight)[0]]), rid + ' city is the first cityNight entry');
-  Object.keys(R.cityNight).forEach(function (k) { eq(nightSum(R.cityNight[k]), 11, rid + ' cityNight.' + k + ' nights'); });
-  [R.stops, R.city].concat(Object.keys(R.cityNight).map(function (k) { return R.cityNight[k]; })).forEach(function (list) {
+  // the spare-night choice, where a route has one, offers two lists and the first is the default
+  var cn = R.cityNight || {};
+  if (R.cityNight) {
+    eq(Object.keys(cn).length, 2, rid + ' cityNight has two options');
+    eq(JSON.stringify(R.city), JSON.stringify(cn[Object.keys(cn)[0]]), rid + ' city is the first cityNight entry');
+  }
+  Object.keys(cn).forEach(function (k) { eq(nightSum(cn[k]), 11, rid + ' cityNight.' + k + ' nights'); });
+  [R.stops, R.city].concat(Object.keys(cn).map(function (k) { return cn[k]; })).forEach(function (list) {
     list.forEach(function (s) { if (s[1] === 1 && s[0] !== 'hanoi' && s[0] !== 'hanoiStop') oneNight[s[0]] = true; });
   });
 });
