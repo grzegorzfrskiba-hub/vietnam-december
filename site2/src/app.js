@@ -417,15 +417,17 @@
       '</div>';
   }
 
+  // Keyboard stops per gallery: the photo strip (arrow keys), previous, next and full screen. The photos and
+  // thumbnails stay clickable and readable by screen readers but are left out of the Tab order (tabindex -1).
   function gallery(s) {
     var ids = S(s.id).photos;
     if (!ids.length) return '';
     var slides = ids.map(function (id, i) {
-      return '<figure class="gal-slide"><button type="button" class="gal-open" data-i="' + i + '" aria-label="' + esc(T('g.open', { i: i + 1, n: ids.length })) + '">' +
+      return '<figure class="gal-slide"><button type="button" class="gal-open" tabindex="-1" data-i="' + i + '" aria-label="' + esc(T('g.open', { i: i + 1, n: ids.length })) + '">' +
         img(id, '', '(max-width: 900px) 100vw, 760px') + '</button></figure>';
     }).join('');
     var thumbs = ids.map(function (id, i) {
-      return '<button type="button" class="gal-thumb" data-i="' + i + '" aria-label="' + esc(T('g.show', { i: i + 1 })) + '"' + (i === 0 ? ' aria-current="true"' : '') + '>' +
+      return '<button type="button" class="gal-thumb" tabindex="-1" data-i="' + i + '" aria-label="' + esc(T('g.show', { i: i + 1 })) + '"' + (i === 0 ? ' aria-current="true"' : '') + '>' +
         img(id, '', '96px') + '</button>';
     }).join('');
     return '<div class="gal" data-photos="' + ids.join(',') + '">' +
