@@ -110,16 +110,16 @@ const UI = {
     'e.q': 'Mit älteren Eltern unterwegs?', 'e.name': 'Sanfte Variante', 'e.tag': 'Für jeden Stil', 'e.on': 'An', 'e.off': 'Aus',
     'e.p1': 'Wanderungen werden zu leichten Spaziergängen, Bootsfahrten oder Panoramafahrten', 'e.p2': 'Autos mit Fahrer statt Fahrrad oder Motorrad',
     'e.p3': 'Lange Fahrten bleiben (nach Cao Bằng 6–8 Stunden); die Sanften Klassiker haben die kürzesten Transfers',
-    'e.badge': 'Sanft', 't.rain': 'Bei Starkregen: ', 'why.gentle': ' Die sanfte Variante ist an: keine Wanderungen, keine Fahrräder.',
-    'x.q': 'Mit 3 Tagen in Hồ Chí Minh City beginnen?', 'x.name': 'Erst 3 Tage in Hồ Chí Minh City', 'x.tag': 'Innerhalb der {days} Tage', 'x.add': 'Hinzufügen', 'x.added': 'Dabei',
+    'e.badge': 'Sanft', 't.rain': 'Bei Regen: ', 'why.gentle': ' Die sanfte Variante ist an: keine Wanderungen, keine Fahrräder.',
+    'x.q': 'Mit 3 Tagen in Hồ Chí Minh City beginnen?', 'x.name': 'Zum Auftakt 3 Tage in Hồ Chí Minh City', 'x.tag': 'Innerhalb der {days} Tage', 'x.add': 'Hinzufügen', 'x.added': 'Dabei',
     'x.p1': 'Tag 1 zum Ankommen und Ausruhen, abends auf den Fluss', 'x.p2': 'Tag 2 in den Mangroven von Cần Giờ, Tag 3 in Chợ Lớn und in den Garküchen von Bezirk 4',
-    'n.q': 'Die übrige Nacht: {a} oder {b}?', 'n.p': 'Mit den Stadttagen hat ein Ort eine Nacht weniger. Wählt, welcher sie behält.',
+    'n.q': 'Eine Nacht mehr: {a} oder {b}?', 'n.p': 'Wegen der Tage in der Stadt muss einer der beiden Orte eine Nacht abgeben. Wählt, welcher sie behalten darf.',
     'x.cut': 'Dafür kürzer: {x}', 'x.less': '{s} {a} → {b} Nächte', 'x.less1': '{s} {a} → 1 Nacht', 'x.drop': '{s} entfällt', 'x.same': 'Sonst ändert sich nichts',
-    'why.saigon': ' Vorher gibt es drei Tage in Hồ Chí Minh City.',
+    'why.saigon': ' Los geht es mit drei Tagen in Hồ Chí Minh City.',
     'swaps.none': 'Auf dieser Route gibt es nichts zu tauschen. Sie setzt auf wenige lange Aufenthalte, und jede Alternative würde mehr Reisezeit bedeuten.',
     'swaps.inroute': 'In dieser Route', 'swaps.or': 'oder',
     'shape.eyebrow': 'Auf einen Blick', 'shape.h2': 'Die {days} Tage',
-    'shape.p': 'Ein Quadrat pro Tag, gefärbt nach dem Übernachtungsort. Ein kleiner Punkt markiert einen Reisetag. Antippen springt zum Tag.',
+    'shape.p': 'Ein Quadrat pro Tag, gefärbt nach dem Übernachtungsort. Ein kleiner Punkt markiert einen Reisetag. Tippt auf einen Tag, um direkt dorthin zu springen.',
     'copy.btn': 'Plan für WhatsApp kopieren', 'copy.aria': 'Plan als Text',
     'copy.ok': 'Kopiert. Jetzt im Chat einfügen.', 'copy.fail': 'Den markierten Text unten kopieren.',
     'days.eyebrow': 'Tag für Tag', 'days.h2': 'Die Route', 'map.aria': 'Routenkarte',
@@ -139,11 +139,11 @@ const UI = {
     'lb.aria': 'Fotoansicht', 'lb.close': 'Fotoansicht schließen', 'lb.photo': 'Foto: ',
     'min': 'Min.', 'h': 'Std.', 'fmt.hm': '{h} Std. {m} Min.', 'day': 'Tag', 'days': 'Tage', 'nights.one': 'Nacht', 'nights.few': 'Nächte', 'nights.many': 'Nächte',
     'fly': 'Flug', 'door': 'von Tür zu Tür', 'longday': 'Langer Reisetag', 'maps': 'Route in Google Maps',
-    'r.van_ferry': 'Limousinen-Van und eine kurze Fähre', 'r.van_car': 'Limousinen-Van oder Privatwagen',
+    'r.van_ferry': 'Kleinbus und eine kurze Fähre', 'r.van_car': 'Kleinbus oder Auto mit Fahrer',
     'r.back_sgn': 'Zurück zum Flughafen Hồ Chí Minh City', 'r.taxi_city': 'Taxi in die Stadt',
     'r.taxi_vca': 'Taxi zum Flughafen Cần Thơ', 'r.taxi_hoian': 'Taxi nach Hội An',
-    'r.bus_mekong': 'Bus oder Privatwagen nach Phong Điền', 'r.car_cattien': 'Privatwagen oder Bus, dann die Flussfähre',
-    'r.taxi_dalat': 'Taxi hinauf nach Đà Lạt', 'r.taxi_pq': 'Taxi an die Nordküste', 'r.car_baoloc': 'Privatwagen über Bảo Lộc hinauf',
+    'r.bus_mekong': 'Bus oder Auto mit Fahrer nach Phong Điền', 'r.car_cattien': 'Auto mit Fahrer oder Bus, dann die Flussfähre',
+    'r.taxi_dalat': 'Taxi hinauf nach Đà Lạt', 'r.taxi_pq': 'Taxi an die Nordküste', 'r.car_baoloc': 'Auto mit Fahrer über Bảo Lộc hinauf',
     'r.taxi_sgn': 'Taxi zum Flughafen Hồ Chí Minh City', 'r.taxi_dli': 'Taxi zum Flughafen Đà Lạt', 'r.taxi_pqc': 'Taxi zum Flughafen Phú Quốc', 'r.taxi_hui': 'Taxi zum Flughafen Huế',
     'n.bangioc': 'Bản Giốc zur Öffnung ansehen (im Winter gegen 7:30 Uhr), bevor die Reisegruppen kommen, dann losfahren.',
     'n.long': 'Ein langer Tag: früh losfahren.', 'n.morning': 'Am besten morgens fliegen.',
@@ -167,7 +167,7 @@ const UI = {
     'b.cattien': 'Die Wanderung zum Krokodilsee samt Genehmigung am Vortag im Hauptquartier von Cát Tiên.',
     'b.caobang': 'Ein Auto mit Fahrer oder einen Easy-Rider-Guide für die Tage in Cao Bằng.',
     'b.caobang_gentle': 'Ein bequemes Auto mit Fahrer für die Tage in Cao Bằng.',
-    'b.transfer': 'Limousinen-Vans und Busse zwischen den Orten, ein bis zwei Tage vorher.',
+    'b.transfer': 'Komfort-Kleinbusse (in Vietnam „Limousine“ genannt) und Busse zwischen den Orten, ein bis zwei Tage vorher.',
     'b.homestay': 'Homestays in {x} ein paar Wochen vorher: Die guten sind klein.',
     'b.lastnight': 'Die letzte Nacht: ein Hotel in der Altstadt. Das Taxi um 1:30 Uhr nach Nội Bài an der Rezeption bestellen.',
     'p.warm': 'Eine warme Schicht und eine Mütze: Nachts wird es im Norden und in Đà Lạt 11–14 °C kalt.',
@@ -185,7 +185,7 @@ const UI = {
 };
 
 const I18N_DE = {
-  pace: { travel: 'Reisetag', hike: 'Aktive Wanderung', nature: 'Leichte Natur', boat: 'Bootstag', culture: 'Leichte Kultur', rest: 'Ruhetag' },
+  pace: { travel: 'Reisetag', hike: 'Wandertag', nature: 'Naturtag', boat: 'Bootstag', culture: 'Kulturtag', rest: 'Ruhetag' },
   stops: {
     saigon: {
       name: 'Hồ Chí Minh City', sub: 'Ein ruhiger Start, die Mangroven von Cần Giờ und Saigon wie die Einheimischen',
@@ -277,7 +277,7 @@ const I18N_DE = {
     catba: {
       name: 'Cát Bà & Lan-Hạ-Bucht', sub: 'Eine Dschungelinsel auf der ruhigen Seite der Hạ-Long-Bucht',
       days: [
-        ['Auf die Insel', 'Limousinen-Van und eine kurze Fähre. Sonnenuntergang vom Cannon Fort, dann Meeresfrüchte am Hafen.'],
+        ['Auf die Insel', 'Kleinbus und eine kurze Fähre. Sonnenuntergang vom Cannon Fort, dann Meeresfrüchte am Hafen.'],
         ['Việt Hải und der Nationalpark', 'Wanderung zum Gipfel Ngự Lâm im Nationalpark Cát Bà, dann mit dem Rad weiter nach Việt Hải, einem autofreien Dorf zwischen Felswänden.'],
         ['Zurück an Land, ein ruhiger Nachmittag', 'Das Boot legt gegen 12 Uhr wieder auf Cát Bà an. Ein langes Mittagessen mit Meeresfrüchten am Hafen, dann die kleinen Cát-Cò-Strände und eine Massage. Das Meer ist im Dezember frisch, etwa 22 °C.'],
         ['Eine Nacht in der Lan-Hạ-Bucht', 'An Bord einer Kreuzfahrt mit einer Übernachtung, die auf Cát Bà beginnt und durch die Lan-Hạ-Bucht bis an den ruhigen Südrand der Hạ-Long-Bucht fährt. Kajak fahren, ein schwimmendes Dorf besuchen und an Bord schlafen.']
@@ -475,7 +475,7 @@ const I18N_DE = {
       0: ['Karst in der Dämmerung und am Morgen', 'Unterkunft in den Gassen hinter Tam Cốc; bis zum Nachmittag ankommen und zur goldenen Stunde im Ruderboot durch das Feuchtgebiet Vân Long. Am nächsten Morgen um 7 Uhr zur Öffnung am Anleger von Tràng An für die Höhlenroute, dann weiter.'] }, easy: {
       1: ['Tràng An um 7 Uhr', 'Zur Öffnung am Anleger sein und die längste Höhlenroute nehmen, bevor die Reisebusse kommen; gerudert wird für euch. Danach mit dem Auto nach Hoa Lư, der Hauptstadt des 10. Jahrhunderts, und zu ihren Tempeln.'] } },
     catba: { easy: {
-      0: ['Auf die Insel', 'Limousinen-Van und eine kurze Fähre. Ein ruhiger Abend am Hafen und Meeresfrüchte am Wasser.'],
+      0: ['Auf die Insel', 'Kleinbus und eine kurze Fähre. Ein ruhiger Abend am Hafen und Meeresfrüchte am Wasser.'],
       1: ['Việt Hải ohne Aufstieg', 'Mit dem Boot von Cát Bà zum Anleger von Việt Hải, dann etwa 5 km auf flachem Weg ins Dorf, mit dem Elektrowagen oder dem Fahrrad, und Mittagessen zwischen den Felsen.'],
       3: ['Eine Nacht auf der Lan-Hạ-Bucht', 'Eine Kreuzfahrt mit einer Übernachtung in die Lan-Hạ-Bucht und an den ruhigen Südrand der Hạ-Long-Bucht. Wählt ein größeres, ruhiges Schiff mit Kabinen mit eigenem Bad, nehmt statt des Kajaks das von Einheimischen geruderte Bambusboot und schaut den Sonnenuntergang vom Deck.'] } },
     caobang: { easy: {
