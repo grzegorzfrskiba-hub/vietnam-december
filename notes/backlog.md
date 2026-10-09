@@ -1,6 +1,6 @@
 # Co dalej — planer „Vietnam in December”
 
-Stan na 9.10.2026: opublikowane są paczki (a)–(d), ostatnio `2077a41` (strona, artifact v26, plik offline). Następna: (e), do decyzji. Szczegóły każdego punktu: [audyt-2026-10-09.md](audyt-2026-10-09.md).
+Stan na 9.10.2026: opublikowane są paczki (a)–(d), ostatnio `2077a41` (strona, artifact v26, plik offline). Paczka (e) zrobiona, czeka na publikację. Szczegóły każdego punktu: [audyt-2026-10-09.md](audyt-2026-10-09.md).
 
 Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz ją w sekcji „Zrobione”.
 
@@ -75,11 +75,12 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
   - liczby raz cyfrą, raz słownie, i wielkość liter w nazwach dań (nr 34): bez jednej reguły, nie ruszałem;
   - „nachts kühl” zamiast „kalte Nächte” w pogodzie (nr 33, opcjonalne).
 
-### (e) Ulepszenia (do decyzji)
-- [ ] Link do konkretnego wariantu, dołączany też do tekstu „Kopiuj plan na WhatsApp”.
-- [ ] Podgląd linku w WhatsAppie (tytuł, opis, zdjęcie, ikonka) i tytuł karty w języku strony.
-- [ ] Lista „Zarezerwuj do…” z datami.
-- [ ] Łączne godziny w drodze przy każdym stylu.
+### (e) Ulepszenia — zrobione 9.10.2026, nieopublikowane
+Decyzje użytkownika (9.10.2026): link zawsze do strony na GitHubie, podgląd po niemiecku, do godzin w drodze także pobudki przed 6:00, lista rezerwacji bez dat, tylko od najpilniejszego.
+- [x] Link do konkretnego wariantu, dołączany też do tekstu „Kopiuj plan na WhatsApp”. Format: `#nature&south=mekong&night=…&hcmc=1&gentle=0&lang=de`; stare linki `#classic` i `#de` działają dalej. Pasek adresu się nie zmienia (kotwice menu i dni nadal z niego korzystają).
+- [x] Podgląd linku w WhatsAppie (tytuł, opis, zdjęcie, ikonka) i tytuł karty w języku strony. Znaczniki og tylko na stronie GitHuba (`site2/build.py`, `PREVIEW`), zdjęcie `img/og.jpg` 1200 × 630.
+- [x] Lista „Zarezerwuj do…”: bez dat, od najpilniejszego. Doszły dwie pozycje: hotel w HCMC od nocy 10/11.12 (przy dniach w HCMC) i lot Đà Lạt–Đà Nẵng (gdy jest na trasie).
+- [x] Łączne godziny w drodze przy każdym stylu i liczba pobudek przed 6:00 (dni z `early: true` w `data.js`, na dniu plakietka „Up before 6”). Nocna taksówka 15. dnia nie jest liczona, bo jest w każdej trasie.
 
 ## Do decyzji użytkownika (z paczki (b), 9.10.2026)
 - [ ] Việt Hải w wersji łagodnej: rejs Full Moon dojeżdża tam tylko rowerem (5 km po płaskim), a wersja łagodna obiecuje „bez rowerów”. Pominąć, dopytać operatora o melex czy zostawić? Dziś `b.cruise` mówi uczciwie „rowerem”.
@@ -96,6 +97,7 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
 - [ ] Czy plik offline wysłany przez WhatsApp otwiera się na iPhonie z JavaScriptem. Podgląd może pokazać pustą stronę.
 
 ## Zrobione
+- **9.10.2026:** paczka (e) „Ulepszenia”: link do wariantu w kopiowanym planie, podgląd linku po niemiecku z ikonką i tytułem karty w języku strony, „Vorab buchen” od najpilniejszego z hotelem na 10/11.12 i lotem Đà Lạt–Đà Nẵng, godziny w drodze i wczesne pobudki na kartach stylów. Commity `230e171`…`0910ac3`.
 - **9.10.2026:** paczka (d) „Niemiecki”: punkty 1–34 z Aneksu A poza trzema wymienionymi w sekcji (d). Typy dni („Wandertag”, „Naturtag”, „Kulturtag”), „Kleinbus” i „Auto mit Fahrer”, pytanie o dodatkową noc, „Bootstour” zamiast „Kreuzfahrt”, „Parkverwaltung”, „Messstation”, „Motorrad-Guide („Easy Rider“)”, objaśnione „Homestay”, „Kammwanderungen”, nazwy tras („Strand & Ruhe”, „Die meisten Wandertage”, „Die wenigsten Ortswechsel”), forma „ihr” w interfejsie, „Zentralvietnam”, „Langstrecke”, twarde spacje przed Uhr, °C, Std., Min. i w „p. P.”. Tylko `i18n.js` (część DE); EN i PL bez zmian. Commity `a35e580`…`80b8e4c`, opublikowane w `2077a41` (strona, artifact v26, plik offline).
 - **9.10.2026:** paczka (c) „Telefon, wydruk, dostępność, wydajność”:
   - menu sekcji na telefonie kończy się przed przełącznikiem języka (sprawdzone przy 320, 390 i 430 px w EN/DE/PL);
