@@ -9,7 +9,7 @@ Co jest do zrobienia i w jakiej kolejności: [notes/backlog.md](notes/backlog.md
 | Co | Gdzie |
 |---|---|
 | Źródła strony | `site2/src/`: `data.js` (trasy, dni, czasy przejazdów, pogoda, ceny, treść EN), `i18n.js` (UI EN i DE + treść DE), `i18n.pl.js` (UI i treść PL), `app.js` (logika i render), `plan.js` (czyste funkcje testowane w jsc: składanie trasy i przejazdów, statystyki, budżet, daty), `template.html` (HTML i CSS), `basemap.js` (kontury mapy) |
-| Build | `python3 site2/build.py` → `site2/out/web/` (fragment + `img/`, do artifactu), `site2/out/pages/` (pełny dokument z viewport + `img/`, do `docs/`), `site2/out/offline/Vietnam-in-December.html` (jeden plik ze zdjęciami) |
+| Build | `python3 site2/build.py` → `site2/out/web/` (fragment + `img/` z kopiami 480 i 960 px dla `srcset`, do artifactu), `site2/out/pages/` (pełny dokument z viewport + `img/`, do `docs/`), `site2/out/offline/Vietnam-in-December.html` (jeden plik ze zdjęciami) |
 | Strona publiczna | `docs/` (kopia `site2/out/pages/` + `.nojekyll`) → https://grzegorzfrskiba-hub.github.io/vietnam-december/ (GitHub Pages z `/docs` na `main`, repo publiczne: github.com/grzegorzfrskiba-hub/vietnam-december) |
 | Artifact (prywatny) | https://claude.ai/artifact/V3ZVLCQNnvWDHre3F4GaPU |
 | Plik offline dla grupy | `~/Desktop/CLAUDE roboczy plik/Vietnam-in-December.html` (poza repo) |
@@ -54,6 +54,7 @@ Co jest do zrobienia i w jakiej kolejności: [notes/backlog.md](notes/backlog.md
 - `bash tests/run.sh` → `ALL PASS`. Testy działają w JavaScriptCore, bo node nie ma. `tests/routes.test.js` buduje każdą kombinację wyborów i sprawdza 14 nocy, ciągłe dni, przejazdy, Cát Bà ≥ 3 z rejsem na drugą noc i wersję łagodną bez wędrówek.
 - `python3 site2/build.py`.
 - `tests/shot.sh <classic|balanced|nature|culture|slow|en|de|pl> <szerokość> <plik.png>` robi zrzut przez Chrome headless. Nie używaj `--dump-dom`, bo się zawiesza.
+- `tests/print.sh <styl> <plik.pdf>` drukuje stronę do PDF (A4, z tłem) i podaje liczbę stron oraz strony zapełnione w mniej niż 45%.
 - `bash tests/links.sh` sprawdza kody HTTP linków rezerwacji.
 - **Pułapki:**
   - Wbudowana przeglądarka Claude nie otwiera `file://`, więc stronę na żywo testuj pod adresem GitHub.
