@@ -43,7 +43,7 @@ UI.pl = {
   'wx.wet': 'dni z deszczem', 'wx.station': 'Stacja: ',
   'lo.eyebrow': 'Poza trasami', 'lo.h2': 'Celowo pominięte', 'lo.p': 'Słynne miejsca, z których w tej podróży rezygnujemy – i dlaczego.',
   'lg.eyebrow': 'Przed wyjazdem', 'lg.h2': 'Loty, rezerwacje i pakowanie',
-  'lg.flights': 'Loty', 'lg.book': 'Zarezerwujcie wcześniej', 'lg.book_p': 'Od najpilniejszego.', 'lg.pack': 'Co spakować',
+  'lg.flights': 'Loty', 'lg.flights_p': 'Godziny lotów i przejazdów mogą się zmienić. Przed wyjazdem sprawdźcie je na bilecie i u przewoźnika.', 'lg.book': 'Zarezerwujcie wcześniej', 'lg.book_p': 'Od najpilniejszego.', 'lg.pack': 'Co spakować',
   'lg.home': 'Hà Nội → do domu: CA884, potem CA931, o 4:30', 'lg.arrive': 'VN30 ląduje w Hồ Chí Minh City o 6:35', 'lg.intl': 'Międzynarodowy',
   'ft.photos': 'Zdjęcia · Wikimedia Commons', 'ft.notes': 'Uwagi',
   'ft.budget': 'Budżet: orientacyjne widełki na osobę w pokoju dwuosobowym, z lotami krajowymi, przejazdami, jedzeniem i głównymi atrakcjami, bez lotów międzynarodowych. Ceny sprawdzone w październiku 2026.',
