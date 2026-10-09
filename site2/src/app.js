@@ -397,9 +397,7 @@
       '<rect class="m-edge" x="0" y="' + CF.y + '" width="' + CF.w + '" height="' + CF.h + '" rx="8"/></svg>' +
       '<p class="map-legend"><span><svg width="24" height="6" aria-hidden="true"><line class="m-road" x1="0" x2="24" y1="3" y2="3"/></svg>' + T('m.road') + '</span>' +
       '<span><svg width="24" height="6" aria-hidden="true"><line class="m-fly" x1="0" x2="24" y1="3" y2="3"/></svg>' + T('m.flight') + '</span>' +
-      '<span class="map-note">' + T('m.scale') + '</span><span class="map-hint">' + T('m.zoom') + '</span></p>';
-    var mapEl = $('#map');
-    mapEl.setAttribute('aria-label', T('m.zoom'));
+      '<span class="map-note">' + T('m.scale') + '</span><button type="button" class="map-hint">' + T('m.zoom') + '</button></p>';
   }
 
   /* ---------- stops ---------- */
@@ -721,9 +719,11 @@
   }
   function bindMapZoom() {
     var m = $('#map');
-    m.addEventListener('click', function (e) { if (!e.target.closest('.map-legend')) openMapZoom(false); });
-    m.addEventListener('keydown', function (e) {
-      if ((e.key === 'Enter' || e.key === ' ') && mzWide()) { e.preventDefault(); openMapZoom(true); }
+    // the whole map opens on a mouse click; the hint is the real button (Enter/Space give a click with detail 0)
+    m.addEventListener('click', function (e) {
+      var hint = e.target.closest('.map-hint');
+      if (hint) openMapZoom(e.detail === 0);
+      else if (!e.target.closest('.map-legend')) openMapZoom(false);
     });
     $('#mapzoom').addEventListener('click', closeMapZoom);
     document.addEventListener('keydown', function (e) {

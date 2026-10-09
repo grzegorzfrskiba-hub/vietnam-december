@@ -65,7 +65,7 @@ UI.pl = {
   'flyhome': 'Lot do domu', 'flyhome.aria': 'Dzień {days}: lot do domu z Hà Nội',
   'why.swaps': ' Wasz wybór: ', 'why.instead': ' w zamian za ', 'why.rain': ' W Hội An i Huế będzie deszczowo.',
   'm.start': 'Start', 'm.north': 'Północ', 'm.whole': 'Cała trasa', 'm.panel': 'Mapa północy', 'm.china': 'Chiny', 'm.laos': 'Laos', 'm.cambodia': 'Kambodża', 'm.sea': 'Morze Południowochińskie', 'm.tonkin': 'Zatoka Tonkińska',
-  'm.road': 'Droga', 'm.flight': 'Lot', 'm.scale': 'Obie mapy w skali', 'm.zoom': 'Kliknij mapę, żeby ją powiększyć', 'm.close': 'Zamknij dużą mapę', 'm.title': 'Mapa trasy: ',
+  'm.road': 'Droga', 'm.flight': 'Lot', 'm.scale': 'Obie mapy w skali', 'm.zoom': 'Kliknij mapę, żeby ją powiększyć', 'm.close': 'Zamknij dużą mapę', 'm.dialog': 'Mapa trasy, powiększona', 'm.title': 'Mapa trasy: ',
   'g.open': 'Otwórz zdjęcie {i} z {n} na pełnym ekranie', 'g.show': 'Pokaż zdjęcie {i}', 'g.photos': 'Zdjęcia: {x}',
   'g.prev': 'Poprzednie zdjęcie', 'g.next': 'Następne zdjęcie', 'g.full': 'Pełny ekran',
   'reg.South': 'południowy Wietnam', 'reg.Central': 'środkowy Wietnam', 'reg.North': 'północny Wietnam',

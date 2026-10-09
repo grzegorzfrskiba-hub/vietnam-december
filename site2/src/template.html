@@ -200,13 +200,13 @@ ul, ol { padding: 0; list-style: none; }
 .route { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
 .map-col { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 64px); }
 .map svg { width: 100%; height: auto; max-height: calc(100vh - 80px); display: block; }
-.map-hint { display: none; }
+/* the zoom button exists for screen readers and keyboards only where zooming works (wide screens); display: none hides it everywhere else */
+.map-hint { display: none; font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: zoom-in; text-align: left; }
 @media (min-width: 901px) {
   .map { cursor: zoom-in; border-radius: 10px; }
   .map > svg { transition: transform 0.25s ease, filter 0.25s ease; transform-origin: 50% 0; }
-  .map:hover > svg, .map:focus-visible > svg { transform: scale(1.015); filter: drop-shadow(0 6px 16px rgba(10, 30, 25, 0.16)); }
-  .map:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-  .map-hint { display: inline; color: var(--accent); }
+  .map:hover > svg, .map:has(.map-hint:focus-visible) > svg { transform: scale(1.015); filter: drop-shadow(0 6px 16px rgba(10, 30, 25, 0.16)); }
+  .map-hint { display: inline; }
 }
 .map.mz-hide > svg { visibility: hidden; }
 /* enlarged map */
@@ -511,7 +511,7 @@ html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 56px); }
       <p data-i18n="days.p">Each stop with its photos, a plan for every day and the journey to get there. The map is drawn to scale and follows you as you scroll.</p>
     </div>
     <div class="route">
-      <aside class="map-col" aria-label="Route map" data-i18n-aria="map.aria"><div class="map" id="map" role="button" tabindex="0"></div></aside>
+      <aside class="map-col" aria-label="Route map" data-i18n-aria="map.aria"><div class="map" id="map"></div></aside>
       <div class="stops" id="stops"></div>
     </div>
   </section>
@@ -561,7 +561,7 @@ html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 56px); }
   </div>
 </footer>
 
-<div class="mapzoom" id="mapzoom" hidden><button type="button" class="mz-close" id="mz-close"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg><span data-i18n="m.close">Close the large map</span></button></div>
+<div class="mapzoom" id="mapzoom" role="dialog" aria-modal="true" aria-label="Route map, enlarged" data-i18n-aria="m.dialog" hidden><button type="button" class="mz-close" id="mz-close"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg><span data-i18n="m.close">Close the large map</span></button></div>
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" data-i18n-aria="lb.aria" hidden>
   <div class="lb-bar"><span id="lb-count"></span><button type="button" class="lb-btn" id="lb-close" aria-label="Close photo viewer" data-i18n-aria="lb.close"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <div class="lb-stage"><img id="lb-img" alt=""></div>
