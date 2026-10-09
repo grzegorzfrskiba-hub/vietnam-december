@@ -1,6 +1,6 @@
 # Co dalej — planer „Vietnam in December”
 
-Stan na 9.10.2026: opublikowana jest paczka (a), `c77916b` (strona, artifact, plik offline). Szczegóły każdego punktu: [audyt-2026-10-09.md](audyt-2026-10-09.md).
+Stan na 9.10.2026: opublikowana jest paczka (a), `c77916b` (strona, artifact, plik offline). Paczka (b) jest na `main` lokalnie, niewypchnięta i nieopublikowana. Szczegóły każdego punktu: [audyt-2026-10-09.md](audyt-2026-10-09.md).
 
 Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz ją w sekcji „Zrobione”.
 
@@ -22,8 +22,8 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
   - Mekong na 1 noc → notka „morning flight”.
 - [x] Test, który przechodzi wszystkie kombinacje (14 nocy, ciągłe dni, Cát Bà ≥ 3, wersja łagodna bez wędrówek, rejs nie ostatniej nocy).
 
-### (b) Teksty i fakty
-- [ ] Opisy, które obiecują coś, czego wariant nie ma:
+### (b) Teksty i fakty — zrobione 9.10.2026 (czeka na publikację)
+- [x] Opisy, które obiecują coś, czego wariant nie ma:
   - Đà Lạt i Tà Năng w wersji łagodnej;
   - Balanced: „two hiking days”, a pasek pokazuje 3, w wersji łagodnej 0;
   - Hội An & Huế na 2 noce, bez grobowców;
@@ -33,12 +33,12 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
   - `x.p2`;
   - „mapa podąża za przewijaniem”, choć na telefonie stoi;
   - lista miejsc na karcie nie nadąża za zamianami.
-- [ ] Teksty, które zdezaktualizowała paczka (a):
+- [x] Teksty, które zdezaktualizowała paczka (a):
   - Easy classics i Culture bez wersji łagodnej mają teraz 1 i 0 dni wędrówek (dzień Ngự Lâm na Cát Bà jest tylko przy 4 nocach); Balanced ma 2 (bez HCMC) albo 1 (z HCMC), więc „two hiking days” w `why` pasuje tylko bez HCMC;
   - przy 3 nocach na Cát Bà Việt Hải jest tylko w ramach rejsu: `gem` Cát Bà, `swaps.pts.catba` („a car-free village”) i `b.cruise` powinny mówić, żeby wybrać rejs, który tam zawija (Full Moon tak; Cat Ba Ventures do sprawdzenia);
   - Nature: „two long travel days” i „fewest towns” sprawdzić od nowa, bo zamiana „zatoka czy doliny” nie jest już oferowana;
   - `home.d`: dopisać, że 24.12 przyjeżdżacie z Cát Bà ok. 12:00–13:00 (wyjazd po śniadaniu, 4 h).
-- [ ] Fakty do poprawienia:
+- [x] Fakty do poprawienia (źródła: `research/facts-2026-10.md`):
   - Świątynia Literatury od 8:00;
   - Bản Giốc zimą ok. 7:30, a „weekend” nie pasuje do 22/23.12;
   - słoneczniki i różowa trawa w grudniu;
@@ -47,9 +47,9 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
   - świątynie w Hoa Lư;
   - katedra 24.12: ulice zamknięte dla aut w godz. 18–24;
   - lot Đà Lạt–Đà Nẵng w stopce.
-- [ ] „Nature & hiking” pokazuje 0 dni wędrówek, gdy wersja łagodna jest włączona. Dodać dopisek na karcie, np. „0 (3 bez wersji łagodnej)”.
-- [ ] Budżet trybu z rodzicami: doliczyć auta z kierowcą na wycieczki, przejazd przez Hải Vân, Cần Giờ, kurs gotowania i bilety w Huế.
-- [ ] „1 h 5” i „1 Std. 5” zmienić na „1 h 5 min” i „1 Std. 5 Min.”.
+- [x] „Nature & hiking” pokazuje 0 dni wędrówek, gdy wersja łagodna jest włączona. Dodać dopisek na karcie, np. „0 (3 bez wersji łagodnej)”.
+- [x] Budżet trybu z rodzicami: doliczyć auta z kierowcą na wycieczki, przejazd przez Hải Vân, Cần Giờ, kurs gotowania i bilety w Huế.
+- [x] „1 h 5” i „1 Std. 5” zmienić na „1 h 5 min” i „1 Std. 5 Min.”.
 
 ### (c) Telefon, wydruk, dostępność, wydajność
 - [ ] Przełącznik języka zasłania menu sekcji: przy 390 i 430 px stuknięcie w „Weather” trafia w przełącznik, a z PL zasłonięte jest też „Day by day”.
@@ -64,7 +64,11 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
 - [ ] Mniejsze wersje zdjęć (`srcset`). Dziś przed pierwszym przewinięciem ładuje się ok. 2,2 MB.
 
 ### (d) Niemiecki
-- [ ] Lista ok. 35 poprawek: Aneks A w [audyt-2026-10-09.md](audyt-2026-10-09.md).
+- [ ] Lista ok. 35 poprawek: Aneks A w [audyt-2026-10-09.md](audyt-2026-10-09.md). Przy okazji paczki (b) weszły już, bo te zdania i tak były przepisywane:
+  - nr 9 (`fmt.hm`) i nr 10 (Phong Nha);
+  - nr 12 tylko w `b.cruise` („Bootstour mit Übernachtung”); „Kreuzfahrt” zostaje w `instead` Cát Bà i w dniu z rejsem;
+  - nr 19 tylko „Gebaut für” w `why` Sanfte Klassiker;
+  - nr 32 tylko w `home.d`; `b.xmas` nadal ma „Weihnachtsessen”.
 
 ### (e) Ulepszenia (do decyzji)
 - [ ] Link do konkretnego wariantu, dołączany też do tekstu „Kopiuj plan na WhatsApp”.
@@ -81,6 +85,7 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
 - [ ] Czy plik offline wysłany przez WhatsApp otwiera się na iPhonie z JavaScriptem. Podgląd może pokazać pustą stronę.
 
 ## Zrobione
+- **9.10.2026:** paczka (b) „Teksty i fakty”: opisy prawdziwe w każdym wariancie (Đà Lạt, Pù Luông, Huế na 2 noce, Hội An o zmroku, easy rider, zatoka, `x.p1`/`x.p2`, mapa na telefonie), uzasadnienia stylów, karta stylu z listą miejsc po zamianach i dopiskiem „0 (3 bez wersji łagodnej)”, 8 faktów (`research/facts-2026-10.md`), Việt Hải przez rejs Full Moon, budżet z kosztami dnia `pp` (`research/budget-2026-10.md`), „1 h 5 min”. Commity `0aff17d`…`59d4848`, niewypchnięte.
 - **9.10.2026:** paczka (a) „Logika tras”: składanie trasy w `plan.js`, test wszystkich kombinacji (`tests/routes.test.js`, dziś 106), Cát Bà ≥ 3 noce (bez nocy „Ninh Bình” w Balanced, bez zamiany zatoki w Nature), rejs na drugą noc, dojazdy na lotniska, czasy w `ROAD` (`research/road-times-2026-10.md`), notki po planach jednonocnych, karta stylu = pasek liczb. Commity `36d4712`…`700ed9c`, opublikowane w `c77916b` (strona, artifact, plik offline).
 - **9.10.2026:** wersja polska (EN/DE/PL), odmiana liczebników, pełny dokument HTML z viewport dla GitHub Pages. Opublikowane (`f07930b`).
 - **9.10.2026:** audyt całej strony: [audyt-2026-10-09.md](audyt-2026-10-09.md).
