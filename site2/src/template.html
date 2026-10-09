@@ -341,6 +341,7 @@ body.mz-open .lang { opacity: 0; pointer-events: none; }
 .logi { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; min-width: 0; }
 .card h3 { font-size: 22px; margin-bottom: 10px; }
+.card-note { margin: -4px 0 12px; font-size: 13px; color: var(--muted); }
 .card ul { display: grid; gap: 8px; font-size: 14.5px; }
 .book-links { display: block; font-size: 13px; margin-top: 2px; }
 .card li { padding-left: 16px; position: relative; }
@@ -545,7 +546,7 @@ html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 56px); }
     </div>
     <div class="logi">
       <div class="card"><h3 data-i18n="lg.flights">Flights</h3><ul id="flight-list"></ul></div>
-      <div class="card"><h3 data-i18n="lg.book">Book ahead</h3><ul id="book-list"></ul></div>
+      <div class="card"><h3 data-i18n="lg.book">Book ahead</h3><p class="card-note" data-i18n="lg.book_p">Most urgent first.</p><ul id="book-list"></ul></div>
       <div class="card"><h3 data-i18n="lg.pack">Pack</h3><ul id="pack-list"></ul></div>
     </div>
   </section>

@@ -509,8 +509,14 @@
       return '<li><span class="mono">' + T('day') + ' ' + f.day + '</span><span>' + esc(AIRPORT_NAME[f.seg.from]) + ' → ' + esc(AIRPORT_NAME[f.seg.to]) + '</span><span class="mono">' + fmtH(f.seg.h) + '</span></li>';
     }).join('') + '<li><span class="mono">' + T('day') + ' ' + route.days + '</span><span>' + T('lg.home') + '</span><span class="mono">' + T('lg.intl') + '</span></li>';
     var has = function (id) { return route.stops.some(function (s) { return s.id === id; }); };
-    var book = [bookItem('b.xmas')];
+    // most urgent first: the arrival hotel and the rare flight now, then flights, beds and the Christmas table,
+    // then the bay and homestays, then guides and drivers, and the vans a day or two ahead
+    var book = [];
+    if (route.saigon) book.push(bookItem('b.hotel_sgn'));   // without the city days you fly on the same morning
+    if (flights.some(function (f) { return f.seg.from === 'DLI' && f.seg.to === 'DAD'; })) book.push(bookItem('b.flight_dad'));
+    book.push(bookItem('b.xmas'), bookItem('b.lastnight'));
     if (has('catba')) book.push(bookItem('b.cruise'));
+    if (has('puluong') || has('babe') || has('mekong')) book.push(bookItem('b.homestay', { x: ['mekong', 'puluong', 'babe'].filter(has).map(function (id) { return S(id).short; }).join(', ') }));
     // guide lines for Đà Lạt: the full line when the Tà Năng day (third day, a hike) is planned; only the Bidoup–Núi Bà
     // line when just that hike (second day) is; gentle days are guide-free variants, so neither shows.
     // Cát Tiên's line (the Crocodile Lake trek, its second day) follows the same rule
@@ -521,11 +527,9 @@
     };
     if (hikeOn('dalat', 3)) book.push(bookItem('b.dalat'));
     else if (hikeOn('dalat', 2)) book.push(bookItem('b.dalat_bidoup'));
-    if (hikeOn('cattien', 2)) book.push(bookItem('b.cattien'));
     if (has('caobang')) book.push(bookItem(route.gentle ? 'b.caobang_gentle' : 'b.caobang'));   // no motorbikes in the gentle version
+    if (hikeOn('cattien', 2)) book.push(bookItem('b.cattien'));   // the day before, at the park
     book.push(bookItem('b.transfer'));
-    if (has('puluong') || has('babe') || has('mekong')) book.push(bookItem('b.homestay', { x: ['mekong', 'puluong', 'babe'].filter(has).map(function (id) { return S(id).short; }).join(', ') }));
-    book.push(bookItem('b.lastnight'));
     $('#book-list').innerHTML = book.map(function (t) { return '<li>' + t + '</li>'; }).join('');
     var pack = [T('p.warm'), T(has('central') ? 'p.rain_central' : has('catba') ? 'p.rain' : 'p.rain_dry'), T(route.gentle ? 'p.walk' : 'p.hike'),
       T(has('phuquoc') ? 'p.sun_pq' : 'p.sun'), T('p.cash'), T('p.apps')];
