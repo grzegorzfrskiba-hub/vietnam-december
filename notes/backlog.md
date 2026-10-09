@@ -62,7 +62,7 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
   - powiększona mapa nie ma roli okna dialogowego;
   - ok. 74 przystanki klawiatury w samych galeriach.
 - [x] Mniejsze wersje zdjęć (`srcset`). Dziś przed pierwszym przewinięciem ładuje się ok. 2,2 MB.
-- [ ] Zauważone przy okazji, poza zakresem: przyciski języka mają 40 × 32 px, mniej niż zalecane 44 px do stuknięcia.
+- [x] Zauważone przy okazji, poza zakresem: przyciski języka mają 40 × 32 px, mniej niż zalecane 44 px do stuknięcia. Nie robimy (decyzja użytkownika 9.10.2026): sprawdził na telefonie, przyciski nie są za małe. Wersja 44 px była gotowa, ale została wycofana przed publikacją.
 
 ### (d) Niemiecki — zrobione i opublikowane 9.10.2026
 - [x] Lista ok. 35 poprawek: Aneks A w [audyt-2026-10-09.md](audyt-2026-10-09.md). Przy okazji paczki (b) weszły już, bo te zdania i tak były przepisywane:
