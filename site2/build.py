@@ -68,6 +68,9 @@ CAP = {
     "hanoi_5": "A stilt house in the garden of the Museum of Ethnology",
 }
 HERO = "ninhbinh_1"
+# Smaller copies for the hosted page (srcset): phones and thumbnails pick these instead of the full photo.
+# The offline file keeps one embedded size per photo.
+SMALLER = {"photo": (480, 960), "hero": (960, 1400)}
 
 
 def clean_artist(a):
@@ -120,6 +123,14 @@ def main():
         (w, h), b = encode(im, 1920 if pid == HERO else 1400, 74)
         open(os.path.join(OUT_WEB, "img", pid + ".jpg"), "wb").write(b)
         web[pid] = dict(base, src="img/%s.jpg" % pid, w=w, h=h)
+        srcset = []
+        for sw in SMALLER["hero" if pid == HERO else "photo"]:
+            if sw < w:
+                (vw, _), vb = encode(im, sw, 74)
+                open(os.path.join(OUT_WEB, "img", "%s-%d.jpg" % (pid, vw)), "wb").write(vb)
+                srcset.append("img/%s-%d.jpg %dw" % (pid, vw, vw))
+        if srcset:
+            web[pid]["srcset"] = ", ".join(srcset + ["img/%s.jpg %dw" % (pid, w)])
         (w, h), b = encode(im, 1600 if pid == HERO else 1200, 68)
         off[pid] = dict(base, src="data:image/jpeg;base64," + base64.b64encode(b).decode(), w=w, h=h)
 
@@ -127,7 +138,9 @@ def main():
         script = (data_js + "\n" + basemap_js + "\n" + i18n_js + "\n" + plan_js + "\nconst PHOTOS = " + json.dumps(photos, ensure_ascii=False) + ";\nconst HERO = " + json.dumps(HERO) + ";\n" + app_js)
         script = script.replace("</script", "<\\/script")
         hero = photos[HERO]
-        return (template.replace("__HERO_SRC__", hero["src"]).replace("__HERO_W__", str(hero["w"]))
+        # the hero is cropped to cover a box about 2x as wide as a phone screen (clamped height, 3:2 photo)
+        hero_set = ' srcset="%s" sizes="(max-width: 700px) 200vw, 100vw"' % hero["srcset"] if "srcset" in hero else ""
+        return (template.replace("__HERO_SRC__", hero["src"]).replace(" __HERO_SRCSET__", hero_set).replace("__HERO_W__", str(hero["w"]))
                 .replace("__HERO_H__", str(hero["h"])).replace("__SCRIPT__", script))
 
     web_page = page(web)

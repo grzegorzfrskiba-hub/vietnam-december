@@ -95,10 +95,11 @@
     expand: '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>'
   };
   function stopColor(id) { return 'var(--c-' + normStop(id) + ')'; }
+  // sizes: how wide the photo is drawn, so the browser picks the smallest copy from srcset (the offline file has no srcset)
   function img(id, cls, sizes) {
     var p = PHOTOS[id];
     return '<img class="' + (cls || '') + '" src="' + p.src + '" alt="' + esc(CAP(id)) + '" width="' + p.w +
-      '" height="' + p.h + '" loading="lazy" decoding="async"' + (sizes ? ' sizes="' + sizes + '"' : '') + '>';
+      '" height="' + p.h + '" loading="lazy" decoding="async"' + (p.srcset && sizes ? ' srcset="' + p.srcset + '" sizes="' + sizes + '"' : '') + '>';
   }
   function allFlights(route) {
     var list = [];
@@ -114,7 +115,7 @@
       var r = RT(id);
       return '<label class="style-card" for="style-' + id + '">' +
         '<input type="radio" name="style" id="style-' + id + '" value="' + id + '"' + (state.style === id ? ' checked' : '') + '>' +
-        '<span class="style-img">' + img(r.cover, '', '(max-width: 700px) 50vw, 280px') + '</span>' +
+        '<span class="style-img">' + img(r.cover, '', '(max-width: 640px) 34vw, (max-width: 1000px) 50vw, 240px') + '</span>' +
         '<span class="style-body"><span class="style-tag"><span class="style-sel">✓ ' + esc(T('styles.sel')) + ' · </span>' + esc(r.tag) + '</span>' +
         '<span class="style-name">' + esc(r.name) + '</span>' +
         '<span class="style-blurb">' + esc(r.blurb) + '</span>' +
@@ -424,11 +425,11 @@
     if (!ids.length) return '';
     var slides = ids.map(function (id, i) {
       return '<figure class="gal-slide"><button type="button" class="gal-open" tabindex="-1" data-i="' + i + '" aria-label="' + esc(T('g.open', { i: i + 1, n: ids.length })) + '">' +
-        img(id, '', '(max-width: 900px) 100vw, 760px') + '</button></figure>';
+        img(id, '', '(max-width: 900px) calc(100vw - 64px), 760px') + '</button></figure>';
     }).join('');
     var thumbs = ids.map(function (id, i) {
       return '<button type="button" class="gal-thumb" tabindex="-1" data-i="' + i + '" aria-label="' + esc(T('g.show', { i: i + 1 })) + '"' + (i === 0 ? ' aria-current="true"' : '') + '>' +
-        img(id, '', '96px') + '</button>';
+        img(id, '', '56px') + '</button>';
     }).join('');
     return '<div class="gal" data-photos="' + ids.join(',') + '">' +
       '<div class="gal-view"><div class="gal-track" tabindex="0" aria-label="' + esc(T('g.photos', { x: S(s.id).name })) + '">' + slides + '</div>' +
