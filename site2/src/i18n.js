@@ -99,43 +99,43 @@ const UI = {
     'hero.alt': 'Eine Frau rudert ein kleines Boot auf dem Fluss unter den Kalksteinfelsen von Tràng An, Ninh Bình',
     'hero.eyebrow': '{days} Tage · 11.–25. Dezember 2026 · Hồ Chí Minh City → Hà Nội',
     'hero.h1': 'Vietnam, von Süden <em>nach</em> Norden',
-    'hero.lede': 'Fünf fertige Routen für Freunde und Familie: Natur, Wandern, Kultur, ruhige Tage und eine entspannte Route für die Reise mit Eltern. Jede ist auf das Dezemberwetter abgestimmt, mit ehrlichen Reisezeiten und ruhigeren Alternativen statt überlaufener Orte.',
+    'hero.lede': 'Fünf fertige Routen für Freunde und Familie: Natur, Wandern, Kultur, ruhige Tage und eine entspannte Route für die Reise mit Eltern. Jede ist auf das Dezemberwetter abgestimmt, mit realistischen Reisezeiten und ruhigeren Alternativen statt überlaufener Orte.',
     'hero.cta1': 'Reisestil wählen', 'hero.cta2': 'Die {days} Tage ansehen',
     'styles.eyebrow': 'Schritt 1', 'styles.h2': 'Wählt euren Reisestil', 'styles.legend': 'Reisestil', 'styles.sel': 'Ausgewählt',
     'styles.stats': 'Flüge {f} · Wandertage {h} · Längster Reisetag {l} · {b} p. P.',
     'styles.hoff': '{h} ({n} ohne sanfte Variante)',
-    'styles.p': 'Jeder Stil ist eine komplette {days}-Tage-Route, von Hand geplant und geprüft. Startet mit unserem Tipp oder wählt den Stil, der am besten zu eurer Gruppe passt. Alles darunter passt sich an.',
+    'styles.p': 'Jeder Stil ist eine komplette {days}-Tage-Route, von Hand geplant und geprüft. Startet mit unserem Tipp oder wählt den Stil, der am besten zu eurer Gruppe passt. Alles weiter unten wird automatisch angepasst.',
     'swaps.eyebrow': 'Schritt 2', 'swaps.h3': 'Gemeinsam entscheiden',
-    'swaps.p': 'Wo die Route eine echte Entweder-oder-Frage hat, stehen hier beide Seiten. Ein Tausch ändert eine Station, der Rest der Reise bleibt gleich.',
-    'e.q': 'Mit älteren Eltern unterwegs?', 'e.name': 'Sanfte Variante', 'e.tag': 'Für jeden Stil', 'e.on': 'An', 'e.off': 'Aus',
-    'e.p1': 'Wanderungen werden zu leichten Spaziergängen, Bootsfahrten oder Panoramafahrten', 'e.p2': 'Autos mit Fahrer statt Fahrrad oder Motorrad',
-    'e.p3': 'Lange Fahrten bleiben (nach Cao Bằng 6–8 Stunden); die Sanften Klassiker haben die kürzesten Transfers',
-    'e.badge': 'Sanft', 't.rain': 'Bei Regen: ', 'why.gentle': ' Die sanfte Variante ist an: keine Wanderungen, keine Fahrräder.',
+    'swaps.p': 'Wo ihr wirklich zwischen zwei Möglichkeiten wählen könnt, stehen hier beide nebeneinander. Ein Tausch ändert eine Station, der Rest der Reise bleibt gleich.',
+    'e.q': 'Mit den Eltern unterwegs?', 'e.name': 'Sanfte Variante', 'e.tag': 'Für jeden Stil', 'e.on': 'An', 'e.off': 'Aus',
+    'e.p1': 'Wanderungen werden zu leichten Spaziergängen, Bootsfahrten oder Ausflügen mit dem Auto', 'e.p2': 'Autos mit Fahrer statt Fahrrad oder Motorrad',
+    'e.p3': 'An den langen Fahrten ändert sich nichts (nach Cao Bằng 6–8 Stunden); die kürzesten Transfers hat die Route „Sanfte Klassiker“',
+    'e.badge': 'Sanft', 't.rain': 'Bei Regen: ', 'why.gentle': ' Die sanfte Variante ist eingeschaltet: keine Wanderungen, keine Fahrräder.',
     'x.q': 'Mit 3 Tagen in Hồ Chí Minh City beginnen?', 'x.name': 'Zum Auftakt 3 Tage in Hồ Chí Minh City', 'x.tag': 'Innerhalb der {days} Tage', 'x.add': 'Hinzufügen', 'x.added': 'Dabei',
     'x.p1': 'Tag 1 zum Ankommen und Ausruhen, abends auf den Fluss', 'x.p2': 'Tag 2 in den Mangroven von Cần Giờ, Tag 3 in Chợ Lớn und in den Garküchen von Bezirk 4',
     'n.q': 'Eine Nacht mehr: {a} oder {b}?', 'n.p': 'Wegen der Tage in der Stadt muss einer der beiden Orte eine Nacht abgeben. Wählt, welcher sie behalten darf.',
     'x.cut': 'Dafür kürzer: {x}', 'x.less': '{s} {a} → {b} Nächte', 'x.less1': '{s} {a} → 1 Nacht', 'x.drop': '{s} entfällt', 'x.same': 'Sonst ändert sich nichts',
     'why.saigon': ' Los geht es mit drei Tagen in Hồ Chí Minh City.',
     'swaps.none': 'Auf dieser Route gibt es nichts zu tauschen. Sie setzt auf wenige lange Aufenthalte, und jede Alternative würde mehr Reisezeit bedeuten.',
-    'swaps.inroute': 'In dieser Route', 'swaps.or': 'oder',
+    'swaps.inroute': 'Auf dieser Route', 'swaps.or': 'oder',
     'shape.eyebrow': 'Auf einen Blick', 'shape.h2': 'Die {days} Tage',
     'shape.p': 'Ein Quadrat pro Tag, gefärbt nach dem Übernachtungsort. Ein kleiner Punkt markiert einen Reisetag. Tippt auf einen Tag, um direkt dorthin zu springen.',
     'copy.btn': 'Plan für WhatsApp kopieren', 'copy.aria': 'Plan als Text',
-    'copy.ok': 'Kopiert. Jetzt im Chat einfügen.', 'copy.fail': 'Den markierten Text unten kopieren.',
+    'copy.ok': 'Kopiert. Fügt den Plan jetzt im Chat ein.', 'copy.fail': 'Kopiert den markierten Text unten.',
     'days.eyebrow': 'Tag für Tag', 'days.h2': 'Die Route', 'map.aria': 'Routenkarte',
     'days.p': 'Jede Station mit Fotos, einem Plan für jeden Tag und der Anreise. Die Karte ist maßstabsgetreu; auf einem großen Bildschirm bleibt sie beim Scrollen im Blick.',
     'wx.eyebrow': 'Wetter', 'wx.h2': 'Dezember, Station für Station',
     'wx.p': 'Im Dezember ist es im Süden und im Norden trocken, mit kalten Nächten in den Bergen. Die Ausnahme ist die Zentralküste: Dort ist Regenzeit.',
     'wx.col1': 'Station', 'wx.col2': 'Nacht bis Tag', 'wx.col3': 'Regen im Dezember',
     'wx.src': 'Langjährige Dezember-Mittelwerte. Die Temperaturbalken reichen von 5 bis 35 °C, die Regenbalken bis 360 mm. Quellen: Klimatabellen der Wikipedia auf Basis der Normalwerte des Vietnam Institute for Building Science and Technology; Cao Bằng nach World Climate Guide.',
-    'wx.wet': 'Regentage', 'wx.station': 'Station: ',
-    'lo.eyebrow': 'In keiner Route', 'lo.h2': 'Bewusst weggelassen', 'lo.p': 'Berühmte Orte, gegen die wir uns für diese Reise entschieden haben, und warum.',
+    'wx.wet': 'Regentage', 'wx.station': 'Messstation: ',
+    'lo.eyebrow': 'Auf keiner Route', 'lo.h2': 'Bewusst weggelassen', 'lo.p': 'Berühmte Orte, gegen die wir uns für diese Reise entschieden haben, und warum.',
     'lg.eyebrow': 'Vor der Reise', 'lg.h2': 'Flüge, Buchungen und Packliste',
     'lg.flights': 'Flüge', 'lg.book': 'Vorab buchen', 'lg.pack': 'Einpacken',
     'lg.home': 'Hà Nội → nach Hause: CA884, dann CA931, 4:30 Uhr', 'lg.arrive': 'VN30 landet in Hồ Chí Minh City, 6:35 Uhr', 'lg.intl': 'International',
     'ft.photos': 'Fotos · Wikimedia Commons', 'ft.notes': 'Hinweise',
     'ft.budget': 'Budget: grobe Spannen pro Person, zu zweit im Doppelzimmer, mit Inlandsflügen, Transfers, Essen und den wichtigsten Aktivitäten, ohne internationale Flüge. Preise im Oktober 2026 geprüft.',
-    'ft.notes.p': 'Reisezeiten sind Schätzungen von Tür zu Tür und enthalten pro Flug etwa 1½ Stunden am Flughafen. Direktflüge im Oktober 2026 geprüft (Cần Thơ–Đà Nẵng, Đà Lạt–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); Flugpläne bei der Buchung bestätigen. Đà Lạt–Đà Nẵng wird selten geflogen (Vietnam Airlines etwa einmal täglich, Vietjet etwa dreimal pro Woche), deshalb diesen Flug zuerst buchen. Öffnungszeiten, Wegeregeln und Seegang vor Ort prüfen.',
+    'ft.notes.p': 'Reisezeiten sind Schätzungen von Tür zu Tür und enthalten pro Flug etwa 1½ Stunden am Flughafen. Direktflüge im Oktober 2026 geprüft (Cần Thơ–Đà Nẵng, Đà Lạt–Đà Nẵng, Đà Lạt–Hà Nội, Phú Quốc–Hà Nội); Flugpläne bei der Buchung noch einmal prüfen. Đà Lạt–Đà Nẵng wird selten geflogen (Vietnam Airlines etwa einmal täglich, Vietjet etwa dreimal pro Woche), deshalb diesen Flug zuerst buchen. Öffnungszeiten, Wegeregeln und Seegang vor Ort prüfen.',
     'lb.aria': 'Fotoansicht', 'lb.close': 'Fotoansicht schließen', 'lb.photo': 'Foto: ',
     'min': 'Min.', 'h': 'Std.', 'fmt.hm': '{h} Std. {m} Min.', 'day': 'Tag', 'days': 'Tage', 'nights.one': 'Nacht', 'nights.few': 'Nächte', 'nights.many': 'Nächte',
     'fly': 'Flug', 'door': 'von Tür zu Tür', 'longday': 'Langer Reisetag', 'maps': 'Route in Google Maps',
@@ -151,7 +151,7 @@ const UI = {
     'n.afternoon': 'Erst die lange Fahrt zum Flughafen: am besten nachmittags fliegen.',
     'f.for': 'Eure Route: {name}', 'f.days': 'Tage, {nights} Nächte', 'f.bases.one': 'Station', 'f.bases.few': 'Stationen', 'f.bases.many': 'Stationen', 'f.flights.one': 'Inlands\u00adflug', 'f.flights.few': 'Inlands\u00adflüge', 'f.flights.many': 'Inlands\u00adflüge', 'f.hikes.one': 'Wander\u00adtag', 'f.hikes.few': 'Wander\u00adtage', 'f.hikes.many': 'Wander\u00adtage', 'f.longest': 'längster Reisetag', 'f.budget': 'pro Person, grob',
     'flyhome': 'Heimflug', 'flyhome.aria': 'Tag {days}: Heimflug ab Hà Nội',
-    'why.swaps': ' Eure Wahl: ', 'why.instead': ' statt ', 'why.rain': ' In Hội An und Huế wird es regnen.',
+    'why.swaps': ' Eure Wahl: ', 'why.instead': ' statt ', 'why.rain': ' In Hội An und Huế ist dann Regenzeit.',
     'm.start': 'Start', 'm.north': 'Norden', 'm.whole': 'Gesamte Route', 'm.panel': 'Nordkarte', 'm.china': 'China', 'm.laos': 'Laos', 'm.cambodia': 'Kambodscha', 'm.sea': 'Südchinesisches Meer', 'm.tonkin': 'Golf von Tonkin',
     'm.road': 'Straße', 'm.flight': 'Flug', 'm.scale': 'Beide Karten maßstabsgetreu', 'm.zoom': 'Karte anklicken zum Vergrößern', 'm.close': 'Große Karte schließen', 'm.dialog': 'Routenkarte, vergrößert', 'm.title': 'Routenkarte: ',
     'g.open': 'Foto {i} von {n} im Vollbild öffnen', 'g.show': 'Foto {i} zeigen', 'g.photos': 'Fotos: {x}',
@@ -160,17 +160,17 @@ const UI = {
     't.dec': 'Dezember', 't.gem': 'Geheimtipp', 't.skip': 'Auslassen', 't.instead': 'Stattdessen: ',
     'home.h3': 'Heimflug ab Hà Nội', 'home.t': 'Heiligabend, dann der Nachtflug',
     'home.d': 'Am letzten Tag, dem 24. Dezember, seid ihr gegen Mittag zurück in Hà Nội. Am Abend: ein festliches Abendessen an Heiligabend in der Altstadt (Tisch vorab reservieren), dann die St.-Joseph-Kathedrale, festlich beleuchtet und voller Menschen. Die Straßen rundherum sind von 18 bis 24 Uhr für Autos gesperrt, und gegen 23 Uhr ist der Andrang am größten: also zu Fuß hin, am besten vor 20 Uhr. Danach ein paar Stunden Schlaf in einem Hotel in der Altstadt. Gegen 1:30 Uhr mit dem Taxi los: nachts sind es etwa 40 Minuten bis Nội Bài, so bleiben zwei Stunden zum Einchecken vor CA884 um 4:30 Uhr.',
-    'b.xmas': 'Die Reise endet an Heiligabend, mitten in der Hochsaison: Inlandsflüge und die besten Unterkünfte bis Anfang November buchen und das Weihnachtsessen in Hà Nội reservieren.',
+    'b.xmas': 'Die Reise endet an Heiligabend, mitten in der Hochsaison: Inlandsflüge und die besten Unterkünfte bis Anfang November buchen und den Tisch für Heiligabend in Hà Nội reservieren.',
     'b.cruise': 'Eine Bootstour mit Übernachtung in der Lan-Hạ-Bucht ab Cát Bà, mit kostenloser Umbuchung bei Nebel oder Sturm. Die Tour von Full Moon hält auch im Dorf Việt Hải (mit dem Fahrrad, 5 km flach).',
     'b.dalat_bidoup': 'Einen Guide für Bidoup–Núi Bà, zu buchen im Besucherzentrum des Parks.',
     'b.dalat': 'Einen lizenzierten lokalen Guide für die Hügel von Tà Năng und einen Guide für Bidoup–Núi Bà.',
-    'b.cattien': 'Die Wanderung zum Krokodilsee samt Genehmigung am Vortag im Hauptquartier von Cát Tiên.',
-    'b.caobang': 'Ein Auto mit Fahrer oder einen Easy-Rider-Guide für die Tage in Cao Bằng.',
+    'b.cattien': 'Die Wanderung zum Krokodilsee samt Genehmigung am Vortag bei der Parkverwaltung von Cát Tiên.',
+    'b.caobang': 'Ein Auto mit Fahrer oder einen Motorrad-Guide („Easy Rider“, ihr sitzt hinten auf) für die Tage in Cao Bằng.',
     'b.caobang_gentle': 'Ein bequemes Auto mit Fahrer für die Tage in Cao Bằng.',
     'b.transfer': 'Komfort-Kleinbusse (in Vietnam „Limousine“ genannt) und Busse zwischen den Orten, ein bis zwei Tage vorher.',
-    'b.homestay': 'Homestays in {x} ein paar Wochen vorher: Die guten sind klein.',
+    'b.homestay': 'Homestays (Gästehäuser bei einer Familie) in {x} ein paar Wochen vorher: Die guten haben nur wenige Zimmer.',
     'b.lastnight': 'Die letzte Nacht: ein Hotel in der Altstadt. Das Taxi um 1:30 Uhr nach Nội Bài an der Rezeption bestellen.',
-    'p.warm': 'Eine warme Schicht und eine Mütze: Nachts wird es im Norden und in Đà Lạt 11–14 °C kalt.',
+    'p.warm': 'Eine Fleece- oder Daunenjacke und eine Mütze: Nachts kühlt es im Norden und in Đà Lạt auf 11–14 °C ab.',
     'p.rain_central': 'Eine leichte Regenjacke und richtige Regenkleidung für Hội An und Huế.',
     'p.rain': 'Eine leichte Regenjacke. Es regnet selten, aber in der Bucht ist es oft neblig und feucht.',
     'p.rain_dry': 'Eine leichte Regenjacke. Im Dezember ist es hier trocken, aber die Morgen im Norden sind oft neblig und feucht.',
@@ -203,7 +203,7 @@ const I18N_DE = {
       days: [
         ['Hinauf ins Hochland', 'Das Stadtzentrum auslassen und nach Westen auf die Hügelkämme über dem Tà-Nung-Tal fahren: Sonnenuntergang über Kiefernhügeln und Kaffeefarmen. Übernachtung in einer Lodge außerhalb der Stadt, wo die Nächte still und sternenklar sind.'],
         ['Nebelwald von Bidoup–Núi Bà', 'Geführte Wanderung durch alte Kiefern, moosigen Wald und wilde Orchideen Richtung Hòn Giao. Im Dezember ist Trockenzeit, die Wege sind fest. Einen Guide im Besucherzentrum des Nationalparks buchen.'],
-        ['Die Grashügel von Tà Năng', 'Tageswanderung auf dem ersten Abschnitt des Tà-Năng–Phan-Dũng-Trails, oft die schönste Wanderung Vietnams genannt. In der Trockenzeit leuchten die Hügel golden. Nur mit einem lizenzierten lokalen Guide, der die Genehmigung besorgt: Nach Unfällen wurde die Route für Wanderer ohne Guide gesperrt, allein ist sie bis heute nicht erlaubt. Die aktuellen Regeln bei der Buchung beim Veranstalter bestätigen.'],
+        ['Die Grashügel von Tà Năng', 'Tageswanderung auf dem ersten Abschnitt des Tà-Năng–Phan-Dũng-Trails, oft die schönste Wanderung Vietnams genannt. In der Trockenzeit leuchten die Hügel golden. Nur mit einem lizenzierten lokalen Guide, der die Genehmigung besorgt: Nach Unfällen wurde die Route für Wanderer ohne Guide gesperrt, auf eigene Faust darf man sie bis heute nicht gehen. Die aktuellen Regeln bei der Buchung mit dem Veranstalter klären.'],
         ['Teehügel und eine Kaffeefarm', 'Sonnenaufgang über den Teehügeln von Cầu Đất, dann die Kaffeefarm einer K’Ho-Familie am Fuß des Lang Biang. Die wilden Sonnenblumen sind im Dezember verblüht, aber an den Hängen kann noch das letzte rosa Gras stehen.']
       ],
       gem: 'Bidoup–Núi Bà. Die meisten Besucher von Đà Lạt verlassen die Stadt nie.',
@@ -213,15 +213,15 @@ const I18N_DE = {
     cattien: {
       name: 'Nationalpark Cát Tiên', sub: 'Tieflanddschungel, Gibbons und eine Nachtsafari',
       days: [
-        ['Hinein in den Dschungel', 'Mit der kleinen Fähre über den Fluss Đồng Nai zum Hauptquartier und im Park übernachten. Nach Einbruch der Dunkelheit eine Nachtfahrt, um Hirsche und Zibetkatzen zu sehen.'],
-        ['Gibbons und der Krokodilsee', 'Vor Sonnenaufgang mit einem Ranger los, um die Gibbons rufen zu hören, dann der Waldweg zum Bàu Sấu, dem Krokodilsee. Wanderung und Genehmigung am Vortag im Hauptquartier buchen.']
+        ['Hinein in den Dschungel', 'Mit der kleinen Fähre über den Fluss Đồng Nai zur Parkverwaltung und im Park übernachten. Nach Einbruch der Dunkelheit eine Nachtfahrt, um Hirsche und Zibetkatzen zu sehen.'],
+        ['Gibbons und der Krokodilsee', 'Vor Sonnenaufgang mit einem Ranger los, um die Gibbons rufen zu hören, dann der Waldweg zum Bàu Sấu, dem Krokodilsee. Wanderung und Genehmigung am Vortag bei der Parkverwaltung buchen.']
       ],
       gem: 'Einer der letzten großen Tieflandwälder im Süden, vier Stunden von Hồ Chí Minh City.'
     },
     mekong: {
       name: 'Mekong-Delta', sub: 'Kanäle, Obstgärten und ein schwimmender Markt im kleinen Boot',
       days: [
-        ['Hinunter ins Delta', 'Einchecken in einem Homestay an einem Kanal in Phong Điền, gleich außerhalb von Cần Thơ. Am späten Nachmittag mit einem kleinen Sampan durch die Kanäle der Obstgärten.'],
+        ['Hinunter ins Delta', 'Einchecken in einem Homestay (Gästehaus bei einer Familie) an einem Kanal in Phong Điền, gleich außerhalb von Cần Thơ. Am späten Nachmittag mit einem kleinen Sampan durch die Kanäle der Obstgärten.'],
         ['Der schwimmende Markt im Morgengrauen', 'Um 5:30 Uhr im kleinen Boot los, um Cái Răng vor den Touristenbooten zu erreichen, dann die Seitenkanäle und eine Reisnudel-Werkstatt. Nachmittags mit dem Fahrrad auf die Insel Cồn Sơn.']
       ],
       gem: 'Cồn Sơn, eine gemeinschaftlich geführte kleine Insel, eine kurze Bootsfahrt von Cần Thơ.',
@@ -254,20 +254,20 @@ const I18N_DE = {
       warn: 'Im Dezember ist hier Regenzeit: rund 20 Regentage in Huế. Regenjacke einpacken und Pläne flexibel halten.'
     },
     puluong: {
-      name: 'Pù Luông', sub: 'Bambus-Homestays, Reistäler und Gratwanderungen',
+      name: 'Pù Luông', sub: 'Bambus-Homestays, Reistäler und Kammwanderungen',
       days: [
-        ['Hinein in die Täler', 'Einchecken in einem Bambus-Homestay über den Terrassen in Bản Đôn oder Kho Mường. Abendspaziergang durchs Dorf.'],
-        ['Grate, Dörfer und ein Wasserfall', 'Ganztägige geführte Wanderung: die türkisfarbenen Becken des Hiêu-Wasserfalls, das Dorf Kho Mường mit seiner Höhle und die Grate zwischen den Tälern.'],
+        ['Hinein in die Täler', 'Einchecken in einem Bambus-Homestay (Gästehaus bei einer Familie) über den Terrassen in Bản Đôn oder Kho Mường. Abendspaziergang durchs Dorf.'],
+        ['Bergkämme, Dörfer und ein Wasserfall', 'Ganztägige geführte Wanderung: die türkisfarbenen Becken des Hiêu-Wasserfalls, das Dorf Kho Mường mit seiner Höhle und die Bergkämme zwischen den Tälern.'],
         ['Ein ruhiger Tag im Tal', 'Bambus-Wasserräder, ein Bambusfloß auf dem Fluss, Weben in einem Stelzenhaus und ein langes Mittagessen im Homestay. Im Dezember ist der Reis geerntet, die Morgen sind neblig und still.']
       ],
       gem: 'Die türkisfarbenen Becken des Hiêu-Wasserfalls.',
-      skip: 'Mai Châu: schön, aber inzwischen umringt von Reisebus-Homestays.',
+      skip: 'Mai Châu: schön, aber inzwischen umringt von Homestays für Busgruppen.',
       instead: 'Pù Luông, etwa zwei Stunden weiter.'
     },
     ninhbinh: {
       name: 'Ninh Bình', sub: 'Ruderboote zwischen Kalksteintürmen',
       days: [
-        ['Ankunft zwischen den Karstbergen', 'Unterkunft in den Gassen hinter Tam Cốc. Wer bis zum mittleren Nachmittag ankommt, nimmt zur goldenen Stunde das Ruderboot im Feuchtgebiet von Vân Long.'],
+        ['Ankunft zwischen den Karstbergen', 'Unterkunft in den Gassen hinter Tam Cốc. Wer bis etwa 15 Uhr ankommt, nimmt zur goldenen Stunde das Ruderboot im Feuchtgebiet von Vân Long.'],
         ['Tràng An um 7 Uhr', 'Zur Öffnung am Anleger sein und die längste Höhlenroute nehmen, bevor die Reisebusse kommen. Danach mit dem Rad durch die Dorfgassen oder nach Hoa Lư, der Hauptstadt des 10. Jahrhunderts, mit den Tempeln ihrer ersten Könige (im 17. Jahrhundert neu errichtet).']
       ],
       gem: 'Delacour-Languren an den Felsen von Vân Long, eine der seltensten Primatenarten der Welt.',
@@ -280,16 +280,16 @@ const I18N_DE = {
         ['Auf die Insel', 'Kleinbus und eine kurze Fähre. Sonnenuntergang vom Cannon Fort, dann Meeresfrüchte am Hafen.'],
         ['Việt Hải und der Nationalpark', 'Wanderung zum Gipfel Ngự Lâm im Nationalpark Cát Bà, dann mit dem Rad weiter nach Việt Hải, einem autofreien Dorf zwischen Felswänden.'],
         ['Zurück an Land, ein ruhiger Nachmittag', 'Das Boot legt gegen 12 Uhr wieder auf Cát Bà an. Ein langes Mittagessen mit Meeresfrüchten am Hafen, dann die kleinen Cát-Cò-Strände und eine Massage. Das Meer ist im Dezember frisch, etwa 22 °C.'],
-        ['Eine Nacht in der Lan-Hạ-Bucht', 'An Bord einer Kreuzfahrt mit einer Übernachtung, die auf Cát Bà beginnt und durch die Lan-Hạ-Bucht bis an den ruhigen Südrand der Hạ-Long-Bucht fährt. Kajak fahren, ein schwimmendes Dorf besuchen und an Bord schlafen.']
+        ['Eine Nacht in der Lan-Hạ-Bucht', 'Eine Bootstour über zwei Tage mit einer Nacht an Bord: Sie beginnt auf Cát Bà und führt durch die Lan-Hạ-Bucht bis an den ruhigen Südrand der Hạ-Long-Bucht. Kajak fahren, ein schwimmendes Dorf besuchen und an Bord schlafen.']
       ],
       gem: 'Việt Hải, ein Dorf ohne Autos im Nationalpark. Die Bootstour von Full Moon hält dort; bei drei Nächten kommt ihr so hin.',
-      skip: 'Hạ-Long-Kreuzfahrten ab Tuần Châu und die überlaufenen Stopps an der Sửng-Sốt-Höhle und der Insel Ti Tốp.',
-      instead: 'Eine Kreuzfahrt, die auf Cát Bà beginnt.'
+      skip: 'Hạ-Long-Bootstouren ab Tuần Châu und die überlaufenen Stopps an der Sửng-Sốt-Höhle und der Insel Ti Tốp.',
+      instead: 'Eine Bootstour, die auf Cát Bà beginnt.'
     },
     caobang: {
       name: 'Cao Bằng', sub: 'Der Bản-Giốc-Wasserfall und das Karstland an der Grenze',
       days: [
-        ['Nach Norden an die Grenze', 'Eine lange, aber schöne Fahrt. Übernachtung in Cao Bằng und für die nächsten Tage ein Auto mit Fahrer oder einen Easy-Rider-Guide organisieren.'],
+        ['Nach Norden an die Grenze', 'Eine lange, aber schöne Fahrt. Übernachtung in Cao Bằng und für die nächsten Tage ein Auto mit Fahrer oder einen Motorrad-Guide („Easy Rider“, ihr sitzt hinten auf) organisieren.'],
         ['Angel’s Eye und Pác Bó', 'Núi Mắt Thần, ein Berg mit einem Loch im Gipfel über einem grasbewachsenen Tal, und der klare grüne Bach von Pác Bó nahe der Grenze.'],
         ['Seen, ein Pass, eine Höhle und ein Wasserfall', 'Die Karstseen von Thang Hen, die Serpentinen des Mã-Phục-Passes, die Höhle Ngườm Ngao, dann der Bản-Giốc-Wasserfall im Licht des späten Nachmittags. Im Dezember führt er wenig Wasser: schmalere Fälle, klare türkise Becken. Übernachtung in Khuổi Ky, einem Tày-Dorf aus Steinhäusern.']
       ],
@@ -302,7 +302,7 @@ const I18N_DE = {
       days: [
         ['Ankunft am See', 'Einchecken in einem Tày-Stelzenhaus in Pác Ngòi und in der Dämmerung am Seeufer spazieren.'],
         ['Auf dem Wasser', 'Mit Boot oder Kajak zur Höhle Puông, zum Wasserfall Đầu Đẳng und zur Insel Ba Góa. Nachmittags mit dem Rad durch die Dörfer.'],
-        ['Dörfer über dem See', 'Eine halbtägige Wanderung mit lokalem Guide zu den Tày- und Dao-Dörfern oberhalb des Sees. Abends den Gastgeber nach Then-Gesang fragen.']
+        ['Dörfer über dem See', 'Eine halbtägige Wanderung mit lokalem Guide zu den Tày- und Dao-Dörfern oberhalb des Sees. Abends die Gastgeber nach Then-Gesang fragen.']
       ],
       gem: 'Eine Nacht in einem Tày-Stelzenhaus am Seeufer.'
     },
@@ -327,16 +327,16 @@ const I18N_DE = {
   },
   routes: {
     balanced: { name: 'Ausgewogen', tag: 'Von allem etwas',
-      blurb: 'Von allem etwas, mit Schwerpunkt Natur: Hochlandwald, Karstflüsse, die Bucht und der hohe Norden.',
+      blurb: 'Von allem etwas, mit Schwerpunkt Natur: Hochlandwald, Karstflüsse, die Bucht und der äußerste Norden.',
       why: 'Für Natur mit etwas Kultur: durchgehend trockene Orte, drei Tage im Hochland, eine Nacht auf dem Boot und zwei kurze Flüge.',
       whyCity: 'Für Natur mit etwas Kultur: durchgehend trockene Orte, zwei Tage im Hochland, eine Nacht auf dem Boot und zwei kurze Flüge.' },
-    nature: { name: 'Natur & Wandern', tag: 'Am meisten Wandern',
-      blurb: 'Dschungel zum Auftakt, das Hochland um Đà Lạt, die Grate von Pù Luông und das Karstland an der Grenze.',
+    nature: { name: 'Natur & Wandern', tag: 'Die meisten Wandertage',
+      blurb: 'Dschungel zum Auftakt, das Hochland um Đà Lạt, die Bergkämme von Pù Luông und das Karstland an der Grenze.',
       why: 'Für Wanderer: die meisten Wandertage, dafür die meisten Ortswechsel und zwei lange Reisetage.' },
     culture: { name: 'Kultur & Essen', tag: 'Am meisten zu sehen',
       blurb: 'Märkte im Delta, Hội An und die Kaisergräber von Huế, die alte Hauptstadt bei Ninh Bình, die Bucht und Hà Nội.',
       why: 'Für Kultur und gutes Essen, mit der Bucht als Pause. Der Haken: In Hội An und Huế ist Regenzeit.' },
-    slow: { name: 'Entspannt & Strand', tag: 'Wenigste Ortswechsel',
+    slow: { name: 'Strand & Ruhe', tag: 'Die wenigsten Ortswechsel',
       blurb: 'Strandtage im stillen Norden von Phú Quốc, dann Täler, Karst und die Bucht in ruhigem Tempo.',
       why: 'Für ein ruhiges Tempo: fünf Stationen, lange Aufenthalte, drei Ruhetage und nur zwei Flüge.',
       whyCity: 'Für ein ruhiges Tempo: lange Aufenthalte, ruhige Tage und nur zwei Flüge.' },
@@ -354,18 +354,18 @@ const I18N_DE = {
       pts: { catba: ['Eine Nacht auf dem Boot zwischen den Karstinseln', 'Kajak oder ein gerudertes Bambusboot, Inselstrände, Meeresfrüchte', 'Kühl und oft neblig; das Meer hat etwa 22 °C'],
         puluong: ['Bambus-Homestays und ein ganzer Tag in den Tälern', 'Reistäler, Wasserräder und Thái-Dörfer', 'Im Dezember ist der Reis geerntet; neblige Morgen'] } },
     south: { q: 'Das Delta oder der Dschungel?',
-      pts: { mekong: ['Schwimmender Markt, Obstgärten und Homestay-Leben', 'Flach, einfach und sehr gesellig', 'Warm und trocken im Dezember'],
-        cattien: ['Gibbons im Morgengrauen und eine Nachtsafari', 'Waldgänge mit einem Ranger', 'Beginn der Trockenzeit: weniger Blutegel'] } }
+      pts: { mekong: ['Schwimmender Markt, Obstgärten und Übernachten bei Familien', 'Flach, einfach und sehr gesellig', 'Warm und trocken im Dezember'],
+        cattien: ['Gibbons im Morgengrauen und eine Nachtsafari', 'Waldwanderungen mit einem Ranger', 'Beginn der Trockenzeit: weniger Blutegel'] } }
   },
   weather: {
     saigon: { verdict: 'Heiß und trocken' },
     dalat: { verdict: 'Trocken, kalte Nächte' },
-    cattien: { verdict: 'Warm, wird trockener', station: 'Hồ Chí Minh City, die nächstgelegene Langzeitstation' },
+    cattien: { verdict: 'Warm, wird trockener', station: 'Hồ Chí Minh City, die nächste Messstation mit Langzeitdaten' },
     mekong: { verdict: 'Warm und trocken' },
     phuquoc: { verdict: 'Ruhige See, sonnig' },
     central: { verdict: 'Regenzeit', station: 'Huế; Đà Nẵng nahe Hội An hat 218 mm an 19 Tagen' },
     puluong: { verdict: 'Trocken, kalte Nächte', station: 'Hòa Bình; Pù Luông liegt höher und ist ein paar Grad kälter' },
-    ninhbinh: { verdict: 'Trocken und mild', station: 'Thanh Hóa, die nächstgelegene Langzeitstation' },
+    ninhbinh: { verdict: 'Trocken und mild', station: 'Thanh Hóa, die nächste Messstation mit Langzeitdaten' },
     catba: { verdict: 'Kühl, oft neblig' },
     caobang: { verdict: 'Trocken, kalte Nächte' },
     babe: { verdict: 'Trocken, kalte Nächte' },
@@ -373,7 +373,7 @@ const I18N_DE = {
   },
   leftOut: [
     { name: 'Sapa', why: 'Im Dezember kalt und neblig, mit frostigen Nächten, und der vollste Trekking-Ort im Norden. Cao Bằng und Ba Bể bieten die Berge ohne das Gedränge.' },
-    { name: 'Der Hà-Giang-Loop', why: 'Spektakulär, aber inzwischen ein Fließband von Easy-Rider-Gruppentouren. Besser auf einer längeren Reise außerhalb der Hauptsaison.' },
+    { name: 'Der Hà-Giang-Loop', why: 'Spektakulär, aber inzwischen ein Fließband von Motorrad-Gruppentouren. Besser auf einer längeren Reise außerhalb der Hauptsaison.' },
     { name: 'Die Hạ-Long-Bucht ab Hạ Long City', why: 'Hunderte Boote auf derselben Runde. Die Lan-Hạ-Bucht ab Cát Bà hat denselben Karst mit viel weniger Booten.' },
     { name: 'Phong Nha', why: 'Im Dezember ist an der Zentralküste Regenzeit, und die großen Höhlenexpeditionen beginnen erst wieder ab Ende Januar.' },
     { name: 'Côn Đảo und Sơn Trà', why: 'Raue See und Regen im Dezember. Beide sind ein einfaches Frühlingswochenende ab Hồ Chí Minh City.' }
@@ -454,10 +454,10 @@ const I18N_DE = {
       1: ['Kiefernwald und ein Kloster am See', 'Die Seilbahn vom Robin Hill schwebt über den Kiefernwald zum Zen-Kloster Trúc Lâm oberhalb des Tuyền-Lâm-Sees. Durch die Klostergärten schlendern, dann gemütlich Boot fahren oder lange am See zu Mittag essen.'],
       2: ['Die alte Bahn und die Blumendörfer', 'Mit dem nostalgischen Zug vom Bahnhof aus den 1930er-Jahren nach Trại Mát zur Mosaik-Pagode Linh Phước, danach die Gewächshäuser des Blumendorfs Vạn Thành.'] } },
     cattien: { solo: {
-      0: ['Dschungel bei Nacht und im Morgengrauen', 'Bis zum Nachmittag ankommen und im Park übernachten; den Gang im Morgengrauen gleich beim Einchecken im Hauptquartier buchen. Nach Einbruch der Dunkelheit eine Nachtfahrt, um Hirsche und Zibetkatzen zu sehen. Am nächsten Morgen vor Sonnenaufgang mit einem Ranger los, um die Gibbons rufen zu hören, dann Frühstück und weiter.'] }, easy: {
+      0: ['Dschungel bei Nacht und im Morgengrauen', 'Bis etwa 15 Uhr ankommen und im Park übernachten; die Tour im Morgengrauen gleich beim Einchecken bei der Parkverwaltung buchen. Nach Einbruch der Dunkelheit eine Nachtfahrt, um Hirsche und Zibetkatzen zu sehen. Am nächsten Morgen vor Sonnenaufgang mit einem Ranger los, um die Gibbons rufen zu hören, dann Frühstück und weiter.'] }, easy: {
       1: ['Cát Tiên ganz entspannt', 'Ein kurzer geführter Spaziergang zu den Baumriesen nahe der Parkverwaltung, dann mit dem Boot über den Đồng Nai zur Primaten-Rettungsstation Dao Tiến, wo gerettete Gibbons und Languren auf die Auswilderung vorbereitet werden.'] } },
     mekong: { solo: {
-      0: ['Das Delta in der Dämmerung und im Morgengrauen', 'Bis zum Nachmittag in einem Homestay an einem Kanal in Phong Điền, gleich außerhalb von Cần Thơ, ankommen und im Sampan durch die Kanäle der Obstgärten. Am nächsten Morgen um 5:30 Uhr im kleinen Boot zum schwimmenden Markt Cái Răng und gegen 9 Uhr zurück für die Weiterreise.'] }, easy: {
+      0: ['Das Delta in der Dämmerung und im Morgengrauen', 'Bis etwa 15 Uhr in einem Homestay an einem Kanal in Phong Điền, gleich außerhalb von Cần Thơ, ankommen und im Sampan durch die Kanäle der Obstgärten. Am nächsten Morgen um 5:30 Uhr im kleinen Boot zum schwimmenden Markt Cái Răng und gegen 9 Uhr zurück für die Weiterreise.'] }, easy: {
       1: ['Der schwimmende Markt im Morgengrauen', 'Um 5:30 Uhr mit dem kleinen Boot los, um vor den Ausflugsbooten in Cái Răng zu sein, dann die Seitenkanäle und eine Reisnudel-Werkstatt. Nachmittags gemütlich mit dem Boot nach Cồn Sơn zu Obstgärten und einem hausgemachten Mittagessen.'] } },
     central: {
       easy: {
@@ -472,17 +472,17 @@ const I18N_DE = {
     puluong: { easy: {
       1: ['Die Täler von der Straße aus', 'Mit Auto und Fahrer die Talstraße entlang, zu den unteren Becken des Hiêu-Wasserfalls (ein kurzer, leichter Weg), dann ins Dorf Kho Mường und ein langes Mittagessen im Stelzenhaus.'] } },
     ninhbinh: { solo: {
-      0: ['Karst in der Dämmerung und am Morgen', 'Unterkunft in den Gassen hinter Tam Cốc; bis zum Nachmittag ankommen und zur goldenen Stunde im Ruderboot durch das Feuchtgebiet Vân Long. Am nächsten Morgen um 7 Uhr zur Öffnung am Anleger von Tràng An für die Höhlenroute, dann weiter.'] }, easy: {
+      0: ['Karst in der Dämmerung und am Morgen', 'Unterkunft in den Gassen hinter Tam Cốc; bis etwa 15 Uhr ankommen und zur goldenen Stunde im Ruderboot durch das Feuchtgebiet Vân Long. Am nächsten Morgen um 7 Uhr zur Öffnung am Anleger von Tràng An für die Höhlenroute, dann weiter.'] }, easy: {
       1: ['Tràng An um 7 Uhr', 'Zur Öffnung am Anleger sein und die längste Höhlenroute nehmen, bevor die Reisebusse kommen; gerudert wird für euch. Danach mit dem Auto nach Hoa Lư, der Hauptstadt des 10. Jahrhunderts, und zu ihren Tempeln.'] } },
     catba: { easy: {
       0: ['Auf die Insel', 'Kleinbus und eine kurze Fähre. Ein ruhiger Abend am Hafen und Meeresfrüchte am Wasser.'],
       1: ['Việt Hải ohne Aufstieg', 'Mit dem Boot von Cát Bà zum Anleger von Việt Hải, dann etwa 5 km auf flachem Weg ins Dorf, mit dem Elektrowagen oder dem Fahrrad, und Mittagessen zwischen den Felsen.'],
-      3: ['Eine Nacht auf der Lan-Hạ-Bucht', 'Eine Kreuzfahrt mit einer Übernachtung in die Lan-Hạ-Bucht und an den ruhigen Südrand der Hạ-Long-Bucht. Wählt ein größeres, ruhiges Schiff mit Kabinen mit eigenem Bad, nehmt statt des Kajaks das von Einheimischen geruderte Bambusboot und schaut den Sonnenuntergang vom Deck.'] } },
+      3: ['Eine Nacht auf der Lan-Hạ-Bucht', 'Eine Bootstour mit einer Übernachtung in die Lan-Hạ-Bucht und an den ruhigen Südrand der Hạ-Long-Bucht. Wählt ein größeres, ruhig liegendes Schiff mit Kabinen mit eigenem Bad, nehmt statt des Kajaks das von Einheimischen geruderte Bambusboot und seht euch den Sonnenuntergang vom Deck aus an.'] } },
     caobang: { easy: {
       0: ['Nach Norden an die Grenze', 'Eine lange, aber schöne Fahrt, am besten mit Mittagspause. Übernachtung in Cao Bằng; für die nächsten Tage ein bequemes Auto mit Fahrer buchen.'] } },
     babe: { solo: {
       0: ['Der See an einem Nachmittag', 'Bis zum frühen Nachmittag ankommen, in einem Tày-Stelzenhaus in Pác Ngòi einchecken, dann mit dem Boot zur Höhle Puông und zur Insel Ba Góa, solange es hell ist. In der Dämmerung ans Seeufer.'] }, easy: {
       1: ['Auf dem Wasser', 'Mit dem Boot zur Puông-Höhle, zum Đầu-Đẳng-Wasserfall und zur Insel Ba Góa; rudern müsst ihr nicht. Nachmittags ein gemütlicher Spaziergang am Seeufer.'],
-      2: ['Ein ruhiger Morgen am See', 'Eine kurze Bootsfahrt in ein benachbartes Tày-Dorf und eine Kochstunde bei euren Gastgebern. Fragt abends nach Then-Gesang.'] } }
+      2: ['Ein ruhiger Morgen am See', 'Eine kurze Bootsfahrt in ein benachbartes Tày-Dorf und eine Kochstunde bei euren Gastgebern. Abends nach Then-Gesang fragen.'] } }
   }
 };
