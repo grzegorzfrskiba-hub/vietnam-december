@@ -45,11 +45,14 @@ function nightForm(n) {
   return last >= 2 && last <= 4 && (lastTwo < 12 || lastTwo > 14) ? 'few' : 'many';
 }
 
-/* The page language: a #hash that names one of langs wins, then a stored choice, then the browser's primary language subtag
-   (de-AT gives de; deu is another language), else the first language. */
+/* The page language: a #hash that names one of langs (#de, or lang=de in a variant link) wins, then a stored choice,
+   then the browser's primary language subtag (de-AT gives de; deu is another language), else the first language. */
 function pickLang(stored, browser, hash, langs) {
-  var fromHash = String(hash || '').replace(/^#/, '');
-  if (langs.indexOf(fromHash) > -1) return fromHash;
+  var parts = String(hash || '').replace(/^#/, '').split('&');
+  for (var i = 0; i < parts.length; i++) {
+    var p = parts[i].replace(/^lang=/, '');
+    if (langs.indexOf(p) > -1) return p;
+  }
   if (langs.indexOf(stored) > -1) return stored;
   var primary = String(browser || '').split(/[-_]/)[0].toLowerCase();
   return langs.indexOf(primary) > -1 ? primary : langs[0];
@@ -183,4 +186,30 @@ function buildRoute(styleId, choice, saigon, gentle, dayPlans) {
   });
   if (day !== DAYS) throw new Error('Route ' + styleId + (saigon ? ' with the city days' : '') + ' covers ' + (day - 1) + ' nights, not ' + (DAYS - 1));
   return { style: styleId, stops: out, swaps: swaps, saigon: !!saigon, gentle: !!gentle, days: day, night: night };
+}
+
+/* A link to one variant of the trip, kept after the # so it never reaches a server:
+   #nature&south=mekong&night=ninhbinh&hcmc=1&gentle=0&lang=de. Every choice the route offers is written out. */
+function variantHash(route, lang) {
+  var parts = [route.style];
+  route.swaps.forEach(function (x) { parts.push(x.sw.id + '=' + x.pick); });
+  if (route.night) parts.push('night=' + route.night.pick);
+  parts.push('hcmc=' + (route.saigon ? 1 : 0), 'gentle=' + (route.gentle ? 1 : 0));
+  if (lang) parts.push('lang=' + lang);
+  return '#' + parts.join('&');
+}
+
+/* The choices in a #hash: { style, choice, saigon, gentle }, or null when it names no style (#de, #day-5).
+   saigon and gentle are left out when the link does not set them (#classic); unknown or stale values are dropped. */
+function parseVariant(hash) {
+  var parts = String(hash || '').replace(/^#/, '').split('&');
+  if (!ROUTES.hasOwnProperty(parts[0])) return null;
+  var out = { style: parts[0], choice: {} };
+  parts.slice(1).forEach(function (p) {
+    var kv = p.split('='), k = kv[0], v = kv[1];
+    if ((k === 'hcmc' || k === 'gentle') && (v === '0' || v === '1')) out[k === 'hcmc' ? 'saigon' : 'gentle'] = v === '1';
+    else if (k === 'night' && ROUTES[out.style].cityNight && ROUTES[out.style].cityNight.hasOwnProperty(v)) out.choice.night = v;
+    else SWAPS.forEach(function (sw) { if (sw.id === k && (v === sw.a || v === sw.b)) out.choice[k] = v; });
+  });
+  return out;
 }

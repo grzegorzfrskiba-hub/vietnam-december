@@ -67,6 +67,15 @@ combos.forEach(function (c) {
     need(cruise === 1, 'Cát Bà cruise on night ' + (cruise + 1) + ' of ' + s.n);
   });
 
+  // the variant link brings back the same trip, in the language it names
+  var h = variantHash(r, 'de'), back = parseVariant(h);
+  need(back && back.style === c.style && back.saigon === c.saigon && back.gentle === c.gentle, 'link ' + h + ' loses the style or a switch');
+  if (back) {
+    var r2 = buildRoute(back.style, back.choice, back.saigon, back.gentle);
+    need(JSON.stringify(r2.stops.map(function (s) { return [s.id, s.n]; })) === JSON.stringify(r.stops.map(function (s) { return [s.id, s.n]; })), 'link ' + h + ' gives another route');
+  }
+  need(pickLang('en', 'en-GB', h, ['en', 'de', 'pl']) === 'de', 'link ' + h + ' loses the language');
+
   // the gentle version has no hikes
   if (c.gentle) r.stops.forEach(function (s) { s.days.forEach(function (d) { need(d.pace !== 'hike', 'hike on day ' + d.day + ' (' + s.id + ')'); }); });
 });

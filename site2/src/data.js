@@ -294,6 +294,7 @@ const ROAD = {
 };
 const NORTH = new Set(['puluong', 'ninhbinh', 'catba', 'caobang', 'babe', 'hanoi', 'hanoiStop']);
 
+const SITE_URL = 'https://grzegorzfrskiba-hub.github.io/vietnam-december/';   // the public page: links in the copied plan go here, also from the private artifact
 const TRIP = { start: '2026-12-11' }; // Day 1, e.g. '2026-12-05'; null hides all dates
 
 /* December averages. Sources in the footer. */

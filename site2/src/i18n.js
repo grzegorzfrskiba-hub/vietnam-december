@@ -91,7 +91,7 @@ const UI = {
     'p.sun': 'Swimwear and sun protection for the south.',
     'p.cash': 'Cash in small notes: homestays and boats rarely take cards.',
     'p.apps': 'Grab and offline Google Maps on your phones.',
-    'pt.title': 'Vietnam, {days} days in December: ', 'pt.home': 'Day {days}: fly home from Hà Nội (CA884 + CA931, 4:30 am)', 'pt.arrive': 'Day 1: land in Hồ Chí Minh City (VN30, 6:35 am)', 'pt.flights': 'Flights: '
+    'pt.title': 'Vietnam, {days} days in December: ', 'pt.link': 'This plan on the page: ', 'pt.home': 'Day {days}: fly home from Hà Nội (CA884 + CA931, 4:30 am)', 'pt.arrive': 'Day 1: land in Hồ Chí Minh City (VN30, 6:35 am)', 'pt.flights': 'Flights: '
   },
   de: {
     'lang.aria': 'Sprache',
@@ -180,7 +180,7 @@ const UI = {
     'p.sun': 'Badesachen und Sonnenschutz für den Süden.',
     'p.cash': 'Bargeld in kleinen Scheinen: In Homestays und auf Booten kann man selten mit Karte zahlen.',
     'p.apps': 'Grab und Offline-Karten von Google Maps auf den Handys.',
-    'pt.title': 'Vietnam, {days} Tage im Dezember: ', 'pt.home': 'Tag {days}: Heimflug ab Hà Nội (CA884 + CA931, 4:30\u00a0Uhr)', 'pt.arrive': 'Tag 1: Landung in Hồ Chí Minh City (VN30, 6:35\u00a0Uhr)', 'pt.flights': 'Flüge: '
+    'pt.title': 'Vietnam, {days} Tage im Dezember: ', 'pt.link': 'Dieser Plan auf der Seite: ', 'pt.home': 'Tag {days}: Heimflug ab Hà Nội (CA884 + CA931, 4:30\u00a0Uhr)', 'pt.arrive': 'Tag 1: Landung in Hồ Chí Minh City (VN30, 6:35\u00a0Uhr)', 'pt.flights': 'Flüge: '
   }
 };
 

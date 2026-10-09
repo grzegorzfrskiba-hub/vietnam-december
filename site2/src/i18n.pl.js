@@ -92,7 +92,7 @@ UI.pl = {
   'p.sun': 'Stroje kąpielowe i ochronę przeciwsłoneczną na południe.',
   'p.cash': 'Gotówkę w drobnych nominałach: u gospodarzy i na łodziach rzadko można zapłacić kartą.',
   'p.apps': 'W telefonach: Grab i mapy Google offline.',
-  'pt.title': 'Wietnam, {days} dni w grudniu: ', 'pt.home': 'Dzień {days}: lot do domu z Hà Nội (CA884 + CA931, 4:30)', 'pt.arrive': 'Dzień 1: przylot do Hồ Chí Minh City (VN30, 6:35)', 'pt.flights': 'Loty: '
+  'pt.title': 'Wietnam, {days} dni w grudniu: ', 'pt.link': 'Ten plan na stronie: ', 'pt.home': 'Dzień {days}: lot do domu z Hà Nội (CA884 + CA931, 4:30)', 'pt.arrive': 'Dzień 1: przylot do Hồ Chí Minh City (VN30, 6:35)', 'pt.flights': 'Loty: '
 };
 
 const I18N_PL = {

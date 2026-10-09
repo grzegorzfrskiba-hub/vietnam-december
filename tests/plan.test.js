@@ -51,6 +51,16 @@ eq(pick('de', 'en-US', '#pl'), 'pl', 'hash pl overrides stored de');
 eq(pick('de', 'en-US', 'pl'), 'pl', 'hash given without the #');
 eq(pick('pl', 'de-DE', '#en'), 'en', 'hash en overrides stored pl');
 eq(pick('de', 'pl-PL', '#nature'), 'de', 'a trip-style hash leaves the language alone');
+eq(pick('en', 'en-GB', '#nature&hcmc=1&lang=pl'), 'pl', 'a variant link sets the language');
+eq(pick('de', 'en-GB', '#nature&hcmc=1'), 'de', 'a variant link without a language leaves it alone');
+// variant links: old style-only links still work, stale values are dropped
+eq(parseVariant('#de'), null, 'a language hash is no variant');
+eq(parseVariant('#day-5'), null, 'a day anchor is no variant');
+eq(JSON.stringify(parseVariant('#classic')), JSON.stringify({ style: 'classic', choice: {} }), 'a style-only link keeps the switches as they are');
+var pv = parseVariant('#balanced&night=hanoi&water=puluong&south=nowhere&hcmc=1&gentle=0&x=1');
+eq(pv.saigon, true, 'hcmc=1'); eq(pv.gentle, false, 'gentle=0');
+eq(JSON.stringify(pv.choice), JSON.stringify({ water: 'puluong' }), 'unknown night and stop names are dropped');
+print('variant links ok');
 print('pickLang ok');
 // Polish typography: one-letter words are tied to the next word with a no-break space
 var NB = '\u00a0';

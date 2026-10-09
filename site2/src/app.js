@@ -80,8 +80,13 @@
     var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
     if (saved && ROUTES[saved.style]) state = { style: saved.style, choice: saved.choice || {}, saigon: !!saved.saigon, gentle: !!saved.gentle };
   } catch (e) { /* storage unavailable */ }
-  var hash = (location.hash || '').slice(1);
-  if (ROUTES[hash]) state = { style: hash, choice: {}, saigon: state.saigon, gentle: ROUTES[hash].gentle || state.gentle };
+  // a link to a style (#classic) or to a whole variant (#nature&south=mekong&hcmc=1&gentle=0); a full variant is remembered
+  var link = parseVariant(location.hash);
+  if (link) {
+    state = { style: link.style, choice: link.choice, saigon: 'saigon' in link ? link.saigon : state.saigon,
+      gentle: 'gentle' in link ? link.gentle : ROUTES[link.style].gentle || state.gentle };
+    if ('saigon' in link || 'gentle' in link) save();
+  }
   function save() {
     try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* ignore */ }
   }
@@ -536,6 +541,7 @@
     lines.push(T('pt.home'));
     var fl = allFlights(route).map(function (f) { return T('day') + ' ' + f.day + ' ' + AIRPORT_NAME[f.seg.from] + ' → ' + AIRPORT_NAME[f.seg.to]; });
     if (fl.length) lines.push(T('pt.flights') + fl.join('; '));
+    lines.push(T('pt.link') + SITE_URL + variantHash(route, lang));
     return lines.join('\n');
   }
   function bindCopy() {
