@@ -1,6 +1,6 @@
 # Co dalej — planer „Vietnam in December”
 
-Stan na 9.10.2026: opublikowane są paczki (a) i (b), `4c17238` (strona, artifact, plik offline). Paczka (c) zrobiona, czeka na publikację. Szczegóły każdego punktu: [audyt-2026-10-09.md](audyt-2026-10-09.md).
+Stan na 9.10.2026: opublikowane są paczki (a), (b) i (c), ostatnio `ff63c30` (strona, artifact v25, plik offline). Następna: (d). Szczegóły każdego punktu: [audyt-2026-10-09.md](audyt-2026-10-09.md).
 
 Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz ją w sekcji „Zrobione”.
 
@@ -51,7 +51,7 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
 - [x] Budżet trybu z rodzicami: doliczyć auta z kierowcą na wycieczki, przejazd przez Hải Vân, Cần Giờ, kurs gotowania i bilety w Huế.
 - [x] „1 h 5” i „1 Std. 5” zmienić na „1 h 5 min” i „1 Std. 5 Min.”.
 
-### (c) Telefon, wydruk, dostępność, wydajność — zrobione 9.10.2026, nieopublikowane
+### (c) Telefon, wydruk, dostępność, wydajność — zrobione i opublikowane 9.10.2026
 - [x] Przełącznik języka zasłania menu sekcji: przy 390 i 430 px stuknięcie w „Weather” trafia w przełącznik, a z PL zasłonięte jest też „Day by day”.
 - [x] Wydruk:
   - tytuł czarny na ciemnym tle nagłówka;
@@ -98,7 +98,7 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
   - mapa: prawdziwy przycisk „powiększ” tylko na szerokim ekranie, na telefonie mapa nie udaje przycisku; powiększona mapa ma `role="dialog"`;
   - galerie poza kolejnością Tab: 173 → 115 przystanków klawiatury (w galeriach 76 → 18);
   - zdjęcia 480 i 960 px z `srcset`: miniatury stylów 1,3 MB → 140 KB; zdjęcie otwierające na telefonie zostaje w pełnej wielkości, bo jest kadrowane do ok. 2× szerokości ekranu.
-  Commity `8aeb5b5`…`52ca597`.
+  Commity `8aeb5b5`…`52ca597`, opublikowane w `ff63c30` (strona, artifact v25, plik offline).
 - **9.10.2026:** paczka (b) „Teksty i fakty”: opisy prawdziwe w każdym wariancie (Đà Lạt, Pù Luông, Huế na 2 noce, Hội An o zmroku, easy rider, zatoka, `x.p1`/`x.p2`, mapa na telefonie), uzasadnienia stylów, karta stylu z listą miejsc po zamianach i dopiskiem „0 (3 bez wersji łagodnej)”, 8 faktów (`research/facts-2026-10.md`), Việt Hải przez rejs Full Moon, budżet z kosztami dnia `pp` (`research/budget-2026-10.md`), „1 h 5 min”. Commity `0aff17d`…`59d4848`, opublikowane w `4c17238` (strona, artifact, plik offline).
 - **9.10.2026:** paczka (a) „Logika tras”: składanie trasy w `plan.js`, test wszystkich kombinacji (`tests/routes.test.js`, dziś 106), Cát Bà ≥ 3 noce (bez nocy „Ninh Bình” w Balanced, bez zamiany zatoki w Nature), rejs na drugą noc, dojazdy na lotniska, czasy w `ROAD` (`research/road-times-2026-10.md`), notki po planach jednonocnych, karta stylu = pasek liczb. Commity `36d4712`…`700ed9c`, opublikowane w `c77916b` (strona, artifact, plik offline).
 - **9.10.2026:** wersja polska (EN/DE/PL), odmiana liczebników, pełny dokument HTML z viewport dla GitHub Pages. Opublikowane (`f07930b`).
