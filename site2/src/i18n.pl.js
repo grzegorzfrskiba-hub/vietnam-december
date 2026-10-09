@@ -14,7 +14,7 @@ UI.pl = {
   'hero.lede': 'Pięć gotowych tras dla przyjaciół i rodziny: przyroda, wędrówki, kultura, leniwe dni i jedna łatwa – na podróż z rodzicami. Każda jest dopasowana do grudniowej pogody, ma uczciwie policzone czasy przejazdów, a zamiast zatłoczonych miejsc proponuje spokojniejsze w pobliżu.',
   'hero.cta1': 'Wybierz styl podróży', 'hero.cta2': 'Zobacz plan na {days} dni',
   'styles.eyebrow': 'Krok 1', 'styles.h2': 'Wybierzcie styl podróży', 'styles.legend': 'Styl podróży', 'styles.sel': 'Wybrany',
-  'styles.stats': 'Loty {f} · Dni z wędrówką {h} · Najdłuższy przejazd {l} · {b}/os.',
+  'styles.stats': 'Loty {f} · Dni z wędrówką {h} · W drodze {t}, najdłuższy dzień {l} · Wczesne pobudki {e} · {b}/os.', 'early': 'Pobudka przed 6',
   'styles.hoff': '{h} ({n} bez wersji łagodnej)',
   'styles.p': 'Każdy styl to gotowa trasa na {days} dni, zaplanowana i sprawdzona ręcznie. Zacznijcie od naszej propozycji albo wybierzcie ten, który najbardziej pasuje do waszej grupy. Wszystko poniżej zmieni się razem z wyborem.',
   'swaps.eyebrow': 'Krok 2', 'swaps.h3': 'Zdecydujcie razem',

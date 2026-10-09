@@ -1,10 +1,10 @@
 var fake = { days: 3, gentle: false, stops: [
   { id: 'dalat', n: 2, leg: { total: 3.2, segs: [{ mode: 'fly', h: 1 }, { mode: 'road', h: 0.5 }] },
-    days: [{ pace: 'travel' }, { pace: 'hike' }] },
+    days: [{ pace: 'travel' }, { pace: 'hike', early: true }] },
   { id: 'hanoiStop', n: 1, leg: { total: 2, segs: [{ mode: 'road', h: 2 }] }, days: [{ pace: 'hike' }] },
   { id: 'saigon', n: 0, leg: null, days: [] }
 ] };
-eq(routeStats(fake), { flights: 1, hikes: 2, longest: 3.2, bases: 2 }, 'routeStats');
+eq(routeStats(fake), { flights: 1, hikes: 2, longest: 3.2, bases: 2, road: 5.2, early: 1 }, 'routeStats');
 print('routeStats ok');
 var costs = { nightPP: { dalat: [10, 20], hanoi: [15, 30] }, extrasPP: { dalat: [5, 5] },
   flightPP: [40, 80], roadHourPP: [2, 4], carHourPP: [10, 20], dayPP: [20, 30] };

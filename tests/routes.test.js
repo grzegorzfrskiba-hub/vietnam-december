@@ -76,6 +76,11 @@ combos.forEach(function (c) {
   }
   need(pickLang('en', 'en-GB', h, ['en', 'de', 'pl']) === 'de', 'link ' + h + ' loses the language');
 
+  // early starts are counted from the plan of each day; a hike is never early in the gentle version
+  var st = routeStats(r);
+  need(st.early === r.stops.reduce(function (n, s) { return n + s.days.filter(function (d) { return d.early; }).length; }, 0), 'early count');
+  need(st.road >= st.longest && st.road < 40, 'hours on the road: ' + st.road);
+
   // the gentle version has no hikes
   if (c.gentle) r.stops.forEach(function (s) { s.days.forEach(function (d) { need(d.pace !== 'hike', 'hike on day ' + d.day + ' (' + s.id + ')'); }); });
 });

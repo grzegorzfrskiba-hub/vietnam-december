@@ -14,6 +14,7 @@ Object.keys(STOPS).forEach(function (id) {
     if (d.pp) pair(d.pp, id + ' day ' + i + ' pp');
     if (d.e && d.e.pp) pair(d.e.pp, id + ' day ' + i + ' gentle pp');
     if (d.pp && d.e) ok(d.e.pp, id + ' day ' + i + ' has a cost but its gentle version has none');
+    [d, d.e, d.solo].forEach(function (x) { if (x && 'early' in x) ok(typeof x.early === 'boolean', id + ' day ' + i + ': early is true or false'); });
   });
 });
 print('costs ok');

@@ -144,7 +144,7 @@
       // with the gentle version on, say how many hiking days the style has without it
       var full = gentle ? routeStats(routeFor(id, choice, state.saigon, false)).hikes : st.hikes;
       var hikes = full > st.hikes ? T('styles.hoff', { h: st.hikes, n: full }) : st.hikes;
-      el.textContent = T('styles.stats', { f: st.flights, h: hikes, l: approx(st.longest).replace('≈ ', ''), b: fmtMoney(budgetFor(built, COSTS)) });
+      el.textContent = T('styles.stats', { f: st.flights, h: hikes, t: approx(st.road).replace('≈ ', ''), l: approx(st.longest).replace('≈ ', ''), e: st.early, b: fmtMoney(budgetFor(built, COSTS)) });
       el.parentNode.querySelector('.style-places').textContent = built.stops.filter(function (s) { return s.id !== 'hanoiStop'; })
         .map(function (s) { return S(s.id).short; }).join(' · ');
     });
@@ -452,7 +452,8 @@
       var days = s.days.map(function (d) {
         return '<li class="day" id="day-' + d.day + '"><div class="day-n mono">' + T('day') + ' <b>' + d.day + '</b>' + (dateLabel(d.day) ? '<span class="day-date">' + esc(dateLabel(d.day)) + '</span>' : '') + '</div>' +
           '<div class="day-body"><h4>' + esc(d.t) + ' <span class="pace pace-' + d.pace + '">' + PC(d.pace) + '</span>' +
-          (d.gentle ? ' <span class="pace pace-gentle">' + T('e.badge') + '</span>' : '') + '</h4>' +
+          (d.gentle ? ' <span class="pace pace-gentle">' + T('e.badge') + '</span>' : '') +
+          (d.early ? ' <span class="pace pace-early">' + T('early') + '</span>' : '') + '</h4>' +
           '<p>' + esc(d.d) + '</p>' + (d.rain ? '<p class="day-rain"><b>' + T('t.rain') + '</b>' + esc(d.rain) + '</p>' : '') + '</div></li>';
       }).join('');
       var tips = '';

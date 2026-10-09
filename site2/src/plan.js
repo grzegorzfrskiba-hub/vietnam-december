@@ -2,16 +2,17 @@
 
 /* Counts for one built route: domestic flights, hiking days, the longest travel day (hours) and bases (the Hà Nội stopover is not a base). */
 function routeStats(route) {
-  var flights = 0, hikes = 0, longest = 0;
+  var flights = 0, hikes = 0, longest = 0, road = 0, early = 0;   // road: hours door to door over all the journeys
   route.stops.forEach(function (s) {
     if (s.leg) {
       s.leg.segs.forEach(function (g) { if (g.mode === 'fly') flights++; });
       longest = Math.max(longest, s.leg.total);
+      road += s.leg.total;
     }
-    s.days.forEach(function (d) { if (d.pace === 'hike') hikes++; });
+    s.days.forEach(function (d) { if (d.pace === 'hike') hikes++; if (d.early) early++; });
   });
   var bases = route.stops.filter(function (s) { return s.id !== 'hanoiStop'; }).length;
-  return { flights: flights, hikes: hikes, longest: longest, bases: bases };
+  return { flights: flights, hikes: hikes, longest: longest, bases: bases, road: road, early: early };
 }
 
 /* Per-person estimate [low, high], rounded to 10: sharing a double room, no international flights.
