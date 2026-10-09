@@ -1,12 +1,12 @@
 # Co dalej — planer „Vietnam in December”
 
-Stan na 9.10.2026: opublikowane jest `f07930b` (strona, artifact, plik offline). Paczka (a) jest na `main` lokalnie, niewypchnięta i nieopublikowana. Szczegóły każdego punktu: [audyt-2026-10-09.md](audyt-2026-10-09.md).
+Stan na 9.10.2026: opublikowana jest paczka (a), `c77916b` (strona, artifact, plik offline). Szczegóły każdego punktu: [audyt-2026-10-09.md](audyt-2026-10-09.md).
 
 Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz ją w sekcji „Zrobione”.
 
 ## Kolejka
 
-### (a) Logika tras — zrobione 9.10.2026 (czeka na publikację)
+### (a) Logika tras — zrobione i opublikowane 9.10.2026
 - [x] Cát Bà ≥ 3 noce w każdej kombinacji. Dziś reguła jest łamana w 28 ze 138 kombinacji:
   - Balanced + dni w HCMC + dodatkowa noc „Ninh Bình”;
   - Nature & hiking + zamiana „zatoka zamiast dolin”, bo Cát Bà dziedziczy 2 noce Pù Luông.
@@ -81,7 +81,7 @@ Zasada: pracuje jedna sesja naraz. Po skończonej paczce odhacz punkty i dopisz 
 - [ ] Czy plik offline wysłany przez WhatsApp otwiera się na iPhonie z JavaScriptem. Podgląd może pokazać pustą stronę.
 
 ## Zrobione
-- **9.10.2026:** paczka (a) „Logika tras”: składanie trasy w `plan.js`, test wszystkich kombinacji (`tests/routes.test.js`, dziś 106), Cát Bà ≥ 3 noce (bez nocy „Ninh Bình” w Balanced, bez zamiany zatoki w Nature), rejs na drugą noc, dojazdy na lotniska, czasy w `ROAD` (`research/road-times-2026-10.md`), notki po planach jednonocnych, karta stylu = pasek liczb. Commity `36d4712`…`700ed9c`, niewypchnięte.
+- **9.10.2026:** paczka (a) „Logika tras”: składanie trasy w `plan.js`, test wszystkich kombinacji (`tests/routes.test.js`, dziś 106), Cát Bà ≥ 3 noce (bez nocy „Ninh Bình” w Balanced, bez zamiany zatoki w Nature), rejs na drugą noc, dojazdy na lotniska, czasy w `ROAD` (`research/road-times-2026-10.md`), notki po planach jednonocnych, karta stylu = pasek liczb. Commity `36d4712`…`700ed9c`, opublikowane w `c77916b` (strona, artifact, plik offline).
 - **9.10.2026:** wersja polska (EN/DE/PL), odmiana liczebników, pełny dokument HTML z viewport dla GitHub Pages. Opublikowane (`f07930b`).
 - **9.10.2026:** audyt całej strony: [audyt-2026-10-09.md](audyt-2026-10-09.md).
 - **8.10.2026:** poprawki z pierwszego audytu: statystyki na kartach, budżet, daty, linki rezerwacji, menu sekcji, Tà Năng tylko z przewodnikiem. Plan: [plans/2026-10-08-vietnam-planer-poprawki-z-audytu.md](plans/2026-10-08-vietnam-planer-poprawki-z-audytu.md).
