@@ -57,6 +57,7 @@ Co jest do zrobienia i w jakiej kolejności: [notes/backlog.md](notes/backlog.md
 - `python3 site2/build.py`.
 - `tests/shot.sh <classic|balanced|nature|culture|slow|en|de|pl> <szerokość> <plik.png>` robi zrzut przez Chrome headless. Nie używaj `--dump-dom`, bo się zawiesza.
 - `tests/print.sh <styl> <plik.pdf>` drukuje stronę do PDF (A4, z tłem) i podaje liczbę stron oraz strony zapełnione w mniej niż 45%.
+- `tests/probe.sh <sonda.js> <szerokość> [hash] [gęstość]` uruchamia zbudowaną stronę w Chrome headless z dopisanym skryptem i wypisuje jego wiadomości `console.log('P:…')`. Gotowe sondy w `tests/probes/`: `nav.js` (czy przełącznik języka zasłania menu na telefonie), `link.js` (co otwiera link do wariantu i co trafia do kopiowanego planu). Pułapki są opisane w nagłówku skryptu.
 - `bash tests/links.sh` sprawdza kody HTTP linków rezerwacji.
 - **Pułapki:**
   - Wbudowana przeglądarka Claude nie otwiera `file://`, więc stronę na żywo testuj pod adresem GitHub.
