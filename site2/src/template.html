@@ -382,7 +382,6 @@ footer a { color: var(--muted); }
   .map svg { width: 100%; max-width: 360px; height: auto; max-height: none; }
 }
 @media (max-width: 640px) {
-  .secnav { -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
   .hero-text { padding-top: 68px; }
   .facts ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .facts li:nth-child(4) { border-left: 0; padding-left: 0; }
@@ -411,6 +410,10 @@ html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 56px); }
 /* padding-right keeps the last link clear of the fixed language pill: 132px wide (three buttons) + 12px from the edge + 10px air */
 .secnav .wrap { display: flex; gap: 18px; overflow-x: auto; scrollbar-width: none; padding-right: 154px; }
 .secnav .wrap::-webkit-scrollbar { display: none; }
+/* on narrow screens the links do not fit, so the scrolling strip ends where the language pill begins: a tap on a link can never land on the pill */
+@media (max-width: 900px) {
+  .secnav .wrap { margin-right: 144px; padding-right: 8px; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+}
 .secnav a { flex: none; padding: 12px 0; font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; }
 .secnav a:hover { color: var(--ink); }
 .totop { position: fixed; z-index: 35; right: 16px; bottom: calc(env(safe-area-inset-bottom, 0px) + 16px); width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: var(--surface); color: var(--ink); border: 1px solid var(--line); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18); }
